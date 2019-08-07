@@ -22,13 +22,12 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   Object.keys(obj).forEach(key => {
+    console.log("KKKKEY", key);
     const slug = key.toLowerCase();
     createPage({
       path: `quiz/${slug}`,
       component: path.resolve(`./src/templates/page.tsx`),
       context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
         category: slug,
       },
     });

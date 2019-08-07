@@ -1,11 +1,8 @@
 const path = require("path");
 
 require("dotenv");
-// .config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// });
 
-console.log("FFF", process.env.AIRTABLE_API_KEY);
+console.log("FFF", process.env.AIRTABLE_API_KEY, process.env.AIRTABLE_BASE_ID);
 
 module.exports = {
   siteMetadata: {

@@ -29,8 +29,6 @@ const Layout = ({ children }) => {
 
   const { siteMetadata } = data.site;
 
-  console.log(siteMetadata);
-
   return (
     <>
       <SEO
