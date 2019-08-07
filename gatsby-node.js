@@ -4,11 +4,13 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
-    {
+    query MyQuery {
       allAirtable {
-        nodes {
-          data {
-            Category
+        edges {
+          node {
+            data {
+              Name
+            }
           }
         }
       }
@@ -17,9 +19,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
   let obj = {};
 
-  result.data.allAirtable.nodes.forEach(node => {
-    obj[node.data.Category] = true;
+  result.data.allAirtable.edges.forEach(({ node }) => {
+    if (node.data.Name) {
+      obj[node.data.Name] = true;
+    }
   });
+
+  console.log("THE OBJ", result.data.allAirtable.nodes);
 
   Object.keys(obj).forEach(key => {
     console.log("KKKKEY", key);

@@ -16,6 +16,7 @@ const Button = styled(motion.button)`
 `;
 
 export const Page: React.FC = ({ location, data }) => {
+  if (!data.allAirtable.edges.length) return null;
   const checkButtonRef = useRef(null);
   const nextQuestionButtonRef = useRef(null);
   const shuffledQuestions = shuffle(data.allAirtable.edges);
