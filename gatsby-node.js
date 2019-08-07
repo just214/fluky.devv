@@ -39,7 +39,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Airtable` && node.table === "Questions") {
-    console.log("INTERNAL", node);
     // const value = createFilePath({ node, getNode });
     createNodeField({
       name: `category`,

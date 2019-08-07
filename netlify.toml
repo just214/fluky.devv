@@ -1,0 +1,11 @@
+[build]
+  command = "npm run dev"
+  publish = "public"
+
+[context.production.environment]
+  AIRTABLE_API_KEY = "keyzGgOdWawCB8eHv"
+  AIRTABLE_BASE_ID = "appfxomrHosDFUgiB"
+
+[build.environment]
+  AIRTABLE_API_KEY = "keyzGgOdWawCB8eHv"
+  AIRTABLE_BASE_ID = "appfxomrHosDFUgiB"

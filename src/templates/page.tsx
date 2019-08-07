@@ -59,12 +59,9 @@ export const Page: React.FC = ({ location, data }) => {
   };
 
   const handleGoToNextQuestion = () => {
-    console.log(currentIndex, dataLength);
     if (currentIndex === dataLength - 1) {
-      console.log("DO THIS", currentIndex, dataLength);
       setCurrentIndex(0);
     } else {
-      console.log("No THIS");
       setCurrentIndex(v => v + 1);
     }
     setIsQuestionAnswered(false);

@@ -1,8 +1,8 @@
 const path = require("path");
 
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+require("dotenv");
+
+console.log("FFF", process.env);
 
 module.exports = {
   siteMetadata: {
@@ -37,7 +37,7 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: process.env.AIRTABLE_API_KEY, // may instead specify via env, see below
+        apiKey: process.env.AIRTABLE_API_KEY,
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE_ID,
