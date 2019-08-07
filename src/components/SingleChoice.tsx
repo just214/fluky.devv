@@ -1,16 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Markdown from "../components/Markdown";
+import Markdown from "./Markdown";
 
 const Option = styled.div<{
   isUserAnswer: boolean;
   isCorrectAnswer: boolean;
-  borderColor: string;
 }>`
   display: flex;
   align-items: center;
   border: 2px solid #efefef;
-  border-color: ${props => props.borderColor};
+  border-color: ${props => (props.isUserAnswer ? props.theme.blue : "#efefef")};
   background: ${props => (props.isCorrectAnswer ? props.theme.green : "white")};
   border-radius: 8px;
   padding: 10px;
@@ -38,7 +37,7 @@ export interface QuestionProps {
   userAnswer: any;
   isAnswered: boolean;
 }
-export const Question: React.FC<QuestionProps> = ({
+export const SingleChoice: React.FC<QuestionProps> = ({
   data,
   onSelection,
   userAnswer,
@@ -61,22 +60,8 @@ export const Question: React.FC<QuestionProps> = ({
       <Markdown source={data.Question} />
 
       {options.map(option => {
-        const getBorderColor = () => {
-          if (!userAnswer) {
-            return "#efefef";
-          } else if (userAnswer === option.id && !isAnswered) {
-            return "blue";
-          } else if (userAnswer === option.id && userAnswer === data.Answer) {
-            return "green";
-          } else if (userAnswer === option.id && userAnswer !== data.Answer) {
-            return "red";
-          } else {
-            return "#EFEFEF";
-          }
-        };
         return (
           <Option
-            borderColor={getBorderColor()}
             isUserAnswer={userAnswer === option.id}
             isCorrectAnswer={isAnswered && option.id === data.Answer}
             key={option.id}
@@ -98,4 +83,4 @@ export const Question: React.FC<QuestionProps> = ({
   );
 };
 
-export default Question;
+export default SingleChoice;

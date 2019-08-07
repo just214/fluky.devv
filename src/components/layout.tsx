@@ -4,9 +4,9 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import SEO from "../components/seo";
 import "./layout.css";
 
-const Container = styled.div`
+const Container = styled.div<{ fullWidth?: boolean }>`
   margin: 0 auto;
-  max-width: 960px;
+  max-width: ${props => (props.fullWidth ? "100%" : "960px")};
   padding: 20px;
 `;
 
@@ -17,8 +17,9 @@ const theme = {
 
 interface LayoutProps {
   bg?: string;
+  fullWidth?: boolean;
 }
-const Layout: React.FC<LayoutProps> = ({ children, bg }) => {
+const Layout: React.FC<LayoutProps> = ({ children, bg, fullWidth }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -53,15 +54,21 @@ const Layout: React.FC<LayoutProps> = ({ children, bg }) => {
               background: #efefef;
               display: flex;
               align-items: center;
-              padding-left: 15px;
+              padding-left: 30px;
             `}
           >
             <Link to="/">
               {" "}
-              <h3>Front End Quiz</h3>
+              <h3
+                css={`
+                  color: #333;
+                `}
+              >
+                devquiz
+              </h3>
             </Link>
           </header>
-          <Container>
+          <Container fullWidth={fullWidth}>
             <main>{children}</main>
           </Container>
         </div>

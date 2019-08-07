@@ -4,14 +4,16 @@ import Layout from "../components/layout";
 import MainMenu from "../components/MainMenu";
 
 const App = () => (
-  <div
-    css={`
-      padding: 30px;
-      padding-top: 200px;
-    `}
-  >
-    <MainMenu />
-  </div>
+  <Layout fullWidth>
+    <div
+      css={`
+        padding: 30px;
+        padding-top: 100px;
+      `}
+    >
+      <MainMenu />
+    </div>
+  </Layout>
 );
 
 export default App;

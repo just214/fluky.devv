@@ -2,10 +2,24 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import Question from "../components/Question";
+import Question from "../components/SingleChoice";
 import shuffle from "lodash/shuffle";
 import Markdown from "../components/Markdown";
 import { motion } from "framer-motion";
+
+const getPositiveFeedback = () => {
+  const options: string[] = [
+    "Correct!",
+    "Nailed it!",
+    "Good job!",
+    "Way to go!",
+    "Great job!",
+    "Well done!",
+  ];
+  const len = options.length;
+  const randomIndex = Math.floor(Math.random() * len);
+  return options[randomIndex];
+};
 
 const Button = styled(motion.button)`
   height: 60px;
@@ -14,9 +28,9 @@ const Button = styled(motion.button)`
   border-radius: 40px;
   outline: 0;
   font-weight: bold;
-  color: #333;
+  color: #666;
   cursor: pointer;
-  border: 2px solid #333;
+  border: 2px solid #999;
   &:focus {
     background: ${props => props.theme.green};
   }
@@ -95,11 +109,21 @@ export const Page: React.FC = ({ location, data }) => {
           onSelection={answer => handleSetUser(answer)}
         />
         <br />
+
         {isQuestionAnswered && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
           >
+            {userAnswer === currentQuestion.data.Answer && (
+              <h2
+                css={`
+                  color: green;
+                `}
+              >
+                {getPositiveFeedback()}
+              </h2>
+            )}
             <Markdown source={currentQuestion.data.Explanation} />
           </motion.div>
         )}
