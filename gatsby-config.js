@@ -1,13 +1,16 @@
 const path = require("path");
 
 require("dotenv");
+// .config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// });
 
-console.log("FFF", process.env);
+console.log("FFF", process.env.AIRTABLE_API_KEY);
 
 module.exports = {
   siteMetadata: {
-    title: `TypeScript Quiz`,
-    description: `A starter library for building awesome React apps with Gatsby.`,
+    title: `devquiz`,
+    description: `Dev quizzes`,
     author: `gojutin`,
   },
   plugins: [
