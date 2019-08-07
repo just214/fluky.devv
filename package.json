@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-typescript-deluxe",
+  "name": "devquiz",
   "private": false,
-  "description": "A Gatsby starter with TypeScript, Storybook, Styled Components, and more.",
+  "description": "Quizzes for devs",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
