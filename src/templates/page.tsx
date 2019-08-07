@@ -8,11 +8,18 @@ import Markdown from "../components/Markdown";
 import { motion } from "framer-motion";
 
 const Button = styled(motion.button)`
-  height: 40px;
+  height: 60px;
   width: 200px;
   font-size: 20px;
-  border-radius: 20px;
+  border-radius: 40px;
   outline: 0;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  border: 2px solid #333;
+  &:focus {
+    background: ${props => props.theme.green};
+  }
 `;
 
 export const Page: React.FC = ({ location, data }) => {
@@ -39,6 +46,9 @@ export const Page: React.FC = ({ location, data }) => {
   const handleSetUser = value => {
     if (isQuestionAnswered) return;
     setUserAnswer(value);
+    if (checkButtonRef.current) {
+      checkButtonRef.current.focus();
+    }
   };
 
   useEffect(() => {
@@ -98,7 +108,7 @@ export const Page: React.FC = ({ location, data }) => {
       <div
         css={`
           position: fixed;
-          bottom: 0;
+          bottom: 100px;
           left: 0;
           right: 0;
           height: 100px;
@@ -113,11 +123,6 @@ export const Page: React.FC = ({ location, data }) => {
             onClick={checkAnswer}
             initial={{ scale: 0.8, opacity: 0.3 }}
             animate={{ scale: 1.2, opacity: 1 }}
-            css={`
-              &:focus {
-                background: ${props => props.theme.green};
-              }
-            `}
             ref={checkButtonRef}
           >
             Check Answer
@@ -127,12 +132,9 @@ export const Page: React.FC = ({ location, data }) => {
         {userAnswer && isQuestionAnswered && (
           <Button
             autoFocus
+            initial={{ scale: 0.8, opacity: 0.3 }}
+            animate={{ scale: 1.2, opacity: 1 }}
             ref={nextQuestionButtonRef}
-            css={`
-              &:focus {
-                background: ${props => props.theme.green};
-              }
-            `}
             onClick={handleGoToNextQuestion}
           >
             Next Question

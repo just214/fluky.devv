@@ -15,7 +15,10 @@ const theme = {
   green: "#93ff61",
 };
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  bg?: string;
+}
+const Layout: React.FC<LayoutProps> = ({ children, bg }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -36,7 +39,14 @@ const Layout = ({ children }) => {
         keywords={[`typescript`, `quiz`, `javascript`, `front end`]}
       />
       <ThemeProvider theme={theme}>
-        <>
+        <div
+          css={`
+            height: 100%;
+            min-height: 100vh;
+            width: 100%;
+            background: ${bg || "white"};
+          `}
+        >
           <header
             css={`
               height: 50px;
@@ -54,7 +64,7 @@ const Layout = ({ children }) => {
           <Container>
             <main>{children}</main>
           </Container>
-        </>
+        </div>
       </ThemeProvider>
     </>
   );

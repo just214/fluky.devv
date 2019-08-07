@@ -2,11 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Markdown from "../components/Markdown";
 
-// :hover {
-//   border-color: ${props =>
-//     props.isUserAnswer ? props.theme.blue : "#dadada"};
-// }
-
 const Option = styled.div<{
   isUserAnswer: boolean;
   isCorrectAnswer: boolean;
@@ -24,6 +19,10 @@ const Option = styled.div<{
   cursor: ${props => (props.isUserAnswer ? "default" : "pointer")};
   transition: border-color 0.2s;
   margin: 5px 0px;
+  :hover {
+    border-color: ${props =>
+      props.isUserAnswer ? props.theme.blue : "#dadada"};
+  }
 `;
 const LetterBox = styled.span`
   border-radius: 4px;

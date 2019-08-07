@@ -27,6 +27,8 @@ const MainMenu = () => {
       <div
         css={`
           display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
         `}
       >
         {data.allAirtable.edges.map(({ node }) => {
@@ -35,11 +37,13 @@ const MainMenu = () => {
               key={node.data.Name}
               to={node.data.Slug}
               css={`
+                border-radius: 20px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 margin: 10px;
+                width: 200px;
                 padding: 20px;
                 text-decoration: none;
                 color: ${props => props.theme.blue};
@@ -49,7 +53,7 @@ const MainMenu = () => {
                 }
               `}
             >
-              <img height={200} width={200} src={node.data.Thumbnail[0].url} />
+              <img height={150} width={150} src={node.data.Thumbnail[0].url} />
               <h1>{node.data.Name}</h1>
             </Link>
           );
