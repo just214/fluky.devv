@@ -20,18 +20,18 @@ interface LayoutProps {
   maxWidth?: string;
 }
 const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //         description
+  //       }
+  //     }
+  //   }
+  // `);
 
-  const { siteMetadata } = data.site;
+  // const { siteMetadata } = data.site;
 
   return (
     <>
