@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import SEO from "../components/seo";
+import SEO from "./seo";
 import "./layout.css";
 
-const Container = styled.div<{ fullWidth?: boolean }>`
+const Container = styled.div<{ maxWidth?: string }>`
   margin: 0 auto;
-  max-width: ${props => (props.fullWidth ? "100%" : "960px")};
+  max-width: ${props => props.maxWidth || "960px"};
   padding: 20px;
 `;
 
@@ -17,9 +17,9 @@ const theme = {
 
 interface LayoutProps {
   bg?: string;
-  fullWidth?: boolean;
+  maxWidth?: string;
 }
-const Layout: React.FC<LayoutProps> = ({ children, bg, fullWidth }) => {
+const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -51,7 +51,6 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, fullWidth }) => {
           <header
             css={`
               height: 50px;
-              background: #efefef;
               display: flex;
               align-items: center;
               padding-left: 30px;
@@ -59,16 +58,16 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, fullWidth }) => {
           >
             <Link to="/">
               {" "}
-              <h3
+              <h2
                 css={`
                   color: #333;
                 `}
               >
-                devquiz
-              </h3>
+                <b>dev</b>quiz
+              </h2>
             </Link>
           </header>
-          <Container fullWidth={fullWidth}>
+          <Container maxWidth={maxWidth}>
             <main>{children}</main>
           </Container>
         </div>

@@ -2,8 +2,6 @@ const path = require("path");
 
 require("dotenv");
 
-console.log("FFF", process.env.AIRTABLE_API_KEY, process.env.AIRTABLE_BASE_ID);
-
 module.exports = {
   siteMetadata: {
     title: `devquiz`,
@@ -46,6 +44,10 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Categories`,
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Buzzwords`,
           },
         ],
       },

@@ -1,10 +1,11 @@
 import React from "react";
-import Layout from "../components/layout";
+import { Link } from "gatsby";
+import Layout from "../components/Layout";
 // TODO NEED SEO ON THIS PAGE!
-import MainMenu from "../components/MainMenu";
+import MainMenu from "../components/QuizMenu";
 
 const App = () => (
-  <Layout fullWidth>
+  <Layout maxWidth="800px">
     <div
       css={`
         padding: 30px;
@@ -12,6 +13,16 @@ const App = () => (
       `}
     >
       <MainMenu />
+      <Link to="/buzzwords">
+        <h1
+          css={`
+            color: ${props => props.theme.blue};
+            font-weight: normal;
+          `}
+        >
+          <b>Buzz</b>words
+        </h1>
+      </Link>
     </div>
   </Layout>
 );
