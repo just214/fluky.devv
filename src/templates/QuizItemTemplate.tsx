@@ -132,12 +132,34 @@ export const Page = ({ data }) => {
           strokeWidth={2}
           strokeColor={answeredCount ? "green" : "transparent"}
         />
-        <h3>
-          You have answered {answeredCount} out of{" "}
-          {data.allAirtable.edges.length} questions.
-        </h3>
-        <h3>Correct: {questionsAnsweredCorrectly}</h3>
-        <h3>Incorrect: {questionsAnsweredIncorrectly}</h3>
+        <div
+          css={`
+            display: flex;
+            align-items: center;
+            h3 {
+              margin: 5px;
+            }
+          `}
+        >
+          <h3>
+            {answeredCount}/{data.allAirtable.edges.length}
+          </h3>
+          <h3
+            css={`
+              color: green;
+            `}
+          >
+            {questionsAnsweredCorrectly}
+          </h3>
+          <h3
+            css={`
+              color: red;
+            `}
+          >
+            {questionsAnsweredIncorrectly}
+          </h3>
+        </div>
+
         <Question
           data={currentQuestion.data}
           key={currentQuestion.data.Question}
