@@ -12,19 +12,22 @@ const BuzzWords = ({ data }) => {
   });
   return (
     <Layout maxWidth="800px">
+      <h1>Buzzwords</h1>
       <h3>
-        A list of buzzwords that you are likely to encounter as a front-end
-        developer.
+        This is an ongoing list of buzzwords that you are likely to encounter at
+        some point as a developer.
       </h3>
       <input
         css={`
-          height: 40px;
-          width: 300px;
+          height: 45px;
+          width: 100%;
+          max-width: 400px;
           border-radius: 20px;
           border: 1px solid #dadada;
           padding: 3px 10px;
           font-size: 18px;
           outline: none;
+          -webkit-appearance: none;
         `}
         value={filter}
         onChange={e => setFilter(e.target.value)}
@@ -41,7 +44,7 @@ const BuzzWords = ({ data }) => {
               border-radius: 10px;
               margin: 8px;
               padding: 0px 8px;
-              background: #efefef;
+              border: 1px solid #efefef;
             `}
           >
             <h2

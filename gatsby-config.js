@@ -4,7 +4,7 @@ require("dotenv");
 
 module.exports = {
   siteMetadata: {
-    title: `devquiz`,
+    title: `cool`,
     description: `Dev quizzes`,
     author: `gojutin`,
   },

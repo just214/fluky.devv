@@ -14,7 +14,8 @@ const QuizMenu = () => {
           flex-wrap: wrap;
           background: #efefef;
           justify-content: center;
-          padding-top: 40px;
+          padding-top: 30px;
+          margin-top: -20px;
         `}
       >
         {data.map(({ node }) => {
@@ -46,7 +47,15 @@ const QuizMenu = () => {
                 `}
                 src={node.data.Thumbnail[0].url}
               />
-              <h3>{node.data.Name}</h3>
+              <h3
+                css={`
+                  padding: 0;
+                  margin: 0;
+                  margin-top: 10px;
+                `}
+              >
+                {node.data.Name}
+              </h3>
             </Link>
           );
         })}

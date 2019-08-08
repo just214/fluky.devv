@@ -63,7 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
                   color: #333;
                 `}
               >
-                <b>dev</b>quiz
+                <b>cool</b>
               </h2>
             </Link>
           </header>

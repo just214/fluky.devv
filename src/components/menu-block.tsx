@@ -8,6 +8,7 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
       css={`
         transform: rotate(${rotate}deg);
         margin: 5px;
+        max-width: 200px;
       `}
     >
       <span
@@ -20,6 +21,9 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
           margin: 0;
           margin-left: -10px;
           font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
         `}
       >
         {children}

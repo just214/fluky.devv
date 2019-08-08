@@ -121,12 +121,15 @@ export const Page = ({ data }) => {
     setUserAnswer(null);
   };
 
-  const answeredCount =
-    questionsAnsweredCorrectly + questionsAnsweredIncorrectly;
-
   if (isQuizCompleted) {
     return <h3>You did it!</h3>;
   }
+
+  const answeredCount: number =
+    questionsAnsweredCorrectly + questionsAnsweredIncorrectly;
+  const percentageCorrect: number = questionsAnsweredCorrectly / answeredCount;
+  const percentageFixed: number = +percentageCorrect.toFixed(2);
+  const score: number = percentageFixed * 100 || 0;
 
   return (
     <Layout>
@@ -140,6 +143,7 @@ export const Page = ({ data }) => {
           strokeWidth={2}
           strokeColor={answeredCount ? "green" : "transparent"}
         />
+
         <div
           css={`
             display: flex;
@@ -152,6 +156,7 @@ export const Page = ({ data }) => {
           <h3>
             {answeredCount}/{data.allAirtable.edges.length}
           </h3>
+          <h3>Score: {score}%</h3>(
           <h3
             css={`
               color: green;
@@ -159,6 +164,7 @@ export const Page = ({ data }) => {
           >
             {questionsAnsweredCorrectly}
           </h3>
+          ,
           <h3
             css={`
               color: red;
@@ -166,8 +172,8 @@ export const Page = ({ data }) => {
           >
             {questionsAnsweredIncorrectly}
           </h3>
+          )
         </div>
-
         <SingleChoice
           data={currentQuestion.data}
           key={currentQuestion.data.Question}
@@ -176,7 +182,6 @@ export const Page = ({ data }) => {
           onSelection={answer => handleSetUserAnswer(answer)}
         />
         <br />
-
         {isQuestionAnswered && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
