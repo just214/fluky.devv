@@ -1,31 +1,13 @@
 import React from "react";
 import { Link } from "gatsby";
 import useQuizCategories from "../hooks/useQuizCategories";
+import MenuBlock from "./menu-block";
 
 const QuizMenu = () => {
   const data = useQuizCategories();
   return (
     <>
-      <div
-        css={`
-          transform: rotate(-3deg);
-        `}
-      >
-        <span
-          css={`
-            background: #fc4a1a; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
-            background: linear-gradient(to right, #f7b733, #fc4a1a);
-            color: white;
-            padding: 10px;
-            margin: 0;
-            margin-left: -10px;
-            font-size: 30px;
-          `}
-        >
-          QUIZZES
-        </span>
-      </div>
+      <MenuBlock rotate={-3}>QUIZZES</MenuBlock>
       <div
         css={`
           display: flex;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import Question from "../components/single-choice";
+import SingleChoice from "../components/single-choice";
 import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
 import Button from "../components/button";
@@ -48,6 +48,7 @@ export const Page = ({ data }) => {
 
   const [shuffledQuestions] = useState(shuffle(data.allAirtable.edges));
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
+  const isQuestionAnsweredRef = useRef(false);
   const [userAnswer, setUserAnswer] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(
@@ -61,11 +62,15 @@ export const Page = ({ data }) => {
     setQuestionsAnsweredIncorrectly,
   ] = useState(0);
 
+  useEffect(() => {
+    isQuestionAnsweredRef.current = isQuestionAnswered;
+  }, [isQuestionAnswered]);
+
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
 
   const dataLength = data.allAirtable.edges.length;
 
-  const handleSetUser = value => {
+  const handleSetUserAnswer = value => {
     if (isQuestionAnswered) return;
     setUserAnswer(value);
   };
@@ -75,6 +80,8 @@ export const Page = ({ data }) => {
   }, [currentIndex]);
 
   const checkAnswer = () => {
+    console.log("IN CHECK", userAnswer);
+    if (!userAnswer) return;
     setIsQuestionAnswered(true);
     if (userAnswer === currentQuestion.data.Answer) {
       setQuestionsAnsweredCorrectly(v => v + 1);
@@ -85,12 +92,13 @@ export const Page = ({ data }) => {
 
   useEffect(() => {
     document.addEventListener("keypress", e => {
-      console.log(e.charCode);
       // 1,2,3,4
       if ([49, 50, 51, 52].includes(e.charCode)) {
-        handleSetUser(keycodeMap[e.charCode]);
+        handleSetUserAnswer(keycodeMap[e.charCode]);
       } else if (e.charCode === 13) {
-        checkAnswer();
+        if (!isQuestionAnsweredRef.current) {
+          checkAnswer();
+        }
       }
     });
     return document.removeEventListener("keypress", () => {});
@@ -160,12 +168,12 @@ export const Page = ({ data }) => {
           </h3>
         </div>
 
-        <Question
+        <SingleChoice
           data={currentQuestion.data}
           key={currentQuestion.data.Question}
           isAnswered={isQuestionAnswered}
           userAnswer={userAnswer}
-          onSelection={answer => handleSetUser(answer)}
+          onSelection={answer => handleSetUserAnswer(answer)}
         />
         <br />
 

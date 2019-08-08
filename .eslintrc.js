@@ -46,7 +46,7 @@ module.exports = {
     "no-param-reassign": 2,
     "immutable/no-let": 2,
     "immutable/no-this": 2,
-    "immutable/no-mutation": 2,
+    "immutable/no-mutation": 0,
     "sort-keys": 0,
   },
   overrides: [

@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 // TODO NEED SEO ON THIS PAGE!
 import MainMenu from "../components/quiz-menu";
+import MenuBlock from "../components/menu-block";
 
 const App = () => (
   <Layout maxWidth="800px">
@@ -13,15 +14,11 @@ const App = () => (
       `}
     >
       <MainMenu />
+
       <Link to="/buzzwords">
-        <h1
-          css={`
-            color: ${props => props.theme.blue};
-            font-weight: normal;
-          `}
-        >
+        <MenuBlock rotate={2}>
           <b>Buzz</b>words
-        </h1>
+        </MenuBlock>
       </Link>
     </div>
   </Layout>

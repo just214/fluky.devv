@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
 import { motion, MotionAdvancedProps } from "framer-motion";
 
@@ -21,9 +21,11 @@ const StyledButton = styled(motion.button)`
 
 export interface ButtonProps {
   title: string;
-  subTitle: string;
+  subTitle?: string;
+  initial: object;
+  animate: object;
 }
-export const Button: React.FC<ButtonProps & MotionAdvancedProps> = ({
+export const Button: React.FC<ButtonProps & any> = ({
   title,
   subTitle,
   ...rest

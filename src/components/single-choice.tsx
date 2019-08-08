@@ -51,10 +51,13 @@ export const SingleChoice: React.FC<QuestionProps> = ({
     { id: "4", value: Option4 },
   ].filter(option => !!option.value);
 
+  // const [shuffledOptions] = React.useState(shuffle(options));
+  // TODO- Figure out shuffle options.
+
   const handleSelection = selection => {
     onSelection(selection);
   };
-
+  3;
   return (
     <div>
       <Markdown source={data.Question} />
@@ -62,7 +65,7 @@ export const SingleChoice: React.FC<QuestionProps> = ({
       {options.map(option => {
         return (
           <Option
-            isUserAnswer={userAnswer === option.id}
+            isUserAnswer={userAnswer == option.id}
             isCorrectAnswer={isAnswered && option.id === data.Answer}
             key={option.id}
             onClick={() => handleSelection(option.id)}
@@ -73,7 +76,8 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                 width: 25px;
               `}
             >
-              <LetterBox> {option.id.toUpperCase()}</LetterBox>
+              {/* Keep the numbering the same by using the index, since the options are shuffled */}
+              <LetterBox> {option.id}</LetterBox>
             </div>
             <Markdown source={option.value} />
           </Option>
