@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 
 const BuzzWords = ({ data }) => {
   const [filter, setFilter] = useState("");

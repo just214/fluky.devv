@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const slug = key.toLowerCase();
     createPage({
       path: `quiz/${slug}`,
-      component: path.resolve(`./src/templates/QuizItemTemplate.tsx`),
+      component: path.resolve(`./src/templates/quiz-item-template.tsx`),
       context: {
         category: slug,
       },

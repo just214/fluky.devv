@@ -1,6 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "./code-block";
 
 export interface MarkdownProps {
   source: string;

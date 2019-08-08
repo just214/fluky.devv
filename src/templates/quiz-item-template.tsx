@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Question from "../components/SingleChoice";
+import Layout from "../components/layout";
+import Question from "../components/single-choice";
 import shuffle from "lodash/shuffle";
-import Markdown from "../components/Markdown";
-import Button from "../components/Button";
+import Markdown from "../components/markdown";
+import Button from "../components/button";
 import { motion } from "framer-motion";
 import { Line } from "rc-progress";
 

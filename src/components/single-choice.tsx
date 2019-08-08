@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Markdown from "./Markdown";
+import Markdown from "./markdown";
 
 const Option = styled.div<{
   isUserAnswer: boolean;
