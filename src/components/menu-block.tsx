@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "gatsby";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+
 export interface MenuBlockProps {
   rotate: number;
 }
@@ -7,8 +10,8 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
     <div
       css={`
         transform: rotate(${rotate}deg);
-        margin: 5px;
-        max-width: 200px;
+        margin: 0px;
+        max-width: 250px;
       `}
     >
       <span
@@ -24,6 +27,7 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
           display: flex;
           align-items: center;
           justify-content: space-around;
+          font-family: "Lakki Reddy", cursive;
         `}
       >
         {children}
@@ -32,4 +36,34 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
   );
 };
 
-export default MenuBlock;
+export interface MenuBlockWrapperProps {
+  rotate: number;
+  to?: string;
+}
+
+const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
+  to,
+  children,
+  rotate,
+}) => {
+  if (to) {
+    return (
+      <Link to={to}>
+        <MenuBlock rotate={rotate}>
+          <span
+            css={`
+              margin-right: 10px;
+            `}
+          >
+            {children}
+          </span>{" "}
+          <FaArrowAltCircleRight />
+        </MenuBlock>
+      </Link>
+    );
+  } else {
+    return <MenuBlock rotate={rotate}>{children}</MenuBlock>;
+  }
+};
+
+export default MenuBlockWrapper;

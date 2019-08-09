@@ -18,16 +18,21 @@ const App = () => (
       <div
         css={`
           margin-top: 100px;
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
         `}
       >
-        <Link to="/buzzwords">
-          <MenuBlock rotate={10}>
-            <span>
-              <b>Buzz</b>words
-            </span>{" "}
-            <FaArrowAltCircleRight />
-          </MenuBlock>
-        </Link>
+        <MenuBlock rotate={10} to="/buzzwords">
+          <b>BUZZ</b>WORDS
+        </MenuBlock>
+
+        <MenuBlock rotate={-10} to="/podcasts">
+          PODCASTS
+        </MenuBlock>
+        <MenuBlock rotate={10} to="/newsletters">
+          NEWSLETTERS
+        </MenuBlock>
       </div>
     </div>
   </Layout>

@@ -12,55 +12,57 @@ const BuzzWords = ({ data }) => {
   });
   return (
     <Layout maxWidth="800px">
-      <h1>Buzzwords</h1>
-      <h3>
-        This is an ongoing list of buzzwords that you are likely to encounter at
-        some point as a developer.
-      </h3>
-      <input
-        css={`
-          height: 45px;
-          width: 100%;
-          max-width: 400px;
-          border-radius: 20px;
-          border: 1px solid #dadada;
-          padding: 3px 10px;
-          font-size: 18px;
-          outline: none;
-          -webkit-appearance: none;
-        `}
-        value={filter}
-        onChange={e => setFilter(e.target.value)}
-        type="search"
-        placeholder="Search"
-      />
+      <div>
+        <h1>Buzzwords</h1>
+        <h3>
+          An ongoing list of buzzwords that you are likely to encounter at some
+          point as a developer.
+        </h3>
+        <input
+          css={`
+            height: 45px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            border: 1px solid #dadada;
+            padding: 3px 10px;
+            font-size: 18px;
+            outline: none;
+            -webkit-appearance: none;
+          `}
+          value={filter}
+          onChange={e => setFilter(e.target.value)}
+          type="search"
+          placeholder="Search"
+        />
 
-      {buzzwords.map(({ node }) => {
-        return (
-          <div
-            key={node.data.Word}
-            css={`
-              border: 2px solid #efefef;
-              border-radius: 10px;
-              margin: 8px;
-              padding: 0px 8px;
-              border: 1px solid #efefef;
-            `}
-          >
-            <h2
+        {buzzwords.map(({ node }) => {
+          return (
+            <div
+              key={node.data.Word}
               css={`
-                color: ${props => props.theme.blue};
-                margin: 0;
-                padding: 0;
-                margin-top: 15px;
+                margin: 10px 0px;
+                padding: 0px 8px;
+                border-radius: 10px;
+                border: 1px solid ${props => props.theme.gray2};
+                background: ${props => props.theme.gray1};
               `}
             >
-              {node.data.Word}
-            </h2>
-            <p>{node.data.Definition}</p>
-          </div>
-        );
-      })}
+              <h1
+                css={`
+                  color: ${props => props.theme.orange};
+                  margin: 10px 0px;
+                  padding: 0;
+                  margin-top: 15px;
+                `}
+              >
+                {node.data.Word}
+              </h1>
+              <p>{node.data.Definition}</p>
+            </div>
+          );
+        })}
+      </div>
     </Layout>
   );
 };

@@ -1,21 +1,22 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion, MotionAdvancedProps } from "framer-motion";
+import { motion } from "framer-motion";
 
 const StyledButton = styled(motion.button)`
-  height: 60px;
-  width: 200px;
+  height: 50px;
+  width: 180px;
   font-size: 20px;
   border-radius: 40px;
   outline: 0;
+  border: none;
   font-weight: bold;
   background: ${props => props.theme.blue};
-  color: white;
+  color: #fff;
   cursor: pointer;
-  border: 2px solid #999;
+
   &:focus {
     background: ${props => props.theme.blue};
-    color: white;
+    color: #fff;
   }
 `;
 

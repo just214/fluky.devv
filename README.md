@@ -8,3 +8,11 @@ TODO
 - Add strong typings and remove all `anys`.
 - Secure the `/admin` route with authentication.
 - Add flag feature for each quiz question, buzzword, etc.. possibly using Netlify forms.
+- Analytics...netlify?
+
+IDEAS
+- Podcasts
+- Newsletters
+- Coding challenges
+- Games
+- User login for all of this

@@ -13,6 +13,12 @@ const Container = styled.div<{ maxWidth?: string }>`
 const theme = {
   blue: "#0066B8",
   green: "#93ff61",
+  gray1: "#f5f5f5",
+  gray2: "#efefef",
+  gray3: "#dadada",
+  gray4: "#666",
+  gray5: "#333",
+  orange: "#8f226c",
 };
 
 interface LayoutProps {
@@ -20,23 +26,21 @@ interface LayoutProps {
   maxWidth?: string;
 }
 const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //         description
-  //       }
-  //     }
-  //   }
-  // `);
-
-  // const { siteMetadata } = data.site;
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `);
 
   return (
     <>
       <SEO
-        title="Quiz"
+        title={data.site.siteMetadata.title}
         keywords={[`typescript`, `quiz`, `javascript`, `front end`]}
       />
       <ThemeProvider theme={theme}>
@@ -63,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
                   color: #333;
                 `}
               >
-                <b>cool</b>
+                <b>FRONT END STUFF</b>
               </h2>
             </Link>
           </header>

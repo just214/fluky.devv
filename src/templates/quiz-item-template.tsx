@@ -7,6 +7,7 @@ import Markdown from "../components/markdown";
 import Button from "../components/button";
 import { motion } from "framer-motion";
 import { Line } from "rc-progress";
+import QuizResults from "../components/quiz-results";
 
 const getFeedbackCorrect = () => {
   const options: string[] = [
@@ -80,7 +81,6 @@ export const Page = ({ data }) => {
   }, [currentIndex]);
 
   const checkAnswer = () => {
-    console.log("IN CHECK", userAnswer);
     if (!userAnswer) return;
     setIsQuestionAnswered(true);
     if (userAnswer === currentQuestion.data.Answer) {
@@ -113,7 +113,6 @@ export const Page = ({ data }) => {
     if (currentIndex === dataLength - 1) {
       setCurrentIndex(0);
       setIsQuizCompleted(true);
-      resetCounts();
     } else {
       setCurrentIndex(v => v + 1);
     }
@@ -121,15 +120,22 @@ export const Page = ({ data }) => {
     setUserAnswer(null);
   };
 
-  if (isQuizCompleted) {
-    return <h3>You did it!</h3>;
-  }
-
   const answeredCount: number =
     questionsAnsweredCorrectly + questionsAnsweredIncorrectly;
   const percentageCorrect: number = questionsAnsweredCorrectly / answeredCount;
-  const percentageFixed: number = +percentageCorrect.toFixed(2);
-  const score: number = percentageFixed * 100 || 0;
+  const percentageFixed: number | string = percentageCorrect.toFixed(2);
+  const score: number = Math.floor(+percentageFixed * 100);
+
+  if (isQuizCompleted) {
+    return (
+      <QuizResults
+        score={score}
+        correctCount={questionsAnsweredCorrectly}
+        incorrectCount={questionsAnsweredIncorrectly}
+        onConfirm={resetCounts}
+      />
+    );
+  }
 
   return (
     <Layout>
@@ -148,31 +154,17 @@ export const Page = ({ data }) => {
           css={`
             display: flex;
             align-items: center;
+            justify-content: space-between;
             h3 {
               margin: 5px;
             }
           `}
         >
+          <div>{answeredCount > 0 && <h3>Score: {score}%</h3>}</div>
+
           <h3>
             {answeredCount}/{data.allAirtable.edges.length}
           </h3>
-          <h3>Score: {score}%</h3>(
-          <h3
-            css={`
-              color: green;
-            `}
-          >
-            {questionsAnsweredCorrectly}
-          </h3>
-          ,
-          <h3
-            css={`
-              color: red;
-            `}
-          >
-            {questionsAnsweredIncorrectly}
-          </h3>
-          )
         </div>
         <SingleChoice
           data={currentQuestion.data}
@@ -214,8 +206,7 @@ export const Page = ({ data }) => {
         css={`
           position: fixed;
           bottom: 40px;
-          left: 0;
-          right: 0;
+          right: 30px;
           height: 100px;
           display: flex;
           align-items: center;
@@ -239,7 +230,7 @@ export const Page = ({ data }) => {
             initial={{ scale: 0.8, opacity: 0.3 }}
             animate={{ scale: 1.2, opacity: 1 }}
             onClick={handleGoToNextQuestion}
-            title="Next Question"
+            title="Next"
             subTitle="(or press enter)"
           />
         )}

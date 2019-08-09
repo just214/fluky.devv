@@ -12,7 +12,7 @@ const Option = styled.div<{
   border-color: ${props => (props.isUserAnswer ? props.theme.blue : "#efefef")};
   background: ${props => (props.isCorrectAnswer ? props.theme.green : "white")};
   border-radius: 8px;
-  padding: 10px;
+  padding: 5px;
   color: #333;
   font-weight: bold;
   cursor: ${props => (props.isUserAnswer ? "default" : "pointer")};

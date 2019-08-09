@@ -4,8 +4,8 @@ require("dotenv");
 
 module.exports = {
   siteMetadata: {
-    title: `cool`,
-    description: `Dev quizzes`,
+    title: `Front End Stuff`,
+    description: `Stuff for front end developers`,
     author: `gojutin`,
   },
   plugins: [
@@ -48,6 +48,10 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Buzzwords`,
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Podcasts`,
           },
         ],
       },

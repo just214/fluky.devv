@@ -20,6 +20,7 @@
     "update": "ncu -u && npm i"
   },
   "dependencies": {
+    "@microlink/react": "^4.0.1",
     "dotenv": "^8.0.0",
     "framer-motion": "^1.5.0",
     "gatsby": "^2.13.41",
