@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
 import Layout from "../components/layout";
 // TODO NEED SEO ON THIS PAGE!
 import MainMenu from "../components/quiz-menu";
 import MenuBlock from "../components/menu-block";
-import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const App = () => (
   <Layout maxWidth="800px">

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import SingleChoice from "../components/single-choice";
+import SingleChoice from "../components/quiz-single-choice";
 import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
-import Button from "../components/button";
+import Button from "../components/quiz-button";
 import { motion } from "framer-motion";
 import { Line } from "rc-progress";
 import QuizResults from "../components/quiz-results";
@@ -104,10 +104,10 @@ export const Page = ({ data }) => {
     return document.removeEventListener("keypress", () => {});
   }, []);
 
-  function resetCounts() {
-    setQuestionsAnsweredCorrectly(0);
-    setQuestionsAnsweredIncorrectly(0);
-  }
+  // function resetCounts() {
+  //   setQuestionsAnsweredCorrectly(0);
+  //   setQuestionsAnsweredIncorrectly(0);
+  // }
 
   const handleGoToNextQuestion = () => {
     if (currentIndex === dataLength - 1) {
@@ -128,12 +128,13 @@ export const Page = ({ data }) => {
 
   if (isQuizCompleted) {
     return (
-      <QuizResults
-        score={score}
-        correctCount={questionsAnsweredCorrectly}
-        incorrectCount={questionsAnsweredIncorrectly}
-        onConfirm={resetCounts}
-      />
+      <Layout>
+        <QuizResults
+          score={score}
+          correctCount={questionsAnsweredCorrectly}
+          incorrectCount={questionsAnsweredIncorrectly}
+        />
+      </Layout>
     );
   }
 
@@ -202,7 +203,7 @@ export const Page = ({ data }) => {
         )}
       </div>
 
-      <div
+      {/* <div
         css={`
           position: fixed;
           bottom: 40px;
@@ -212,29 +213,29 @@ export const Page = ({ data }) => {
           align-items: center;
           justify-content: center;
         `}
-      >
-        {userAnswer && !isQuestionAnswered && (
-          <Button
-            autoFocus
-            onClick={checkAnswer}
-            initial={{ scale: 0.8, opacity: 0.3 }}
-            animate={{ scale: 1.2, opacity: 1 }}
-            title="Check Answer"
-            subTitle="(or press enter)"
-          />
-        )}
+      > */}
+      {userAnswer && !isQuestionAnswered && (
+        <Button
+          autoFocus
+          onClick={checkAnswer}
+          initial={{ scale: 0.8, opacity: 0.3 }}
+          animate={{ scale: 1.2, opacity: 1 }}
+          title="Check Answer"
+          subTitle="(or press enter)"
+        />
+      )}
 
-        {userAnswer && isQuestionAnswered && (
-          <Button
-            autoFocus
-            initial={{ scale: 0.8, opacity: 0.3 }}
-            animate={{ scale: 1.2, opacity: 1 }}
-            onClick={handleGoToNextQuestion}
-            title="Next"
-            subTitle="(or press enter)"
-          />
-        )}
-      </div>
+      {userAnswer && isQuestionAnswered && (
+        <Button
+          autoFocus
+          initial={{ scale: 0.8, opacity: 0.3 }}
+          animate={{ scale: 1.2, opacity: 1 }}
+          onClick={handleGoToNextQuestion}
+          title="Next"
+          subTitle="(or press enter)"
+        />
+      )}
+      {/* </div> */}
     </Layout>
   );
 };

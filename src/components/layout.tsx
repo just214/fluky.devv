@@ -18,7 +18,7 @@ const theme = {
   gray3: "#dadada",
   gray4: "#666",
   gray5: "#333",
-  orange: "#8f226c",
+  orange: "#e3005f",
 };
 
 interface LayoutProps {
@@ -58,6 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
               display: flex;
               align-items: center;
               padding-left: 30px;
+              background: #efefef;
             `}
           >
             <Link to="/">

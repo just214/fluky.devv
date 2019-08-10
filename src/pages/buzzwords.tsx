@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
+import SearchBox from "../components/search-box";
 
 const BuzzWords = ({ data }) => {
   const [filter, setFilter] = useState("");
@@ -13,28 +14,23 @@ const BuzzWords = ({ data }) => {
   return (
     <Layout maxWidth="800px">
       <div>
-        <h1>Buzzwords</h1>
+        <h1
+          css={`
+            font-family: "Lakki Reddy";
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+            color: ${props => props.theme.orange};
+          `}
+        >
+          Buzzwords
+        </h1>
         <h3>
           An ongoing list of buzzwords that you are likely to encounter at some
           point as a developer.
         </h3>
-        <input
-          css={`
-            height: 45px;
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            border: 1px solid #dadada;
-            padding: 3px 10px;
-            font-size: 18px;
-            outline: none;
-            -webkit-appearance: none;
-          `}
-          value={filter}
-          onChange={e => setFilter(e.target.value)}
-          type="search"
-          placeholder="Search"
-        />
+        <br />
+        <SearchBox onChange={e => setFilter(e.target.value)} />
 
         {buzzwords.map(({ node }) => {
           return (
@@ -42,7 +38,7 @@ const BuzzWords = ({ data }) => {
               key={node.data.Word}
               css={`
                 margin: 10px 0px;
-                padding: 0px 8px;
+                padding: 8px;
                 border-radius: 10px;
                 border: 1px solid ${props => props.theme.gray2};
                 background: ${props => props.theme.gray1};
@@ -51,9 +47,10 @@ const BuzzWords = ({ data }) => {
               <h1
                 css={`
                   color: ${props => props.theme.orange};
-                  margin: 10px 0px;
+                  margin: 0px;
                   padding: 0;
                   margin-top: 15px;
+                  font-family: "Lalezar", sans-serif;
                 `}
               >
                 {node.data.Word}

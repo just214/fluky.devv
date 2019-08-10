@@ -1,8 +1,10 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const createPodcastPage = require("./node/createPodcastPage");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  await createPodcastPage(createPage);
 
   const result = await graphql(`
     query MyQuery {

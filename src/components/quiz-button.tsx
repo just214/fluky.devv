@@ -13,6 +13,13 @@ const StyledButton = styled(motion.button)`
   background: ${props => props.theme.blue};
   color: #fff;
   cursor: pointer;
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:focus {
     background: ${props => props.theme.blue};
