@@ -19,9 +19,9 @@ body {
 }
 
 code, pre {
-  background: #fbfbfb;
+  background: #efefef;
   border-radius: 3px;
-  color: rgb(3, 176, 245);
+  color: rgb(245, 3, 124);
   font-weight: bold;
   display: inline-block;
   padding: 3px;
@@ -64,7 +64,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -77,16 +76,4 @@ body {
 }
 ol, ul {
 	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
 }

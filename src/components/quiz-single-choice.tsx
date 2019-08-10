@@ -8,7 +8,7 @@ const Option = styled.div<{
 }>`
   display: flex;
   align-items: center;
-  border: 2px solid #efefef;
+  border: 2px solid #fbfbfb;
   border-color: ${props => (props.isUserAnswer ? props.theme.blue : "#efefef")};
   background: ${props =>
     props.isCorrectAnswer ? props.theme.green : "#efefef"};

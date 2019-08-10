@@ -65,7 +65,8 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
               {" "}
               <h2
                 css={`
-                  color: #333;
+                  color: ${props => props.theme.blue};
+                  font-family: "Barriecito";
                 `}
               >
                 <b>FRONT END STUFF</b>

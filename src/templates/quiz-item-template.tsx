@@ -81,6 +81,7 @@ export const Page = ({ data }) => {
   }, [currentIndex]);
 
   const checkAnswer = () => {
+    console.log("CHECK ANSWER");
     if (!userAnswer) return;
     setIsQuestionAnswered(true);
     if (userAnswer === currentQuestion.data.Answer) {
@@ -89,25 +90,6 @@ export const Page = ({ data }) => {
       setQuestionsAnsweredIncorrectly(v => v + 1);
     }
   };
-
-  useEffect(() => {
-    document.addEventListener("keypress", e => {
-      // 1,2,3,4
-      if ([49, 50, 51, 52].includes(e.charCode)) {
-        handleSetUserAnswer(keycodeMap[e.charCode]);
-      } else if (e.charCode === 13) {
-        if (!isQuestionAnsweredRef.current) {
-          checkAnswer();
-        }
-      }
-    });
-    return document.removeEventListener("keypress", () => {});
-  }, []);
-
-  // function resetCounts() {
-  //   setQuestionsAnsweredCorrectly(0);
-  //   setQuestionsAnsweredIncorrectly(0);
-  // }
 
   const handleGoToNextQuestion = () => {
     if (currentIndex === dataLength - 1) {
@@ -119,6 +101,30 @@ export const Page = ({ data }) => {
     setIsQuestionAnswered(false);
     setUserAnswer(null);
   };
+
+  useEffect(() => {
+    document.addEventListener("keypress", e => {
+      // 1,2,3,4
+      if ([49, 50, 51, 52].includes(e.charCode)) {
+        handleSetUserAnswer(keycodeMap[e.charCode]);
+      } else if (e.charCode === 13) {
+        console.log(isQuestionAnsweredRef.current);
+        if (!isQuestionAnsweredRef.current) {
+          console.log("SHOULD CHECK");
+          checkAnswer();
+        } else if (isQuestionAnsweredRef.current) {
+          console.log("SHOULD GO TO NEXT");
+          handleGoToNextQuestion();
+        }
+      }
+    });
+    return document.removeEventListener("keypress", () => {});
+  }, [checkAnswer, handleGoToNextQuestion]);
+
+  // function resetCounts() {
+  //   setQuestionsAnsweredCorrectly(0);
+  //   setQuestionsAnsweredIncorrectly(0);
+  // }
 
   const answeredCount: number =
     questionsAnsweredCorrectly + questionsAnsweredIncorrectly;
@@ -233,7 +239,6 @@ export const Page = ({ data }) => {
       > */}
       {userAnswer && !isQuestionAnswered && (
         <Button
-          autoFocus
           onClick={checkAnswer}
           initial={{ scale: 0.8, opacity: 0.3 }}
           animate={{ scale: 1.2, opacity: 1 }}
@@ -244,7 +249,6 @@ export const Page = ({ data }) => {
 
       {userAnswer && isQuestionAnswered && (
         <Button
-          autoFocus
           initial={{ scale: 0.8, opacity: 0.3 }}
           animate={{ scale: 1.2, opacity: 1 }}
           onClick={handleGoToNextQuestion}

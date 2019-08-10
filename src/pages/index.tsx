@@ -9,27 +9,30 @@ const App = () => (
     <div
       css={`
         padding: 30px;
-        padding-top: 100px;
+        padding-top: 30px;
       `}
     >
       <MainMenu />
       <div
         css={`
-          margin-top: 100px;
+          margin-top: 30px;
           display: flex;
           justify-content: space-around;
           flex-wrap: wrap;
         `}
       >
-        <MenuBlock rotate={10} to="/buzzwords">
+        <MenuBlock rotate={3} to="/buzzwords">
           <b>BUZZ</b>WORDS
         </MenuBlock>
 
-        <MenuBlock rotate={-10} to="/podcasts">
+        <MenuBlock rotate={-3} to="/podcasts">
           PODCASTS
         </MenuBlock>
-        <MenuBlock rotate={10} to="/newsletters">
+        <MenuBlock rotate={3} to="/newsletters">
           NEWSLETTERS
+        </MenuBlock>
+        <MenuBlock rotate={3} to="/about-site">
+          ABOUT THIS SITE
         </MenuBlock>
       </div>
     </div>
