@@ -2,63 +2,27 @@ import React, { useState } from "react";
 import Layout from "../components/layout";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Modal from "react-responsive-modal";
+import PodcastSuggestionForm from "../components/podcast-suggestion-form";
 
 const Podcasts = ({ pageContext }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const sortedPodcasts = JSON.parse(pageContext.podcasts).sort((a, b) => {
+    const nameA = a.title.toLowerCase();
+    const nameB = b.title.toLowerCase();
+    return nameA < nameB ? -1 : 1;
+  });
+
   return (
     <Layout maxWidth="90%">
       <Modal open={isOpen} onClose={() => setIsOpen(false)} center>
-        <form
-          name="podcast-suggestion"
-          method="POST"
-          data-netlify="true"
+        <div
           css={`
-            margin: 20px;
-            label {
-              display: flex;
-              flex-direction: column;
-              margin: 5px 0px;
-            }
-            input {
-              font-size: 18px;
-              border: 1px solid ${props => props.theme.gray3};
-              border-radius: 5px;
-              width: 300px;
-              padding: 4px 10px;
-              margin-top: 5px;
-            }
-            button {
-              height: 30px;
-              width: 100px;
-              font-size: 15px;
-              color: white;
-              font-weight: bold;
-              border-radius: 4px;
-              background: ${props => props.theme.blue};
-              border: none;
-              cursor: pointer;
-            }
+            max-width: 80vw;
           `}
         >
-          <label htmlFor="podcast-name">
-            <small>Name of Podcast</small>
-            <input id="podcast-name" autoFocus type="text" />
-          </label>
-
-          <label htmlFor="podcast-website">
-            <small>Podcast Website (optional)</small>
-            <input id="podcast-website" autoFocus type="text" />
-          </label>
-
-          <label htmlFor="submitter-name">
-            <small>Your Name (optional)</small>
-
-            <input id="submitter-name" autoFocus type="text" />
-          </label>
-
-          <button type="submit">Submit</button>
-        </form>
+          <PodcastSuggestionForm />
+        </div>
       </Modal>
       <div
         css={`
@@ -87,7 +51,7 @@ const Podcasts = ({ pageContext }) => {
         >
           Suggest a podcast
         </button>
-        {JSON.parse(pageContext.podcasts).map(podcast => {
+        {sortedPodcasts.map(podcast => {
           return (
             <div
               key={podcast.id}
@@ -96,7 +60,7 @@ const Podcasts = ({ pageContext }) => {
                 margin: 15px 0px;
                 border-bottom: 1px solid ${props => props.theme.gray3};
                 padding: 10px;
-                @media (max-width: 400px) {
+                @media (max-width: 500px) {
                   flex-direction: column;
                   align-items: center;
                 }
@@ -107,20 +71,19 @@ const Podcasts = ({ pageContext }) => {
                   border-radius: 10px;
                   margin-right: 10px;
                   height: 150px;
-                  width: 150px;
-                  @media (max-width: 400px) {
-                    width: 100%;
-                    height: 100%;
+                  width: auto;
+                  @media (max-width: 500px) {
+                    height: 75px;
                     margin-right: 0px;
                     margin-bottom: 10px;
                   }
                 `}
                 src={podcast.thumbnail}
               />
+
               <div>
                 <h1
                   css={`
-                    margin-bottom: 10px;
                     font-family: "Lalezar";
                   `}
                 >

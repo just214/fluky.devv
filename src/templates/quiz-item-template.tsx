@@ -156,6 +156,7 @@ export const Page = ({ data }) => {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 50px;
             h3 {
               margin: 5px;
             }

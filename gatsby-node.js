@@ -4,7 +4,7 @@ const createPodcastPage = require("./node/createPodcastPage");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  await createPodcastPage(createPage);
+  await createPodcastPage(createPage, graphql);
 
   const result = await graphql(`
     query MyQuery {

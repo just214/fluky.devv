@@ -14,8 +14,6 @@ const QuizMenu = () => {
           padding: 10px;
         `}
       >
-        <h3>How well do you know the front end? Let's find out!</h3>
-
         <div
           css={`
             display: flex;
