@@ -19,12 +19,13 @@ body {
 }
 
 code, pre {
-  /* background: #efefef; */
+  background: #fbfbfb;
   border-radius: 3px;
   color: rgb(3, 176, 245);
   font-weight: bold;
   display: inline-block;
   padding: 3px;
+  font-size: 1.1rem;
 }
 
 p {

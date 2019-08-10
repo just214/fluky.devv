@@ -10,9 +10,10 @@ const Option = styled.div<{
   align-items: center;
   border: 2px solid #efefef;
   border-color: ${props => (props.isUserAnswer ? props.theme.blue : "#efefef")};
-  background: ${props => (props.isCorrectAnswer ? props.theme.green : "white")};
+  background: ${props =>
+    props.isCorrectAnswer ? props.theme.green : "#efefef"};
   border-radius: 8px;
-  padding: 0px 5px;
+  padding: 5px;
   color: #333;
   font-weight: bold;
   cursor: ${props => (props.isUserAnswer ? "default" : "pointer")};
@@ -22,10 +23,9 @@ const Option = styled.div<{
     border-color: ${props =>
       props.isUserAnswer ? props.theme.blue : "#dadada"};
   }
-  overflow: scroll;
+  overflow: hidden;
 `;
 const LetterBox = styled.span`
-  border-radius: 4px;
   font-weight: bold;
   padding: 5px;
   color: ${props => props.theme.blue};
@@ -81,7 +81,13 @@ export const SingleChoice: React.FC<QuestionProps> = ({
               {/* Keep the numbering the same by using the index, since the options are shuffled */}
               <LetterBox> {option.id}</LetterBox>
             </div>
-            <Markdown source={option.value} />
+            <div
+              css={`
+                overflow-y: scroll;
+              `}
+            >
+              <Markdown source={option.value} />
+            </div>
           </Option>
         );
       })}

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
+// import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SearchBox from "../components/search-box";
 
-const BuzzWords = ({ data }) => {
+const BuzzWords = ({ pageContext }) => {
+  console.log(pageContext);
   const [filter, setFilter] = useState("");
-  const buzzwords = data.allAirtable.edges.filter(({ node }) => {
+  const buzzwords = pageContext.buzzwords.filter(({ node }) => {
     return (
       node.data.Word.toLowerCase().includes(filter.toLowerCase()) ||
       node.data.Definition.toLowerCase().includes(filter.toLowerCase())
@@ -63,23 +64,5 @@ const BuzzWords = ({ data }) => {
     </Layout>
   );
 };
-
-export const Query = graphql`
-  query MyQuery {
-    allAirtable(
-      filter: { table: { eq: "Buzzwords" } }
-      sort: { order: ASC, fields: data___Word }
-    ) {
-      edges {
-        node {
-          data {
-            Word
-            Definition
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default BuzzWords;

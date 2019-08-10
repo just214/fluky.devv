@@ -33,6 +33,7 @@ const Podcasts = ({ pageContext }) => {
           css={`
             font-family: "Lalezar";
             font-size: 3rem;
+            color: orange;
           `}
         >
           PODCASTS FOR DEVELOPERS
@@ -73,7 +74,7 @@ const Podcasts = ({ pageContext }) => {
                   height: 150px;
                   width: auto;
                   @media (max-width: 500px) {
-                    height: 75px;
+                    height: 100%;
                     margin-right: 0px;
                     margin-bottom: 10px;
                   }
@@ -130,7 +131,7 @@ const Podcasts = ({ pageContext }) => {
           );
         })}
         <div>
-          This data is provided by the{" "}
+          This data is provided by the awesome{" "}
           <a href="https://www.listennotes.com/api/">Listen Notes API</a> .
         </div>
       </div>

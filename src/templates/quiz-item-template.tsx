@@ -129,6 +129,13 @@ export const Page = ({ data }) => {
   if (isQuizCompleted) {
     return (
       <Layout>
+        <h1
+          css={`
+            margin: 5px 0px;
+          `}
+        >
+          {currentQuestion.data.Category} Quiz
+        </h1>
         <QuizResults
           score={score}
           correctCount={questionsAnsweredCorrectly}
@@ -140,6 +147,13 @@ export const Page = ({ data }) => {
 
   return (
     <Layout>
+      <h1
+        css={`
+          margin: 5px 0px;
+        `}
+      >
+        {currentQuestion.data.Category} Quiz
+      </h1>
       <div
         css={`
           margin-bottom: 280px;
@@ -185,6 +199,7 @@ export const Page = ({ data }) => {
               <h2
                 css={`
                   color: green;
+                  margin: 10px 0px;
                 `}
               >
                 {getFeedbackCorrect()}
@@ -194,6 +209,7 @@ export const Page = ({ data }) => {
               <h2
                 css={`
                   color: tomato;
+                  margin: 10px 0px;
                 `}
               >
                 {getFeedbackIncorrect()}

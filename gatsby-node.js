@@ -1,53 +1,22 @@
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
 const createPodcastPage = require("./node/createPodcastPage");
+const createQuizPages = require("./node/createQuizPages");
+const createBuzzwordsPage = require("./node/createBuzzwordsPage");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   await createPodcastPage(createPage, graphql);
-
-  const result = await graphql(`
-    query MyQuery {
-      allAirtable(filter: { table: { eq: "Categories" } }) {
-        edges {
-          node {
-            data {
-              Name
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  let obj = {};
-
-  result.data.allAirtable.edges.forEach(({ node }) => {
-    if (node.data.Name) {
-      obj[node.data.Name] = true;
-    }
-  });
-
-  Object.keys(obj).forEach(key => {
-    const slug = key.toLowerCase();
-    createPage({
-      path: `quiz/${slug}`,
-      component: path.resolve(`./src/templates/quiz-item-template.tsx`),
-      context: {
-        category: slug,
-      },
-    });
-  });
+  await createQuizPages(createPage, graphql);
+  await createBuzzwordsPage(createPage, graphql);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-
-  if (node.internal.type === `Airtable` && node.table === "Questions") {
+  const condition =
+    node.internal.type === `Airtable` && node.table === "Questions";
+  if (condition) {
     createNodeField({
       name: `category`,
       node,
-
       value: node.data.Category[0].toLowerCase(),
     });
   }
