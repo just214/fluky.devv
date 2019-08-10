@@ -7,6 +7,7 @@ const PodcastSuggestionForm = () => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      action="/podcasts"
       name="podcast-suggestion"
       css={`
         label {
@@ -16,11 +17,7 @@ const PodcastSuggestionForm = () => {
         }
       `}
     >
-      <Input
-        type="hidden"
-        name="podcast-suggestion"
-        value="podcast-suggestion"
-      />
+      <Input type="hidden" name="form-name" value="podcast-suggestion" />
       <label htmlFor="podcast-name">
         Name of Podcast
         <Input name="podcast-name" id="podcast-name" autoFocus type="text" />

@@ -37,14 +37,17 @@ export const AboutSite = () => {
               margin: 15px 0px;
             `}
           >
-            <Image filename={image} />
-            <h1
+            <div>
+              <Image filename={image} />
+            </div>
+
+            <h2
               css={`
-                margin-left: 15px;
+                margin-left: 20px;
               `}
             >
               {text}
-            </h1>
+            </h2>
           </div>
         );
       })}
