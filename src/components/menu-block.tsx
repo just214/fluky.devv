@@ -18,7 +18,7 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
       css={`
         transform: rotate(${rotate}deg);
         margin: 0px;
-        max-width: 300px;
+        max-width: 280px;
         margin-top: 30px;
       `}
     >

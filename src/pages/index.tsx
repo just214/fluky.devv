@@ -8,14 +8,12 @@ const App = () => (
   <Layout maxWidth="100%" bg="#333">
     <div
       css={`
-        padding: 30px;
-        padding-top: 30px;
+        padding: 20px;
       `}
     >
-      <QuizMenu />
       <div
         css={`
-          margin-top: 30px;
+          margin: 0px;
           display: flex;
           justify-content: space-around;
           flex-wrap: wrap;
@@ -26,7 +24,7 @@ const App = () => (
           background: -webkit-linear-gradient(to right, #516395, #614385);  /* Chrome 10-25, Safari 5.1-6 */
           background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
           `}
-          rotate={3}
+          rotate={-3}
           to="/buzzwords"
           color="yellow"
         >
@@ -34,7 +32,7 @@ const App = () => (
         </MenuBlock>
 
         <MenuBlock
-          rotate={-3}
+          rotate={3}
           to="/podcasts"
           color="#333"
           gradient={`background: #1D976C;  /* fallback for old browsers */
@@ -45,7 +43,7 @@ const App = () => (
           PODCASTS
         </MenuBlock>
         <MenuBlock
-          rotate={3}
+          rotate={-3}
           color="#333"
           to="/newsletters"
           gradient={`background: #fceabb;  /* fallback for old browsers */
@@ -56,7 +54,7 @@ const App = () => (
           NEWSLETTERS
         </MenuBlock>
         <MenuBlock
-          rotate={-2}
+          rotate={2}
           to="/about-site"
           color="#333"
           gradient={`background: #f2709c;  /* fallback for old browsers */
@@ -67,6 +65,8 @@ const App = () => (
           ABOUT THIS SITE
         </MenuBlock>
       </div>
+      <br />
+      <QuizMenu />
     </div>
   </Layout>
 );
