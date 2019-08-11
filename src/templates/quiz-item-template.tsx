@@ -45,8 +45,16 @@ const keycodeMap = {
   52: "4",
 };
 
-export const Page = ({ data }) => {
-  if (!data.allAirtable.edges.length) return null;
+export const Page = ({ data, pageContext }) => {
+  console.log("DATA", data);
+  if (!data.allAirtable.edges.length) {
+    return (
+      <Layout>
+        <Title>{pageContext.title} Quiz</Title>
+        <h3>Looks like there are no questions for this category yet.</h3>
+      </Layout>
+    );
+  }
 
   const [shuffledQuestions] = useState(shuffle(data.allAirtable.edges));
   const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
@@ -107,23 +115,10 @@ export const Page = ({ data }) => {
       // 1,2,3,4
       if ([49, 50, 51, 52].includes(e.charCode)) {
         handleSetUserAnswer(keycodeMap[e.charCode]);
-      } else if (e.charCode === 13) {
-        // if (!isQuestionAnsweredRef.current) {
-        //   console.log("SHOULD CHECK");
-        //   checkAnswer();
-        // } else if (isQuestionAnsweredRef.current) {
-        //   console.log("SHOULD GO TO NEXT");
-        //   handleGoToNextQuestion();
-        // }
       }
     });
     return document.removeEventListener("keypress", () => {});
   }, [checkAnswer, handleGoToNextQuestion]);
-
-  // function resetCounts() {
-  //   setQuestionsAnsweredCorrectly(0);
-  //   setQuestionsAnsweredIncorrectly(0);
-  // }
 
   const answeredCount: number =
     questionsAnsweredCorrectly + questionsAnsweredIncorrectly;
@@ -134,7 +129,7 @@ export const Page = ({ data }) => {
   if (isQuizCompleted) {
     return (
       <Layout>
-        <Title>{currentQuestion.data.Category} Quiz</Title>
+        <Title>{pageContext.title} Quiz</Title>
         <QuizResults
           score={score}
           correctCount={questionsAnsweredCorrectly}
@@ -146,7 +141,7 @@ export const Page = ({ data }) => {
 
   return (
     <Layout>
-      <Title>{currentQuestion.data.Category} Quiz</Title>
+      <Title>{pageContext.title} Quiz</Title>
       <div
         css={`
           margin-bottom: 280px;

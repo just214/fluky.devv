@@ -26,10 +26,11 @@ module.exports = async (createPage, graphql) => {
   Object.keys(obj).forEach(key => {
     const slug = key.toLowerCase();
     createPage({
-      path: `quiz/${slug}`,
+      path: `${slug}-quiz`,
       component: path.resolve(`./src/templates/quiz-item-template.tsx`),
       context: {
         category: slug,
+        title: key,
       },
     });
   });
