@@ -9,7 +9,6 @@ const Option = styled.div<{
   display: flex;
   align-items: center;
   border: 2px solid #fbfbfb;
-
   background: ${props =>
     props.isCorrectAnswer ? props.theme.lightgreen : "#efefef"};
   border-radius: 8px;
@@ -82,14 +81,14 @@ export const SingleChoice: React.FC<QuestionProps> = ({
               <span
                 css={`
                   font-weight: bold;
-                  padding: 3px 5px;
+                  padding: 5px;
                   color: ${props => props.theme.blue};
                   font-size: 1.5rem;
                   border: 2px solid #efefef;
-                  border-radius: 5px;
+                  border-radius: 50px;
                   border-color: ${userAnswer == option.id
                     ? "#0066B8"
-                    : "#efefef"};
+                    : "transparent"};
                 `}
               >
                 {option.id}

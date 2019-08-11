@@ -20,6 +20,7 @@
     "update": "ncu -u && npm i"
   },
   "dependencies": {
+    "antd": "^3.21.4",
     "dotenv": "^8.0.0",
     "framer-motion": "^1.5.0",
     "gatsby": "^2.13.41",
@@ -33,17 +34,17 @@
     "gatsby-source-filesystem": "^2.1.6",
     "gatsby-transformer-sharp": "^2.2.4",
     "lodash": "^4.17.15",
-    "rc-progress": "^2.5.1",
     "react": "^16.8.6",
+    "react-collapsed": "^2.1.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-markdown": "^4.1.0",
-    "react-responsive-modal": "^4.0.1",
     "react-syntax-highlighter": "^11.0.2",
     "react-tabs": "^3.0.0",
     "styled-components": "^4.3.2",
-    "unirest": "^0.6.0"
+    "unirest": "^0.6.0",
+    "use-media": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

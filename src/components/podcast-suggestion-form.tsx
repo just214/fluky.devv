@@ -1,5 +1,6 @@
 import React from "react";
-import { Input, Button } from "../components/common";
+import Input from "antd/es/input";
+import Button from "antd/es/button";
 
 const PodcastSuggestionForm = () => {
   return (
@@ -13,26 +14,28 @@ const PodcastSuggestionForm = () => {
         label {
           display: flex;
           flex-direction: column;
-          margin: 3px 0px;
+          padding-top: 12px;
         }
       `}
     >
-      <input type="hidden" name="form-name" value="podcast-suggestion" />
+      <Input type="hidden" name="form-name" value="podcast-suggestion" />
       <label htmlFor="podcast-name">
         Name of Podcast
-        <input name="podcast-name" id="podcast-name" autoFocus type="text" />
+        <Input name="podcast-name" id="podcast-name" autoFocus type="text" />
       </label>
       <label htmlFor="podcast-website">
         Podcast Website (optional)
-        <input name="podcast-website" id="podcast-website" type="text" />
+        <Input name="podcast-website" id="podcast-website" type="text" />
       </label>
 
       <label htmlFor="submitter-name">
         Your Name (optional)
-        <input name="submitter-name" id="submitter-name" type="text" />
+        <Input name="submitter-name" id="submitter-name" type="text" />
       </label>
       <br />
-      <Button type="submit">Submit</Button>
+      <Button htmlType="submit" type="primary">
+        Submit
+      </Button>
     </form>
   );
 };

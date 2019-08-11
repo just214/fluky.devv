@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Modal from "react-responsive-modal";
 import PodcastSuggestionForm from "../components/podcast-suggestion-form";
 import { Title } from "../components/common";
+import useMedia from "../hooks/useMedia";
+import Modal from "antd/es/modal";
 
 const Podcasts = ({ pageContext }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isMobile } = useMedia();
+
+  useEffect(() => {
+    console.log("ISMOBILE", isMobile);
+  }, [isMobile]);
 
   const sortedPodcasts = JSON.parse(pageContext.podcasts).sort((a, b) => {
     const nameA = a.title.toLowerCase();
@@ -14,18 +20,10 @@ const Podcasts = ({ pageContext }) => {
     return nameA < nameB ? -1 : 1;
   });
 
+  // const { getCollapseProps, getToggleProps, isOpen } = useCollapse();
+
   return (
     <Layout maxWidth="90%">
-      <Modal open={isOpen} onClose={() => setIsOpen(false)} center>
-        <div
-          css={`
-            max-width: 80vw;
-          `}
-        >
-          <PodcastSuggestionForm />
-        </div>
-      </Modal>
-      <PodcastSuggestionForm />
       <div
         css={`
           margin-bottom: 200px;
@@ -35,6 +33,7 @@ const Podcasts = ({ pageContext }) => {
         <h4>A collection of the best developer and coding podcasts.</h4>
         <br />
         <button
+          onClick={() => setIsOpen(true)}
           css={`
             border: none;
             cursor: pointer;
@@ -42,12 +41,25 @@ const Podcasts = ({ pageContext }) => {
             font-size: 20px;
             padding: 0;
           `}
-          onClick={() => {
-            setIsOpen(true);
-          }}
         >
           Suggest a podcast
         </button>
+
+        {/* <section {...getCollapseProps()}>
+          <PodcastSuggestionForm />
+        </section> */}
+
+        <Modal
+          title="Suggest a Podcast"
+          visible={isOpen}
+          footer={null}
+          // onOk={() => setIsOpen(false)}
+          // okText="Submit"
+          onCancel={() => setIsOpen(false)}
+        >
+          <PodcastSuggestionForm />
+        </Modal>
+
         {sortedPodcasts.map(podcast => {
           return (
             <div
@@ -57,23 +69,17 @@ const Podcasts = ({ pageContext }) => {
                 margin: 15px 0px;
                 border-bottom: 1px solid ${props => props.theme.gray3};
                 padding: 10px;
-                @media (max-width: 500px) {
-                  flex-direction: column;
-                  align-items: center;
-                }
+                flex-direction: ${isMobile ? "column" : "row"};
+                align-items: ${isMobile ? "flex-start" : "center"};
               `}
             >
               <img
                 css={`
                   border-radius: 10px;
-                  margin-right: 10px;
-                  height: 150px;
+                  margin-right: ${isMobile ? "0px" : "10px"};
+                  height: ${isMobile ? "100%" : "150px"};
+                  margin-bottom: ${isMobile ? "10px" : "0px"};
                   width: auto;
-                  @media (max-width: 500px) {
-                    height: 100%;
-                    margin-right: 0px;
-                    margin-bottom: 10px;
-                  }
                 `}
                 src={podcast.thumbnail}
               />

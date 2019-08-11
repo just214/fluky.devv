@@ -31,7 +31,7 @@ const App = () => (
         <MenuBlock rotate={3} to="/newsletters">
           NEWSLETTERS
         </MenuBlock>
-        <MenuBlock rotate={3} to="/about-site">
+        <MenuBlock rotate={-2} to="/about-site">
           ABOUT THIS SITE
         </MenuBlock>
       </div>

@@ -4,9 +4,9 @@ import Layout from "../components/layout";
 import SingleChoice from "../components/quiz-single-choice";
 import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
-import Button from "../components/quiz-button";
+import QuizButton from "../components/quiz-button";
 import { motion } from "framer-motion";
-import { Line } from "rc-progress";
+import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
 import { Title } from "../components/common";
 
@@ -158,10 +158,10 @@ export const Page = ({ data }) => {
           margin-bottom: 280px;
         `}
       >
-        <Line
+        <Progress
           percent={(answeredCount / data.allAirtable.edges.length) * 100}
-          strokeWidth={2}
-          strokeColor={answeredCount ? "#0066B8" : "transparent"}
+          strokeColor="#52c41a"
+          showInfo={false}
         />
 
         <div
@@ -231,7 +231,7 @@ export const Page = ({ data }) => {
         `}
       > */}
       {userAnswer && !isQuestionAnswered && (
-        <Button
+        <QuizButton
           onClick={checkAnswer}
           initial={{ scale: 0.8, opacity: 0.3 }}
           animate={{ scale: 1.2, opacity: 1 }}
@@ -241,7 +241,7 @@ export const Page = ({ data }) => {
       )}
 
       {userAnswer && isQuestionAnswered && (
-        <Button
+        <QuizButton
           initial={{ scale: 0.8, opacity: 0.3 }}
           animate={{ scale: 1.2, opacity: 1 }}
           onClick={handleGoToNextQuestion}

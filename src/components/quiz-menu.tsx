@@ -12,16 +12,15 @@ const QuizMenu = () => {
         css={`
           background: #222;
           padding: 10px;
+          margin-top: -20px;
         `}
       >
         <div
           css={`
             display: flex;
             flex-wrap: wrap;
-
             justify-content: center;
-            padding-top: 30px;
-            margin-top: -30px;
+            padding-top: 20px;
             border-radius: 10px;
           `}
         >
@@ -37,7 +36,7 @@ const QuizMenu = () => {
                   justify-content: center;
                   align-items: center;
                   margin: 10px;
-                  min-width: 130px;
+                  min-width: 140px;
                   padding: 10px;
                   text-decoration: none;
                   color: ${props => props.theme.blue};
@@ -59,11 +58,18 @@ const QuizMenu = () => {
                     padding: 0;
                     margin: 0;
                     margin-top: 10px;
+                    color: ${props => props.theme.lightblue};
                   `}
                 >
                   {node.data.Name}
                 </h3>
-                <h3>Quiz</h3>
+                <h3
+                  css={`
+                    color: ${props => props.theme.lightblue};
+                  `}
+                >
+                  Quiz
+                </h3>
               </Link>
             );
           })}
