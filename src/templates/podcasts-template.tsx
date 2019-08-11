@@ -25,12 +25,15 @@ const Podcasts = ({ pageContext }) => {
           <PodcastSuggestionForm />
         </div>
       </Modal>
+      <PodcastSuggestionForm />
       <div
         css={`
           margin-bottom: 200px;
         `}
       >
-        <Title>Podcasts for Developers</Title>
+        <Title>Podcasts</Title>
+        <h4>A collection of the best developer and coding podcasts.</h4>
+        <br />
         <button
           css={`
             border: none;

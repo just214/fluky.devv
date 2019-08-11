@@ -17,19 +17,19 @@ const PodcastSuggestionForm = () => {
         }
       `}
     >
-      <Input type="hidden" name="form-name" value="podcast-suggestion" />
+      <input type="hidden" name="form-name" value="podcast-suggestion" />
       <label htmlFor="podcast-name">
         Name of Podcast
-        <Input name="podcast-name" id="podcast-name" autoFocus type="text" />
+        <input name="podcast-name" id="podcast-name" autoFocus type="text" />
       </label>
       <label htmlFor="podcast-website">
         Podcast Website (optional)
-        <Input name="podcast-website" id="podcast-website" type="text" />
+        <input name="podcast-website" id="podcast-website" type="text" />
       </label>
 
       <label htmlFor="submitter-name">
         Your Name (optional)
-        <Input name="submitter-name" id="submitter-name" type="text" />
+        <input name="submitter-name" id="submitter-name" type="text" />
       </label>
       <br />
       <Button type="submit">Submit</Button>

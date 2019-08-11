@@ -4,7 +4,6 @@ import SearchBox from "../components/search-box";
 import { Title } from "../components/common";
 
 const BuzzWords = ({ pageContext }) => {
-  console.log(pageContext);
   const [filter, setFilter] = useState("");
   const buzzwords = pageContext.buzzwords.filter(({ node }) => {
     return (
@@ -14,11 +13,17 @@ const BuzzWords = ({ pageContext }) => {
   });
   return (
     <Layout maxWidth="800px">
-      <div>
+      <div
+        css={`
+          margin-bottom: 100px;
+        `}
+      >
         <Title>Buzzwords</Title>
 
+        <h4>An ongoing collection of developer and coding buzzwords.</h4>
+
         <br />
-        <SearchBox onChange={e => setFilter(e.target.value)} />
+        <SearchBox onChange={e => setFilter(e)} />
 
         {buzzwords.map(({ node }) => {
           return (
@@ -26,13 +31,14 @@ const BuzzWords = ({ pageContext }) => {
               key={node.data.Word}
               css={`
                 margin: 10px 0px;
+
                 padding: 8px;
                 border-radius: 10px;
                 border: 1px solid ${props => props.theme.gray2};
                 background: ${props => props.theme.gray1};
               `}
             >
-              <h1
+              <h2
                 css={`
                   color: ${props => props.theme.blue};
                   margin: 0px;
@@ -42,7 +48,7 @@ const BuzzWords = ({ pageContext }) => {
                 `}
               >
                 {node.data.Word}
-              </h1>
+              </h2>
               <p>{node.data.Definition}</p>
             </div>
           );

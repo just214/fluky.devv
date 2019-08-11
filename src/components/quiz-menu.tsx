@@ -10,7 +10,7 @@ const QuizMenu = () => {
       <MenuBlock rotate={-3}>QUIZZES</MenuBlock>
       <div
         css={`
-          background: #efefef;
+          background: #222;
           padding: 10px;
         `}
       >

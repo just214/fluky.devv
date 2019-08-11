@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 // TODO NEED SEO ON THIS PAGE!
-import MainMenu from "../components/quiz-menu";
+import QuizMenu from "../components/quiz-menu";
 import MenuBlock from "../components/menu-block";
 
 const App = () => (
@@ -12,7 +12,7 @@ const App = () => (
         padding-top: 30px;
       `}
     >
-      <MainMenu />
+      <QuizMenu />
       <div
         css={`
           margin-top: 30px;
