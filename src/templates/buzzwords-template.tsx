@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../components/layout";
-import SearchBox from "../components/search-box";
-import { Title } from "../components/common";
+import { Title, BackToTop, SearchBox } from "../components/common";
 
 const BuzzWords = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
@@ -13,6 +12,7 @@ const BuzzWords = ({ pageContext }) => {
   });
   return (
     <Layout maxWidth="800px">
+      <BackToTop />
       <div
         css={`
           margin-bottom: 100px;

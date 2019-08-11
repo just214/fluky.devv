@@ -6,21 +6,35 @@ import { Title } from "../components/common";
 import useMedia from "../hooks/useMedia";
 import Modal from "antd/es/modal";
 import Button from "antd/es/button";
+import { BackToTop, SearchBox } from "../components/common";
 
 const Podcasts = ({ pageContext }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [filter, setFilter] = useState("");
   const { isMobile } = useMedia();
 
-  const sortedPodcasts = JSON.parse(pageContext.podcasts).sort((a, b) => {
-    const nameA = a.title.toLowerCase();
-    const nameB = b.title.toLowerCase();
-    return nameA < nameB ? -1 : 1;
-  });
+  const sortedPodcasts = JSON.parse(pageContext.podcasts)
+    .sort((a, b) => {
+      const nameA = a.title.toLowerCase();
+      const nameB = b.title.toLowerCase();
+      return nameA < nameB ? -1 : 1;
+    })
+    .filter(v => {
+      if (v.title.toLowerCase().includes(filter.toLowerCase())) {
+        return true;
+      } else if (v.description.toLowerCase().includes(filter.toLowerCase())) {
+        return true;
+      } else {
+        return false;
+      }
+    });
 
   // const { getCollapseProps, getToggleProps, isOpen } = useCollapse();
 
   return (
-    <Layout maxWidth="90%">
+    <Layout maxWidth="1200px">
+      <BackToTop />
+
       <div
         css={`
           margin-bottom: 200px;
@@ -28,7 +42,8 @@ const Podcasts = ({ pageContext }) => {
       >
         <Title>Podcasts</Title>
         <h4>A collection of the best developer and coding podcasts.</h4>
-
+        <SearchBox onChange={value => setFilter(value)} />
+        <br />
         <Button
           size="large"
           type="link"

@@ -43,7 +43,7 @@ export const AboutSite = () => {
       </Title>
       <Timeline
         mode={isMobile ? "left" : "alternate"}
-        style={{ marginTop: "100px" }}
+        style={{ marginTop: "40px", padding: "10px" }}
       >
         {data.map(({ text, image }) => {
           return (
