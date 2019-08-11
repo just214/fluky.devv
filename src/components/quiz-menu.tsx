@@ -63,6 +63,7 @@ const QuizMenu = () => {
                 >
                   {node.data.Name}
                 </h3>
+                <h3>Quiz</h3>
               </Link>
             );
           })}

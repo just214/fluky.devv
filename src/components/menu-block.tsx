@@ -28,7 +28,7 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
           display: flex;
           align-items: center;
           justify-content: space-around;
-          font-family: "Lakki Reddy", cursive;
+          font-family: "Barriecito", cursive;
         `}
       >
         {children}

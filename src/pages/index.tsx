@@ -5,7 +5,7 @@ import MainMenu from "../components/quiz-menu";
 import MenuBlock from "../components/menu-block";
 
 const App = () => (
-  <Layout maxWidth="800px">
+  <Layout maxWidth="100%" bg="#333">
     <div
       css={`
         padding: 30px;

@@ -8,6 +8,7 @@ import Button from "../components/quiz-button";
 import { motion } from "framer-motion";
 import { Line } from "rc-progress";
 import QuizResults from "../components/quiz-results";
+import { Title } from "../components/common";
 
 const getFeedbackCorrect = () => {
   const options: string[] = [
@@ -81,7 +82,6 @@ export const Page = ({ data }) => {
   }, [currentIndex]);
 
   const checkAnswer = () => {
-    console.log("CHECK ANSWER");
     if (!userAnswer) return;
     setIsQuestionAnswered(true);
     if (userAnswer === currentQuestion.data.Answer) {
@@ -108,14 +108,13 @@ export const Page = ({ data }) => {
       if ([49, 50, 51, 52].includes(e.charCode)) {
         handleSetUserAnswer(keycodeMap[e.charCode]);
       } else if (e.charCode === 13) {
-        console.log(isQuestionAnsweredRef.current);
-        if (!isQuestionAnsweredRef.current) {
-          console.log("SHOULD CHECK");
-          checkAnswer();
-        } else if (isQuestionAnsweredRef.current) {
-          console.log("SHOULD GO TO NEXT");
-          handleGoToNextQuestion();
-        }
+        // if (!isQuestionAnsweredRef.current) {
+        //   console.log("SHOULD CHECK");
+        //   checkAnswer();
+        // } else if (isQuestionAnsweredRef.current) {
+        //   console.log("SHOULD GO TO NEXT");
+        //   handleGoToNextQuestion();
+        // }
       }
     });
     return document.removeEventListener("keypress", () => {});
@@ -153,13 +152,7 @@ export const Page = ({ data }) => {
 
   return (
     <Layout>
-      <h1
-        css={`
-          margin: 5px 0px;
-        `}
-      >
-        {currentQuestion.data.Category} Quiz
-      </h1>
+      <Title>{currentQuestion.data.Category} Quiz</Title>
       <div
         css={`
           margin-bottom: 280px;
@@ -168,7 +161,7 @@ export const Page = ({ data }) => {
         <Line
           percent={(answeredCount / data.allAirtable.edges.length) * 100}
           strokeWidth={2}
-          strokeColor={answeredCount ? "green" : "transparent"}
+          strokeColor={answeredCount ? "#0066B8" : "transparent"}
         />
 
         <div

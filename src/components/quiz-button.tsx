@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const StyledButton = styled(motion.button)`
-  height: 50px;
-  width: 180px;
-  font-size: 20px;
+  height: 40px;
+  min-width: 150px;
+  font-size: 16px;
   border-radius: 40px;
   outline: 0;
   border: none;
@@ -24,6 +24,11 @@ const StyledButton = styled(motion.button)`
   &:focus {
     background: ${props => props.theme.blue};
     color: #fff;
+  }
+
+  small {
+    font-size: 0.8rem;
+    font-weight: normal;
   }
 `;
 
@@ -49,13 +54,7 @@ export const Button: React.FC<ButtonProps & any> = ({
         `}
       >
         <span>{title}</span>
-        <small
-          css={`
-            font-size: 0.8rem;
-          `}
-        >
-          {subTitle}
-        </small>
+        <small>{subTitle}</small>
       </div>
     </StyledButton>
   );

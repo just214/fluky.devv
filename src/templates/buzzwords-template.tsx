@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SearchBox from "../components/search-box";
+import { Title } from "../components/common";
 
 const BuzzWords = ({ pageContext }) => {
   console.log(pageContext);
@@ -15,21 +15,8 @@ const BuzzWords = ({ pageContext }) => {
   return (
     <Layout maxWidth="800px">
       <div>
-        <h1
-          css={`
-            font-family: "Lakki Reddy";
-            font-size: 3rem;
-            margin: 0;
-            padding: 0;
-            color: ${props => props.theme.orange};
-          `}
-        >
-          Buzzwords
-        </h1>
-        <h3>
-          An ongoing list of buzzwords that you are likely to encounter at some
-          point as a developer.
-        </h3>
+        <Title>Buzzwords</Title>
+
         <br />
         <SearchBox onChange={e => setFilter(e.target.value)} />
 
@@ -47,7 +34,7 @@ const BuzzWords = ({ pageContext }) => {
             >
               <h1
                 css={`
-                  color: ${props => props.theme.orange};
+                  color: ${props => props.theme.blue};
                   margin: 0px;
                   padding: 0;
                   margin-top: 15px;

@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Modal from "react-responsive-modal";
 import PodcastSuggestionForm from "../components/podcast-suggestion-form";
+import { Title } from "../components/common";
 
 const Podcasts = ({ pageContext }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,15 +30,7 @@ const Podcasts = ({ pageContext }) => {
           margin-bottom: 200px;
         `}
       >
-        <h1
-          css={`
-            font-family: "Lalezar";
-            font-size: 3rem;
-            color: orange;
-          `}
-        >
-          PODCASTS FOR DEVELOPERS
-        </h1>
+        <Title>Podcasts for Developers</Title>
         <button
           css={`
             border: none;

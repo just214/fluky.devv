@@ -19,9 +19,7 @@ body {
 }
 
 code, pre {
-  background: #efefef;
-  border-radius: 3px;
-  color: rgb(245, 3, 124);
+  color: rgb(0, 156, 170);
   font-weight: bold;
   display: inline-block;
   padding: 3px;
