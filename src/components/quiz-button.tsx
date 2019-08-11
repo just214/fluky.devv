@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const StyledButton = styled(motion.button)`
-  height: 40px;
+  height: 44px;
   min-width: 150px;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 40px;
   outline: 0;
   border: none;
@@ -27,7 +27,7 @@ const StyledButton = styled(motion.button)`
   }
 
   small {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: normal;
   }
 `;

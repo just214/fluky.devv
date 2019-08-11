@@ -9,19 +9,18 @@ const Option = styled.div<{
   display: flex;
   align-items: center;
   border: 2px solid #fbfbfb;
-  border-color: ${props => (props.isUserAnswer ? props.theme.blue : "#efefef")};
+
   background: ${props =>
     props.isCorrectAnswer ? props.theme.lightgreen : "#efefef"};
   border-radius: 8px;
-  padding: 5px;
+  padding: 10px;
   color: #333;
   font-weight: bold;
   cursor: ${props => (props.isUserAnswer ? "default" : "pointer")};
   transition: border-color 0.2s;
   margin: 5px 0px;
   :hover {
-    border-color: ${props =>
-      props.isUserAnswer ? props.theme.blue : "#dadada"};
+    border-color: #dadada;
   }
   overflow: hidden;
 `;
@@ -83,9 +82,14 @@ export const SingleChoice: React.FC<QuestionProps> = ({
               <span
                 css={`
                   font-weight: bold;
-                  padding: 5px;
+                  padding: 3px 5px;
                   color: ${props => props.theme.blue};
                   font-size: 1.5rem;
+                  border: 2px solid #efefef;
+                  border-radius: 5px;
+                  border-color: ${userAnswer == option.id
+                    ? "#0066B8"
+                    : "#efefef"};
                 `}
               >
                 {option.id}
