@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import Button from "antd/es/button";
 
 const Span = styled.span`
   color: ${props => props.theme.blue};
@@ -20,13 +21,15 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
     <div
       css={`
         background-color: #efefef;
-        padding: 10px;
+        padding: 20px;
         border-radius: 10px;
+        margin-top: 50px;
       `}
     >
       <h1>
-        Your Score: <Span>{score}%</Span>
+        Final Score: <Span>{score}%</Span>
       </h1>
+
       <h3>
         Correct Answers: <Span>{correctCount}</Span>
       </h3>
@@ -34,7 +37,12 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
         Incorrect Answers: <Span>{incorrectCount}</Span>
       </h3>
       <br />
-      <Link to="/">Done</Link>
+
+      <Link to="/">
+        <Button type="primary" ghost>
+          Done
+        </Button>
+      </Link>
     </div>
   );
 };

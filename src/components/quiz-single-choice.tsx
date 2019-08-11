@@ -12,7 +12,7 @@ const Option = styled.div<{
   background: ${props =>
     props.isCorrectAnswer ? props.theme.lightgreen : "#efefef"};
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
   color: #333;
   font-weight: bold;
   cursor: ${props => (props.isUserAnswer ? "default" : "pointer")};
@@ -81,7 +81,7 @@ export const SingleChoice: React.FC<QuestionProps> = ({
               <span
                 css={`
                   font-weight: bold;
-                  padding: 5px;
+                  padding: 3px;
                   color: ${props => props.theme.blue};
                   font-size: 1.5rem;
                   border: 3px solid #efefef;

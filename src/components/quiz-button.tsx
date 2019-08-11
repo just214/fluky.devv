@@ -44,7 +44,7 @@ export const Button: React.FC<ButtonProps & any> = ({
   ...rest
 }) => {
   return (
-    <StyledButton {...rest}>
+    <StyledButton {...rest} autoFocus>
       <div
         css={`
           display: flex;

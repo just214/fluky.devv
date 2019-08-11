@@ -134,13 +134,7 @@ export const Page = ({ data }) => {
   if (isQuizCompleted) {
     return (
       <Layout>
-        <h1
-          css={`
-            margin: 5px 0px;
-          `}
-        >
-          {currentQuestion.data.Category} Quiz
-        </h1>
+        <Title>{currentQuestion.data.Category} Quiz</Title>
         <QuizResults
           score={score}
           correctCount={questionsAnsweredCorrectly}
