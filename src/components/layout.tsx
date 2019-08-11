@@ -13,6 +13,7 @@ const Container = styled.div<{ maxWidth?: string }>`
 const theme = {
   blue: "#0066B8",
   lightblue: "#329bf0",
+  antgreen: "rgb(82, 196, 26)",
   lightgreen: "#93ff61",
   gray1: "#f5f5f5",
   gray2: "#efefef",
@@ -56,7 +57,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
         >
           <header
             css={`
-              height: 50px;
+              padding: 10px;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -66,14 +67,15 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
           >
             <Link to="/">
               {" "}
-              <h2
+              <h1
                 css={`
                   color: ${props => props.theme.lightblue};
                   font-family: "Barriecito";
+                  margin: 0;
                 `}
               >
                 <b>DEV STUFF 💫</b>
-              </h2>
+              </h1>
             </Link>
           </header>
           <Container maxWidth={maxWidth}>

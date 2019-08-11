@@ -84,8 +84,8 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                   padding: 5px;
                   color: ${props => props.theme.blue};
                   font-size: 1.5rem;
-                  border: 2px solid #efefef;
-                  border-radius: 50px;
+                  border: 3px solid #efefef;
+                  border-radius: 4px;
                   border-color: ${userAnswer == option.id
                     ? "#0066B8"
                     : "transparent"};
@@ -94,13 +94,14 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                 {option.id}
               </span>
             </div>
-            <div
+            <span
               css={`
                 overflow-y: scroll;
+                height: auto;
               `}
             >
               <Markdown source={option.value} />
-            </div>
+            </span>
           </Option>
         );
       })}

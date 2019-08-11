@@ -20,18 +20,13 @@ body {
 }
 
 code, pre {
-  color: rgb(0, 156, 170);
+  color: #1890ff;
   font-weight: bold;
   display: inline-block;
-  padding: 3px;
   font-size: 1.1rem;
 }
 
-p {
-  padding: 0px;
-  margin: 4px;
-  line-height: 24px;
-}
+
 
 a {
   text-decoration: none;

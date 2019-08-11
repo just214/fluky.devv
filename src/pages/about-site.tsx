@@ -22,7 +22,7 @@ export const AboutSite = () => {
       image: "gatsby.png",
     },
     {
-      text: "Driven by the Airtable API",
+      text: "Driven by Airtable",
       image: "airtable.png",
     },
 
@@ -42,7 +42,7 @@ export const AboutSite = () => {
             <Timeline.Item
               key={text}
               dot={<Image filename={image} />}
-              style={{ margin: "40px" }}
+              style={{ margin: "30px 10px" }}
             >
               <TimelineTitle>{text}</TimelineTitle>
             </Timeline.Item>

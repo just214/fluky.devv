@@ -197,7 +197,7 @@ export const Page = ({ data }) => {
             {userAnswer === currentQuestion.data.Answer && (
               <h2
                 css={`
-                  color: green;
+                  color: ${props => props.theme.antgreen};
                   margin: 10px 0px;
                 `}
               >

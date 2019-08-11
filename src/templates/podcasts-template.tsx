@@ -5,6 +5,7 @@ import PodcastSuggestionForm from "../components/podcast-suggestion-form";
 import { Title } from "../components/common";
 import useMedia from "../hooks/useMedia";
 import Modal from "antd/es/modal";
+import Button from "antd/es/button";
 
 const Podcasts = ({ pageContext }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,19 +32,15 @@ const Podcasts = ({ pageContext }) => {
       >
         <Title>Podcasts</Title>
         <h4>A collection of the best developer and coding podcasts.</h4>
-        <br />
-        <button
+
+        <Button
+          size="large"
+          type="link"
           onClick={() => setIsOpen(true)}
-          css={`
-            border: none;
-            cursor: pointer;
-            color: ${props => props.theme.blue};
-            font-size: 20px;
-            padding: 0;
-          `}
+          style={{ margin: 0, padding: 0 }}
         >
-          Suggest a podcast
-        </button>
+          Suggest a Podcast
+        </Button>
 
         {/* <section {...getCollapseProps()}>
           <PodcastSuggestionForm />
@@ -77,9 +74,9 @@ const Podcasts = ({ pageContext }) => {
                 css={`
                   border-radius: 10px;
                   margin-right: ${isMobile ? "0px" : "10px"};
-                  height: ${isMobile ? "100%" : "150px"};
+                  height: auto;
                   margin-bottom: ${isMobile ? "10px" : "0px"};
-                  width: auto;
+                  width: ${isMobile ? "80%" : "150px"};
                 `}
                 src={podcast.thumbnail}
               />
@@ -104,7 +101,13 @@ const Podcasts = ({ pageContext }) => {
                     margin-top: 12px;
                   `}
                 >
-                  <p>{podcast.total_episodes} episodes</p>
+                  <p
+                    css={`
+                      margin: 0;
+                    `}
+                  >
+                    {podcast.total_episodes} episodes
+                  </p>
                   {podcast.website && (
                     <a
                       href={podcast.website}
@@ -119,6 +122,7 @@ const Podcasts = ({ pageContext }) => {
                     >
                       <p
                         css={`
+                          margin: 0;
                           margin-right: 5px;
                         `}
                       >

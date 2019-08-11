@@ -9,6 +9,9 @@ TODO
 - Secure the `/admin` route with authentication.
 - Add flag feature for each quiz question, buzzword, etc.. possibly using Netlify forms.
 - Analytics...netlify?
+- Can I use purge to tree shake Antd styles that are unused?
+- Add google hidden recaptcha to Netlify forms.
+- Handle Netlify form submissions with feedback.
 
 IDEAS
 - Podcasts
