@@ -7,7 +7,14 @@ const QuizMenu = () => {
   const data = useQuizCategories();
   return (
     <>
-      <MenuBlock rotate={-3}>QUIZZES</MenuBlock>
+      <MenuBlock
+        rotate={-3}
+        gradient={`background: #fc4a1a;
+          background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
+          background: linear-gradient(to right, #f7b733, #fc4a1a);`}
+      >
+        QUIZZES
+      </MenuBlock>
       <div
         css={`
           background: #222;
@@ -66,6 +73,7 @@ const QuizMenu = () => {
                 <h3
                   css={`
                     color: ${props => props.theme.lightblue};
+                    margin: 0;
                   `}
                 >
                   Quiz

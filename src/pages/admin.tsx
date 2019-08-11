@@ -1,8 +1,10 @@
 import React from "react";
 import Layout from "../components/layout";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
 import Markdown from "../components/markdown";
+import Tabs from "antd/es/tabs";
+import Button from "antd/es/button";
+
+const { TabPane } = Tabs;
 
 export const Admin = () => {
   const triggerDeploy = () => {
@@ -30,15 +32,8 @@ export const Admin = () => {
       <h1>ADMIN</h1>
 
       <Tabs>
-        <TabList>
-          {options.map(opt => (
-            <Tab key={opt.title}>{opt.title}</Tab>
-          ))}
-          <Tab>Deploy</Tab>
-        </TabList>
-
         {options.map(opt => (
-          <TabPanel key={opt.title}>
+          <TabPane tab={opt.title} key={opt.title}>
             <iframe
               className="airtable-embed"
               src={opt.link}
@@ -51,33 +46,14 @@ export const Admin = () => {
                 width: 100%;
               `}
             />
-          </TabPanel>
+          </TabPane>
         ))}
-
-        <TabPanel
-          css={`
-            text-align: center;
-            margin-top: 40px;
-          `}
-        >
+        <TabPane tab="Deploy">
           <Markdown source="[![Netlify Status](https://api.netlify.com/api/v1/badges/dce92e50-d885-4800-829d-a5270d421378/deploy-status)](https://app.netlify.com/sites/devquiz/deploys)" />
-          <button
-            css={`
-              height: 300px;
-              width: 300px;
-              color: #fff;
-              border-radius: 400px;
-              font-size: 60px;
-              font-weight: bold;
-              border: 8px solid #333;
-              cursor: pointer;
-              background: red;
-            `}
-            onClick={triggerDeploy}
-          >
-            PUSH
-          </button>
-        </TabPanel>
+          <Button type="primary" ghost onClick={triggerDeploy}>
+            Trigger Deploy
+          </Button>
+        </TabPane>
       </Tabs>
     </Layout>
   );

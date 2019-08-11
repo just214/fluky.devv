@@ -4,8 +4,15 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 
 export interface MenuBlockProps {
   rotate: number;
+  gradient: string;
+  color?: string;
 }
-export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
+export const MenuBlock: React.FC<MenuBlockProps> = ({
+  children,
+  rotate,
+  gradient,
+  color,
+}) => {
   return (
     <div
       css={`
@@ -17,10 +24,8 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
     >
       <span
         css={`
-          background: #fc4a1a; /* fallback for old browsers */
-          background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
-          background: linear-gradient(to right, #f7b733, #fc4a1a);
-          color: white;
+          ${gradient}
+          color: ${color || "white"};
           padding: 10px;
           margin: 0;
           margin-left: -10px;
@@ -37,20 +42,24 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({ children, rotate }) => {
   );
 };
 
-export interface MenuBlockWrapperProps {
+interface MenuBlockWrapperProps {
   rotate: number;
   to?: string;
+  gradient: string;
+  color?: string;
 }
 
 const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
   to,
   children,
   rotate,
+  gradient,
+  color,
 }) => {
   if (to) {
     return (
       <Link to={to}>
-        <MenuBlock rotate={rotate}>
+        <MenuBlock rotate={rotate} gradient={gradient} color={color}>
           <span
             css={`
               margin-right: 10px;
@@ -63,7 +72,11 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
       </Link>
     );
   } else {
-    return <MenuBlock rotate={rotate}>{children}</MenuBlock>;
+    return (
+      <MenuBlock gradient={gradient} rotate={rotate}>
+        {children}
+      </MenuBlock>
+    );
   }
 };
 

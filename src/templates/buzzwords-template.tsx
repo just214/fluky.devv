@@ -31,7 +31,6 @@ const BuzzWords = ({ pageContext }) => {
               key={node.data.Word}
               css={`
                 margin: 10px 0px;
-
                 padding: 8px;
                 border-radius: 10px;
                 border: 1px solid ${props => props.theme.gray2};
@@ -42,14 +41,19 @@ const BuzzWords = ({ pageContext }) => {
                 css={`
                   color: ${props => props.theme.blue};
                   margin: 0px;
-                  padding: 0;
-                  margin-top: 15px;
+                  padding: 0px;
                   font-family: "Lalezar", sans-serif;
                 `}
               >
                 {node.data.Word}
               </h2>
-              <p>{node.data.Definition}</p>
+              <p
+                css={`
+                  margin: 0;
+                `}
+              >
+                {node.data.Definition}
+              </p>
             </div>
           );
         })}

@@ -11,10 +11,6 @@ const Podcasts = ({ pageContext }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMobile } = useMedia();
 
-  useEffect(() => {
-    console.log("ISMOBILE", isMobile);
-  }, [isMobile]);
-
   const sortedPodcasts = JSON.parse(pageContext.podcasts).sort((a, b) => {
     const nameA = a.title.toLowerCase();
     const nameB = b.title.toLowerCase();
@@ -42,19 +38,19 @@ const Podcasts = ({ pageContext }) => {
           Suggest a Podcast
         </Button>
 
-        {/* <section {...getCollapseProps()}>
-          <PodcastSuggestionForm />
-        </section> */}
-
         <Modal
           title="Suggest a Podcast"
           visible={isOpen}
           footer={null}
-          // onOk={() => setIsOpen(false)}
-          // okText="Submit"
           onCancel={() => setIsOpen(false)}
         >
-          <PodcastSuggestionForm />
+          <div
+            css={`
+              max-width: 100%;
+            `}
+          >
+            <PodcastSuggestionForm />
+          </div>
         </Modal>
 
         {sortedPodcasts.map(podcast => {

@@ -41,7 +41,6 @@
     "react-icons": "^3.7.0",
     "react-markdown": "^4.1.0",
     "react-syntax-highlighter": "^11.0.2",
-    "react-tabs": "^3.0.0",
     "styled-components": "^4.3.2",
     "unirest": "^0.6.0",
     "use-media": "^1.4.0"

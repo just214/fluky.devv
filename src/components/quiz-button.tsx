@@ -10,7 +10,7 @@ const StyledButton = styled(motion.button)`
   outline: 0;
   border: none;
   font-weight: bold;
-  background: ${props => props.theme.blue};
+  background: ${props => props.theme.white};
   color: #fff;
   cursor: pointer;
   position: fixed;
@@ -22,7 +22,7 @@ const StyledButton = styled(motion.button)`
   justify-content: center;
 
   &:focus {
-    background: ${props => props.theme.blue};
+    background: ${props => props.theme.antgreen};
     color: #fff;
   }
 
@@ -34,15 +34,10 @@ const StyledButton = styled(motion.button)`
 
 export interface ButtonProps {
   title: string;
-  subTitle?: string;
   initial: object;
   animate: object;
 }
-export const Button: React.FC<ButtonProps & any> = ({
-  title,
-  subTitle,
-  ...rest
-}) => {
+export const Button: React.FC<ButtonProps & any> = ({ title, ...rest }) => {
   return (
     <StyledButton {...rest} autoFocus>
       <div
@@ -54,7 +49,6 @@ export const Button: React.FC<ButtonProps & any> = ({
         `}
       >
         <span>{title}</span>
-        <small>{subTitle}</small>
       </div>
     </StyledButton>
   );

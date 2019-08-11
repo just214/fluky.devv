@@ -29,10 +29,11 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
       <h1>
         Final Score: <Span>{score}%</Span>
       </h1>
-
+      <br />
       <h3>
         Correct Answers: <Span>{correctCount}</Span>
       </h3>
+      <br />
       <h3>
         Incorrect Answers: <Span>{incorrectCount}</Span>
       </h3>

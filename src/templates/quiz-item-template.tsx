@@ -213,24 +213,12 @@ export const Page = ({ data }) => {
         )}
       </div>
 
-      {/* <div
-        css={`
-          position: fixed;
-          bottom: 40px;
-          right: 30px;
-          height: 100px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        `}
-      > */}
       {userAnswer && !isQuestionAnswered && (
         <QuizButton
           onClick={checkAnswer}
           initial={{ scale: 0.8, opacity: 0.3 }}
           animate={{ scale: 1.2, opacity: 1 }}
           title="Check Answer"
-          subTitle="(or press enter)"
         />
       )}
 
@@ -240,10 +228,8 @@ export const Page = ({ data }) => {
           animate={{ scale: 1.2, opacity: 1 }}
           onClick={handleGoToNextQuestion}
           title="Next"
-          subTitle="(or press enter)"
         />
       )}
-      {/* </div> */}
     </Layout>
   );
 };
