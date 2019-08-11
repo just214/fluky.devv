@@ -2,6 +2,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import MenuBlock from "./menu-block";
 import SEO from "./seo";
 import "./layout.css";
 
@@ -58,28 +59,29 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
         >
           <header
             css={`
-              padding: 10px;
+              padding: 0px;
+              height: 50px;
               display: flex;
               align-items: center;
-              justify-content: center;
-
-              background: #333;
+              justify-content: flex-end;
+              background: inherit;
             `}
           >
-            <Link to="/">
-              {" "}
-              <h1
-                css={`
-                  color: ${props => props.theme.lightblue};
-                  font-family: "Barriecito";
-                  margin: 0;
-                `}
-              >
-                <b>
-                  DEV STUFF <FaArrowAltCircleRight size={22} color="yellow" />
-                </b>
-              </h1>
-            </Link>
+            <MenuBlock rotate={2} gradient={``}>
+              <Link to="/">
+                <div
+                  css={`
+                    color: ${props => props.theme.lightblue};
+                    font-family: "Barriecito";
+                    margin: 0;
+                  `}
+                >
+                  <b>
+                    DEV STUFF <FaArrowAltCircleRight size={22} color="#666" />
+                  </b>
+                </div>
+              </Link>
+            </MenuBlock>
           </header>
           <Container maxWidth={maxWidth}>
             <main>{children}</main>
