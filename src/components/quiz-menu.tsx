@@ -60,20 +60,22 @@ const QuizMenu = () => {
                   `}
                   src={node.data.Thumbnail[0].url}
                 />
-                <h3
+                <h2
                   css={`
                     padding: 0;
                     margin: 0;
                     margin-top: 10px;
                     color: ${props => props.theme.lightblue};
+                    font-weight: bold;
                   `}
                 >
                   {node.data.Name}
-                </h3>
+                </h2>
                 <h3
                   css={`
                     color: ${props => props.theme.lightblue};
                     margin: 0;
+                    font-weight: bold;
                   `}
                 >
                   Quiz

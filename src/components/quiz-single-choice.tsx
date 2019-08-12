@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Markdown from "./markdown";
+import { FaCheck, FaTimes } from "react-icons/fa";
 
 const Option = styled.div<{
   isUserAnswer: boolean;
@@ -64,6 +65,16 @@ export const SingleChoice: React.FC<QuestionProps> = ({
       <br />
 
       {options.map(option => {
+        const Feedback = () => {
+          if (!isAnswered) {
+            return <span>{option.id}</span>;
+          } else if (userAnswer == option.id && data.Answer === userAnswer) {
+            return <FaCheck color="green" size={18} />;
+          } else if (userAnswer == option.id && data.Answer !== userAnswer) {
+            return <FaTimes color="tomato" size={18} />;
+          }
+          return <span>{option.id}</span>;
+        };
         return (
           <Option
             isUserAnswer={userAnswer == option.id}
@@ -91,7 +102,7 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                     : "transparent"};
                 `}
               >
-                {option.id}
+                <Feedback />
               </span>
             </div>
             <span

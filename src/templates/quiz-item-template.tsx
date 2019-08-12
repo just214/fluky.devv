@@ -10,6 +10,8 @@ import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
 import { Title } from "../components/common";
 
+import QuizReportIssueForm from "../components/quiz-report-issue-form";
+
 const getFeedbackCorrect = () => {
   const options: string[] = [
     "Correct!",
@@ -46,7 +48,6 @@ const keycodeMap = {
 };
 
 export const Page = ({ data, pageContext }) => {
-  console.log("DATA", data);
   if (!data.allAirtable.edges.length) {
     return (
       <Layout>
@@ -177,6 +178,7 @@ export const Page = ({ data, pageContext }) => {
           userAnswer={userAnswer}
           onSelection={answer => handleSetUserAnswer(answer)}
         />
+        <QuizReportIssueForm id={currentQuestion.data.ID} />
         <br />
         {isQuestionAnswered && (
           <motion.div
@@ -222,7 +224,7 @@ export const Page = ({ data, pageContext }) => {
           initial={{ scale: 0.8, opacity: 0.3 }}
           animate={{ scale: 1.2, opacity: 1 }}
           onClick={handleGoToNextQuestion}
-          title="Next"
+          title="Continue"
         />
       )}
     </Layout>
@@ -242,6 +244,7 @@ export const pageQuery = graphql`
       edges {
         node {
           data {
+            ID
             Type
             Difficulty
             Category
