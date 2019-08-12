@@ -58,6 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
             margin: 0;
             padding: 0;
             background: ${bg || "white"};
+            padding-bottom: 100px;
           `}
         >
           <header

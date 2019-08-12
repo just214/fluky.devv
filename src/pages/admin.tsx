@@ -27,6 +27,10 @@ export const Admin = () => {
       link: "https://airtable.com/embed/shrxBO0psAUk2breH?backgroundColor=cyan",
     },
   ];
+  if (true) {
+    return null;
+  }
+
   return (
     <Layout>
       <h1>ADMIN</h1>
