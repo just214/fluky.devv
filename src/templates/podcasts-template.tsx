@@ -4,12 +4,10 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import PodcastSuggestionForm from "../components/podcast-suggestion-form";
 import { Title } from "../components/common";
 import useMedia from "../hooks/useMedia";
-import Modal from "antd/es/modal";
 import Button from "antd/es/button";
 import { BackToTop, SearchBox } from "../components/common";
 
 const Podcasts = ({ pageContext }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState("");
   const { isMobile } = useMedia();
 
@@ -44,29 +42,8 @@ const Podcasts = ({ pageContext }) => {
         <h4>A collection of the best developer and coding podcasts.</h4>
         <SearchBox onChange={value => setFilter(value)} />
         <br />
-        <Button
-          size="large"
-          type="link"
-          onClick={() => setIsOpen(true)}
-          style={{ margin: 0, padding: 0 }}
-        >
-          Suggest a Podcast
-        </Button>
 
-        <Modal
-          title="Suggest a Podcast"
-          visible={isOpen}
-          footer={null}
-          onCancel={() => setIsOpen(false)}
-        >
-          <div
-            css={`
-              max-width: 100%;
-            `}
-          >
-            <PodcastSuggestionForm />
-          </div>
-        </Modal>
+        <PodcastSuggestionForm />
 
         {sortedPodcasts.map(podcast => {
           return (
