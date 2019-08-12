@@ -14,8 +14,6 @@ TODO
 - Handle Netlify form submissions with feedback.
 
 IDEAS
-- Podcasts
-- Newsletters
 - Coding challenges
 - Games
 - User login for all of this

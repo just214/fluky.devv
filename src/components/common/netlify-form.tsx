@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Input from "antd/es/input";
 import Button from "antd/es/button";
 import NetlifyForm from "react-netlify-form";
 import Modal from "antd/es/modal";
@@ -61,7 +60,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
               } else if (!success && !error) {
                 return (
                   <div>
-                    <Input type="hidden" name="form-name" value={formName} />
+                    <input type="hidden" name="form-name" value={formName} />
                     {children}
                     <br />
                     <Button
