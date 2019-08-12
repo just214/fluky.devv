@@ -1,9 +1,25 @@
-import React, { useState } from "react";
-import Modal from "antd/es/modal";
-import Button from "antd/es/button";
+import React from "react";
 import Input from "antd/es/input";
+import Select from "antd/es/select";
+import NetlifyForm from "./NetlifyForm";
 
+const { Option } = Select;
 const { TextArea } = Input;
+
+const issueOptions = [
+  {
+    label: "The answer is not correct.",
+    value: "incorrect_answer",
+  },
+  {
+    label: "The question is not clear.",
+    value: "unclear_question",
+  },
+  {
+    label: "Another reason",
+    value: "other",
+  },
+];
 
 export interface QuizReportIssueFormProps {
   id: string;
@@ -11,52 +27,31 @@ export interface QuizReportIssueFormProps {
 export const QuizReportIssueForm: React.FC<QuizReportIssueFormProps> = ({
   id,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [reason, setReason] = useState("");
   return (
-    <div>
-      <Button
-        type="link"
-        icon="flag"
-        size="large"
-        onClick={() => setIsOpen(true)}
-      >
-        Report an issue
-      </Button>
-      <Modal
-        title="Report an Issue"
-        visible={isOpen}
-        footer={null}
-        onCancel={() => setIsOpen(false)}
-      >
-        <form
-          method="post"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          action="/"
-          name="report-quiz-issue"
+    <NetlifyForm
+      formName="Report Quiz Issue"
+      successMessage="Thanks for bringing this to our attention!"
+      buttonText="Report an issue"
+      buttonIcon="flag"
+    >
+      <label htmlFor="issue-selection">
+        Please select the appropriate issue.
+        <Select
           css={`
-            label {
-              display: flex;
-              flex-direction: column;
-              padding-top: 12px;
-            }
+            width: 300px;
           `}
         >
-          <Input type="hidden" name="form-name" value="report-quiz-issue" />
-          <label htmlFor="reason">Please describe the issue.</label>
-          <TextArea
-            id="reason"
-            value={reason}
-            onChange={value => setReason(value)}
-          />
-          <Input value={id} style={{ opacity: 0 }} />
-          <Button htmlType="submit" type="primary">
-            Submit
-          </Button>
-        </form>
-      </Modal>
-    </div>
+          {issueOptions.map(option => (
+            <Option key={option.value} value={option.value}>
+              {option.label}
+            </Option>
+          ))}
+        </Select>
+      </label>
+      <label htmlFor="description">Please describe the issue.</label>
+      <TextArea name="description" id="description" rows={4} />
+      <Input name="id" value={id} style={{ opacity: 0 }} />
+    </NetlifyForm>
   );
 };
 
