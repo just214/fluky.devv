@@ -10,7 +10,6 @@ const NewsletterSuggestionForm = () => {
         buttonText="Suggest a Newsletter"
         successMessage="Thanks for the suggestion!"
       >
-        <Input type="hidden" name="form-name" value="podcast-suggestion" />
         <label htmlFor="newsletter-name">
           Name of Newsletter
           <Input
