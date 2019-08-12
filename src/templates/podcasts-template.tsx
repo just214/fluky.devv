@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import PodcastSuggestionForm from "../components/podcast-suggestion-form";
-import { Title } from "../components/common";
+import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
+import { TitleBox } from "../components/common";
 import useMedia from "../hooks/useMedia";
 import {
   BackToTop,
@@ -32,7 +32,7 @@ const Podcasts = ({ pageContext }) => {
   // const { getCollapseProps, getToggleProps, isOpen } = useCollapse();
 
   return (
-    <Layout maxWidth="1200px">
+    <Layout>
       <BackToTop />
 
       <div
@@ -40,9 +40,13 @@ const Podcasts = ({ pageContext }) => {
           margin-bottom: 200px;
         `}
       >
-        <Title>Podcasts</Title>
-        <h4>A collection of the best developer and coding podcasts.</h4>
-        <PodcastSuggestionForm />
+        <TitleBox
+          title="Podcasts"
+          subTitle="A collection of the best developer and coding podcasts."
+        >
+          <PodcastSuggestionForm />
+        </TitleBox>
+
         <br />
         <SearchBox onChange={value => setFilter(value)} />
 
@@ -92,6 +96,7 @@ const Podcasts = ({ pageContext }) => {
                   <p
                     css={`
                       margin: 0;
+                      margin-right: 10px;
                     `}
                   >
                     {podcast.total_episodes} episodes

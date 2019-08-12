@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import Layout from "../components/common/layout";
-import { Title, WebsiteLink, SearchBox } from "../components/common";
+import {
+  TitleBox,
+  WebsiteLink,
+  SearchBox,
+  BackToTop,
+} from "../components/common";
 import Divider from "antd/es/divider";
-import NewsletterSuggestionForm from "../components/newsletter-suggestion-form";
+import NewsletterSuggestionForm from "../components/forms/newsletter-suggestion-form";
 import Tag from "antd/es/tag";
 
 export const NewsLetters = ({ pageContext }) => {
@@ -24,13 +29,17 @@ export const NewsLetters = ({ pageContext }) => {
   });
   return (
     <Layout>
-      <Title>Newsletters for Developers</Title>
-      <NewsletterSuggestionForm />
+      <BackToTop />
+      <TitleBox
+        title="Newsletters"
+        subTitle="A collection of the best developer and coding newsletters."
+      >
+        <NewsletterSuggestionForm />
+      </TitleBox>
+
       <br />
-      <SearchBox
-        onChange={value => setFilter(value.toLowerCase())}
-        placeholder="Search by name, description, or tag."
-      />
+      <SearchBox onChange={value => setFilter(value.toLowerCase())} />
+
       <div
         css={`
           margin-top: 10px;

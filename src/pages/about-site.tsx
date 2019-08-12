@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "../components/image";
-import { Layout, Title } from "../components/common";
+import { Layout, TitleBox } from "../components/common";
 import Timeline from "antd/es/timeline";
 import useMedia from "../hooks/useMedia";
 
@@ -32,14 +32,8 @@ export const AboutSite = () => {
     },
   ];
   return (
-    <Layout maxWidth="100%">
-      <Title
-        css={`
-          text-align: center;
-        `}
-      >
-        About this Site
-      </Title>
+    <Layout>
+      <TitleBox title="About this Site" />
       <Timeline
         mode={isMobile ? "left" : "alternate"}
         style={{ marginTop: "40px", padding: "10px" }}

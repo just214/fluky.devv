@@ -9,7 +9,7 @@ import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
 import { Title, Layout } from "../components/common";
 
-import QuizReportIssueForm from "../components/quiz-report-issue-form";
+import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 
 const getFeedbackCorrect = () => {
   const options: string[] = [

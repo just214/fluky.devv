@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "antd/es/input";
-import { NetlifyForm } from "./common";
+import { NetlifyForm } from "../common";
 
 const { TextArea } = Input;
 

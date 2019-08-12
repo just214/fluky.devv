@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Layout, Title, BackToTop, SearchBox } from "../components/common";
+import { Layout, TitleBox, BackToTop, SearchBox } from "../components/common";
+import BuzzwordSuggestionForm from "../components/forms/buzzword-suggestion-form";
 
 const BuzzWords = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
@@ -10,16 +11,19 @@ const BuzzWords = ({ pageContext }) => {
     );
   });
   return (
-    <Layout maxWidth="800px">
+    <Layout>
       <BackToTop />
       <div
         css={`
           margin-bottom: 100px;
         `}
       >
-        <Title>Buzzwords</Title>
-
-        <h4>An ongoing collection of developer and coding buzzwords.</h4>
+        <TitleBox
+          title="Buzzwords"
+          subTitle="An ongoing collection of developer and coding buzzwords."
+        >
+          <BuzzwordSuggestionForm />
+        </TitleBox>
 
         <br />
         <SearchBox onChange={e => setFilter(e)} />
