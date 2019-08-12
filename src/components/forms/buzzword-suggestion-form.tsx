@@ -20,7 +20,7 @@ const BuzzwordSuggestionForm = () => {
       </label>
 
       <label htmlFor="submitter-name">
-        Your Name (optional)
+        Your Name
         <Input name="submitter-name" id="submitter-name" type="text" />
       </label>
     </NetlifyForm>

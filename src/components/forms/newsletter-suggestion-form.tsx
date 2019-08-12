@@ -20,7 +20,7 @@ const NewsletterSuggestionForm = () => {
         />
       </label>
       <label htmlFor="newsletter-description">
-        Newsletter Description (optional)
+        Newsletter Description
         <Input
           name="newsletter-description"
           id="newsletter-description"
@@ -28,12 +28,12 @@ const NewsletterSuggestionForm = () => {
         />
       </label>
       <label htmlFor="newsletter-website">
-        Newsletter Website (optional)
+        Newsletter Website
         <Input name="newsletter-website" id="newsletter-website" type="text" />
       </label>
 
       <label htmlFor="submitter-name">
-        Your Name (optional)
+        Your Name
         <Input name="submitter-name" id="submitter-name" type="text" />
       </label>
     </NetlifyForm>

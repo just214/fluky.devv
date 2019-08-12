@@ -9,7 +9,8 @@ const QuizMenu = () => {
     <>
       <div
         css={`
-          background: #222;
+          background-color: rgba(0, 0, 0, 0.4);
+
           padding: 10px;
           max-width: 800px;
           margin: 100px auto;

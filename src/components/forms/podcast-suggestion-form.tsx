@@ -21,12 +21,12 @@ const PodcastSuggestionForm = () => {
           />
         </label>
         <label htmlFor="podcast-website">
-          Podcast Website (optional)
+          Podcast Website
           <Input name="podcast-website" id="podcast-website" type="text" />
         </label>
 
         <label htmlFor="submitter-name">
-          Your Name (optional)
+          Your Name
           <Input name="submitter-name" id="submitter-name" type="text" />
         </label>
       </NetlifyForm>
