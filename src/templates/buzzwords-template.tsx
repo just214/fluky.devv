@@ -12,7 +12,7 @@ const BuzzWords = ({ pageContext }) => {
   });
 
   return (
-    <Layout>
+    <Layout title="Dev Buzzwords">
       <BackToTop />
       <div
         css={`

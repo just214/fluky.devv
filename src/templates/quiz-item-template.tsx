@@ -49,7 +49,7 @@ const keycodeMap = {
 export const Page = ({ data, pageContext }) => {
   if (!data.allAirtable.edges.length) {
     return (
-      <Layout>
+      <Layout title={`${pageContext.title} Quiz`}>
         <TitleBox
           title={`${pageContext.title} Quiz`}
           subTitle="Looks like there are no questions for this category yet."
@@ -134,7 +134,7 @@ export const Page = ({ data, pageContext }) => {
 
   if (isQuizCompleted) {
     return (
-      <Layout>
+      <Layout title={`${pageContext.title} Quiz`}>
         <TitleBox title={`${pageContext.title} Quiz`} />
 
         <QuizResults
@@ -147,7 +147,7 @@ export const Page = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout>
+    <Layout title={`${pageContext.title} Quiz`}>
       <TitleBox title={`${pageContext.title} Quiz`}>
         <Progress
           percent={(answeredCount / data.allAirtable.edges.length) * 100}

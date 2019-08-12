@@ -32,7 +32,7 @@ const Podcasts = ({ pageContext }) => {
   // const { getCollapseProps, getToggleProps, isOpen } = useCollapse();
 
   return (
-    <Layout>
+    <Layout title="Dev Podcasts">
       <BackToTop />
 
       <div
@@ -72,6 +72,7 @@ const Podcasts = ({ pageContext }) => {
                   width: ${isMobile ? "40%" : "150px"};
                 `}
                 src={podcast.thumbnail}
+                alt={`Thumbnail for ${podcast.title}`}
               />
 
               <div>

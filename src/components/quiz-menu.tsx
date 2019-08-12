@@ -70,6 +70,7 @@ const QuizMenu = () => {
                     width: 100px;
                   `}
                   src={node.data.Thumbnail[0].url}
+                  alt={`${node.data.Name} Quiz`}
                 />
                 <h2
                   css={`

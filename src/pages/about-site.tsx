@@ -33,7 +33,7 @@ export const AboutSite = () => {
     },
   ];
   return (
-    <Layout>
+    <Layout title="About this Site">
       <TitleBox title="About this Site" />
       <Timeline
         mode={isMobile ? "left" : "alternate"}

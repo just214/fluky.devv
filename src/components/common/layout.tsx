@@ -29,8 +29,9 @@ const theme = {
 interface LayoutProps {
   bg?: string;
   maxWidth?: string;
+  title: string;
 }
-const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
+const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth, title }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -45,7 +46,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
   return (
     <>
       <SEO
-        title={data.site.siteMetadata.title}
+        title={title}
         keywords={[`typescript`, `quiz`, `javascript`, `front end`]}
       />
       <ThemeProvider theme={theme}>
@@ -75,20 +76,20 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
               <Link to="/">
                 <div
                   css={`
-                    color: ${props => props.theme.blue};
+                    color: ${props => props.theme.lightblue};
                     font-family: "Barriecito";
                     margin: 0;
                   `}
                 >
                   <span
                     css={`
-                      color: ${props => props.theme.lightblue};
+                      color: #e83feb;
                     `}
                   >
                     FLUKY
                   </span>
                   <span>.DEV</span>
-                  <FaStar size={22} color="#ffde36" />
+                  <img height="40" src="icon.png" alt="Fluky.dev star icon" />
                 </div>
               </Link>
             </MenuBlock>

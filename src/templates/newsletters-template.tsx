@@ -28,7 +28,7 @@ export const NewsLetters = ({ pageContext }) => {
     }
   });
   return (
-    <Layout>
+    <Layout title="Dev Newsletters">
       <BackToTop />
       <TitleBox
         title="Newsletters"
