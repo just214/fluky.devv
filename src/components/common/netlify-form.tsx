@@ -3,7 +3,7 @@ import Input from "antd/es/input";
 import Button from "antd/es/button";
 import NetlifyForm from "react-netlify-form";
 import Modal from "antd/es/modal";
-import { Emoji } from "./common";
+import { Emoji } from ".";
 
 interface NetlifyFormProps {
   formName: string;

@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Layout from "../components/layout";
 import Image from "../components/image";
-import { Title } from "../components/common";
+import { Layout, Title } from "../components/common";
 import Timeline from "antd/es/timeline";
 import useMedia from "../hooks/useMedia";
 

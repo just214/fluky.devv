@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Layout from "../components/layout";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import React, { useState } from "react";
 import PodcastSuggestionForm from "../components/podcast-suggestion-form";
 import { Title } from "../components/common";
 import useMedia from "../hooks/useMedia";
-import Button from "antd/es/button";
-import { BackToTop, SearchBox } from "../components/common";
+import {
+  BackToTop,
+  SearchBox,
+  WebsiteLink,
+  Layout,
+} from "../components/common";
 
 const Podcasts = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
@@ -94,29 +96,7 @@ const Podcasts = ({ pageContext }) => {
                   >
                     {podcast.total_episodes} episodes
                   </p>
-                  {podcast.website && (
-                    <a
-                      href={podcast.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      css={`
-                        display: flex;
-                        align-items: center;
-                        color: ${props => props.theme.blue};
-                        margin-left: 18px;
-                      `}
-                    >
-                      <p
-                        css={`
-                          margin: 0;
-                          margin-right: 5px;
-                        `}
-                      >
-                        Visit Website
-                      </p>{" "}
-                      <FaExternalLinkAlt size={12} />
-                    </a>
-                  )}
+                  {podcast.website && <WebsiteLink url={podcast.website} />}
                 </div>
               </div>
             </div>

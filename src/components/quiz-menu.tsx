@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import useQuizCategories from "../hooks/useQuizCategories";
-import MenuBlock from "./menu-block";
+import MenuBlock from "./common/menu-block";
 
 const QuizMenu = () => {
   const data = useQuizCategories();

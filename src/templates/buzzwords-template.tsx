@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../components/layout";
-import { Title, BackToTop, SearchBox } from "../components/common";
+import { Layout, Title, BackToTop, SearchBox } from "../components/common";
 
 const BuzzWords = ({ pageContext }) => {
   const [filter, setFilter] = useState("");

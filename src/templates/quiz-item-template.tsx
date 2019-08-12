@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
 import SingleChoice from "../components/quiz-single-choice";
 import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
@@ -8,7 +7,7 @@ import QuizButton from "../components/quiz-button";
 import { motion } from "framer-motion";
 import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
-import { Title } from "../components/common";
+import { Title, Layout } from "../components/common";
 
 import QuizReportIssueForm from "../components/quiz-report-issue-form";
 

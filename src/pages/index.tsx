@@ -1,8 +1,7 @@
 import React from "react";
-import Layout from "../components/layout";
+import { Layout, MenuBlock } from "../components/common";
 // TODO NEED SEO ON THIS PAGE!
 import QuizMenu from "../components/quiz-menu";
-import MenuBlock from "../components/menu-block";
 
 const App = () => (
   <Layout maxWidth="100%" bg="#333">

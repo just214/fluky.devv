@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/common/layout";
 import Markdown from "../components/markdown";
 import Tabs from "antd/es/tabs";
 import Button from "antd/es/button";
