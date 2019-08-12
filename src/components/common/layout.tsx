@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import MenuBlock from "./menu-block";
 import SEO from "./seo";
 import "./layout.css";
@@ -88,7 +88,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
                     FLUKY
                   </span>
                   <span>.DEV</span>
-                  <FaArrowAltCircleRight size={22} color="orange" />
+                  <FaStar size={22} color="#ffde36" />
                 </div>
               </Link>
             </MenuBlock>
