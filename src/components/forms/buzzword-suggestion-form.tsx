@@ -10,6 +10,7 @@ const BuzzwordSuggestionForm = () => {
         buttonText="Suggest a Buzzword"
         successMessage="Thanks for the suggestion!"
       >
+        <input type="hidden" name="form-name" value="Buzzword Suggestion" />
         <label htmlFor="word">
           Word
           <Input name="word" id="word" autoFocus required type="text" />
