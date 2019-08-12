@@ -40,10 +40,9 @@ const Podcasts = ({ pageContext }) => {
       >
         <Title>Podcasts</Title>
         <h4>A collection of the best developer and coding podcasts.</h4>
-        <SearchBox onChange={value => setFilter(value)} />
-        <br />
-
         <PodcastSuggestionForm />
+        <br />
+        <SearchBox onChange={value => setFilter(value)} />
 
         {sortedPodcasts.map(podcast => {
           return (
@@ -55,7 +54,7 @@ const Podcasts = ({ pageContext }) => {
                 border-bottom: 1px solid ${props => props.theme.gray3};
                 padding: 10px;
                 flex-direction: ${isMobile ? "column" : "row"};
-                align-items: ${isMobile ? "flex-start" : "center"};
+                align-items: ${isMobile ? "flex-start" : "flex-start"};
               `}
             >
               <img
@@ -64,7 +63,7 @@ const Podcasts = ({ pageContext }) => {
                   margin-right: ${isMobile ? "0px" : "10px"};
                   height: auto;
                   margin-bottom: ${isMobile ? "10px" : "0px"};
-                  width: ${isMobile ? "80%" : "150px"};
+                  width: ${isMobile ? "40%" : "150px"};
                 `}
                 src={podcast.thumbnail}
               />
@@ -73,14 +72,13 @@ const Podcasts = ({ pageContext }) => {
                 <h1
                   css={`
                     font-family: "Lalezar";
+                    line-height: 30px;
                   `}
                 >
                   {podcast.title}
                 </h1>
 
-                <small
-                  dangerouslySetInnerHTML={{ __html: podcast.description }}
-                />
+                <p dangerouslySetInnerHTML={{ __html: podcast.description }} />
 
                 <div
                   css={`

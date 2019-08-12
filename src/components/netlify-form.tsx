@@ -58,7 +58,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
                     "Oops..something went wrong. Please try again.
                   </h3>
                 );
-              } else if (!success && !error && !loading) {
+              } else if (!success && !error) {
                 return (
                   <div>
                     <Input type="hidden" name="form-name" value={formName} />
@@ -76,7 +76,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
                     </Button>
                   </div>
                 );
-              }
+              } else return null;
             }}
           </NetlifyForm>
         </div>

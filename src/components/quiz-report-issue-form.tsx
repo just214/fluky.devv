@@ -1,9 +1,7 @@
 import React from "react";
 import Input from "antd/es/input";
-import Select from "antd/es/select";
-import NetlifyForm from "./NetlifyForm";
+import NetlifyForm from "./netlify-form";
 
-const { Option } = Select;
 const { TextArea } = Input;
 
 const issueOptions = [
@@ -35,21 +33,33 @@ export const QuizReportIssueForm: React.FC<QuizReportIssueFormProps> = ({
       buttonIcon="flag"
     >
       <label htmlFor="issue-selection">
-        Please select the appropriate issue.
-        <Select
+        Please select the appropriate reason.
+        <select
+          required
+          id="issue-selection"
+          name="issue-selection"
           css={`
             width: 300px;
+            height: 40px;
+            border: 1px solid #dadada;
+            display: block;
+            margin: 5px 0px;
+            font-size: 14px;
           `}
         >
+          <option disabled selected>
+            {" "}
+            -- select an option --{" "}
+          </option>
           {issueOptions.map(option => (
-            <Option key={option.value} value={option.value}>
+            <option key={option.value} value={option.value}>
               {option.label}
-            </Option>
+            </option>
           ))}
-        </Select>
+        </select>
       </label>
       <label htmlFor="description">Please describe the issue.</label>
-      <TextArea name="description" id="description" rows={4} />
+      <TextArea name="description" id="description" rows={4} required />
       <Input name="id" value={id} style={{ opacity: 0 }} />
     </NetlifyForm>
   );

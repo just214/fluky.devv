@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "antd/es/input";
-import NetlifyForm from "./NetlifyForm";
+import NetlifyForm from "./netlify-form";
 
 const PodcastSuggestionForm = () => {
   return (
