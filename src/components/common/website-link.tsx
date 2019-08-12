@@ -13,7 +13,7 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
       css={`
         display: flex;
         align-items: center;
-        color: ${props => props.theme.blue};
+        color: ${props => props.theme.lightblue};
       `}
     >
       <p

@@ -7,21 +7,30 @@ const QuizMenu = () => {
   const data = useQuizCategories();
   return (
     <>
-      <MenuBlock
-        rotate={-3}
-        gradient={`background: #fc4a1a;
-          background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
-          background: linear-gradient(to right, #f7b733, #fc4a1a);`}
-      >
-        QUIZZES
-      </MenuBlock>
       <div
         css={`
           background: #222;
           padding: 10px;
-          margin-top: -20px;
+          max-width: 800px;
+          margin: 100px auto;
+          transform: rotate(2deg);
         `}
       >
+        <div
+          css={`
+            margin-top: -70px;
+          `}
+        >
+          <MenuBlock
+            rotate={-2}
+            gradient={`background: #fc4a1a;
+          background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
+          background: linear-gradient(to right, #f7b733, #fc4a1a);`}
+          >
+            QUIZZES
+          </MenuBlock>
+        </div>
+
         <div
           css={`
             display: flex;
@@ -37,6 +46,7 @@ const QuizMenu = () => {
                 key={node.data.Name}
                 to={node.data.Slug}
                 css={`
+                  transform: rotate(-2deg);
                   border-radius: 20px;
                   display: flex;
                   flex-direction: column;

@@ -79,6 +79,7 @@ const Podcasts = ({ pageContext }) => {
                   css={`
                     font-family: "Lalezar";
                     line-height: 30px;
+                    color: ${props => props.theme.blue};
                   `}
                 >
                   {podcast.title}

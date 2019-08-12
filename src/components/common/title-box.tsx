@@ -11,12 +11,7 @@ export const TitleBox: React.FC<TitleBoxProps> = ({
   children,
 }) => {
   return (
-    <div
-      css={`
-        border-radius: 10px;
-        padding: 10px;
-      `}
-    >
+    <div>
       <Title>{title}</Title>
       <h4>{subTitle}</h4>
       {children}

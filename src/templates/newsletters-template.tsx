@@ -42,7 +42,7 @@ export const NewsLetters = ({ pageContext }) => {
 
       <div
         css={`
-          margin-top: 10px;
+          margin-top: 20px;
         `}
       >
         {data.map(({ node }) => {
@@ -53,7 +53,7 @@ export const NewsLetters = ({ pageContext }) => {
                 css={`
                   font-family: "Lalezar";
                   margin-bottom: 0px;
-                  color: ${props => props.theme.gray5};
+                  color: ${props => props.theme.blue};
                 `}
               >
                 {Name}
@@ -79,13 +79,17 @@ export const NewsLetters = ({ pageContext }) => {
                 </div>
 
                 {Tags.map(tag => (
-                  <Tag key={tag} color="blue" style={{ padding: "0px 3px" }}>
+                  <Tag
+                    key={tag}
+                    color="orange"
+                    style={{ padding: "0px 3px", fontWeight: "bold" }}
+                  >
                     {tag}
                   </Tag>
                 ))}
               </div>
 
-              <Divider style={{ padding: 0, margin: "8px 0px 12px 0px" }} />
+              <Divider style={{ padding: 0, margin: "20px 0px 20px 0px" }} />
             </div>
           );
         })}
