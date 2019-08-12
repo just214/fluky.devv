@@ -10,6 +10,17 @@ const App = () => (
         padding: 20px;
       `}
     >
+      <h2
+        css={`
+          color: white;
+          text-align: center;
+          font-family: Barriecito;
+          font-size: 2rem;
+        `}
+      >
+        Resources &amp; Quizzes for{" "}
+        <span style={{ color: "yellow" }}>Front End Developers</span>.
+      </h2>
       <div
         css={`
           margin: 0px;
