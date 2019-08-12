@@ -55,7 +55,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
               } else if (error) {
                 return (
                   <h3 css={`color: 'tomato`}>
-                    "Oops..something went wrong. Please try again.
+                    Oops..something went wrong. Please try again.
                   </h3>
                 );
               } else if (!success && !error) {
