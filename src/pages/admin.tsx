@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/common/layout";
 import Markdown from "../components/markdown";
 import Tabs from "antd/es/tabs";

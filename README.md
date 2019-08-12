@@ -17,3 +17,8 @@ IDEAS
 - Coding challenges
 - Games
 - User login for all of this
+- Slack Groups
+- Discord Groups
+- Social communities
+- Learning websites
+- Learning courses

@@ -8,22 +8,24 @@ const StyledButton = styled(motion.button)`
   font-size: 14px;
   border-radius: 40px;
   outline: 0;
-  border: none;
+  border: 2px solid ${props => props.theme.gray5};
   font-weight: bold;
   background: ${props => props.theme.white};
-  color: #fff;
+  color: #333;
   cursor: pointer;
   position: fixed;
   bottom: 40px;
   right: 30px;
-
+  transition: color, background 0.5s;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &:focus {
+  &:focus,
+  &:hover {
     background: ${props => props.theme.antgreen};
     color: #fff;
+    border: none;
   }
 
   small {

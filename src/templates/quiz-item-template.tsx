@@ -7,7 +7,7 @@ import QuizButton from "../components/quiz-button";
 import { motion } from "framer-motion";
 import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
-import { Title, Layout } from "../components/common";
+import { TitleBox, Layout } from "../components/common";
 
 import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 
@@ -50,8 +50,10 @@ export const Page = ({ data, pageContext }) => {
   if (!data.allAirtable.edges.length) {
     return (
       <Layout>
-        <Title>{pageContext.title} Quiz</Title>
-        <h3>Looks like there are no questions for this category yet.</h3>
+        <TitleBox
+          title={`${pageContext.title} Quiz`}
+          subTitle="Looks like there are no questions for this category yet."
+        />
       </Layout>
     );
   }
@@ -126,10 +128,15 @@ export const Page = ({ data, pageContext }) => {
   const percentageFixed: number | string = percentageCorrect.toFixed(2);
   const score: number = Math.floor(+percentageFixed * 100);
 
+  useEffect(() => {
+    console.log(userAnswer, isQuestionAnswered);
+  }, [userAnswer, isQuestionAnswered]);
+
   if (isQuizCompleted) {
     return (
       <Layout>
-        <Title>{pageContext.title} Quiz</Title>
+        <TitleBox title={`${pageContext.title} Quiz`} />
+
         <QuizResults
           score={score}
           correctCount={questionsAnsweredCorrectly}
@@ -141,12 +148,7 @@ export const Page = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Title>{pageContext.title} Quiz</Title>
-      <div
-        css={`
-          margin-bottom: 280px;
-        `}
-      >
+      <TitleBox title={`${pageContext.title} Quiz`}>
         <Progress
           percent={(answeredCount / data.allAirtable.edges.length) * 100}
           strokeColor="#52c41a"
@@ -158,7 +160,7 @@ export const Page = ({ data, pageContext }) => {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
             h3 {
               margin: 5px;
             }
@@ -170,46 +172,47 @@ export const Page = ({ data, pageContext }) => {
             {answeredCount}/{data.allAirtable.edges.length}
           </h3>
         </div>
-        <SingleChoice
-          data={currentQuestion.data}
-          key={currentQuestion.data.Question}
-          isAnswered={isQuestionAnswered}
-          userAnswer={userAnswer}
-          onSelection={answer => handleSetUserAnswer(answer)}
-        />
-        <QuizReportIssueForm id={currentQuestion.data.ID} />
-        <br />
-        {isQuestionAnswered && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-          >
-            {userAnswer === currentQuestion.data.Answer && (
-              <h2
-                css={`
-                  color: ${props => props.theme.antgreen};
-                  margin: 10px 0px;
-                `}
-              >
-                {getFeedbackCorrect()}
-              </h2>
-            )}
-            {userAnswer !== currentQuestion.data.Answer && (
-              <h2
-                css={`
-                  color: tomato;
-                  margin: 10px 0px;
-                `}
-              >
-                {getFeedbackIncorrect()}
-              </h2>
-            )}
-            <Markdown source={currentQuestion.data.Explanation} />
-          </motion.div>
-        )}
-      </div>
+      </TitleBox>
+      <br />
+      <SingleChoice
+        data={currentQuestion.data}
+        key={currentQuestion.data.Question}
+        isAnswered={isQuestionAnswered}
+        userAnswer={userAnswer}
+        onSelection={answer => handleSetUserAnswer(answer)}
+      />
+      <QuizReportIssueForm id={currentQuestion.data.ID} />
+      <br />
+      {isQuestionAnswered && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
+          {userAnswer === currentQuestion.data.Answer && (
+            <h2
+              css={`
+                color: ${props => props.theme.antgreen};
+                margin: 10px 0px;
+              `}
+            >
+              {getFeedbackCorrect()}
+            </h2>
+          )}
+          {userAnswer !== currentQuestion.data.Answer && (
+            <h2
+              css={`
+                color: tomato;
+                margin: 10px 0px;
+              `}
+            >
+              {getFeedbackIncorrect()}
+            </h2>
+          )}
+          <Markdown source={currentQuestion.data.Explanation} />
+        </motion.div>
+      )}
 
-      {userAnswer && !isQuestionAnswered && (
+      {!!userAnswer && !isQuestionAnswered && (
         <QuizButton
           onClick={checkAnswer}
           initial={{ scale: 0.8, opacity: 0.3 }}
@@ -218,7 +221,7 @@ export const Page = ({ data, pageContext }) => {
         />
       )}
 
-      {userAnswer && isQuestionAnswered && (
+      {!!userAnswer && isQuestionAnswered && (
         <QuizButton
           initial={{ scale: 0.8, opacity: 0.3 }}
           animate={{ scale: 1.2, opacity: 1 }}

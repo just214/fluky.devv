@@ -66,9 +66,9 @@ const Podcasts = ({ pageContext }) => {
               <img
                 css={`
                   border-radius: 10px;
-                  margin-right: ${isMobile ? "0px" : "10px"};
+                  margin-right: ${isMobile ? "0px" : "20px"};
                   height: auto;
-                  margin-bottom: ${isMobile ? "10px" : "0px"};
+                  margin-bottom: ${isMobile ? "20px" : "0px"};
                   width: ${isMobile ? "40%" : "150px"};
                 `}
                 src={podcast.thumbnail}
@@ -97,6 +97,7 @@ const Podcasts = ({ pageContext }) => {
                     css={`
                       margin: 0;
                       margin-right: 10px;
+                      font-weight: bold;
                     `}
                   >
                     {podcast.total_episodes} episodes

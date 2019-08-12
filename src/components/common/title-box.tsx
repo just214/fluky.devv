@@ -13,7 +13,6 @@ export const TitleBox: React.FC<TitleBoxProps> = ({
   return (
     <div
       css={`
-        background: #efefef;
         border-radius: 10px;
         padding: 10px;
       `}

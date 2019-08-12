@@ -22,7 +22,7 @@ const theme = {
   gray3: "#dadada",
   gray4: "#666",
   gray5: "#333",
-  red: "#e3005f",
+  red: "#f5222d",
   orange: "#f08b32",
 };
 
@@ -51,15 +51,18 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
       <ThemeProvider theme={theme}>
         <div
           css={`
+            width: 100%;
+            max-width: 100%;
             height: 100%;
             min-height: 100vh;
-            width: 100%;
+            margin: 0;
+            padding: 0;
             background: ${bg || "white"};
           `}
         >
           <header
             css={`
-              padding: 0px;
+              padding: 0px 20px;
               height: 50px;
               display: flex;
               align-items: center;
@@ -76,9 +79,15 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
                     margin: 0;
                   `}
                 >
-                  <b>
-                    DEV STUFF <FaArrowAltCircleRight size={22} color="#666" />
-                  </b>
+                  <span
+                    css={`
+                      color: ${props => props.theme.blue};
+                    `}
+                  >
+                    DEV
+                  </span>
+                  <span>STUFF</span>
+                  <FaArrowAltCircleRight size={22} color="orange" />
                 </div>
               </Link>
             </MenuBlock>

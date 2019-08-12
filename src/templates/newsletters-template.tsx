@@ -49,7 +49,7 @@ export const NewsLetters = ({ pageContext }) => {
           const { Name, Description, Website, Tags } = node.data;
           return (
             <div key={Name}>
-              <h2
+              <h1
                 css={`
                   font-family: "Lalezar";
                   margin-bottom: 0px;
@@ -57,12 +57,7 @@ export const NewsLetters = ({ pageContext }) => {
                 `}
               >
                 {Name}
-              </h2>
-              {Tags.map(tag => (
-                <Tag key={tag} color="magenta">
-                  {tag}
-                </Tag>
-              ))}
+              </h1>
 
               <p
                 css={`
@@ -72,9 +67,25 @@ export const NewsLetters = ({ pageContext }) => {
               >
                 {Description}
               </p>
+              <div
+                css={`
+                  display: flex;
+                  align-items: center;
+                  flex-wrap: wrap;
+                `}
+              >
+                <div style={{ marginRight: "20px" }}>
+                  <WebsiteLink url={Website} />
+                </div>
 
-              <WebsiteLink url={Website} />
-              <Divider />
+                {Tags.map(tag => (
+                  <Tag key={tag} color="blue" style={{ padding: "0px 3px" }}>
+                    {tag}
+                  </Tag>
+                ))}
+              </div>
+
+              <Divider style={{ padding: 0, margin: "8px 0px 12px 0px" }} />
             </div>
           );
         })}

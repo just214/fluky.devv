@@ -8,6 +8,7 @@ import useMedia from "../hooks/useMedia";
 const TimelineTitle = styled.h2`
   margin: 0px 40px;
   color: ${props => props.theme.blue};
+  font-family: "Lalezar", sans serif;
 `;
 
 export const AboutSite = () => {

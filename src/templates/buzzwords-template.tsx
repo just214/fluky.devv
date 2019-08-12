@@ -10,6 +10,7 @@ const BuzzWords = ({ pageContext }) => {
       node.data.Definition.toLowerCase().includes(filter.toLowerCase())
     );
   });
+
   return (
     <Layout>
       <BackToTop />
@@ -45,6 +46,7 @@ const BuzzWords = ({ pageContext }) => {
                   color: ${props => props.theme.blue};
                   margin: 0px;
                   padding: 0px;
+                  font-size: 1.8rem;
                   font-family: "Lalezar", sans-serif;
                 `}
               >
@@ -53,6 +55,7 @@ const BuzzWords = ({ pageContext }) => {
               <p
                 css={`
                   margin: 0;
+                  font-weight: bold;
                 `}
               >
                 {node.data.Definition}

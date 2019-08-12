@@ -71,7 +71,7 @@ export const SingleChoice: React.FC<QuestionProps> = ({
           } else if (userAnswer == option.id && data.Answer === userAnswer) {
             return <FaCheck color="green" size={18} />;
           } else if (userAnswer == option.id && data.Answer !== userAnswer) {
-            return <FaTimes color="tomato" size={18} />;
+            return <FaTimes color="#f5222d" size={18} />;
           }
           return <span>{option.id}</span>;
         };

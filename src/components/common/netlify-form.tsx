@@ -53,7 +53,11 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
                 );
               } else if (error) {
                 return (
-                  <h3 css={`color: 'tomato`}>
+                  <h3
+                    css={`
+                      color: ${props => props.theme.red};
+                    `}
+                  >
                     Oops..something went wrong. Please try again.
                   </h3>
                 );
