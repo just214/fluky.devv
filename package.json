@@ -1,7 +1,7 @@
 {
-  "name": "devquiz",
+  "name": "fluky.dev",
   "private": false,
-  "description": "Quizzes for devs",
+  "description": "Resources and quizzes for front end developers.",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {

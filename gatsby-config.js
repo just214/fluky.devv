@@ -4,8 +4,8 @@ require("dotenv");
 
 module.exports = {
   siteMetadata: {
-    title: `Front End Stuff`,
-    description: `Stuff for front end developers`,
+    title: `Fluky.dev`,
+    description: `Resources and quizzes for front end developers.`,
     author: `gojutin`,
   },
   plugins: [

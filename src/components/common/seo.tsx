@@ -1,10 +1,3 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
@@ -20,11 +13,11 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  description = "A Gatsby starter with TypeScript, Storybook, Styled Components, and more.",
-  keywords = ["gatsby", "typescript"],
+  description = "Resources and quizzes for front end developers.",
+  keywords = ["developer", "code", "quizzes", "resources"],
   lang = "en",
   meta = [],
-  title = "gatsby-starter-typescript-deluxe",
+  title = "fluky.dev",
 }) => {
   const { site } = useStaticQuery(
     graphql`

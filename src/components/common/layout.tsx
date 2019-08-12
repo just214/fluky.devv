@@ -75,19 +75,19 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth }) => {
               <Link to="/">
                 <div
                   css={`
-                    color: ${props => props.theme.lightblue};
+                    color: ${props => props.theme.blue};
                     font-family: "Barriecito";
                     margin: 0;
                   `}
                 >
                   <span
                     css={`
-                      color: ${props => props.theme.blue};
+                      color: ${props => props.theme.lightblue};
                     `}
                   >
-                    DEV
+                    FLUKY
                   </span>
-                  <span>STUFF</span>
+                  <span>.DEV</span>
                   <FaArrowAltCircleRight size={22} color="orange" />
                 </div>
               </Link>
