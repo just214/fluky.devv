@@ -9,7 +9,21 @@ const Quiz = props => {
     <Layout
       title="Quizzes"
       description="Front end developer quizzes. JavaScript, TypeScript, HTML, CSS, and more."
-      keywords={[]}
+      keywords={[
+        "fluky",
+        "fluky.dev",
+        "dev",
+        "developers",
+        "coders",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "quiz",
+        "quizzes",
+        "resources",
+        "tips",
+      ]}
     >
       <TitleBox
         title="Quizzes"

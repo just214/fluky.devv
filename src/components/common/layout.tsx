@@ -3,7 +3,6 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "gatsby";
 import Icon from "../Icon";
-import MenuBlock from "./menu-block";
 import SEO from "./seo";
 
 const Container = styled.div<{ maxWidth?: string }>`

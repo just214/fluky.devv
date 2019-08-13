@@ -43,10 +43,20 @@ const SEO: React.FC<SEOProps> = ({
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       /*eslint-disable */
+      link={[
+        {
+          rel: "icon",
+          href: "favicon.ico",
+        },
+      ]}
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `image`,
+          content: `flukydev-icon.png`,
         },
         {
           property: `og:site_name`,
