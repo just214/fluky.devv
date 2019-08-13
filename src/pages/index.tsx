@@ -85,17 +85,19 @@ const App = () => (
         padding: 20px;
       `}
     >
-      <h2
+      <h1
         css={`
           color: white;
           text-align: center;
           font-family: Barriecito;
           font-size: 2rem;
+          margin-bottom: 50px;
+          line-height: 2rem;
         `}
       >
         Resources &amp; Quizzes for{" "}
         <span style={{ color: "yellow" }}>Front End Developers</span>
-      </h2>
+      </h1>
       <div
         css={`
           margin: 0px;
