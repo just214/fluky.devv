@@ -63,9 +63,12 @@ const keywords = [
 ];
 
 const Page = ({ data, pageContext }) => {
+  const description =
+    "`Test your ${pageContext.title} knowledge with our ${pageContext.title} Quiz.`";
+  const title = `${pageContext.title} Quiz`;
   if (!data.allAirtable.edges.length) {
     return (
-      <Layout title={`${pageContext.title} Quiz`} keywords={keywords}>
+      <Layout title={title} keywords={keywords} description={description}>
         <TitleBox
           title={`${pageContext.title} Quiz`}
           subTitle="Looks like there are no questions for this category yet."
@@ -144,13 +147,9 @@ const Page = ({ data, pageContext }) => {
   const percentageFixed: number | string = percentageCorrect.toFixed(2);
   const score: number = Math.floor(+percentageFixed * 100);
 
-  useEffect(() => {
-    console.log(userAnswer, isQuestionAnswered);
-  }, [userAnswer, isQuestionAnswered]);
-
   if (isQuizCompleted) {
     return (
-      <Layout title={`${pageContext.title} Quiz`} keywords={keywords}>
+      <Layout title={title} keywords={keywords} description={description}>
         <TitleBox title={`${pageContext.title} Quiz`} />
 
         <QuizResults
@@ -163,7 +162,7 @@ const Page = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout title={`${pageContext.title} Quiz`} keywords={keywords}>
+    <Layout title={title} keywords={keywords} description={description}>
       <TitleBox title={`${pageContext.title} Quiz`}>
         <Progress
           percent={(answeredCount / data.allAirtable.edges.length) * 100}

@@ -23,6 +23,7 @@ const App = () => (
       "resources",
       "tips",
     ]}
+    description="A collection of resources and quizzes for front end developers and coders."
   >
     <div
       css={`
@@ -75,14 +76,14 @@ const App = () => (
           background: -webkit-linear-gradient(to right, #516395, #614385);  /* Chrome 10-25, Safari 5.1-6 */
           background: linear-gradient(to right, #516395, #614385); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
           `}
-          rotate={-3}
+          rotate={3}
           to="/buzzwords"
           color="yellow"
         >
           <b>BUZZ</b>WORDS
         </MenuBlock>
         <MenuBlock
-          rotate={2}
+          rotate={-3}
           to="/about-site"
           color="#333"
           gradient={`background: #f2709c;  /* fallback for old browsers */

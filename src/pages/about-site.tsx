@@ -38,12 +38,19 @@ export const AboutSite = () => {
       keywords={[
         "fluky",
         "fluky.dev",
+        "dev",
         "developers",
         "coders",
         "javascript",
         "typescript",
+        "html",
+        "css",
         "quiz",
+        "quizzes",
+        "resources",
+        "tips",
       ]}
+      description="A collection of resources and quizzes for front end developers and coders."
     >
       <TitleBox title="About this Site" />
       <Timeline

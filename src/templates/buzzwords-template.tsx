@@ -27,6 +27,7 @@ const BuzzWords = ({ pageContext }) => {
         "quiz",
         "resources",
       ]}
+      description="An ongoing collection of front end developer and coding buzzwords and definitions."
     >
       <BackToTop />
       <div
@@ -36,7 +37,7 @@ const BuzzWords = ({ pageContext }) => {
       >
         <TitleBox
           title="Buzzwords"
-          subTitle="An ongoing collection of developer and coding buzzwords."
+          subTitle="An ongoing collection of front end developer and coding buzzwords."
         >
           <BuzzwordSuggestionForm />
         </TitleBox>

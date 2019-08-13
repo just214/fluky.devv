@@ -23,7 +23,7 @@ const QuizMenu = () => {
           `}
         >
           <MenuBlock
-            rotate={-2}
+            rotate={-4}
             gradient={`background: #fc4a1a;
           background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
           background: linear-gradient(to right, #f7b733, #fc4a1a);`}

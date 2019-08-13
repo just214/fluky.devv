@@ -49,6 +49,7 @@ const Podcasts = ({ pageContext }) => {
         "quiz",
         "resources",
       ]}
+      description="A collection of the best front end developer and coding podcasts."
     >
       <BackToTop />
 
@@ -59,7 +60,7 @@ const Podcasts = ({ pageContext }) => {
       >
         <TitleBox
           title="Podcasts"
-          subTitle="A collection of the best developer and coding podcasts."
+          subTitle="A collection of the best front end developer and coding podcasts."
         >
           <PodcastSuggestionForm />
         </TitleBox>
