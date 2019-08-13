@@ -8,6 +8,10 @@ module.exports = async (createPage, graphql) => {
           node {
             data {
               Name
+              Thumbnail {
+                url
+              }
+              Slug
             }
           }
         }
@@ -19,14 +23,22 @@ module.exports = async (createPage, graphql) => {
 
   result.data.allAirtable.edges.forEach(({ node }) => {
     if (node.data.Name) {
-      obj[node.data.Name] = true;
+      obj[node.data.Name] = node;
     }
+  });
+
+  createPage({
+    path: `quiz`,
+    component: path.resolve(`./src/templates/quiz-template.tsx`),
+    context: {
+      quizzes: result.data.allAirtable.edges,
+    },
   });
 
   Object.keys(obj).forEach(key => {
     const slug = key.toLowerCase();
     createPage({
-      path: `${slug}-quiz`,
+      path: `quiz/${slug}`,
       component: path.resolve(`./src/templates/quiz-item-template.tsx`),
       context: {
         category: slug,

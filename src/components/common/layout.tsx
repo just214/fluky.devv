@@ -1,10 +1,10 @@
+import "./layout.css";
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "gatsby";
 import Icon from "../Icon";
 import MenuBlock from "./menu-block";
 import SEO from "./seo";
-import "./layout.css";
 
 const Container = styled.div<{ maxWidth?: string }>`
   margin: 0 auto;
@@ -78,27 +78,30 @@ const Layout: React.FC<LayoutProps> = ({
               background: inherit;
             `}
           >
-            <MenuBlock rotate={2} gradient={``}>
-              <Link to="/">
-                <div
-                  css={`
-                    color: #e83feb;
-                    font-family: "Barriecito";
-                    margin: 0;
-                  `}
-                >
-                  <span
-                    css={`
-                      color: ${props => props.theme.lightblue};
-                    `}
-                  >
-                    FLUKY
-                  </span>
-                  <span>.DEV</span>
-                  <Icon />
-                </div>
-              </Link>
-            </MenuBlock>
+            <Link
+              to="/"
+              css={`
+                color: #e83feb;
+                font-family: "Barriecito";
+                margin: 0;
+                margin-top: 10px;
+                transform: rotate(3deg);
+                font-size: 30px;
+                &:focus {
+                  border: 3px solid yellow;
+                }
+              `}
+            >
+              <span
+                css={`
+                  color: ${props => props.theme.lightblue};
+                `}
+              >
+                FLUKY
+              </span>
+              <span>.DEV</span>
+              <Icon />
+            </Link>
           </header>
           <Container maxWidth={maxWidth}>
             <main>{children}</main>

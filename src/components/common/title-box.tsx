@@ -13,7 +13,7 @@ export const TitleBox: React.FC<TitleBoxProps> = ({
   return (
     <div>
       <Title>{title}</Title>
-      <h4>{subTitle}</h4>
+      <h3>{subTitle}</h3>
       {children}
     </div>
   );

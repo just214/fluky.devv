@@ -1,42 +1,26 @@
 import React from "react";
 import { Link } from "gatsby";
-import useQuizCategories from "../hooks/useQuizCategories";
-import MenuBlock from "./common/menu-block";
+import { Layout, TitleBox } from "../components/common";
 
-const QuizMenu = () => {
-  const data = useQuizCategories();
+const Quiz = props => {
+  console.log(props.pageContext);
+  const data = props.pageContext.quizzes;
   return (
-    <>
-      <div
-        css={`
-          background-color: rgba(0, 0, 0, 0.4);
-
-          padding: 10px;
-          max-width: 800px;
-          margin: 100px auto;
-          transform: rotate(1deg);
-        `}
-      >
-        <div
-          css={`
-            margin-top: -70px;
-          `}
-        >
-          <MenuBlock
-            rotate={-4}
-            gradient={`background: #fc4a1a;
-          background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
-          background: linear-gradient(to right, #f7b733, #fc4a1a);`}
-          >
-            QUIZZES
-          </MenuBlock>
-        </div>
-
+    <Layout
+      title="Quizzes"
+      description="Front end developer quizzes. JavaScript, TypeScript, HTML, CSS, and more."
+      keywords={[]}
+    >
+      <TitleBox
+        title="Quizzes"
+        subTitle="Test your front end knowledge with one of our coding quizzes."
+      />
+      <div>
         <div
           css={`
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+
             padding-top: 20px;
             border-radius: 10px;
           `}
@@ -47,7 +31,6 @@ const QuizMenu = () => {
                 key={node.data.Name}
                 to={node.data.Slug}
                 css={`
-                  transform: rotate(-1deg);
                   border-radius: 20px;
                   display: flex;
                   flex-direction: column;
@@ -97,8 +80,8 @@ const QuizMenu = () => {
           })}
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
-export default QuizMenu;
+export default Quiz;

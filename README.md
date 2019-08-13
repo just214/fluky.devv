@@ -10,6 +10,7 @@ TODO
 - Can I use purge to tree shake Antd styles that are unused?
 - Add google hidden recaptcha to Netlify forms.
 - Handle Netlify form submissions with feedback.
+- Add ARIA
 
 IDEAS
 - Coding challenges
@@ -20,3 +21,4 @@ IDEAS
 - Social communities
 - Learning websites
 - Learning courses
+- Other quizzes
