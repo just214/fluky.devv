@@ -4,7 +4,7 @@ require("dotenv");
 
 const config = {
   siteMetadata: {
-    title: `Fluky.dev`,
+    title: `fluky.dev`,
     description: `Resources and quizzes for front end developers.`,
     author: `gojutin`,
   },
@@ -24,11 +24,11 @@ const config = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-typescript-deluxe`,
-        short_name: `gatsby-starter-typescript-deluxe`,
+        name: `Fluky.Dev`,
+        short_name: `fluky.dev`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#333`,
+        theme_color: `#333`,
         display: `minimal-ui`,
       },
     },

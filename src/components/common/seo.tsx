@@ -61,6 +61,10 @@ const SEO: React.FC<SEOProps> = ({
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `flukydev-icon.png`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -75,6 +79,10 @@ const SEO: React.FC<SEOProps> = ({
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          property: `twitter:image`,
+          content: `flukydev-icon.png`,
         },
         /*eslint-enable */
       ]
