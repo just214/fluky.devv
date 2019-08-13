@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { FaStar } from "react-icons/fa";
+import Icon from "../Icon";
 import MenuBlock from "./menu-block";
 import SEO from "./seo";
 import "./layout.css";
@@ -32,16 +32,16 @@ interface LayoutProps {
   title: string;
 }
 const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth, title }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //         description
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <>
@@ -76,20 +76,20 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth, title }) => {
               <Link to="/">
                 <div
                   css={`
-                    color: ${props => props.theme.lightblue};
+                    color: #e83feb;
                     font-family: "Barriecito";
                     margin: 0;
                   `}
                 >
                   <span
                     css={`
-                      color: #e83feb;
+                      color: ${props => props.theme.lightblue};
                     `}
                   >
                     FLUKY
                   </span>
                   <span>.DEV</span>
-                  <img height="40" src="icon.png" alt="Fluky.dev star icon" />
+                  <Icon />
                 </div>
               </Link>
             </MenuBlock>
