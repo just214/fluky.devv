@@ -39,7 +39,7 @@ const App = () => (
         `}
       >
         Resources &amp; Quizzes for{" "}
-        <span style={{ color: "yellow" }}>Front End Developers</span>.
+        <span style={{ color: "yellow" }}>Front End Developers</span>
       </h2>
       <div
         css={`

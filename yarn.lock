@@ -13699,14 +13699,6 @@ react-clientside-effect@^1.2.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-react-collapsed@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/react-collapsed/-/react-collapsed-2.1.1.tgz#a66efd19da85fcc34c2ee457005310eb6d6d94e8"
-  integrity sha512-KvlqxeHs4FuvI7nGoiex3x/KZh9j1qOeukhv7nCen5pV2sgX15uirC0b4pl5toQ0oEIjo5lBGk9vw3ogmsrKeQ==
-  dependencies:
-    "@babel/runtime" "^7.3.1"
-    raf "^3.4.0"
-
 react-dev-utils@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"
