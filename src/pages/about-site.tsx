@@ -33,7 +33,18 @@ export const AboutSite = () => {
     },
   ];
   return (
-    <Layout title="About this Site">
+    <Layout
+      title="About this Site"
+      keywords={[
+        "fluky",
+        "fluky.dev",
+        "developers",
+        "coders",
+        "javascript",
+        "typescript",
+        "quiz",
+      ]}
+    >
       <TitleBox title="About this Site" />
       <Timeline
         mode={isMobile ? "left" : "alternate"}

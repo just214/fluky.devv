@@ -46,10 +46,26 @@ const keycodeMap = {
   52: "4",
 };
 
-export const Page = ({ data, pageContext }) => {
+const keywords = [
+  "podcasts",
+  "dev",
+  "frontend",
+  "fluky",
+  "fluky.dev",
+  "developers",
+  "coders",
+  "javascript",
+  "typescript",
+  "html",
+  "css",
+  "quiz",
+  "resources",
+];
+
+const Page = ({ data, pageContext }) => {
   if (!data.allAirtable.edges.length) {
     return (
-      <Layout title={`${pageContext.title} Quiz`}>
+      <Layout title={`${pageContext.title} Quiz`} keywords={keywords}>
         <TitleBox
           title={`${pageContext.title} Quiz`}
           subTitle="Looks like there are no questions for this category yet."
@@ -134,7 +150,7 @@ export const Page = ({ data, pageContext }) => {
 
   if (isQuizCompleted) {
     return (
-      <Layout title={`${pageContext.title} Quiz`}>
+      <Layout title={`${pageContext.title} Quiz`} keywords={keywords}>
         <TitleBox title={`${pageContext.title} Quiz`} />
 
         <QuizResults
@@ -147,7 +163,7 @@ export const Page = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout title={`${pageContext.title} Quiz`}>
+    <Layout title={`${pageContext.title} Quiz`} keywords={keywords}>
       <TitleBox title={`${pageContext.title} Quiz`}>
         <Progress
           percent={(answeredCount / data.allAirtable.edges.length) * 100}

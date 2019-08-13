@@ -28,7 +28,22 @@ export const NewsLetters = ({ pageContext }) => {
     }
   });
   return (
-    <Layout title="Dev Newsletters">
+    <Layout
+      title="Dev Newsletters"
+      keywords={[
+        "newsletters",
+        "dev",
+        "frontend",
+        "fluky",
+        "fluky.dev",
+        "developers",
+        "coders",
+        "javascript",
+        "typescript",
+        "quiz",
+        "resources",
+      ]}
+    >
       <BackToTop />
       <TitleBox
         title="Newsletters"

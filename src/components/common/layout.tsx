@@ -30,8 +30,15 @@ interface LayoutProps {
   bg?: string;
   maxWidth?: string;
   title: string;
+  keywords: string[];
 }
-const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth, title }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  bg,
+  maxWidth,
+  title,
+  keywords,
+}) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -45,10 +52,7 @@ const Layout: React.FC<LayoutProps> = ({ children, bg, maxWidth, title }) => {
 
   return (
     <>
-      <SEO
-        title={title}
-        keywords={[`typescript`, `quiz`, `javascript`, `front end`]}
-      />
+      <SEO title={title} keywords={keywords} />
       <ThemeProvider theme={theme}>
         <div
           css={`

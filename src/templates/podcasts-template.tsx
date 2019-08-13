@@ -32,7 +32,24 @@ const Podcasts = ({ pageContext }) => {
   // const { getCollapseProps, getToggleProps, isOpen } = useCollapse();
 
   return (
-    <Layout title="Dev Podcasts">
+    <Layout
+      title="Dev Podcasts"
+      keywords={[
+        "podcasts",
+        "dev",
+        "frontend",
+        "fluky",
+        "fluky.dev",
+        "developers",
+        "coders",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "quiz",
+        "resources",
+      ]}
+    >
       <BackToTop />
 
       <div

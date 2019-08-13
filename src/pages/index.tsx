@@ -4,7 +4,26 @@ import { Layout, MenuBlock } from "../components/common";
 import QuizMenu from "../components/quiz-menu";
 
 const App = () => (
-  <Layout maxWidth="100%" bg="#333" title="Home">
+  <Layout
+    maxWidth="100%"
+    bg="#333"
+    title="Home"
+    keywords={[
+      "fluky",
+      "fluky.dev",
+      "dev",
+      "developers",
+      "coders",
+      "javascript",
+      "typescript",
+      "html",
+      "css",
+      "quiz",
+      "quizzes",
+      "resources",
+      "tips",
+    ]}
+  >
     <div
       css={`
         padding: 20px;

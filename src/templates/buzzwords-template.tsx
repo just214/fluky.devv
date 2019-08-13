@@ -12,7 +12,22 @@ const BuzzWords = ({ pageContext }) => {
   });
 
   return (
-    <Layout title="Dev Buzzwords">
+    <Layout
+      title="Dev Buzzwords"
+      keywords={[
+        "buzzwords",
+        "dev",
+        "frontend",
+        "fluky",
+        "fluky.dev",
+        "developers",
+        "coders",
+        "javascript",
+        "typescript",
+        "quiz",
+        "resources",
+      ]}
+    >
       <BackToTop />
       <div
         css={`
