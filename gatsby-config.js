@@ -2,7 +2,7 @@ const path = require("path");
 
 require("dotenv");
 
-module.exports = {
+const config = {
   siteMetadata: {
     title: `Fluky.dev`,
     description: `Resources and quizzes for front end developers.`,
@@ -62,3 +62,15 @@ module.exports = {
     },
   ],
 };
+
+if (process.env.CONTEXT === "production") {
+  const googleAnalyticsCfg = {
+    resolve: "gatsby-plugin-google-analytics",
+    options: {
+      trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_KEY,
+    },
+  };
+  config.plugins.push(googleAnalyticsCfg);
+}
+
+module.exports = config;
