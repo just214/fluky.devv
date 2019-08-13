@@ -23,7 +23,7 @@ const App = () => (
       "resources",
       "tips",
     ]}
-    description="A collection of resources and quizzes for front end developers and coders."
+    description="A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, and more!"
   >
     <div
       css={`

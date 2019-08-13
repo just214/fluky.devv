@@ -49,6 +49,10 @@ const SEO: React.FC<SEOProps> = ({
           content: metaDescription,
         },
         {
+          property: `og:site_name`,
+          content: title,
+        },
+        {
           property: `og:title`,
           content: title,
         },
@@ -63,6 +67,10 @@ const SEO: React.FC<SEOProps> = ({
         {
           property: `og:image`,
           content: `flukydev-icon.png`,
+        },
+        {
+          property: `og:url`,
+          content: `https://fluky.dev`,
         },
         {
           name: `twitter:card`,

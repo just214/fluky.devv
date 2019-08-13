@@ -14,7 +14,7 @@ const QuizMenu = () => {
           padding: 10px;
           max-width: 800px;
           margin: 100px auto;
-          transform: rotate(2deg);
+          transform: rotate(1deg);
         `}
       >
         <div
@@ -47,7 +47,7 @@ const QuizMenu = () => {
                 key={node.data.Name}
                 to={node.data.Slug}
                 css={`
-                  transform: rotate(-2deg);
+                  transform: rotate(-1deg);
                   border-radius: 20px;
                   display: flex;
                   flex-direction: column;

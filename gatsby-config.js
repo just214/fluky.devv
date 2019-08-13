@@ -5,7 +5,7 @@ require("dotenv");
 const config = {
   siteMetadata: {
     title: `fluky.dev`,
-    description: `Resources and quizzes for front end developers.`,
+    description: `A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, and more!`,
     author: `gojutin`,
   },
   plugins: [
