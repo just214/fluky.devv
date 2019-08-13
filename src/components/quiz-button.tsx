@@ -39,7 +39,7 @@ export interface ButtonProps {
   initial: object;
   animate: object;
 }
-export const Button: React.FC<ButtonProps & any> = ({ title, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({ title, ...rest }) => {
   return (
     <StyledButton {...rest} autoFocus>
       <div

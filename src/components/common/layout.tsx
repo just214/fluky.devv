@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import Icon from "../Icon";
 import MenuBlock from "./menu-block";
 import SEO from "./seo";

@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await createNewslettersPage(createPage, graphql);
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   const condition =
     node.internal.type === `Airtable` && node.table === "Questions";

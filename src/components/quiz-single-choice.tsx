@@ -27,8 +27,8 @@ const Option = styled.div<{
 
 export interface QuestionProps {
   data: Question;
-  onSelection: (e: any) => void;
-  userAnswer: any;
+  onSelection: (e: string) => void;
+  userAnswer: string;
   isAnswered: boolean;
 }
 export const SingleChoice: React.FC<QuestionProps> = ({
@@ -88,7 +88,6 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                 width: 25px;
               `}
             >
-              {/* Keep the numbering the same by using the index, since the options are shuffled */}
               <span
                 css={`
                   font-weight: bold;

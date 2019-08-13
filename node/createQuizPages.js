@@ -15,7 +15,7 @@ module.exports = async (createPage, graphql) => {
     }
   `);
 
-  let obj = {};
+  const obj = {};
 
   result.data.allAirtable.edges.forEach(({ node }) => {
     if (node.data.Name) {

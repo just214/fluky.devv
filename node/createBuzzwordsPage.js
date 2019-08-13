@@ -1,5 +1,3 @@
-const unirest = require("unirest");
-const chunk = require("lodash/chunk");
 const path = require("path");
 
 module.exports = async (createPage, graphql) => {
