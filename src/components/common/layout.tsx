@@ -40,17 +40,6 @@ const Layout: React.FC<LayoutProps> = ({
   keywords,
   description,
 }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //         description
-  //       }
-  //     }
-  //   }
-  // `);
-
   return (
     <>
       <SEO title={title} keywords={keywords} description={description} />
@@ -86,8 +75,15 @@ const Layout: React.FC<LayoutProps> = ({
                 margin-top: 10px;
                 transform: rotate(3deg);
                 font-size: 30px;
+                border: 3px solid transparent;
                 &:focus {
                   border: 3px solid yellow;
+                }
+                &:active {
+                  border: 3px solid transparent;
+                }
+                &:hover {
+                  color: #e83feb;
                 }
               `}
             >

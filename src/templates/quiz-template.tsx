@@ -34,16 +34,17 @@ const Quiz = props => {
           css={`
             display: flex;
             flex-wrap: wrap;
-
+            background: #333;
             padding-top: 20px;
             border-radius: 10px;
+            justify-content: center;
           `}
         >
           {data.map(({ node }) => {
             return (
               <Link
                 key={node.data.Name}
-                to={node.data.Slug}
+                to={`/${node.data.Slug}`}
                 css={`
                   border-radius: 20px;
                   display: flex;
@@ -51,7 +52,7 @@ const Quiz = props => {
                   justify-content: center;
                   align-items: center;
                   margin: 10px;
-                  min-width: 140px;
+                  min-width: 180px;
                   padding: 10px;
                   text-decoration: none;
                   color: ${props => props.theme.blue};
@@ -78,17 +79,16 @@ const Quiz = props => {
                     font-weight: bold;
                   `}
                 >
-                  {node.data.Name}
+                  {node.data.Name} Quiz
                 </h2>
-                <h3
+
+                <div
                   css={`
-                    color: ${props => props.theme.lightblue};
-                    margin: 0;
-                    font-weight: bold;
+                    color: ${props => props.theme.orange};
                   `}
                 >
-                  Quiz
-                </h3>
+                  {node.data.Count} Questions
+                </div>
               </Link>
             );
           })}

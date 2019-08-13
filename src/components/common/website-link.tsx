@@ -20,6 +20,7 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         css={`
           margin: 0;
           margin-right: 5px;
+          font-weight: bold;
         `}
       >
         Visit Website

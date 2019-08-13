@@ -12,6 +12,7 @@ module.exports = async (createPage, graphql) => {
                 url
               }
               Slug
+              Count
             }
           }
         }
