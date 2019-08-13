@@ -15,7 +15,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onChange, placeholder }) => {
     <Search
       allowClear
       size="large"
-      style={{ maxWidth: "300px" }}
+      style={{ maxWidth: "100%" }}
       onChange={handleOnChange}
       placeholder={placeholder || "Search"}
     />
