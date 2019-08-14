@@ -57,12 +57,12 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = () => {
                 );
               } else if (!success && !error) {
                 return (
-                  <div>
-                    <input
+                  <>
+                    {/* <input
                       type="hidden"
                       name="form-name"
                       value="Buzzword Suggestion"
-                    />
+                    /> */}
                     <label htmlFor="word">
                       Word
                       <Input
@@ -102,7 +102,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = () => {
                     >
                       Submit
                     </Button>
-                  </div>
+                  </>
                 );
               } else return null;
             }}
