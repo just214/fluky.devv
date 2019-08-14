@@ -59,11 +59,11 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = () => {
               } else if (!success && !error) {
                 return (
                   <>
-                    {/* <input
+                    <input
                       type="hidden"
                       name="form-name"
                       value="Buzzword Suggestion"
-                    /> */}
+                    />
                     <label htmlFor="word">
                       Word
                       <Input
