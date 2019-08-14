@@ -27,7 +27,7 @@ const Quiz = props => {
     >
       <TitleBox
         title="Quizzes"
-        subTitle="Test your front end knowledge with one of our coding quizzes."
+        subTitle="Test your front end developer knowledge with one of our coding quizzes."
       />
       <div>
         <div
@@ -57,8 +57,16 @@ const Quiz = props => {
                   text-decoration: none;
                   color: ${props => props.theme.blue};
                   transition: background-color 0.5s;
-                  &:hover {
-                    background-color: #dadada;
+
+                  @media (min-width: 500px) {
+                    &:hover {
+                      background-color: ${props => props.theme.gray1};
+                    }
+                  }
+                  @media (max-width: 500px) {
+                    &:active {
+                      background-color: #dadada;
+                    }
                   }
                 `}
               >
@@ -85,6 +93,7 @@ const Quiz = props => {
                 <div
                   css={`
                     color: ${props => props.theme.orange};
+                    font-weight: bold;
                   `}
                 >
                   {node.data.Count} Questions

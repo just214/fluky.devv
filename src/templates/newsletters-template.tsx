@@ -97,7 +97,7 @@ export const NewsLetters = ({ pageContext }) => {
                 {Tags.map(tag => (
                   <Tag
                     key={tag}
-                    color="orange"
+                    color="magenta"
                     style={{ padding: "0px 3px", fontWeight: "bold" }}
                   >
                     {tag}

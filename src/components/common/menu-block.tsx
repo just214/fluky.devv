@@ -33,7 +33,6 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
           color: ${color || "white"};
           padding: 10px;
           margin: 0;
-      
           font-size: 30px;
           display: flex;
           align-items: center;
