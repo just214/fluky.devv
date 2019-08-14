@@ -72,7 +72,7 @@ export const NewsLetters = ({ pageContext }) => {
                 css={`
                   font-family: "Lalezar";
                   margin-bottom: 0px;
-                  color: ${props => props.theme.pink};
+                  color: ${props => props.theme.blue};
                 `}
               >
                 {Name}

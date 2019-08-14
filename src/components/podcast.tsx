@@ -42,7 +42,7 @@ export const Podcast: React.FC<PodcastProps> = ({ podcast }) => {
           css={`
             font-family: "Lalezar";
             line-height: 30px;
-            color: ${props => props.theme.pink};
+            color: ${props => props.theme.blue};
           `}
         >
           {podcast.title}
