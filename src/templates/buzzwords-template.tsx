@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Layout, TitleBox, BackToTop, SearchBox } from "../components/common";
+import {
+  Layout,
+  TitleBox,
+  BackToTop,
+  SearchBox,
+  LastUpdated,
+} from "../components/common";
 import BuzzwordSuggestionForm from "../components/forms/buzzword-suggestion-form";
 
 const BuzzWords = ({ pageContext }) => {
@@ -39,6 +45,7 @@ const BuzzWords = ({ pageContext }) => {
           title="Buzzwords"
           subTitle="An ongoing collection of front end developer and coding buzzwords."
         >
+          <LastUpdated date={pageContext.lastModified} />
           <BuzzwordSuggestionForm />
         </TitleBox>
 

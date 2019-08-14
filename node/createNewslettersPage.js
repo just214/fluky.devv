@@ -14,6 +14,7 @@ module.exports = async (createPage, graphql) => {
               Description
               Website
               Tags
+              LastModified
             }
           }
         }
@@ -21,11 +22,21 @@ module.exports = async (createPage, graphql) => {
     }
   `);
 
+  const lastModified = data.allAirtable.edges.reduce((accum, node) => {
+    const value = node.node.data.LastModified;
+    if (value < accum) {
+      return accum;
+    } else {
+      return value;
+    }
+  }, data.allAirtable.edges[0].node.data.LastModified);
+
   createPage({
     path: `newsletters`,
     component: path.resolve(`./src/templates/newsletters-template.tsx`),
     context: {
       newsletters: data.allAirtable.edges,
+      lastModified,
     },
   });
 };

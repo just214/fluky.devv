@@ -5,6 +5,7 @@ import {
   WebsiteLink,
   SearchBox,
   BackToTop,
+  LastUpdated,
 } from "../components/common";
 import Divider from "antd/es/divider";
 import NewsletterSuggestionForm from "../components/forms/newsletter-suggestion-form";
@@ -50,6 +51,8 @@ export const NewsLetters = ({ pageContext }) => {
         title="Newsletters"
         subTitle="A collection of the best front end developer and coding newsletters."
       >
+        <LastUpdated date={pageContext.lastModified} />
+
         <NewsletterSuggestionForm />
       </TitleBox>
 

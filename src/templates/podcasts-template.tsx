@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
 import { TitleBox } from "../components/common";
-import useMedia from "../hooks/useMedia";
+import Podcast from "../components/Podcast";
 import {
   BackToTop,
   SearchBox,
-  WebsiteLink,
   Layout,
+  LastUpdated,
 } from "../components/common";
 
 const Podcasts = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
-  const { isMobile } = useMedia();
 
   const sortedPodcasts = JSON.parse(pageContext.podcasts)
     .sort((a, b) => {
@@ -62,6 +61,7 @@ const Podcasts = ({ pageContext }) => {
           title="Podcasts"
           subTitle="A collection of the best front end developer and coding podcasts."
         >
+          <LastUpdated date={pageContext.lastModified} />
           <PodcastSuggestionForm />
         </TitleBox>
 
@@ -69,64 +69,7 @@ const Podcasts = ({ pageContext }) => {
         <SearchBox onChange={value => setFilter(value)} />
 
         {sortedPodcasts.map(podcast => {
-          return (
-            <div
-              key={podcast.id}
-              css={`
-                display: flex;
-                margin: 15px 0px;
-                border-bottom: 1px solid ${props => props.theme.gray3};
-                padding: 10px;
-                flex-direction: ${isMobile ? "column" : "row"};
-                align-items: ${isMobile ? "flex-start" : "flex-start"};
-              `}
-            >
-              <img
-                css={`
-                  border-radius: 10px;
-                  margin-right: ${isMobile ? "0px" : "20px"};
-                  height: auto;
-                  margin-bottom: ${isMobile ? "20px" : "0px"};
-                  width: ${isMobile ? "40%" : "150px"};
-                `}
-                src={podcast.thumbnail}
-                alt={`Thumbnail for ${podcast.title}`}
-              />
-
-              <div>
-                <h1
-                  css={`
-                    font-family: "Lalezar";
-                    line-height: 30px;
-                    color: ${props => props.theme.blue};
-                  `}
-                >
-                  {podcast.title}
-                </h1>
-
-                <p dangerouslySetInnerHTML={{ __html: podcast.description }} />
-
-                <div
-                  css={`
-                    display: flex;
-                    align-items: center;
-                    margin-top: 12px;
-                  `}
-                >
-                  <p
-                    css={`
-                      margin: 0;
-                      margin-right: 10px;
-                      font-weight: bold;
-                    `}
-                  >
-                    {podcast.total_episodes} episodes
-                  </p>
-                  {podcast.website && <WebsiteLink url={podcast.website} />}
-                </div>
-              </div>
-            </div>
-          );
+          return <Podcast key={podcast.id} podcast={podcast} />;
         })}
         <div>
           This data is provided by the awesome{" "}

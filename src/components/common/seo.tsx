@@ -10,6 +10,7 @@ interface SEOProps {
   meta?: any[];
   /*eslint-enable */
   title: string;
+  titleTemplate?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -18,6 +19,7 @@ const SEO: React.FC<SEOProps> = ({
   lang = "en",
   meta = [],
   title = "fluky.dev",
+  titleTemplate,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -41,7 +43,7 @@ const SEO: React.FC<SEOProps> = ({
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={titleTemplate || `%s | ${site.siteMetadata.title}`}
       /*eslint-disable */
       link={[
         {

@@ -11,6 +11,7 @@ module.exports = async (createPage, graphql) => {
             data {
               Name
               Id
+              LastModified
             }
           }
         }
@@ -21,6 +22,15 @@ module.exports = async (createPage, graphql) => {
   const ids = data.allAirtable.edges.map(({ node }) => {
     return node.data.Id;
   });
+
+  const lastModified = data.allAirtable.edges.reduce((accum, node) => {
+    const value = node.node.data.LastModified;
+    if (value < accum) {
+      return accum;
+    } else {
+      return value;
+    }
+  }, data.allAirtable.edges[0].node.data.LastModified);
 
   const endpoint = "https://listen-api.listennotes.com/api/v2/podcasts";
 
@@ -55,6 +65,7 @@ module.exports = async (createPage, graphql) => {
     component: path.resolve(`./src/templates/podcasts-template.tsx`),
     context: {
       podcasts: JSON.stringify(value.body.podcasts),
+      lastModified,
     },
   });
 };

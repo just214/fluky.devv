@@ -11,6 +11,7 @@ TODO
 - Add google hidden recaptcha to Netlify forms.
 - Handle Netlify form submissions with feedback.
 - Add ARIA
+- Add a read more button for Podcast description.
 
 IDEAS
 - Coding challenges

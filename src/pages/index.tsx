@@ -62,7 +62,8 @@ const App = () => (
   <Layout
     maxWidth="1200px"
     bg="#333"
-    title="Home"
+    title="Fluky.dev"
+    titleTemplate="Fluky.dev | Front End Developers"
     keywords={[
       "fluky",
       "fluky.dev",

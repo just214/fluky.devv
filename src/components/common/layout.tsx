@@ -29,6 +29,7 @@ interface LayoutProps {
   bg?: string;
   maxWidth?: string;
   title: string;
+  titleTemplate?: string;
   keywords: string[];
   description: string;
 }
@@ -39,10 +40,16 @@ const Layout: React.FC<LayoutProps> = ({
   title,
   keywords,
   description,
+  titleTemplate,
 }) => {
   return (
     <>
-      <SEO title={title} keywords={keywords} description={description} />
+      <SEO
+        title={title}
+        keywords={keywords}
+        description={description}
+        titleTemplate={titleTemplate}
+      />
       <ThemeProvider theme={theme}>
         <div
           css={`

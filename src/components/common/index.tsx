@@ -8,3 +8,4 @@ export { default as MenuBlock } from "./menu-block";
 export { default as NetlifyForm } from "./netlify-form";
 export { default as Layout } from "./layout";
 export { default as SEO } from "./seo";
+export { default as LastUpdated } from "./last-updated";

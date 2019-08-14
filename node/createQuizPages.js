@@ -30,7 +30,7 @@ module.exports = async (createPage, graphql) => {
 
   createPage({
     path: `quiz`,
-    component: path.resolve(`./src/templates/quiz-template.tsx`),
+    component: path.resolve(`./src/templates/quizzes-template.tsx`),
     context: {
       quizzes: result.data.allAirtable.edges,
     },
@@ -40,7 +40,7 @@ module.exports = async (createPage, graphql) => {
     const slug = key.toLowerCase();
     createPage({
       path: `quiz/${slug}`,
-      component: path.resolve(`./src/templates/quiz-item-template.tsx`),
+      component: path.resolve(`./src/templates/quiz-template.tsx`),
       context: {
         category: slug,
         title: key,
