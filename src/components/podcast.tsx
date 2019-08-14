@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import useMedia from "../hooks/useMedia";
 import { WebsiteLink } from "../components/common";
+import Button from "antd/es/button";
 
 export interface PodcastProps {
   podcast: any;
 }
 export const Podcast: React.FC<PodcastProps> = ({ podcast }) => {
-  // const [readMore, setReadMore] = useState(false);
   const { isMobile } = useMedia();
+  const [desc, setDesc] = useState(
+    podcast.description.length > 200
+      ? podcast.description.substring(0, 200) + "..."
+      : podcast.description
+  );
   return (
     <div
       key={podcast.id}
@@ -43,7 +48,30 @@ export const Podcast: React.FC<PodcastProps> = ({ podcast }) => {
           {podcast.title}
         </h1>
 
-        <p dangerouslySetInnerHTML={{ __html: podcast.description }} />
+        <p
+          // css={`
+          //   position: relative;
+          //   width: 100%;
+          //   max-height: ${readMore ? "8000px" : "100px"};
+          //   overflow: hidden;
+          //   text-overflow: ellipsis;
+          //   transition: max-height 0.5s ease;
+          // `}
+          css={`
+            margin-bottom: 0;
+          `}
+          dangerouslySetInnerHTML={{ __html: desc }}
+        />
+        {desc.length !== podcast.description.length && (
+          <Button
+            style={{ margin: 0, padding: 0 }}
+            type="link"
+            // onClick={() => setReadMore(true)}
+            onClick={() => setDesc(podcast.description)}
+          >
+            Read more
+          </Button>
+        )}
 
         <div
           css={`

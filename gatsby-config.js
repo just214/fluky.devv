@@ -9,6 +9,9 @@ const config = {
     author: `gojutin`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-antd-v2`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,7 +19,6 @@ const config = {
         name: "images",
       },
     },
-    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     "gatsby-plugin-react-helmet",
