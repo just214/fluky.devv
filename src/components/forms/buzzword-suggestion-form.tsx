@@ -27,6 +27,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = () => {
       <Modal
         title="Buzzword Suggestion"
         visible={isOpen}
+        forceRender
         footer={null}
         onCancel={() => setIsOpen(false)}
         maskStyle={{ background: "rgba(0,0,0,.8)" }}
