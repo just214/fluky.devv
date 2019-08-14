@@ -7,7 +7,7 @@ import QuizButton from "../components/quiz-button";
 import { motion } from "framer-motion";
 import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
-import { TitleBox, Layout } from "../components/common";
+import { TitleBox, Layout, LastUpdated } from "../components/common";
 
 import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 
@@ -165,6 +165,7 @@ const Page = ({ data, pageContext }) => {
   return (
     <Layout title={title} keywords={keywords} description={description}>
       <TitleBox title={`${pageContext.title} Quiz`}>
+        <LastUpdated date={pageContext.lastModified} />
         <Progress
           percent={(answeredCount / data.allAirtable.edges.length) * 100}
           strokeColor="#52c41a"

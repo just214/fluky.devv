@@ -13,6 +13,7 @@ module.exports = async (createPage, graphql) => {
               }
               Slug
               Count
+              LastModified
             }
           }
         }
@@ -36,6 +37,8 @@ module.exports = async (createPage, graphql) => {
     },
   });
 
+  console.log("OBJ", obj);
+
   Object.keys(obj).forEach(key => {
     const slug = key.toLowerCase();
     createPage({
@@ -44,6 +47,7 @@ module.exports = async (createPage, graphql) => {
       context: {
         category: slug,
         title: key,
+        lastModified: obj[key].data.LastModified,
       },
     });
   });

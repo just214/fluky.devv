@@ -9,8 +9,8 @@ export interface PodcastProps {
 export const Podcast: React.FC<PodcastProps> = ({ podcast }) => {
   const { isMobile } = useMedia();
   const [desc, setDesc] = useState(
-    podcast.description.length > 200
-      ? podcast.description.substring(0, 200) + "..."
+    podcast.description.length > 280
+      ? podcast.description.substring(0, 280) + "..."
       : podcast.description
   );
   return (
@@ -42,7 +42,7 @@ export const Podcast: React.FC<PodcastProps> = ({ podcast }) => {
           css={`
             font-family: "Lalezar";
             line-height: 30px;
-            color: ${props => props.theme.blue};
+            color: ${props => props.theme.pink};
           `}
         >
           {podcast.title}

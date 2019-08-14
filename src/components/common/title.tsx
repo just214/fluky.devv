@@ -6,7 +6,7 @@ const Title = styled.h1`
   margin: 0;
   padding: 0;
   line-height: 3rem;
-  color: ${props => props.theme.orange};
+  color: ${props => props.theme.pink};
 `;
 
 export default Title;

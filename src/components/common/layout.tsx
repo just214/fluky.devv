@@ -21,8 +21,9 @@ const theme = {
   gray3: "#dadada",
   gray4: "#666",
   gray5: "#333",
-  red: "#f5222d",
+  red: "tomato",
   orange: "#f08b32",
+  pink: "#f21da0",
 };
 
 interface LayoutProps {
@@ -76,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({
             <Link
               to="/"
               css={`
-                color: #e83feb;
+                color: ${props => props.theme.pink};
                 font-family: "Barriecito";
                 margin: 0;
                 margin-top: 10px;
@@ -90,7 +91,7 @@ const Layout: React.FC<LayoutProps> = ({
                   border: 3px solid transparent;
                 }
                 &:hover {
-                  color: #e83feb;
+                  color: ${props => props.theme.pink};
                 }
               `}
             >
