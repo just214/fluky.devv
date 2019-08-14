@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useMedia from "../hooks/useMedia";
 import { WebsiteLink } from "../components/common";
 

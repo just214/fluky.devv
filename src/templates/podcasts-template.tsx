@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
 import { TitleBox } from "../components/common";
-import Podcast from "../components/Podcast";
+import Podcast from "../components/podcast";
 import {
   BackToTop,
   SearchBox,
