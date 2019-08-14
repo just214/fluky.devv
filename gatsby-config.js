@@ -62,7 +62,7 @@ const config = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 };
 
