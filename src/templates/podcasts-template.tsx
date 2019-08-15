@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
-import { TitleBox } from "../components/common";
-import Podcast from "../components/podcast";
+import { TitleBox, RichPreview } from "../components/common";
 import {
   BackToTop,
   SearchBox,
@@ -69,7 +68,16 @@ const Podcasts = ({ pageContext }) => {
         <SearchBox onChange={value => setFilter(value)} />
 
         {sortedPodcasts.map(podcast => {
-          return <Podcast key={podcast.id} podcast={podcast} />;
+          return (
+            <RichPreview
+              key={podcast.id}
+              title={podcast.title}
+              description={podcast.description}
+              thumbnail={podcast.thumbnail}
+              website={podcast.website}
+              details={`${podcast.total_episodes} episodes`}
+            />
+          );
         })}
         <div>
           This data is provided by the awesome{" "}

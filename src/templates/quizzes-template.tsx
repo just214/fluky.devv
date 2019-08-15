@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Layout, TitleBox, WebsiteCard } from "../components/common";
+import {
+  Layout,
+  TitleBox,
+  WebsiteCard,
+  RichPreview,
+} from "../components/common";
 
 const Quiz = props => {
   const data = props.pageContext.quizzes;
@@ -107,7 +112,16 @@ const Quiz = props => {
       <br />
       <h2>Other Quizzes</h2>
       {otherQuizzes.map(site => {
-        return <WebsiteCard key={site.description} data={site} />;
+        return (
+          <RichPreview
+            key={site.title}
+            title={site.title}
+            description={site.description}
+            thumbnail={site.image}
+            website={site.url}
+            details={`by ${site.provider}`}
+          />
+        );
       })}
     </Layout>
   );

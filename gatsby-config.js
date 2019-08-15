@@ -9,15 +9,18 @@ const config = {
     author: `gojutin`,
   },
   plugins: [
-    // {
-    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
-    //   options: {
-    //     devMode: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          { family: `Barriecito` },
+          { family: `Lalezar` },
+          { family: `Lakki+Reddy` },
+        ],
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-antd-v2`,
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {

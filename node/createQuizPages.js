@@ -1,26 +1,7 @@
 const path = require("path");
-const { getMetadata } = require("page-metadata-parser");
-const domino = require("domino");
-const fetch = require("node-fetch");
-
-const asyncForEach = async (array, callback) => {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
-  }
-};
-
-async function getMeta(url) {
-  const response = await fetch(url);
-  const html = await response.text();
-  const doc = domino.createWindow(html).document;
-  const metadata = await getMetadata(doc, url);
-
-  // console.log("DDDDDDDD", metadata);
-  return metadata;
-}
+const asyncScrapeWebsitesMetadata = require("./utils/asyncScrapeWebsitesMetadata");
 
 module.exports = async (createPage, graphql) => {
-  // console.log("FFFFF", test);
   const result = await graphql(`
     query MyQuery {
       allAirtable(filter: { table: { eq: "Categories" } }) {
@@ -48,6 +29,7 @@ module.exports = async (createPage, graphql) => {
           node {
             data {
               Website
+              Tags
             }
           }
         }
@@ -55,14 +37,9 @@ module.exports = async (createPage, graphql) => {
     }
   `);
 
-  const quizzesMetadata = [];
-
-  await asyncForEach(otherQuizzes.data.allAirtable.edges, async function({
-    node,
-  }) {
-    const value = await getMeta(node.data.Website);
-    quizzesMetadata.push(value);
-  });
+  const quizzesMetadata = await asyncScrapeWebsitesMetadata(
+    otherQuizzes.data.allAirtable.edges
+  );
 
   const obj = {};
 

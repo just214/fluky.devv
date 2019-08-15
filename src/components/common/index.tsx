@@ -9,4 +9,4 @@ export { default as NetlifyForm } from "./netlify-form";
 export { default as Layout } from "./layout";
 export { default as SEO } from "./seo";
 export { default as LastUpdated } from "./last-updated";
-export { default as WebsiteCard } from "./website-card";
+export { default as RichPreview } from "./rich-preview";
