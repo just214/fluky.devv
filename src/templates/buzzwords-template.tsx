@@ -52,40 +52,43 @@ const BuzzWords = ({ pageContext }) => {
         <br />
         <SearchBox onChange={e => setFilter(e)} />
 
-        {buzzwords.map(({ node }) => {
-          return (
-            <div
-              key={node.data.Word}
-              css={`
-                margin: 10px 0px;
-                padding: 8px;
-                border-radius: 10px;
-                border: 1px solid ${props => props.theme.gray2};
-                background: ${props => props.theme.gray1};
-              `}
-            >
-              <h2
+        <ul>
+          {buzzwords.map(({ node }) => {
+            return (
+              <li
+                key={node.data.Word}
                 css={`
-                  color: ${props => props.theme.blue};
-                  margin: 0px;
-                  padding: 0px;
-                  font-size: 1.8rem;
-                  font-family: "Lalezar", sans-serif;
+                  margin: 10px 0px;
+                  padding: 8px;
+                  border-radius: 10px;
+                  border: 1px solid ${props => props.theme.gray2};
+                  background: ${props => props.theme.gray1};
                 `}
               >
-                {node.data.Word}
-              </h2>
-              <p
-                css={`
-                  margin: 0;
-                  font-weight: bold;
-                `}
-              >
-                {node.data.Definition}
-              </p>
-            </div>
-          );
-        })}
+                <h4
+                  css={`
+                    color: ${props => props.theme.blue};
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 1.8rem;
+                    font-family: "Lalezar", sans-serif;
+                  `}
+                >
+                  {node.data.Word}
+                </h4>
+                <dfn
+                  css={`
+                    margin: 0;
+                    font-weight: bold;
+                    font-style: normal;
+                  `}
+                >
+                  {node.data.Definition}
+                </dfn>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </Layout>
   );

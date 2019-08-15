@@ -7,6 +7,9 @@ const Title = styled.h1`
   padding: 0;
   line-height: 3rem;
   color: ${props => props.theme.pink};
+  @media (max-width: 500px) {
+    font-size: 2.6rem;
+  }
 `;
 
 export default Title;

@@ -9,6 +9,12 @@ const config = {
     author: `gojutin`,
   },
   plugins: [
+    // {
+    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+    //   options: {
+    //     devMode: true,
+    //   },
+    // },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-antd-v2`,
 

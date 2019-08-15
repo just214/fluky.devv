@@ -1,5 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 import Title from "./title";
+
+const Wrapper = styled.div`
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #f0f6ff;
+`;
+
+const H2 = styled.h2`
+  @media (max-width: 500px) {
+    font-size: 0.8rem;
+  }
+`;
 
 export interface TitleBoxProps {
   title: string;
@@ -11,11 +24,11 @@ export const TitleBox: React.FC<TitleBoxProps> = ({
   children,
 }) => {
   return (
-    <div>
+    <Wrapper>
       <Title>{title}</Title>
-      <h3>{subTitle}</h3>
+      <H2>{subTitle}</H2>
       {children}
-    </div>
+    </Wrapper>
   );
 };
 

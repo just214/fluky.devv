@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import Icon from "../Icon";
 import SEO from "./seo";
 
-const Container = styled.div<{ maxWidth?: string }>`
+const MainContainer = styled.main<{ maxWidth?: string }>`
   margin: 0 auto;
   max-width: ${props => props.maxWidth || "960px"};
   padding: 20px;
@@ -106,9 +106,7 @@ const Layout: React.FC<LayoutProps> = ({
               <Icon />
             </Link>
           </header>
-          <Container maxWidth={maxWidth}>
-            <main>{children}</main>
-          </Container>
+          <MainContainer maxWidth={maxWidth}>{children}</MainContainer>
         </div>
       </ThemeProvider>
     </>

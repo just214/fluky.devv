@@ -1,4 +1,5 @@
 import React from "react";
+import Affix from "antd/es/affix";
 import Input from "antd/es/input";
 const { Search } = Input;
 
@@ -12,13 +13,15 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onChange, placeholder }) => {
   };
 
   return (
-    <Search
-      allowClear
-      size="large"
-      style={{ maxWidth: "100%" }}
-      onChange={handleOnChange}
-      placeholder={placeholder || "Search"}
-    />
+    <Affix>
+      <Search
+        allowClear
+        size="large"
+        style={{ maxWidth: "100%" }}
+        onChange={handleOnChange}
+        placeholder={placeholder || "Search"}
+      />
+    </Affix>
   );
 };
 

@@ -34,7 +34,7 @@ export const AboutSite = () => {
   ];
   return (
     <Layout
-      title="About this Site"
+      title="About This Site"
       keywords={[
         "fluky",
         "fluky.dev",
@@ -52,7 +52,7 @@ export const AboutSite = () => {
       ]}
       description="A collection of resources and quizzes for front end developers and coders."
     >
-      <TitleBox title="About this Site" />
+      <TitleBox title="About This Site" />
       <Timeline
         mode={isMobile ? "left" : "alternate"}
         style={{ marginTop: "40px", padding: "10px" }}

@@ -72,7 +72,7 @@ export const NewsLetters = ({ pageContext }) => {
                 css={`
                   font-family: "Lalezar";
                   margin-bottom: 0px;
-                  color: ${props => props.theme.blue};
+                  color: ${props => props.theme.pink};
                 `}
               >
                 {Name}
@@ -100,7 +100,7 @@ export const NewsLetters = ({ pageContext }) => {
                 {Tags.map(tag => (
                   <Tag
                     key={tag}
-                    color="gold"
+                    color="blue"
                     style={{ padding: "0px 3px", fontWeight: "bold" }}
                   >
                     {tag}

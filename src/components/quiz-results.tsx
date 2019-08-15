@@ -2,9 +2,29 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import Button from "antd/es/button";
+import { Emoji } from "./common";
+
+const getEmoji = score => {
+  if (score < 70) {
+    return "😬";
+  } else if (score <= 99) {
+    return "🏆";
+  } else if (score === 100) {
+    return "🏆💯";
+  }
+};
+
+const H3 = styled.h3`
+  font-size: 1.8rem;
+`;
+
+const H4 = styled.h4`
+  font-size: 1.4rem;
+`;
 
 const Span = styled.span`
   color: ${props => props.theme.blue};
+  font-weight: bold;
 `;
 
 export interface QuizResultsProps {
@@ -20,29 +40,35 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
   return (
     <div
       css={`
-        background-color: #efefef;
         padding: 20px;
         border-radius: 10px;
-        margin-top: 50px;
+        margin-top: 30px;
       `}
     >
-      <h1>
-        Final Score: <Span>{score}%</Span>
-      </h1>
-      <br />
-      <h3>
+      <H3>
+        Final Score:{" "}
+        <Span
+          css={`
+            margin-right: 10px;
+            font-weight: bold;
+          `}
+        >
+          {score}%
+        </Span>
+        <Emoji label="Thumbs up" symbol={getEmoji(score)} size={30} />
+      </H3>
+
+      <H4>
         Correct Answers: <Span>{correctCount}</Span>
-      </h3>
-      <br />
-      <h3>
+      </H4>
+
+      <H4>
         Incorrect Answers: <Span>{incorrectCount}</Span>
-      </h3>
+      </H4>
       <br />
 
-      <Link to="/">
-        <Button type="primary" ghost>
-          Done
-        </Button>
+      <Link to="/quiz">
+        <Button type="primary">Done</Button>
       </Link>
     </div>
   );
