@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Layout, TitleBox } from "../components/common";
+import { Layout, TitleBox, WebsiteCard } from "../components/common";
 
 const Quiz = props => {
   const data = props.pageContext.quizzes;
+  const { otherQuizzes } = props.pageContext;
   return (
     <Layout
       title="Quizzes"
@@ -103,6 +104,11 @@ const Quiz = props => {
           })}
         </div>
       </div>
+      <br />
+      <h2>Other Quizzes</h2>
+      {otherQuizzes.map(site => {
+        return <WebsiteCard key={site.description} data={site} />;
+      })}
     </Layout>
   );
 };

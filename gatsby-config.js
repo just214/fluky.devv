@@ -78,6 +78,10 @@ const config = {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Newsletters`,
           },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Quizzes`,
+          },
         ],
       },
     },
