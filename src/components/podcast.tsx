@@ -42,23 +42,16 @@ export const Podcast: React.FC<PodcastProps> = ({ podcast }) => {
           css={`
             font-family: "Lalezar";
             line-height: 30px;
-            color: ${props => props.theme.blue};
+            color: ${props => props.theme.pink};
           `}
         >
           {podcast.title}
         </h1>
 
         <p
-          // css={`
-          //   position: relative;
-          //   width: 100%;
-          //   max-height: ${readMore ? "8000px" : "100px"};
-          //   overflow: hidden;
-          //   text-overflow: ellipsis;
-          //   transition: max-height 0.5s ease;
-          // `}
           css={`
             margin-bottom: 0;
+            margin-top: 10px;
           `}
           dangerouslySetInnerHTML={{ __html: desc }}
         />
