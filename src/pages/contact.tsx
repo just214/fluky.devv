@@ -23,7 +23,8 @@ export type SuggestionProps = {};
 export const Suggestion: React.FC<SuggestionProps & RouterProps> = ({
   location,
 }) => {
-  const type = location.state.type ? location.state.type : "comment";
+  const type =
+    location.state && location.state.type ? location.state.type : "comment";
 
   const [formType, setFormType] = useState(type);
 
