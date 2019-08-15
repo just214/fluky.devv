@@ -73,3 +73,8 @@ ol, ul {
 h1 {
   line-height: 1.6rem;
 }
+
+input, textarea, option {
+  font-size: 16px !important;
+  margin-bottom: 10px !important;
+}

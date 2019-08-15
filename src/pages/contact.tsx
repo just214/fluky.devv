@@ -48,6 +48,7 @@ export const Suggestion: React.FC<SuggestionProps & RouterProps> = ({
 
   return (
     <Layout
+      bg="#f5f5f5"
       title="Contact Us"
       description="Make a suggestion, report an issue, or just say hi!"
       keywords={[
@@ -104,6 +105,15 @@ export const Suggestion: React.FC<SuggestionProps & RouterProps> = ({
           margin-top: 20px;
         `}
       >
+        <h3
+          css={`
+            color: ${props => props.theme.blue};
+            margin: 10px 0px;
+            font-weight: bold;
+          `}
+        >
+          {options.find(o => o.value === formType).label}
+        </h3>
         <BaseForm>
           <FormComponent />
         </BaseForm>

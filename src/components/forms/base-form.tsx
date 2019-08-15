@@ -32,11 +32,16 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
             <Divider style={{ margin: "8px 0px" }} />
             <label htmlFor="submitter-name">
               Your Name
-              <Input name="submitter-name" id="submitter-name" type="text" />
+              <Input
+                name="submitter-name"
+                id="submitter-name"
+                type="text"
+                required
+              />
             </label>
             <label htmlFor="submitter-name">
               Your Email (optional)
-              <Input name="submitter-email" id="submitter-email" type="text" />
+              <Input name="submitter-email" id="submitter-email" type="email" />
             </label>
             <br />
             <Button

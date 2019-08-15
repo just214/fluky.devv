@@ -11,6 +11,7 @@ export const LastUpdated: React.FC<LastUpdatedProps> = ({ date }) => {
         color: ${props => props.theme.gray4};
         font-size: 0.9em;
         display: block;
+        margin-bottom: 8px;
       `}
     >
       Last updated on{" "}

@@ -46,6 +46,7 @@ const BuzzWords = ({ pageContext }) => {
           subTitle="An ongoing collection of front end developer and coding buzzwords."
         >
           <LastUpdated date={pageContext.lastModified} />
+
           <Link to="/contact" state={{ type: "buzzword" }}>
             Suggest a Buzzword
           </Link>
