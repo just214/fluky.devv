@@ -32,6 +32,19 @@ const config = {
         background_color: `#333`,
         theme_color: `#333`,
         display: `minimal-ui`,
+        icon: "src/images/flukydev-icon.png",
+        icons: [
+          {
+            src: "flukydev-icon-512.png",
+            sizes: "512x512",
+            types: "image/png",
+          },
+          {
+            src: "flukydev-icon-192.png",
+            sizes: "192x192",
+            types: "image/png",
+          },
+        ],
       },
     },
     {

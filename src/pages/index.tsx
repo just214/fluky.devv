@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout, MenuBlock } from "../components/common";
+
 // TODO NEED SEO ON THIS PAGE!
 
 const menuItems = [
@@ -99,6 +100,7 @@ const App = () => (
         Resources &amp; Quizzes for{" "}
         <span style={{ color: "yellow" }}>Front End Developers</span>
       </h1>
+
       <div
         css={`
           margin: 0px;

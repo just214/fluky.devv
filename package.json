@@ -23,14 +23,13 @@
     "antd": "^3.21.4",
     "date-fns": "^1.30.1",
     "dotenv": "^8.0.0",
-    "framer-motion": "^1.6.1",
-    "gatsby": "^2.13.61",
+    "framer-motion": "^1.6.2",
+    "gatsby": "^2.13.63",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-antd": "^2.0.2",
     "gatsby-plugin-antd-v2": "^1.0.3",
     "gatsby-plugin-google-analytics": "^2.1.7",
     "gatsby-plugin-manifest": "^2.2.5",
-    "gatsby-plugin-offline": "^2.2.6",
     "gatsby-plugin-react-helmet": "^3.1.3",
     "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-plugin-styled-components": "^3.1.2",
@@ -52,18 +51,18 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "@storybook/addon-actions": "^5.1.10",
-    "@storybook/addon-links": "^5.1.10",
-    "@storybook/addons": "^5.1.10",
-    "@storybook/react": "^5.1.10",
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-links": "^5.1.11",
+    "@storybook/addons": "^5.1.11",
+    "@storybook/react": "^5.1.11",
     "@types/jest": "^24.0.17",
     "@types/react": "^16.9.1",
     "@types/react-dom": "^16.8.5",
     "@types/react-helmet": "^5.0.9",
     "@types/react-syntax-highlighter": "^10.2.1",
     "@types/styled-components": "^4.1.18",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
@@ -89,9 +88,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gojutin/gatsby-starter-typescript-deluxe"
+    "url": "https://github.com/gojutin/fluky.dev"
   },
   "bugs": {
-    "url": "https://github.com/gojutin/gatsby-starter-typescript-deluxe/issues"
+    "url": "https://github.com/gojutin/fluky.dev/issues"
   }
 }

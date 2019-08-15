@@ -46,7 +46,7 @@ const BuzzWords = ({ pageContext }) => {
           subTitle="An ongoing collection of front end developer and coding buzzwords."
         >
           <LastUpdated date={pageContext.lastModified} />
-          <BuzzwordSuggestionForm />
+          {/* <BuzzwordSuggestionForm /> */}
         </TitleBox>
 
         <br />

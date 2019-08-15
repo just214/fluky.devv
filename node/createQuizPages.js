@@ -37,8 +37,6 @@ module.exports = async (createPage, graphql) => {
     },
   });
 
-  console.log("OBJ", obj);
-
   Object.keys(obj).forEach(key => {
     const slug = key.toLowerCase();
     createPage({

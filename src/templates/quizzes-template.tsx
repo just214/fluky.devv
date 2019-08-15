@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import { Layout, TitleBox } from "../components/common";
 
 const Quiz = props => {
-  console.log(props.pageContext);
   const data = props.pageContext.quizzes;
   return (
     <Layout
