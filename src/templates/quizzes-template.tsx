@@ -126,7 +126,8 @@ const Quiz = props => {
           Suggest a Community Quiz
         </Link>
       </TitleBox>
-      <h2>Other Quizzes</h2>
+      <br />
+
       <SearchBox
         onChange={value => {
           setFilter(value);

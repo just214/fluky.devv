@@ -33,6 +33,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
             <label htmlFor="submitter-name">
               Your Name
               <Input
+                size="large"
                 name="submitter-name"
                 id="submitter-name"
                 type="text"
@@ -41,7 +42,12 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
             </label>
             <label htmlFor="submitter-name">
               Your Email (optional)
-              <Input name="submitter-email" id="submitter-email" type="email" />
+              <Input
+                size="large"
+                name="submitter-email"
+                id="submitter-email"
+                type="email"
+              />
             </label>
             <br />
             <Button

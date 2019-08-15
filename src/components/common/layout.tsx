@@ -80,7 +80,7 @@ const Layout: React.FC<LayoutProps> = ({
                 color: ${props => props.theme.pink};
                 font-family: "Barriecito";
                 margin: 0;
-                margin-top: 10px;
+                margin-top: 20px;
                 transform: rotate(3deg);
                 font-size: 30px;
                 border: 3px solid transparent;

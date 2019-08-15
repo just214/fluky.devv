@@ -8,6 +8,7 @@ const NewsletterSuggestionForm = () => {
       <label htmlFor="newsletter-name">
         Name of Newsletter
         <Input
+          size="large"
           name="newsletter-name"
           id="newsletter-name"
           autoFocus
@@ -18,7 +19,12 @@ const NewsletterSuggestionForm = () => {
 
       <label htmlFor="newsletter-website">
         Newsletter Website
-        <Input name="newsletter-website" id="newsletter-website" type="url" />
+        <Input
+          size="large"
+          name="newsletter-website"
+          id="newsletter-website"
+          type="url"
+        />
       </label>
     </>
   );

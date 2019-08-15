@@ -7,7 +7,14 @@ const BuzzwordSuggestionForm = () => {
     <>
       <label htmlFor="word">
         Word
-        <Input name="word" id="word" autoFocus required type="text" />
+        <Input
+          size="large"
+          name="word"
+          id="word"
+          autoFocus
+          required
+          type="text"
+        />
       </label>
       <label htmlFor="definition">
         Definition

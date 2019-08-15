@@ -7,6 +7,7 @@ const PodcastSuggestionForm = () => {
       <label htmlFor="podcast-name">
         Name of Podcast
         <Input
+          size="large"
           name="podcast-name"
           id="podcast-name"
           autoFocus
@@ -16,7 +17,12 @@ const PodcastSuggestionForm = () => {
       </label>
       <label htmlFor="podcast-website">
         Podcast Website
-        <Input name="podcast-website" id="podcast-website" type="url" />
+        <Input
+          size="large"
+          name="podcast-website"
+          id="podcast-website"
+          type="url"
+        />
       </label>
     </>
   );

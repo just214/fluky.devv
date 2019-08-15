@@ -60,7 +60,7 @@ export const QuizReportIssueForm: React.FC<QuizReportIssueFormProps> = ({
       </label>
       <label htmlFor="description">Please describe the issue.</label>
       <TextArea name="description" id="description" rows={4} required />
-      <Input name="id" value={id} style={{ opacity: 0 }} />
+      <Input size="large" name="id" value={id} style={{ opacity: 0 }} />
     </NetlifyForm>
   );
 };

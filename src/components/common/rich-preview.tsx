@@ -12,7 +12,7 @@ interface RichPreviewProps {
   title: string;
   description: string;
   website: string;
-  details: string;
+  details?: string;
   tag?: string;
   by?: string;
 }
@@ -72,6 +72,7 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
           css={`
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
           `}
         >
           <Heading>{title}</Heading>
@@ -79,7 +80,7 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
             <small
               css={`
                 margin: 0;
-                margin-left: 8px;
+                margin-left: 4px;
                 font-weight: bold;
                 color: ${props => props.theme.gray4};
               `}
