@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import useMedia from "../../hooks/useMedia";
 import WebsiteLink from "./website-link";
 import Button from "antd/es/button";
+import Tag from "antd/es/tag";
 import { FaImage } from "react-icons/fa";
 
 interface RichPreviewProps {
@@ -11,6 +12,7 @@ interface RichPreviewProps {
   description: string;
   website: string;
   details: string;
+  tag?: string;
 }
 export const RichPreview: React.FC<RichPreviewProps> = ({
   thumbnail,
@@ -18,6 +20,7 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
   description = "",
   website,
   details,
+  tag,
 }) => {
   const { isMobile } = useMedia();
   const [desc, setDesc] = useState(
@@ -95,8 +98,16 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
             display: flex;
             align-items: center;
             margin-top: 12px;
+            flex-wrap: wrap;
           `}
         >
+          <div
+            css={`
+              margin-right: 8px;
+            `}
+          >
+            {tag && <Tag color="blue">{tag}</Tag>}
+          </div>
           <p
             css={`
               margin: 0;

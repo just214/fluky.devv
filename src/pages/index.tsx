@@ -57,6 +57,18 @@ const menuItems = [
     background: linear-gradient(to right, #ff9472, #f2709c); 
     `,
   },
+  {
+    label: "CONTACT",
+    rotate: 3,
+    to: "/contact",
+    color: "#333",
+    gradient: `
+    background: #616161; 
+    background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  
+    background: linear-gradient(to right, #9bc5c3, #616161);
+    
+    `,
+  },
 ];
 
 const App = () => (
@@ -89,7 +101,7 @@ const App = () => (
     >
       <h1
         css={`
-          color: white;
+          color: ${props => props.theme.gray2};
           text-align: center;
           font-family: Barriecito;
           font-size: 2rem;
@@ -105,7 +117,7 @@ const App = () => (
         css={`
           margin: 0px;
           display: flex;
-          justify-content: space-around;
+          justify-content: center;
           flex-wrap: wrap;
         `}
         role="navigation"

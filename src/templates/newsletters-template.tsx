@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import Layout from "../components/common/layout";
 import {
   TitleBox,
@@ -8,7 +9,6 @@ import {
   LastUpdated,
 } from "../components/common";
 import Divider from "antd/es/divider";
-import NewsletterSuggestionForm from "../components/forms/newsletter-suggestion-form";
 import Tag from "antd/es/tag";
 
 export const NewsLetters = ({ pageContext }) => {
@@ -52,8 +52,9 @@ export const NewsLetters = ({ pageContext }) => {
         subTitle="A collection of the best front end developer and coding newsletters."
       >
         <LastUpdated date={pageContext.lastModified} />
-
-        <NewsletterSuggestionForm />
+        <Link to="/contact" state={{ type: "newsletter" }}>
+          Suggest a Newsletter
+        </Link>
       </TitleBox>
 
       <br />

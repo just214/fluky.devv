@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import {
   Layout,
   TitleBox,
@@ -6,7 +7,6 @@ import {
   SearchBox,
   LastUpdated,
 } from "../components/common";
-import BuzzwordSuggestionForm from "../components/forms/buzzword-suggestion-form";
 
 const BuzzWords = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
@@ -46,7 +46,9 @@ const BuzzWords = ({ pageContext }) => {
           subTitle="An ongoing collection of front end developer and coding buzzwords."
         >
           <LastUpdated date={pageContext.lastModified} />
-          {/* <BuzzwordSuggestionForm /> */}
+          <Link to="/contact" state={{ type: "buzzword" }}>
+            Suggest a Buzzword
+          </Link>
         </TitleBox>
 
         <br />

@@ -7,8 +7,8 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   transform: rotate(${props => props.rotate}deg);
   margin: 0px;
   max-width: 280px;
-  margin: 10px;
-  margin-top: 20px;
+  margin: 20px;
+
   background: transparent;
   border: 3px solid transparent;
   transition: border 1s;

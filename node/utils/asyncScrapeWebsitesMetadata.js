@@ -24,7 +24,11 @@ async function asyncScrapteWebsitesMetadata(array) {
     const value = await getMeta(node.data);
     values.push(value);
   });
-  return values;
+  return values.sort((a, b) => {
+    const titleA = a.title.toLowerCase();
+    const titleB = b.title.toLowerCase();
+    return titleA < titleB ? -1 : 1;
+  });
 }
 
 module.exports = asyncScrapteWebsitesMetadata;

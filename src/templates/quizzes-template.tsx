@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
-import {
-  Layout,
-  TitleBox,
-  WebsiteCard,
-  RichPreview,
-} from "../components/common";
+import { Layout, TitleBox, SearchBox, RichPreview } from "../components/common";
 
 const Quiz = props => {
+  const [filter, setFilter] = useState("");
   const data = props.pageContext.quizzes;
   const { otherQuizzes } = props.pageContext;
+  const filteredOtherQuizzes = otherQuizzes.filter(quiz => {
+    if (
+      (quiz.title && quiz.title.toLowerCase().includes(filter.toLowerCase())) ||
+      (quiz.description &&
+        quiz.description.toLowerCase().includes(filter.toLowerCase())) ||
+      (quiz.tag && quiz.tag.toLowerCase().includes(filter.toLowerCase()))
+    ) {
+      return true;
+    }
+    return false;
+  });
   return (
     <Layout
       title="Quizzes"
@@ -33,7 +40,11 @@ const Quiz = props => {
       <TitleBox
         title="Quizzes"
         subTitle="Test your front end developer knowledge with one of our coding quizzes."
-      />
+      >
+        <Link to="/contact" state={{ type: "quiz-question" }}>
+          Suggest a Quiz Question
+        </Link>
+      </TitleBox>
       <div>
         <div
           css={`
@@ -110,16 +121,27 @@ const Quiz = props => {
         </div>
       </div>
       <br />
+      <TitleBox title="Community Quizzes">
+        <Link to="/contact" state={{ type: "buzzword" }}>
+          Suggest a Community Quiz
+        </Link>
+      </TitleBox>
       <h2>Other Quizzes</h2>
-      {otherQuizzes.map(site => {
+      <SearchBox
+        onChange={value => {
+          setFilter(value);
+        }}
+      />
+      {filteredOtherQuizzes.map(site => {
         return (
           <RichPreview
-            key={site.title}
+            key={site.url}
             title={site.title}
             description={site.description}
             thumbnail={site.image}
             website={site.url}
             details={`by ${site.provider}`}
+            tag={site.tag}
           />
         );
       })}

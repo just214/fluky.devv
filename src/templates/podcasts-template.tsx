@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
+import { Link } from "gatsby";
+
 import { TitleBox, RichPreview } from "../components/common";
 import {
   BackToTop,
@@ -61,7 +62,9 @@ const Podcasts = ({ pageContext }) => {
           subTitle="A collection of the best front end developer and coding podcasts."
         >
           <LastUpdated date={pageContext.lastModified} />
-          <PodcastSuggestionForm />
+          <Link to="/contact" state={{ type: "podcast" }}>
+            Suggest a Podcast
+          </Link>
         </TitleBox>
 
         <br />
