@@ -66,7 +66,7 @@ export const Suggestion: React.FC<SuggestionProps & RouterProps> = ({
         "form",
       ]}
     >
-      {location.state.type && (
+      {location.state && location.state.type && (
         <Link
           to={`${location.state.type}s`}
           css={`
