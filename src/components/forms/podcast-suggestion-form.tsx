@@ -16,7 +16,7 @@ const PodcastSuggestionForm = () => {
       </label>
       <label htmlFor="podcast-website">
         Podcast Website
-        <Input name="podcast-website" id="podcast-website" type="text" />
+        <Input name="podcast-website" id="podcast-website" type="url" />
       </label>
     </>
   );

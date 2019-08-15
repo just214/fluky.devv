@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "antd/es/input";
+const { TextArea } = Input;
 
 const BuzzwordSuggestionForm = () => {
   return (
@@ -10,7 +11,7 @@ const BuzzwordSuggestionForm = () => {
       </label>
       <label htmlFor="definition">
         Definition
-        <Input required name="definition" id="definition" type="text" />
+        <TextArea required name="definition" id="definition" rows={3} />
       </label>
     </>
   );

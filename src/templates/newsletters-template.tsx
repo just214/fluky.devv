@@ -7,6 +7,7 @@ import {
   SearchBox,
   BackToTop,
   LastUpdated,
+  Heading,
 } from "../components/common";
 import Divider from "antd/es/divider";
 import Tag from "antd/es/tag";
@@ -60,7 +61,7 @@ export const NewsLetters = ({ pageContext }) => {
       <br />
       <SearchBox onChange={value => setFilter(value.toLowerCase())} />
 
-      <div
+      <ul
         css={`
           margin-top: 20px;
         `}
@@ -68,16 +69,8 @@ export const NewsLetters = ({ pageContext }) => {
         {data.map(({ node }) => {
           const { Name, Description, Website, Tags } = node.data;
           return (
-            <div key={Name}>
-              <h1
-                css={`
-                  font-family: "Lalezar";
-                  margin-bottom: 0px;
-                  color: ${props => props.theme.pink};
-                `}
-              >
-                {Name}
-              </h1>
+            <li key={Name}>
+              <Heading>{Name}</Heading>
 
               <p
                 css={`
@@ -110,10 +103,10 @@ export const NewsLetters = ({ pageContext }) => {
               </div>
 
               <Divider style={{ padding: 0, margin: "20px 0px 20px 0px" }} />
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </Layout>
   );
 };

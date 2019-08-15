@@ -6,6 +6,7 @@ import {
   BackToTop,
   SearchBox,
   LastUpdated,
+  Heading,
 } from "../components/common";
 
 const BuzzWords = ({ pageContext }) => {
@@ -68,17 +69,7 @@ const BuzzWords = ({ pageContext }) => {
                   background: ${props => props.theme.gray1};
                 `}
               >
-                <h4
-                  css={`
-                    color: ${props => props.theme.blue};
-                    margin: 0px;
-                    padding: 0px;
-                    font-size: 1.8rem;
-                    font-family: "Lalezar", sans-serif;
-                  `}
-                >
-                  {node.data.Word}
-                </h4>
+                <Heading color="blue">{node.data.Word}</Heading>
                 <dfn
                   css={`
                     margin: 0;

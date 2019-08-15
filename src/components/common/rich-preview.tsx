@@ -5,6 +5,7 @@ import WebsiteLink from "./website-link";
 import Button from "antd/es/button";
 import Tag from "antd/es/tag";
 import { FaImage } from "react-icons/fa";
+import Heading from "./heading";
 
 interface RichPreviewProps {
   thumbnail: string;
@@ -13,6 +14,7 @@ interface RichPreviewProps {
   website: string;
   details: string;
   tag?: string;
+  by?: string;
 }
 export const RichPreview: React.FC<RichPreviewProps> = ({
   thumbnail,
@@ -21,6 +23,7 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
   website,
   details,
   tag,
+  by,
 }) => {
   const { isMobile } = useMedia();
   const [desc, setDesc] = useState(
@@ -65,15 +68,26 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
       )}
 
       <div>
-        <h1
+        <div
           css={`
-            font-family: "Lalezar";
-            line-height: 30px;
-            color: ${props => props.theme.pink};
+            display: flex;
+            align-items: center;
           `}
         >
-          {title}
-        </h1>
+          <Heading>{title}</Heading>
+          {by && (
+            <small
+              css={`
+                margin: 0;
+                margin-left: 8px;
+                font-weight: bold;
+                color: ${props => props.theme.gray4};
+              `}
+            >
+              by {by}
+            </small>
+          )}
+        </div>
 
         <p
           css={`
@@ -113,6 +127,7 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
               margin: 0;
               margin-right: 10px;
               font-weight: bold;
+              color: ${props => props.theme.gray4};
             `}
           >
             {details}

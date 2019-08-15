@@ -18,7 +18,7 @@ const NewsletterSuggestionForm = () => {
 
       <label htmlFor="newsletter-website">
         Newsletter Website
-        <Input name="newsletter-website" id="newsletter-website" type="text" />
+        <Input name="newsletter-website" id="newsletter-website" type="url" />
       </label>
     </>
   );

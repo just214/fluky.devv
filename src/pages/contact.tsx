@@ -19,10 +19,8 @@ const options = [
   { label: "Suggest a Buzzword", value: "buzzword" },
 ];
 
-export type SuggestionProps = {};
-export const Suggestion: React.FC<SuggestionProps & RouterProps> = ({
-  location,
-}) => {
+export type ContactProps = {};
+export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
   const type =
     location.state && location.state.type ? location.state.type : "comment";
 
@@ -84,9 +82,18 @@ export const Suggestion: React.FC<SuggestionProps & RouterProps> = ({
         subTitle="Make a suggestion, report an issue, or just say hello."
       />
       <br />
-      <label htmlFor="contact-type">Hi, what brings you here today?</label>
+      <label
+        htmlFor="contact-type"
+        css={`
+          font-size: 1.5rem;
+          display: block;
+        `}
+      >
+        Hi, what brings you here today?
+      </label>
       <br />
       <Select
+        size="large"
         defaultValue={formType}
         id="contact-type"
         style={{ width: 300 }}
@@ -122,4 +129,4 @@ export const Suggestion: React.FC<SuggestionProps & RouterProps> = ({
   );
 };
 
-export default Suggestion;
+export default Contact;

@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const H2 = styled.h2`
+  font-size: 1.2rem;
   @media (max-width: 500px) {
     font-size: 0.9rem;
   }

@@ -140,7 +140,7 @@ const Quiz = props => {
             description={site.description}
             thumbnail={site.image}
             website={site.url}
-            details={`by ${site.provider}`}
+            by={site.provider}
             tag={site.tag}
           />
         );
