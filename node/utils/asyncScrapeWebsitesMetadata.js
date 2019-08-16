@@ -18,6 +18,12 @@ async function asyncScrapteWebsitesMetadata(array) {
     const doc = domino.createWindow(html).document;
     const metadata = await getMetadata(doc, url);
 
+    if (data.Tags) {
+      return { ...metadata, tag: data.Tags[0] };
+    } else {
+      return metadata;
+    }
+
     return { ...metadata, tag: data.Tags[0] };
   }
   const data = await asyncForEach(array, async function({ node }) {

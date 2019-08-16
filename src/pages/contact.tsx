@@ -5,6 +5,7 @@ import NewsletterSuggestionForm from "../components/forms/newsletter-suggestion-
 import BuzzwordSuggestionForm from "../components/forms/buzzword-suggestion-form";
 import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
 import GeneralCommentForm from "../components/forms/general-comment-form";
+import WebsiteSuggestionForm from "../components/forms/website-suggestion-form";
 import BaseForm from "../components/forms/base-form";
 import { Layout, TitleBox } from "../components/common";
 import Select from "antd/es/select";
@@ -17,6 +18,7 @@ const options = [
   { label: "Suggest a Podcast", value: "podcast" },
   { label: "Suggest a Newsletter", value: "newsletter" },
   { label: "Suggest a Buzzword", value: "buzzword" },
+  { label: "Suggest a Website", value: "website" },
 ];
 
 export type ContactProps = {};
@@ -39,6 +41,8 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
       return PodcastSuggestionForm;
     } else if (formType === "comment") {
       return GeneralCommentForm;
+    } else if (formType === "website") {
+      return WebsiteSuggestionForm;
     } else {
       return GeneralCommentForm;
     }

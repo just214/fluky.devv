@@ -13,8 +13,18 @@ const menuItems = [
     background: linear-gradient(to right, #f7b733, #fc4a1a);`,
   },
   {
+    label: "WEBSITES",
+    rotate: -3,
+    to: "/websites",
+    color: "#333",
+    gradient: `
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    `,
+  },
+  {
     label: "PODCASTS",
-    rotate: 3,
     to: "/podcasts",
     color: "#333",
     gradient: `
@@ -24,7 +34,6 @@ const menuItems = [
   },
   {
     label: "NEWSLETTERS",
-    rotate: -3,
     to: "/newsletters",
     color: "#333",
     gradient: `
@@ -35,7 +44,6 @@ const menuItems = [
   },
   {
     label: "BUZZWORDS",
-    rotate: 3,
     to: "/buzzwords",
     color: "yellow",
     gradient: `
@@ -46,7 +54,6 @@ const menuItems = [
   },
   {
     label: "ABOUT THIS SITE",
-    rotate: -3,
     to: "/about-site",
     color: "#333",
     gradient: `
@@ -57,14 +64,12 @@ const menuItems = [
   },
   {
     label: "CONTACT",
-    rotate: 3,
     to: "/contact",
     color: "#333",
     gradient: `
     background: #616161; 
     background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  
     background: linear-gradient(to right, #9bc5c3, #616161);
-    
     `,
   },
 ];
@@ -100,10 +105,9 @@ const App = () => (
     >
       <div
         css={`
-          background: ${props => props.theme.blue};
           padding: 4px;
           display: inline-block;
-          transform: skewX(-5deg);
+          // transform: skewX(-5deg);
           margin-bottom: 50px;
         `}
       >
@@ -118,7 +122,17 @@ const App = () => (
           `}
         >
           Resources &amp; Quizzes for{" "}
-          <span style={{ color: "yellow" }}>Front End Developers</span>
+          <span
+            css={`
+              background: ${props => props.theme.blue};
+              color: yellow;
+              padding: 0px 3px;
+              display: inline-block;
+              transform: skewX(-5deg);
+            `}
+          >
+            Front End Developers
+          </span>
         </h1>
       </div>
 
@@ -131,11 +145,12 @@ const App = () => (
         `}
         role="navigation"
       >
-        {menuItems.map(({ rotate, to, color, gradient, label }, index) => {
+        {menuItems.map(({ to, color, gradient, label }, index) => {
+          const rotateValue = index % 2 ? 3 : -3;
           return (
             <MenuBlock
               key={label}
-              rotate={rotate}
+              rotate={rotateValue}
               to={to}
               color={color}
               gradient={gradient}

@@ -4,6 +4,7 @@ import Input from "antd/es/input";
 import Divider from "antd/es/divider";
 import NetlifyForm from "react-netlify-form";
 import { Emoji } from "../common";
+const { TextArea } = Input;
 
 interface NetlifyFormProps {
   formName?: string;
@@ -47,6 +48,14 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
                 name="submitter-email"
                 id="submitter-email"
                 type="email"
+              />
+            </label>
+            <label htmlFor="submitter-additional-comments">
+              Additional Comments
+              <TextArea
+                rows={2}
+                name="submitter-additional-comments"
+                id="submitter-additional-comments"
               />
             </label>
             <br />
