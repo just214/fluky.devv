@@ -49,10 +49,14 @@ export const AboutSite = () => {
         "quizzes",
         "resources",
         "tips",
+        "about",
       ]}
       description="A collection of resources and quizzes for front end developers and coders."
     >
-      <TitleBox title="About This Site" />
+      <TitleBox
+        title="About This Site"
+        subTitle="Fluky.dev is here to provide a collection of useful resources for front end developers."
+      />
       <Timeline
         mode={isMobile ? "left" : "alternate"}
         style={{ marginTop: "40px", padding: "10px" }}

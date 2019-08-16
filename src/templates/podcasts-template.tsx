@@ -33,7 +33,7 @@ const Podcasts = ({ pageContext }) => {
 
   return (
     <Layout
-      title="Dev Podcasts"
+      title="Coding Podcasts"
       keywords={[
         "podcasts",
         "dev",

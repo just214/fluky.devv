@@ -1,8 +1,6 @@
 import React from "react";
 import { Layout, MenuBlock } from "../components/common";
 
-// TODO NEED SEO ON THIS PAGE!
-
 const menuItems = [
   {
     label: "QUIZZES",
@@ -97,21 +95,32 @@ const App = () => (
     <div
       css={`
         padding: 20px;
+        text-align: center;
       `}
     >
-      <h1
+      <div
         css={`
-          color: ${props => props.theme.gray2};
-          text-align: center;
-          font-family: Barriecito;
-          font-size: 2rem;
+          background: ${props => props.theme.blue};
+          padding: 4px;
+          display: inline-block;
+          transform: skewX(-5deg);
           margin-bottom: 50px;
-          line-height: 2.3rem;
         `}
       >
-        Resources &amp; Quizzes for{" "}
-        <span style={{ color: "yellow" }}>Front End Developers</span>
-      </h1>
+        <h1
+          css={`
+            color: ${props => props.theme.gray2};
+            text-align: center;
+            font-family: Barriecito;
+            font-size: 2rem;
+
+            line-height: 2.3rem;
+          `}
+        >
+          Resources &amp; Quizzes for{" "}
+          <span style={{ color: "yellow" }}>Front End Developers</span>
+        </h1>
+      </div>
 
       <div
         css={`
@@ -122,7 +131,7 @@ const App = () => (
         `}
         role="navigation"
       >
-        {menuItems.map(({ rotate, to, color, gradient, label }) => {
+        {menuItems.map(({ rotate, to, color, gradient, label }, index) => {
           return (
             <MenuBlock
               key={label}
@@ -130,6 +139,7 @@ const App = () => (
               to={to}
               color={color}
               gradient={gradient}
+              index={index}
             >
               {label}
             </MenuBlock>

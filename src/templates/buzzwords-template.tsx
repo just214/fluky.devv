@@ -20,7 +20,7 @@ const BuzzWords = ({ pageContext }) => {
 
   return (
     <Layout
-      title="Dev Buzzwords"
+      title="Coding Buzzwords"
       keywords={[
         "buzzwords",
         "dev",
