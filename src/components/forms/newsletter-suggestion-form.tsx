@@ -1,6 +1,5 @@
 import React from "react";
 import Input from "antd/es/input";
-import BaseForm from "./base-form";
 
 const NewsletterSuggestionForm = () => {
   return (

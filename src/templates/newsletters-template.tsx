@@ -70,7 +70,7 @@ export const NewsLetters = ({ pageContext }) => {
           const { Name, Description, Website, Tags } = node.data;
           return (
             <li key={Name}>
-              <Heading>{Name}</Heading>
+              <Heading color="blue">{Name}</Heading>
 
               <p
                 css={`
@@ -87,19 +87,16 @@ export const NewsLetters = ({ pageContext }) => {
                   flex-wrap: wrap;
                 `}
               >
-                <div style={{ marginRight: "20px" }}>
+                <small
+                  css={`
+                    color: ${props => props.theme.pink};
+                  `}
+                >
+                  <b>{Tags[0]}</b>
+                </small>
+                <div style={{ marginLeft: "10px" }}>
                   <WebsiteLink url={Website} />
                 </div>
-
-                {Tags.map(tag => (
-                  <Tag
-                    key={tag}
-                    color="blue"
-                    style={{ padding: "0px 3px", fontWeight: "bold" }}
-                  >
-                    {tag}
-                  </Tag>
-                ))}
               </div>
 
               <Divider style={{ padding: 0, margin: "20px 0px 20px 0px" }} />

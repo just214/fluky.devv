@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 
-import { TitleBox, RichPreview } from "../components/common";
+import { TitleBox } from "../components/common";
+import Podcast from "../components/podcast";
 import {
   BackToTop,
   SearchBox,
@@ -72,7 +73,7 @@ const Podcasts = ({ pageContext }) => {
 
         {sortedPodcasts.map(podcast => {
           return (
-            <RichPreview
+            <Podcast
               key={podcast.id}
               title={podcast.title}
               description={podcast.description}

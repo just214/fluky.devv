@@ -1,10 +1,14 @@
 import React from "react";
 
-export const Heading = ({ children }) => {
+export const Heading = ({ children, color = "pink" }) => {
+  const getColor = props => {
+    return props.theme[color];
+  };
   return (
     <h4
       css={`
-        color: ${props => props.theme.pink};
+        display: inline-block;
+        color: ${getColor};
         margin: 0px;
         padding: 0px;
         font-size: 1.8rem;

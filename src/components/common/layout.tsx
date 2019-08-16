@@ -6,7 +6,7 @@ import Icon from "../Icon";
 import SEO from "./seo";
 
 const MainContainer = styled.main<{ maxWidth?: string }>`
-  margin: 0 auto;
+  margin: 40px auto;
   max-width: ${props => props.maxWidth || "960px"};
   padding: 20px;
 `;

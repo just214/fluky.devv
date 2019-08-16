@@ -1,5 +1,6 @@
 import React from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import Button from "antd/es/button";
 
 export interface WebsiteLinkProps {
   url: string;
@@ -16,16 +17,26 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         color: ${props => props.theme.lightblue};
       `}
     >
-      <p
+      {/* <small
         css={`
           margin: 0;
           margin-right: 5px;
-          font-weight: bold;
         `}
       >
         Visit Website
-      </p>{" "}
-      <FaExternalLinkAlt size={12} />
+      </small>{" "} */}
+      <Button
+        css={`
+          display: flex;
+          align-items: center;
+        `}
+        type="primary"
+        ghost
+        size="small"
+      >
+        Visit Website{" "}
+        <FaExternalLinkAlt style={{ marginLeft: "5px" }} size={13} />
+      </Button>
     </a>
   );
 };

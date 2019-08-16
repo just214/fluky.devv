@@ -1,36 +1,27 @@
-// Used for podcasts and other quizzes. Includes truncated description logic.
-import React, { useState } from "react";
-import useMedia from "../../hooks/useMedia";
-import WebsiteLink from "./website-link";
-import Button from "antd/es/button";
-import Tag from "antd/es/tag";
+import React from "react";
+import useMedia from "../hooks/useMedia";
+import WebsiteLink from "./common/website-link";
 import { FaImage } from "react-icons/fa";
-import Heading from "./heading";
+import Heading from "./common/heading";
+import useReadMore from "../hooks/useReadMore";
 
-interface RichPreviewProps {
+interface PodcastProps {
   thumbnail: string;
   title: string;
   description: string;
   website: string;
   details?: string;
-  tag?: string;
-  by?: string;
 }
-export const RichPreview: React.FC<RichPreviewProps> = ({
+export const Podcast: React.FC<PodcastProps> = ({
   thumbnail,
   title,
   description = "",
   website,
   details,
-  tag,
-  by,
 }) => {
+  const [desc, ReadMoreButton] = useReadMore(description);
   const { isMobile } = useMedia();
-  const [desc, setDesc] = useState(
-    description.length > 280
-      ? description.substring(0, 280) + "..."
-      : description
-  );
+
   return (
     <div
       css={`
@@ -68,27 +59,7 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
       )}
 
       <div>
-        <div
-          css={`
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-          `}
-        >
-          <Heading>{title}</Heading>
-          {by && (
-            <small
-              css={`
-                margin: 0;
-                margin-left: 4px;
-                font-weight: bold;
-                color: ${props => props.theme.gray4};
-              `}
-            >
-              by {by}
-            </small>
-          )}
-        </div>
+        <Heading color="blue">{title}</Heading>
 
         <p
           css={`
@@ -97,16 +68,8 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
           `}
           dangerouslySetInnerHTML={{ __html: desc }}
         />
-        {desc.length !== description.length && (
-          <Button
-            style={{ margin: 0, padding: 0 }}
-            type="link"
-            // onClick={() => setReadMore(true)}
-            onClick={() => setDesc(description)}
-          >
-            Read more
-          </Button>
-        )}
+
+        <ReadMoreButton />
 
         <div
           css={`
@@ -116,13 +79,6 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
             flex-wrap: wrap;
           `}
         >
-          <div
-            css={`
-              margin-right: 8px;
-            `}
-          >
-            {tag && <Tag color="blue">{tag}</Tag>}
-          </div>
           <p
             css={`
               margin: 0;
@@ -140,4 +96,4 @@ export const RichPreview: React.FC<RichPreviewProps> = ({
   );
 };
 
-export default RichPreview;
+export default Podcast;

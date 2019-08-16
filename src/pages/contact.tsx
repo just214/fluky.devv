@@ -46,7 +46,6 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
 
   return (
     <Layout
-      bg="#f5f5f5"
       title="Contact Us"
       description="Make a suggestion, report an issue, or just say hi!"
       keywords={[

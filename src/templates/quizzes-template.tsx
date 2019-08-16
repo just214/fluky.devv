@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import { Layout, TitleBox, SearchBox, RichPreview } from "../components/common";
+import { Layout, TitleBox, SearchBox } from "../components/common";
+import QuizItem from "../components/quiz-item";
 
 const Quiz = props => {
   const [filter, setFilter] = useState("");
@@ -121,9 +122,9 @@ const Quiz = props => {
         </div>
       </div>
       <br />
-      <TitleBox title="Community Quizzes">
+      <TitleBox title="Other Quizzes">
         <Link to="/contact" state={{ type: "buzzword" }}>
-          Suggest a Community Quiz
+          Suggest a Quiz
         </Link>
       </TitleBox>
       <br />
@@ -135,13 +136,12 @@ const Quiz = props => {
       />
       {filteredOtherQuizzes.map(site => {
         return (
-          <RichPreview
+          <QuizItem
             key={site.url}
             title={site.title}
             description={site.description}
-            thumbnail={site.image}
             website={site.url}
-            by={site.provider}
+            provider={site.provider}
             tag={site.tag}
           />
         );

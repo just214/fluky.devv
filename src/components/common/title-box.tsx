@@ -10,8 +10,9 @@ const Wrapper = styled.div`
 
 const H2 = styled.h2`
   font-size: 1.2rem;
+  margin: 10px 0px;
   @media (max-width: 500px) {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 `;
 

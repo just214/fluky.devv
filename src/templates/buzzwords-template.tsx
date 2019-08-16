@@ -73,8 +73,8 @@ const BuzzWords = ({ pageContext }) => {
                 <dfn
                   css={`
                     margin: 0;
-                    font-weight: bold;
                     font-style: normal;
+                    display: block;
                   `}
                 >
                   {node.data.Definition}

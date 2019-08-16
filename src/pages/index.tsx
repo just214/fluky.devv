@@ -106,7 +106,7 @@ const App = () => (
           font-family: Barriecito;
           font-size: 2rem;
           margin-bottom: 50px;
-          line-height: 2rem;
+          line-height: 2.3rem;
         `}
       >
         Resources &amp; Quizzes for{" "}

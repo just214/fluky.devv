@@ -1,7 +1,8 @@
 import React from "react";
 import Affix from "antd/es/affix";
 import Input from "antd/es/input";
-const { Search } = Input;
+import { FaSearch } from "react-icons/fa";
+// const { Search } = Input;
 
 interface SearchBoxProps {
   onChange: (value: string) => void;
@@ -14,12 +15,13 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onChange, placeholder }) => {
 
   return (
     <Affix>
-      <Search
+      <Input
         allowClear
         size="large"
-        style={{ maxWidth: "100%" }}
+        prefix={<FaSearch style={{ marginBottom: "8px" }} color="#dadada" />}
+        style={{ maxWidth: "100%", borderRadius: "30px" }}
         onChange={handleOnChange}
-        placeholder={placeholder || "Search"}
+        placeholder={placeholder || "Search..."}
       />
     </Affix>
   );

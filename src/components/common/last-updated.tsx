@@ -9,7 +9,7 @@ export const LastUpdated: React.FC<LastUpdatedProps> = ({ date }) => {
     <small
       css={`
         color: ${props => props.theme.gray4};
-        font-size: 0.9em;
+        font-size: 0.8em;
         display: block;
         margin-bottom: 8px;
       `}
