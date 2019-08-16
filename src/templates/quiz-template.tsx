@@ -9,7 +9,7 @@ import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
 import { TitleBox, Layout, LastUpdated } from "../components/common";
 
-import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
+// import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 
 const getFeedbackCorrect = () => {
   const options: string[] = [
@@ -198,7 +198,7 @@ const Page = ({ data, pageContext }) => {
         userAnswer={userAnswer}
         onSelection={answer => handleSetUserAnswer(answer)}
       />
-      <QuizReportIssueForm id={currentQuestion.data.ID} />
+      {/* <QuizReportIssueForm id={currentQuestion.data.ID} /> */}
       <br />
       {isQuestionAnswered && (
         <motion.div
