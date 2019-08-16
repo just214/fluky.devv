@@ -1,4 +1,6 @@
-# devquiz
+# fluky.dev
+
+## [https://fluky.dev](https://fluky.dev)
 
 TODO
 - SEO, including images, link tags, etc.
