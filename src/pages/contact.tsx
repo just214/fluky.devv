@@ -132,7 +132,8 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
             <div
               key={title}
               css={`
-                display: ${formType === title ? "block" : "none"};
+                height: ${formType === title ? "auto" : 0};
+                opacity: ${formType === title ? 1 : 0};
               `}
             >
               <Component />
