@@ -12,6 +12,7 @@ import {
 
 const Websites = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
+  console.log("SSS", pageContext.data);
 
   const sortedData = pageContext.data
     .sort((a, b) => {
@@ -31,7 +32,7 @@ const Websites = ({ pageContext }) => {
 
   return (
     <Layout
-      title="Dev Communities"
+      title="Community"
       keywords={[
         "community",
         "communities",
@@ -58,7 +59,7 @@ const Websites = ({ pageContext }) => {
         `}
       >
         <TitleBox
-          title="Communities"
+          title="Community"
           subTitle="A collection of the best developer communities."
         >
           <LastUpdated date={pageContext.lastModified} />
@@ -71,7 +72,7 @@ const Websites = ({ pageContext }) => {
         <SearchBox onChange={value => setFilter(value)} />
 
         {sortedData.map(
-          ({ title, url, description, image, icon, provider }) => {
+          ({ title, url, description, image, icon, provider, tags }) => {
             return (
               <Website
                 key={title}
@@ -80,6 +81,7 @@ const Websites = ({ pageContext }) => {
                 description={description}
                 icon={icon || image}
                 provider={provider}
+                tags={tags}
               />
             );
           }

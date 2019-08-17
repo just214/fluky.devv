@@ -11,6 +11,7 @@ interface WebsiteProps {
   description: string;
   url: string;
   provider: string;
+  tags?: string[];
 }
 export const Website: React.FC<WebsiteProps> = ({
   icon,
@@ -18,6 +19,7 @@ export const Website: React.FC<WebsiteProps> = ({
   description = "",
   url,
   provider,
+  tags,
 }) => {
   const [desc, ReadMoreButton] = useReadMore(description);
   const { isMobile } = useMedia();
@@ -82,6 +84,20 @@ export const Website: React.FC<WebsiteProps> = ({
             flex-wrap: wrap;
           `}
         >
+          {tags.map(tag => {
+            return (
+              <small
+                css={`
+                  color: ${props => props.theme.pink};
+                  margin-right: 10px;
+                  font-weight: bold;
+                `}
+                key={tag}
+              >
+                {tag}
+              </small>
+            );
+          })}
           {url && <WebsiteLink url={url} />}
         </div>
       </div>

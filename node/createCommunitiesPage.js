@@ -10,6 +10,7 @@ module.exports = async (createPage, graphql) => {
             data {
               Website
               LastModified
+              Tags
             }
           }
         }

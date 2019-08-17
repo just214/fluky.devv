@@ -57,7 +57,7 @@ const menuItems = [
   {
     label: "ABOUT",
     to: "/about-site",
-    color: "purple",
+    color: "#d100c3",
     gradient: `
     background: #fc4a1a;
     background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
@@ -124,10 +124,17 @@ const App = () => (
           Resources for{" "}
           <span
             css={`
-              color: ${props => props.theme.pink};
+              // color: ${props => props.theme.pink};
               padding: 0px 3px;
               display: inline-block;
               font-weight: bold;
+              color: ${props => props.theme.bluegray};
+              background: linear-gradient(to right, ${props =>
+                props.theme.pink} 0%, ${props => props.theme.bluegray} 100%);
+
+              -webkit-background-clip: text;
+
+              -webkit-text-fill-color: transparent;
             `}
           >
             Front End Developers

@@ -13,6 +13,7 @@ const MainContainer = styled.main<{ maxWidth?: string }>`
 
 const theme = {
   blue: "#0066B8",
+  bluegray: "#2193b0",
   lightblue: "#329bf0",
   antgreen: "rgb(82, 196, 26)",
   lightgreen: "#93ff61",
@@ -97,9 +98,7 @@ const Layout: React.FC<LayoutProps> = ({
             >
               <span
                 css={`
-                  color: #2193b0;
-                  color: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
-                  color: linear-gradient(to right, #6dd5ed, #2193b0);
+                  color: ${props => props.theme.bluegray};
                 `}
               >
                 FLUKY

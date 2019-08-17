@@ -31,7 +31,7 @@ export const NewsLetters = ({ pageContext }) => {
   });
   return (
     <Layout
-      title="Coding Newsletters"
+      title="Newsletters"
       keywords={[
         "newsletters",
         "dev",

@@ -19,12 +19,10 @@ async function asyncScrapteWebsitesMetadata(array) {
     const metadata = await getMetadata(doc, url);
 
     if (data.Tags) {
-      return { ...metadata, tag: data.Tags[0] };
+      return { ...metadata, tags: data.Tags };
     } else {
       return metadata;
     }
-
-    return { ...metadata, tag: data.Tags[0] };
   }
   const data = await asyncForEach(array, async function({ node }) {
     const value = await getMeta(node.data);
