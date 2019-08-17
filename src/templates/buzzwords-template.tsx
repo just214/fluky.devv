@@ -34,7 +34,7 @@ const BuzzWords = ({ pageContext }) => {
         "quiz",
         "resources",
       ]}
-      description="An ongoing collection of front end developer and coding buzzwords and definitions."
+      description="A collection of coding and front end developer-related buzzwords and their definitions."
     >
       <BackToTop />
       <div
@@ -44,7 +44,7 @@ const BuzzWords = ({ pageContext }) => {
       >
         <TitleBox
           title="Buzzwords"
-          subTitle="An ongoing collection of front end developer and coding buzzwords."
+          subTitle="A collection of coding and front end developer-related buzzwords and their definitions."
         >
           <LastUpdated date={pageContext.lastModified} />
 

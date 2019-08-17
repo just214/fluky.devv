@@ -97,12 +97,21 @@ const Layout: React.FC<LayoutProps> = ({
             >
               <span
                 css={`
-                  color: ${props => props.theme.lightblue};
+                  color: #2193b0;
+                  color: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+                  color: linear-gradient(to right, #6dd5ed, #2193b0);
                 `}
               >
                 FLUKY
               </span>
-              <span>.DEV</span>
+              <span
+                css={`
+                  color: orange;
+                `}
+              >
+                .
+              </span>
+              <span>DEV</span>
               <Icon />
             </Link>
           </header>

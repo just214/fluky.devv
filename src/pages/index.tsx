@@ -6,11 +6,13 @@ const menuItems = [
     label: "QUIZZES",
     rotate: -3,
     to: "/quiz",
-    color: "#333",
+    color: "yellow",
     gradient: `
-    background: #fc4a1a;
-    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
-    background: linear-gradient(to right, #f7b733, #fc4a1a);`,
+    background: #f857a6; 
+    background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
+    background: linear-gradient(to right, #ff5858, #f857a6); 
+
+    `,
   },
   {
     label: "WEBSITES",
@@ -18,9 +20,21 @@ const menuItems = [
     to: "/websites",
     color: "#333",
     gradient: `
-    background: #D3CCE3;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0); 
+    
+    `,
+  },
+  {
+    label: "NEWSLETTERS",
+    to: "/newsletters",
+    color: "#005075",
+    gradient: `
+    background: #ffb347;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     `,
   },
   {
@@ -32,16 +46,7 @@ const menuItems = [
     background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
     background: linear-gradient(to right, #93F9B9, #1D976C);`,
   },
-  {
-    label: "NEWSLETTERS",
-    to: "/newsletters",
-    color: "#333",
-    gradient: `
-    background: #fceabb; 
-    background: -webkit-linear-gradient(to right, #f8b500, #fceabb); 
-    background: linear-gradient(to right, #f8b500, #fceabb); 
-    `,
-  },
+
   {
     label: "BUZZWORDS",
     to: "/buzzwords",
@@ -57,19 +62,23 @@ const menuItems = [
     to: "/about-site",
     color: "#333",
     gradient: `
-    background: #f2709c; 
-    background: -webkit-linear-gradient(to right, #ff9472, #f2709c);  
-    background: linear-gradient(to right, #ff9472, #f2709c); 
+    // background: #f2709c; 
+    // background: -webkit-linear-gradient(to right, #ff9472, #f2709c);  
+    // background: linear-gradient(to right, #ff9472, #f2709c); 
+    background: #fc4a1a;
+    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
+    background: linear-gradient(to right, #f7b733, #fc4a1a);
     `,
   },
   {
     label: "CONTACT",
     to: "/contact",
-    color: "#333",
+    color: "orange",
     gradient: `
-    background: #616161; 
-    background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  
-    background: linear-gradient(to right, #9bc5c3, #616161);
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     `,
   },
 ];
@@ -107,7 +116,6 @@ const App = () => (
         css={`
           padding: 4px;
           display: inline-block;
-          // transform: skewX(-5deg);
           margin-bottom: 50px;
         `}
       >
@@ -117,18 +125,15 @@ const App = () => (
             text-align: center;
             font-family: Barriecito;
             font-size: 2rem;
-
             line-height: 2.3rem;
           `}
         >
-          Resources &amp; Quizzes for{" "}
+          Resources for{" "}
           <span
             css={`
-              background: ${props => props.theme.blue};
-              color: yellow;
+              color: #fffc96;
               padding: 0px 3px;
               display: inline-block;
-              transform: skewX(-5deg);
             `}
           >
             Front End Developers

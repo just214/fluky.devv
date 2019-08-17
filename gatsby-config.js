@@ -15,7 +15,8 @@ const config = {
         fonts: [
           { family: `Barriecito` },
           { family: `Lalezar` },
-          { family: `Lakki+Reddy` },
+          // { family: `Lakki+Reddy` },
+          { family: `Open+Sans` },
         ],
       },
     },

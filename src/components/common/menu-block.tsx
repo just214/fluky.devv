@@ -16,6 +16,8 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   &:focus {
     border: 3px solid yellow;
   }
+
+  box-shadow: 0 0 12px 1px #222;
 `;
 
 export interface MenuBlockProps {
@@ -68,7 +70,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
         key="modal"
         initial={{ opacity: 0.8 }}
         animate={{
-          scale: [1, 1.03, 1.03, 1, 1],
+          scale: [1, 1.01, 1.01, 1, 1],
           rotate: [0, 0, 1, 1, 0],
         }}
         transition={{ delay: index * 0.1, duration: 0.3 }}
@@ -77,6 +79,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
           <span
             css={`
               margin-right: 10px;
+              text-shadow: 1px 1px 1px #dadada;
             `}
           >
             {children}

@@ -45,12 +45,12 @@ export const NewsLetters = ({ pageContext }) => {
         "quiz",
         "resources",
       ]}
-      description="A collection of the best front end developer and coding newsletters."
+      description="A collection of the best newsletters for front end developers."
     >
       <BackToTop />
       <TitleBox
         title="Newsletters"
-        subTitle="A collection of the best front end developer and coding newsletters."
+        subTitle="A collection of the best newsletters for front end developers."
       >
         <LastUpdated date={pageContext.lastModified} />
         <Link to="/contact" state={{ type: "newsletter" }}>

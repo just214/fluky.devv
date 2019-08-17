@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import Button from "antd/es/button";
+import useMedia from "./useMedia";
 
 const useReadMore = (text, cutoff = 280) => {
+  const { isMobile } = useMedia();
   const [value, setValue] = useState(
-    text.length > cutoff ? text.substring(0, cutoff) + "..." : text
+    text.length > cutoff
+      ? text.substring(0, isMobile ? 280 : 400) + "..."
+      : text
   );
 
   const ReadMoreButton = () => {
