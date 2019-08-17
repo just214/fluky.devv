@@ -149,7 +149,7 @@ const Page = ({ data, pageContext }) => {
   if (isQuizCompleted) {
     return (
       <Layout title={title} keywords={keywords} description={description}>
-        <TitleBox title={`${pageContext.title} Quiz`} />
+        <Title>{pageContext.title} Quiz</Title>
 
         <QuizResults
           score={score}
