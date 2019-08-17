@@ -77,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({
             <Link
               to="/"
               css={`
-                color: ${props => props.theme.pink};
+                color: #f857a6;
                 font-family: "Barriecito";
                 margin: 0;
                 margin-top: 20px;
@@ -91,7 +91,7 @@ const Layout: React.FC<LayoutProps> = ({
                   border: 3px solid transparent;
                 }
                 &:hover {
-                  color: ${props => props.theme.pink};
+                  color: #f857a6;
                 }
               `}
             >

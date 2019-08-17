@@ -17,7 +17,7 @@ const StyledLink = styled(Link)<{ rotate: number }>`
     border: 3px solid yellow;
   }
 
-  box-shadow: 0 0 2px 1px #222;
+  filter: drop-shadow(0 0 10px #222);
 `;
 
 export interface MenuBlockProps {
