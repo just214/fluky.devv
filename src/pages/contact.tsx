@@ -6,6 +6,7 @@ import BuzzwordSuggestionForm from "../components/forms/buzzword-suggestion-form
 import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
 import GeneralCommentForm from "../components/forms/general-comment-form";
 import WebsiteSuggestionForm from "../components/forms/website-suggestion-form";
+import QuizSuggestionForm from "../components/forms/quiz-suggestion-form";
 import BaseForm from "../components/forms/base-form";
 import { Layout, TitleBox } from "../components/common";
 import Select from "antd/es/select";
@@ -15,10 +16,11 @@ const { Option } = Select;
 
 const options = [
   { label: "General Comment", value: "comment" },
-  { label: "Suggest a Podcast", value: "podcast" },
-  { label: "Suggest a Newsletter", value: "newsletter" },
-  { label: "Suggest a Buzzword", value: "buzzword" },
-  { label: "Suggest a Website", value: "website" },
+  { label: "Suggest a Podcast", value: "podcasts" },
+  { label: "Suggest a Newsletter", value: "newsletters" },
+  { label: "Suggest a Buzzword", value: "buzzwords" },
+  { label: "Suggest a Website", value: "websites" },
+  { label: "Suggest a Quiz or Question", value: "quizzes" },
 ];
 
 export type ContactProps = {};
@@ -35,14 +37,16 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
   const FormComponent = useMemo(() => {
     if (formType === "newsletter") {
       return NewsletterSuggestionForm;
-    } else if (formType === "buzzword") {
+    } else if (formType === "buzzwords") {
       return BuzzwordSuggestionForm;
-    } else if (formType === "podcast") {
+    } else if (formType === "podcasts") {
       return PodcastSuggestionForm;
-    } else if (formType === "comment") {
+    } else if (formType === "comments") {
       return GeneralCommentForm;
-    } else if (formType === "website") {
+    } else if (formType === "websites") {
       return WebsiteSuggestionForm;
+    } else if (formType === "quizzes") {
+      return QuizSuggestionForm;
     } else {
       return GeneralCommentForm;
     }
@@ -70,14 +74,14 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
     >
       {location.state && location.state.type && (
         <Link
-          to={`${location.state.type}s`}
+          to={`${location.state.type}`}
           css={`
             display: flex;
             align-items: center;
           `}
         >
           <FaAngleLeft style={{ color: "inherit" }} />
-          <span>Back to {location.state.type}</span>s
+          <span>Back to {location.state.type}</span>
         </Link>
       )}
       <TitleBox
@@ -88,18 +92,19 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
       <label
         htmlFor="contact-type"
         css={`
-          font-size: 1.5rem;
+          font-size: 1rem;
           display: block;
+          font-weight: bold;
         `}
       >
         Hi, what brings you here today?
       </label>
-      <br />
+
       <Select
         size="large"
         defaultValue={formType}
         id="contact-type"
-        style={{ width: 300 }}
+        style={{ width: "100%", maxWidth: "300px", marginBottom: "20px" }}
         onChange={handleChange}
       >
         {options.map(option => {
@@ -110,24 +115,10 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
           );
         })}
       </Select>
-      <div
-        css={`
-          margin-top: 20px;
-        `}
-      >
-        <h3
-          css={`
-            color: ${props => props.theme.blue};
-            margin: 10px 0px;
-            font-weight: bold;
-          `}
-        >
-          {options.find(o => o.value === formType).label}
-        </h3>
-        <BaseForm>
-          <FormComponent />
-        </BaseForm>
-      </div>
+
+      <BaseForm>
+        <FormComponent />
+      </BaseForm>
     </Layout>
   );
 };

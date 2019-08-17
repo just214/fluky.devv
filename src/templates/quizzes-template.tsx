@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import { Layout, TitleBox, SearchBox } from "../components/common";
+import { Layout, TitleBox, SearchBox, BackToTop } from "../components/common";
 import QuizItem from "../components/quiz-item";
+import Divider from "antd/es/divider";
 
 const Quiz = props => {
   const [filter, setFilter] = useState("");
-  const data = props.pageContext.quizzes;
+  const { quizzes } = props.pageContext;
   const { otherQuizzes } = props.pageContext;
+
+  const filteredQuizzes = quizzes.filter(({ node }) => {
+    if (node.data.Name.toLowerCase().includes(filter.toLowerCase())) {
+      return true;
+    }
+    return false;
+  });
+
   const filteredOtherQuizzes = otherQuizzes.filter(quiz => {
     if (
       (quiz.title && quiz.title.toLowerCase().includes(filter.toLowerCase())) ||
@@ -18,6 +27,7 @@ const Quiz = props => {
     }
     return false;
   });
+
   return (
     <Layout
       title="Quizzes"
@@ -38,27 +48,34 @@ const Quiz = props => {
         "tips",
       ]}
     >
+      <BackToTop />
       <TitleBox
         title="Quizzes"
         subTitle="Test your front end developer knowledge with one of our coding quizzes."
       >
-        <Link to="/contact" state={{ type: "quiz-question" }}>
-          Suggest a Quiz Question
+        <Link to="/contact" state={{ type: "quizzes" }}>
+          Suggest a Quiz or Question
         </Link>
       </TitleBox>
+      <br />
+      <SearchBox
+        onChange={value => {
+          setFilter(value);
+        }}
+      />
       <div>
         <div
           css={`
             display: flex;
             flex-wrap: wrap;
-            background: #333;
+            // background: #333;
             padding-top: 20px;
             margin-top: 20px;
             border-radius: 10px;
             justify-content: center;
           `}
         >
-          {data.map(({ node }) => {
+          {filteredQuizzes.map(({ node }) => {
             return (
               <Link
                 key={node.data.Name}
@@ -78,7 +95,7 @@ const Quiz = props => {
 
                   @media (min-width: 500px) {
                     &:hover {
-                      background-color: ${props => props.theme.gray1};
+                      background-color: ${props => props.theme.gray2};
                     }
                   }
                   @media (max-width: 500px) {
@@ -122,18 +139,16 @@ const Quiz = props => {
         </div>
       </div>
       <br />
-      <TitleBox title="Other Quizzes">
-        <Link to="/contact" state={{ type: "buzzword" }}>
-          Suggest a Quiz
-        </Link>
-      </TitleBox>
-      <br />
 
-      <SearchBox
-        onChange={value => {
-          setFilter(value);
-        }}
-      />
+      <Divider />
+      <h3
+        css={`
+          font-family: "Lalezar";
+          font-size: 30px;
+        `}
+      >
+        Other Community Quizzes
+      </h3>
       {filteredOtherQuizzes.map(site => {
         return (
           <QuizItem

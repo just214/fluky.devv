@@ -5,8 +5,8 @@ const menuItems = [
   {
     label: "QUIZZES",
     rotate: -3,
-    to: "/quiz",
-    color: "yellow",
+    to: "/quizzes",
+    color: "white",
     gradient: `
     background: #f857a6; 
     background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
@@ -15,10 +15,10 @@ const menuItems = [
     `,
   },
   {
-    label: "WEBSITES",
+    label: "COMMUNITY",
     rotate: -3,
-    to: "/websites",
-    color: "#333",
+    to: "/communities",
+    color: "darkmagenta",
     gradient: `
     background: #2193b0;
     background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
@@ -58,9 +58,9 @@ background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, F
     `,
   },
   {
-    label: "ABOUT THIS SITE",
+    label: "ABOUT",
     to: "/about-site",
-    color: "#333",
+    color: "#222",
     gradient: `
     // background: #f2709c; 
     // background: -webkit-linear-gradient(to right, #ff9472, #f2709c);  
@@ -73,7 +73,7 @@ background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, F
   {
     label: "CONTACT",
     to: "/contact",
-    color: "orange",
+    color: "#dadada",
     gradient: `
     background: #000000;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
@@ -86,7 +86,7 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 const App = () => (
   <Layout
     maxWidth="1200px"
-    bg="#333"
+    bg="#f0f6ff"
     title="Fluky.dev"
     titleTemplate="Fluky.dev | Front End Developers"
     keywords={[
@@ -121,7 +121,7 @@ const App = () => (
       >
         <h1
           css={`
-            color: ${props => props.theme.gray2};
+            color: ${props => props.theme.gray4};
             text-align: center;
             font-family: Barriecito;
             font-size: 2rem;
@@ -131,9 +131,14 @@ const App = () => (
           Resources for{" "}
           <span
             css={`
-              color: #fffc96;
+              color: ${props => props.theme.pink};
               padding: 0px 3px;
               display: inline-block;
+              font-weight: bold;
+
+              // @media (min-width: 500px) {
+              //   background: yellow;
+              // }
             `}
           >
             Front End Developers

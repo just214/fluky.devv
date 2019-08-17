@@ -102,6 +102,13 @@ const Layout: React.FC<LayoutProps> = ({
                   color: linear-gradient(to right, #6dd5ed, #2193b0);
                 `}
               >
+                {/* <span
+                  css={`
+                    color: ${props => props.theme.orange};
+                  `}
+                >
+                  {"<"}
+                </span>{" "} */}
                 FLUKY
               </span>
               <span
@@ -112,6 +119,15 @@ const Layout: React.FC<LayoutProps> = ({
                 .
               </span>
               <span>DEV</span>
+              {/* <span
+                css={`
+                  color: ${props => props.theme.orange};
+                `}
+              >
+                {" "}
+                {" />"}
+              </span> */}
+
               <Icon />
             </Link>
           </header>

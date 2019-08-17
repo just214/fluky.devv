@@ -53,7 +53,7 @@ export const NewsLetters = ({ pageContext }) => {
         subTitle="A collection of the best newsletters for front end developers."
       >
         <LastUpdated date={pageContext.lastModified} />
-        <Link to="/contact" state={{ type: "newsletter" }}>
+        <Link to="/contact" state={{ type: "newsletters" }}>
           Suggest a Newsletter
         </Link>
       </TitleBox>

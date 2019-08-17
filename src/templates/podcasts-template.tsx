@@ -63,7 +63,7 @@ const Podcasts = ({ pageContext }) => {
           subTitle="A collection of the best podcasts for front end developers."
         >
           <LastUpdated date={pageContext.lastModified} />
-          <Link to="/contact" state={{ type: "podcast" }}>
+          <Link to="/contact" state={{ type: "podcasts" }}>
             Suggest a Podcast
           </Link>
         </TitleBox>

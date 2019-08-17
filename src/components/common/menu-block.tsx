@@ -8,6 +8,7 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   transform: rotate(${props => props.rotate}deg);
   margin: 0px;
   max-width: 280px;
+  min-width: 200px;
   margin: 20px;
 
   background: transparent;
@@ -17,7 +18,7 @@ const StyledLink = styled(Link)<{ rotate: number }>`
     border: 3px solid yellow;
   }
 
-  filter: drop-shadow(0 0 10px #222);
+  filter: drop-shadow(0 0 2px #666);
 `;
 
 export interface MenuBlockProps {

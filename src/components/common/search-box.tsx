@@ -18,8 +18,13 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onChange, placeholder }) => {
       <Input
         allowClear
         size="large"
-        prefix={<FaSearch style={{ marginBottom: "8px" }} color="#dadada" />}
-        style={{ maxWidth: "100%", borderRadius: "30px" }}
+        prefix={<FaSearch color="#dadada" />}
+        style={{
+          maxWidth: "100%",
+          borderRadius: "30px",
+          display: "flex",
+          alignItems: "center",
+        }}
         onChange={handleOnChange}
         placeholder={placeholder || "Search..."}
       />

@@ -2,7 +2,7 @@ const createPodcastPage = require("./node/createPodcastPage");
 const createQuizPages = require("./node/createQuizPages");
 const createBuzzwordsPage = require("./node/createBuzzwordsPage");
 const createNewslettersPage = require("./node/createNewslettersPage");
-const createWebsitesPage = require("./node/createWebsitesPage");
+const createCommunitiesPage = require("./node/createCommunitiesPage");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   await createQuizPages(createPage, graphql);
   await createBuzzwordsPage(createPage, graphql);
   await createNewslettersPage(createPage, graphql);
-  await createWebsitesPage(createPage, graphql);
+  await createCommunitiesPage(createPage, graphql);
 };
 
 exports.onCreateNode = ({ node, actions }) => {

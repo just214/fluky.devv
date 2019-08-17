@@ -4,7 +4,7 @@ const asyncScrapeWebsitesMetadata = require("./utils/asyncScrapeWebsitesMetadata
 module.exports = async (createPage, graphql) => {
   const { data } = await graphql(`
     query WebsitesQuery {
-      allAirtable(filter: { table: { eq: "Websites" } }) {
+      allAirtable(filter: { table: { eq: "Communities" } }) {
         edges {
           node {
             data {
@@ -31,8 +31,8 @@ module.exports = async (createPage, graphql) => {
   }, data.allAirtable.edges[0].node.data.LastModified);
 
   createPage({
-    path: `websites`,
-    component: path.resolve(`./src/templates/websites-template.tsx`),
+    path: `communities`,
+    component: path.resolve(`./src/templates/communities-template.tsx`),
     context: {
       data: websitesMetadata,
       lastModified,

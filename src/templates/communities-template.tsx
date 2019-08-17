@@ -29,13 +29,12 @@ const Websites = ({ pageContext }) => {
       }
     });
 
-  // const { getCollapseProps, getToggleProps, isOpen } = useCollapse();
-
   return (
     <Layout
-      title="Coding Websites"
+      title="Dev Communities"
       keywords={[
-        "websites",
+        "community",
+        "communities",
         "dev",
         "frontend",
         "fluky",
@@ -49,7 +48,7 @@ const Websites = ({ pageContext }) => {
         "quiz",
         "resources",
       ]}
-      description="A collection of the best front end developer and coding websites and communities."
+      description="A collection of the best developer communities."
     >
       <BackToTop />
 
@@ -59,11 +58,11 @@ const Websites = ({ pageContext }) => {
         `}
       >
         <TitleBox
-          title="Websites"
-          subTitle="A collection of the best front end developer and coding websites and communities."
+          title="Communities"
+          subTitle="A collection of the best developer communities."
         >
           <LastUpdated date={pageContext.lastModified} />
-          <Link to="/contact" state={{ type: "website" }}>
+          <Link to="/contact" state={{ type: "websites" }}>
             Suggest a Website
           </Link>
         </TitleBox>
@@ -79,7 +78,7 @@ const Websites = ({ pageContext }) => {
                 title={title}
                 url={url}
                 description={description}
-                icon={icon}
+                icon={icon || image}
                 provider={provider}
               />
             );

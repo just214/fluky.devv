@@ -19,9 +19,9 @@ IDEAS
 - Coding challenges
 - Games
 - User login for all of this
-- Slack Groups
+<!-- - Slack Groups
 - Discord Groups
-- Social communities
+- Social community -->
 - Learning websites
 - Learning courses
 - Other quizzes

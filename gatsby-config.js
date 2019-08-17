@@ -15,7 +15,6 @@ const config = {
         fonts: [
           { family: `Barriecito` },
           { family: `Lalezar` },
-          // { family: `Lakki+Reddy` },
           { family: `Open+Sans` },
         ],
       },
@@ -88,7 +87,7 @@ const config = {
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Websites`,
+            tableName: `Communities`,
           },
         ],
       },
