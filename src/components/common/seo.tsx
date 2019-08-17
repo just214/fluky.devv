@@ -14,7 +14,7 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  description = "Resources and quizzes for front end developers.",
+  description = "Resources for front end developers.",
   keywords = ["developer", "code", "quizzes", "resources"],
   lang = "en",
   meta = [],
@@ -44,13 +44,6 @@ const SEO: React.FC<SEOProps> = ({
       }}
       title={title}
       titleTemplate={titleTemplate || `%s | ${site.siteMetadata.title}`}
-      /*eslint-disable */
-      link={[
-        {
-          rel: "icon",
-          href: "favicon.ico",
-        },
-      ]}
       meta={[
         {
           name: `description`,
@@ -115,7 +108,20 @@ const SEO: React.FC<SEOProps> = ({
             : []
         )
         .concat(meta)}
-    />
+    >
+      <link rel="icon" href="favicon.ico"></link>
+      <link
+        rel="icon"
+        type="image/png"
+        href="flukydev-icon_192.png"
+        sizes="192x192"
+      />
+      <link
+        rel="apple-touch-icon-precomposed"
+        sizes="152x152"
+        href="flukydev-icon_152_whitebg.png"
+      ></link>
+    </Helmet>
   );
 };
 

@@ -81,7 +81,7 @@ const App = () => (
     maxWidth="1200px"
     bg="#333"
     title="Fluky.dev"
-    titleTemplate="Fluky.dev | Front End Developers"
+    titleTemplate="FLUKY.DEV | Front End Resources"
     keywords={[
       "fluky",
       "fluky.dev",
