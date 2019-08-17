@@ -34,23 +34,32 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
     setFormType(value);
   };
 
-  const FormComponent = useMemo(() => {
-    if (formType === "newsletter") {
-      return NewsletterSuggestionForm;
-    } else if (formType === "buzzwords") {
-      return BuzzwordSuggestionForm;
-    } else if (formType === "podcasts") {
-      return PodcastSuggestionForm;
-    } else if (formType === "comments") {
-      return GeneralCommentForm;
-    } else if (formType === "websites") {
-      return WebsiteSuggestionForm;
-    } else if (formType === "quizzes") {
-      return QuizSuggestionForm;
-    } else {
-      return GeneralCommentForm;
-    }
-  }, [formType]);
+  const components = [
+    { title: "newsletters", Component: NewsletterSuggestionForm },
+    { title: "buzzwords", Component: BuzzwordSuggestionForm },
+    { title: "podcasts", Component: PodcastSuggestionForm },
+    { title: "comment", Component: GeneralCommentForm },
+    { title: "websites", Component: WebsiteSuggestionForm },
+    { title: "quizzes", Component: QuizSuggestionForm },
+  ];
+
+  // const FormComponent = useMemo(() => {
+  //   if (formType === "newsletters") {
+  //     return NewsletterSuggestionForm;
+  //   } else if (formType === "buzzwords") {
+  //     return BuzzwordSuggestionForm;
+  //   } else if (formType === "podcasts") {
+  //     return PodcastSuggestionForm;
+  //   } else if (formType === "comments") {
+  //     return GeneralCommentForm;
+  //   } else if (formType === "websites") {
+  //     return WebsiteSuggestionForm;
+  //   } else if (formType === "quizzes") {
+  //     return QuizSuggestionForm;
+  //   } else {
+  //     return GeneralCommentForm;
+  //   }
+  // }, [formType]);
 
   return (
     <Layout
@@ -117,7 +126,19 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
       </Select>
 
       <BaseForm>
-        <FormComponent />
+        {/* <FormComponent /> */}
+        {components.map(({ title, Component }) => {
+          return (
+            <div
+              key={title}
+              css={`
+                display: ${formType === title ? "block" : "none"};
+              `}
+            >
+              <Component />
+            </div>
+          );
+        })}
       </BaseForm>
     </Layout>
   );

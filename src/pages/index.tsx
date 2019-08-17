@@ -67,7 +67,7 @@ const menuItems = [
   {
     label: "CONTACT",
     to: "/contact",
-    color: "#dadada",
+    color: "gold",
     gradient: `
     background: #000000;  
     background: -webkit-linear-gradient(to right, #434343, #000000); 
@@ -80,8 +80,8 @@ const App = () => (
   <Layout
     maxWidth="1200px"
     bg="#333"
-    title="Fluky.dev"
-    titleTemplate="FLUKY.DEV | Front End Resources"
+    title="Home"
+    // titleTemplate="FLUKY.DEV | Front End Resources"
     keywords={[
       "fluky",
       "fluky.dev",
