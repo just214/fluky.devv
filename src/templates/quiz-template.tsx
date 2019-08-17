@@ -7,7 +7,7 @@ import QuizButton from "../components/quiz-button";
 import { motion } from "framer-motion";
 import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
-import { TitleBox, Layout, LastUpdated } from "../components/common";
+import { Title, Layout, LastUpdated } from "../components/common";
 
 // import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 
@@ -70,10 +70,8 @@ const Page = ({ data, pageContext }) => {
   if (!data.allAirtable.edges.length) {
     return (
       <Layout title={title} keywords={keywords} description={description}>
-        <TitleBox
-          title={`${pageContext.title} Quiz`}
-          subTitle="Looks like there are no questions for this category yet."
-        />
+        <Title>{pageContext.title} Quiz</Title>
+        <h2>Looks like there are no questions for this category yet.</h2>
       </Layout>
     );
   }
@@ -164,32 +162,32 @@ const Page = ({ data, pageContext }) => {
 
   return (
     <Layout title={title} keywords={keywords} description={description}>
-      <TitleBox title={`${pageContext.title} Quiz`}>
-        <LastUpdated date={pageContext.lastModified} />
-        <Progress
-          percent={(answeredCount / data.allAirtable.edges.length) * 100}
-          strokeColor="#52c41a"
-          showInfo={false}
-        />
+      <Title>{pageContext.title} Quiz</Title>
+      <LastUpdated date={pageContext.lastModified} />
+      <Progress
+        percent={(answeredCount / data.allAirtable.edges.length) * 100}
+        strokeColor="#52c41a"
+        showInfo={false}
+      />
 
-        <div
-          css={`
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            h3 {
-              margin: 5px;
-            }
-          `}
-        >
-          <div>{answeredCount > 0 && <h3>Score: {score}%</h3>}</div>
+      <div
+        css={`
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          h3 {
+            margin: 5px;
+          }
+        `}
+      >
+        <div>{answeredCount > 0 && <h3>Score: {score}%</h3>}</div>
 
-          <h3>
-            {answeredCount}/{data.allAirtable.edges.length}
-          </h3>
-        </div>
-      </TitleBox>
+        <h3>
+          {answeredCount}/{data.allAirtable.edges.length}
+        </h3>
+      </div>
+
       <br />
       <SingleChoice
         data={currentQuestion.data}
