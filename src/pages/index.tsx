@@ -11,7 +11,6 @@ const menuItems = [
     background: #f857a6; 
     background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
     background: linear-gradient(to right, #ff5858, #f857a6); 
-
     `,
   },
   {
@@ -23,7 +22,6 @@ const menuItems = [
     background: #2193b0;
     background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
     background: linear-gradient(to right, #6dd5ed, #2193b0); 
-    
     `,
   },
   {
@@ -32,9 +30,8 @@ const menuItems = [
     color: "#005075",
     gradient: `
     background: #ffb347;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     `,
   },
   {
@@ -60,11 +57,8 @@ background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, F
   {
     label: "ABOUT",
     to: "/about-site",
-    color: "#222",
+    color: "purple",
     gradient: `
-    // background: #f2709c; 
-    // background: -webkit-linear-gradient(to right, #ff9472, #f2709c);  
-    // background: linear-gradient(to right, #ff9472, #f2709c); 
     background: #fc4a1a;
     background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
     background: linear-gradient(to right, #f7b733, #fc4a1a);
@@ -75,10 +69,9 @@ background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, F
     to: "/contact",
     color: "#dadada",
     gradient: `
-    background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #000000;  
+    background: -webkit-linear-gradient(to right, #434343, #000000); 
+    background: linear-gradient(to right, #434343, #000000);
     `,
   },
 ];
@@ -86,7 +79,7 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 const App = () => (
   <Layout
     maxWidth="1200px"
-    bg="#f0f6ff"
+    bg="#333"
     title="Fluky.dev"
     titleTemplate="Fluky.dev | Front End Developers"
     keywords={[
@@ -108,7 +101,7 @@ const App = () => (
   >
     <div
       css={`
-        padding: 20px;
+        padding: 10px;
         text-align: center;
       `}
     >
@@ -116,15 +109,15 @@ const App = () => (
         css={`
           padding: 4px;
           display: inline-block;
-          margin-bottom: 50px;
+          margin-bottom: 40px;
         `}
       >
         <h1
           css={`
-            color: ${props => props.theme.gray4};
+            color: #656e80;
             text-align: center;
             font-family: Barriecito;
-            font-size: 2rem;
+            font-size: 2.2rem;
             line-height: 2.3rem;
           `}
         >
@@ -135,10 +128,6 @@ const App = () => (
               padding: 0px 3px;
               display: inline-block;
               font-weight: bold;
-
-              // @media (min-width: 500px) {
-              //   background: yellow;
-              // }
             `}
           >
             Front End Developers

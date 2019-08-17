@@ -18,7 +18,7 @@ const H2 = styled.h2`
 
 export interface TitleBoxProps {
   title: string;
-  subTitle?: string;
+  subTitle?: string | Element;
 }
 export const TitleBox: React.FC<TitleBoxProps> = ({
   title,

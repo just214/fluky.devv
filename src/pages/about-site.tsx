@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import Image from "../components/image";
 import { Layout, TitleBox } from "../components/common";
@@ -51,12 +52,28 @@ export const AboutSite = () => {
         "tips",
         "about",
       ]}
-      description="A collection of resources and quizzes for front end developers and coders."
+      description="Our goal is to provide the most current and comprehensive collections of useful resources for front end developers, including quizzes, communities, podcasts, newsletters, and more."
     >
       <TitleBox
         title="About This Site"
-        subTitle="Fluky.dev is here to provide a collection of useful resources for front end developers."
+        subTitle={
+          <>
+            <p>
+              The goal of this site is to provide the most current and
+              comprehensive collections of useful resources for front end
+              developers, including quizzes, communities, podcasts, newsletters,
+              and more.
+            </p>
+            <br />
+            <p>
+              If you have any suggestions, or see any outdated or incorrect
+              information, we would love to{" "}
+              <Link to="/contact">here from you</Link>.
+            </p>
+          </>
+        }
       />
+
       <Timeline
         mode={isMobile ? "left" : "alternate"}
         style={{ marginTop: "40px", padding: "10px" }}

@@ -23,7 +23,7 @@ const theme = {
   gray5: "#333",
   red: "tomato",
   orange: "#f08b32",
-  pink: "#f21da0",
+  pink: "#f857a6",
 };
 
 interface LayoutProps {
@@ -77,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({
             <Link
               to="/"
               css={`
-                color: #f857a6;
+                color: ${props => props.theme.pink};
                 font-family: "Barriecito";
                 margin: 0;
                 margin-top: 20px;
@@ -91,7 +91,7 @@ const Layout: React.FC<LayoutProps> = ({
                   border: 3px solid transparent;
                 }
                 &:hover {
-                  color: #f857a6;
+                  color: ${props => props.theme.pink};
                 }
               `}
             >
@@ -102,13 +102,6 @@ const Layout: React.FC<LayoutProps> = ({
                   color: linear-gradient(to right, #6dd5ed, #2193b0);
                 `}
               >
-                {/* <span
-                  css={`
-                    color: ${props => props.theme.orange};
-                  `}
-                >
-                  {"<"}
-                </span>{" "} */}
                 FLUKY
               </span>
               <span
@@ -119,14 +112,6 @@ const Layout: React.FC<LayoutProps> = ({
                 .
               </span>
               <span>DEV</span>
-              {/* <span
-                css={`
-                  color: ${props => props.theme.orange};
-                `}
-              >
-                {" "}
-                {" />"}
-              </span> */}
 
               <Icon />
             </Link>
