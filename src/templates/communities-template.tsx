@@ -12,7 +12,6 @@ import {
 
 const Websites = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
-  console.log("SSS", pageContext.data);
 
   const sortedData = pageContext.data
     .sort((a, b) => {
@@ -21,9 +20,23 @@ const Websites = ({ pageContext }) => {
       return nameA < nameB ? -1 : 1;
     })
     .filter(v => {
-      if (v.provider.toLowerCase().includes(filter.toLowerCase())) {
+      let flag = false;
+      v.tags.forEach(tag => {
+        if (tag.toLowerCase().includes(filter.toLowerCase())) {
+          flag = true;
+        }
+      });
+
+      if (flag) return true;
+      if (
+        v.provider &&
+        v.provider.toLowerCase().includes(filter.toLowerCase())
+      ) {
         return true;
-      } else if (v.description.toLowerCase().includes(filter.toLowerCase())) {
+      } else if (
+        v.description &&
+        v.description.toLowerCase().includes(filter.toLowerCase())
+      ) {
         return true;
       } else {
         return false;

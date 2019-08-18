@@ -14,7 +14,7 @@ const MainContainer = styled.main<{ maxWidth?: string }>`
 const theme = {
   blue: "#0066B8",
   bluegray: "#2193b0",
-  lightblue: "#329bf0",
+  lightblue: "#2193b0",
   antgreen: "rgb(82, 196, 26)",
   lightgreen: "#93ff61",
   gray1: "#f5f5f5",

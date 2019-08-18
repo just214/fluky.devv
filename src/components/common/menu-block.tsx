@@ -81,7 +81,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
             css={`
               margin-right: 10px;
               text-shadow: 1px 1px 1px #dadada;
-              text-shadow: 0 2px orange;
+              text-shadow: 0 1px orange;
             `}
           >
             {children}
