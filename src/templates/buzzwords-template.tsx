@@ -55,7 +55,9 @@ const BuzzWords = ({ pageContext }) => {
 
         <br />
         <SearchBox onChange={e => setFilter(e)} />
-
+        <small>
+          Showing {buzzwords.length} of {pageContext.buzzwords.length}
+        </small>
         <ul>
           {buzzwords.map(({ node }) => {
             return (

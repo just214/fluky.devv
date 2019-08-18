@@ -57,11 +57,12 @@ const menuItems = [
   {
     label: "ABOUT",
     to: "/about-site",
-    color: "#d100c3",
+    color: "#333",
     gradient: `
-    background: #fc4a1a;
-    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
-    background: linear-gradient(to right, #f7b733, #fc4a1a);
+    background: #FDC830;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     `,
   },
   {

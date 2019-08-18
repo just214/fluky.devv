@@ -10,20 +10,19 @@ import {
   Heading,
 } from "../components/common";
 import Divider from "antd/es/divider";
-import Tag from "antd/es/tag";
 
 export const NewsLetters = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
   const data = pageContext.newsletters.filter(({ node }) => {
     const name = node.data.Name.toLowerCase();
     const description = node.data.Description.toLowerCase();
-    const tags = node.data.Tags.join(",");
+    const tags = node.data.Tags.join(",").toLowerCase();
 
     if (name.includes(filter)) {
       return true;
-    } else if (description.includes(filter)) {
+    } else if (description.includes(filter.toLowerCase())) {
       return true;
-    } else if (tags.includes(filter)) {
+    } else if (tags.includes(filter.toLowerCase())) {
       return true;
     } else {
       return false;
@@ -60,7 +59,9 @@ export const NewsLetters = ({ pageContext }) => {
 
       <br />
       <SearchBox onChange={value => setFilter(value.toLowerCase())} />
-
+      <small>
+        Showing {data.length} of {pageContext.newsletters.length}
+      </small>
       <ul
         css={`
           margin-top: 20px;

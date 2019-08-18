@@ -70,6 +70,10 @@ const Podcasts = ({ pageContext }) => {
 
         <br />
         <SearchBox onChange={value => setFilter(value)} />
+        <small>
+          Showing {sortedPodcasts.length} of{" "}
+          {JSON.parse(pageContext.podcasts).length}
+        </small>
 
         {sortedPodcasts.map(podcast => {
           return (

@@ -20,14 +20,9 @@ const Websites = ({ pageContext }) => {
       return nameA < nameB ? -1 : 1;
     })
     .filter(v => {
-      let flag = false;
-      v.tags.forEach(tag => {
-        if (tag.toLowerCase().includes(filter.toLowerCase())) {
-          flag = true;
-        }
-      });
+      const tags = v.tags.join(",").toLowerCase();
 
-      if (flag) return true;
+      if (tags.includes(filter.toLowerCase())) return true;
       if (
         v.provider &&
         v.provider.toLowerCase().includes(filter.toLowerCase())
@@ -83,6 +78,9 @@ const Websites = ({ pageContext }) => {
 
         <br />
         <SearchBox onChange={value => setFilter(value)} />
+        <small>
+          Showing {sortedData.length} of {pageContext.data.length}
+        </small>
 
         {sortedData.map(
           ({ title, url, description, image, icon, provider, tags }) => {

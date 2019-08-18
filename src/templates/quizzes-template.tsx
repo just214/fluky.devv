@@ -63,6 +63,10 @@ const Quiz = props => {
           setFilter(value);
         }}
       />
+      <small>
+        Showing {filteredQuizzes.length + filteredOtherQuizzes.length} of{" "}
+        {otherQuizzes.length + quizzes.length}
+      </small>
       <div>
         <div
           css={`
