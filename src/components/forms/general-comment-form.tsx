@@ -8,7 +8,7 @@ const BuzzwordSuggestionForm = () => {
     <>
       <label htmlFor="comment">
         Comment
-        <TextArea rows={4} name="comment" id="comment" autoFocus required />
+        <TextArea rows={3} name="comment" id="comment" autoFocus required />
       </label>
     </>
   );

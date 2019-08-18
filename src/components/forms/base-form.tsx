@@ -5,6 +5,7 @@ import Divider from "antd/es/divider";
 import NetlifyForm from "react-netlify-form";
 import { Emoji } from "../common";
 import Alert from "antd/es/alert";
+import { motion } from "framer-motion";
 
 interface NetlifyFormProps {
   formName?: string;
@@ -20,16 +21,10 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
     <NetlifyForm name={formName}>
       {({ loading, error, success }) => {
         if (success) {
-          const allInputs = document.querySelectorAll(
-            "input, textarea, select"
-          );
-          allInputs.forEach(
-            (
-              el: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-            ) => {
-              el.value = "";
-            }
-          );
+          const allInputs = document.querySelectorAll("input, textarea");
+          allInputs.forEach((el: HTMLInputElement | HTMLTextAreaElement) => {
+            el.value = "";
+          });
         }
 
         return (
@@ -71,29 +66,39 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
             </Button>
 
             {success && (
-              <Alert
-                type="success"
-                style={{ margin: "20px 0px" }}
-                message={
-                  <>
-                    <Emoji label="Thumbs up" symbol="👍 " size={20} />
-                    <b>{successMessage}</b>
-                  </>
-                }
-              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+              >
+                <Alert
+                  type="success"
+                  style={{ margin: "20px 0px" }}
+                  message={
+                    <>
+                      <Emoji label="Thumbs up" symbol="👍 " size={20} />
+                      <b>{successMessage}</b>
+                    </>
+                  }
+                />
+              </motion.div>
             )}
 
             {error && (
-              <Alert
-                type="error"
-                style={{ margin: "20px 0px" }}
-                message={
-                  <>
-                    <Emoji label="Thumbs up" symbol="😟 " size={20} />
-                    <b>Oops..something went wrong. Please try again.</b>
-                  </>
-                }
-              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+              >
+                <Alert
+                  type="error"
+                  style={{ margin: "20px 0px" }}
+                  message={
+                    <>
+                      <Emoji label="Thumbs up" symbol="😟 " size={20} />
+                      <b>Oops..something went wrong. Please try again.</b>
+                    </>
+                  }
+                />
+              </motion.div>
             )}
           </div>
         );

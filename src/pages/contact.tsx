@@ -1,18 +1,32 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { RouterProps } from "@reach/router";
 import { Link } from "gatsby";
-import NewsletterSuggestionForm from "../components/forms/newsletter-suggestion-form";
-import BuzzwordSuggestionForm from "../components/forms/buzzword-suggestion-form";
-import PodcastSuggestionForm from "../components/forms/podcast-suggestion-form";
-import GeneralCommentForm from "../components/forms/general-comment-form";
-import WebsiteSuggestionForm from "../components/forms/website-suggestion-form";
-import QuizSuggestionForm from "../components/forms/quiz-suggestion-form";
 import BaseForm from "../components/forms/base-form";
 import { Layout, TitleBox } from "../components/common";
-import Select from "antd/es/select";
 import { FaAngleLeft } from "react-icons/fa";
+import Input from "antd/es/input";
+const { TextArea } = Input;
 
-const { Option } = Select;
+const quizQuestionTemplate = `Quiz: JavaScript
+Question: Which of the following is INVALID syntax?
+Option A: document.getElementById("demo")
+Option B: document.getElementsByTagName("demo")
+Option C: document.getElementsByClassName("demo")
+Option D: document.getElement("#demo")
+Correct Answer: A
+Explanation: document.getElement is not a valid DOM method.
+`;
+
+const placeholders = {
+  comment: "What is on your mind?",
+  podcasts: `Please provide the name and website of the podcast(s) that you would like to suggest.`,
+  newsletters: `Please provide the name and website of the newsletter(s) that you would like to suggest.`,
+  buzzwords: `Please provide the word and definition of the buzzword(s) that you would like to suggest.`,
+  websites: `Please provide the URL for the website(s) that you would like to suggest.`,
+  quizzes: `If you would like to suggest a quiz website, please provide the URL. 
+  
+If you would like to suggest a quiz question, please follow the template below.`,
+};
 
 const options = [
   { label: "General Comment", value: "comment" },
@@ -30,36 +44,13 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
 
   const [formType, setFormType] = useState(type);
 
-  const handleChange = value => {
-    setFormType(value);
+  const handleChange = e => {
+    setFormType(e.target.value);
   };
 
-  const components = [
-    { title: "newsletters", Component: NewsletterSuggestionForm },
-    { title: "buzzwords", Component: BuzzwordSuggestionForm },
-    { title: "podcasts", Component: PodcastSuggestionForm },
-    { title: "comment", Component: GeneralCommentForm },
-    { title: "websites", Component: WebsiteSuggestionForm },
-    { title: "quizzes", Component: QuizSuggestionForm },
-  ];
-
-  // const FormComponent = useMemo(() => {
-  //   if (formType === "newsletters") {
-  //     return NewsletterSuggestionForm;
-  //   } else if (formType === "buzzwords") {
-  //     return BuzzwordSuggestionForm;
-  //   } else if (formType === "podcasts") {
-  //     return PodcastSuggestionForm;
-  //   } else if (formType === "comments") {
-  //     return GeneralCommentForm;
-  //   } else if (formType === "websites") {
-  //     return WebsiteSuggestionForm;
-  //   } else if (formType === "quizzes") {
-  //     return QuizSuggestionForm;
-  //   } else {
-  //     return GeneralCommentForm;
-  //   }
-  // }, [formType]);
+  React.useEffect(() => {
+    console.log(formType);
+  }, [formType]);
 
   return (
     <Layout
@@ -98,48 +89,47 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
         subTitle="Make a suggestion, report an issue, or just say hello."
       />
       <br />
-      <label
-        htmlFor="contact-type"
-        css={`
-          font-size: 1rem;
-          display: block;
-          font-weight: bold;
-        `}
-      >
-        Hi, what brings you here today?
-      </label>
-
-      <Select
-        size="large"
-        defaultValue={formType}
-        id="contact-type"
-        style={{ width: "100%", maxWidth: "300px", marginBottom: "20px" }}
-        onChange={handleChange}
-      >
-        {options.map(option => {
-          return (
-            <Option key={option.value} value={option.value}>
-              {option.label}
-            </Option>
-          );
-        })}
-      </Select>
 
       <BaseForm>
-        {/* <FormComponent /> */}
-        {components.map(({ title, Component }) => {
-          return (
-            <div
-              key={title}
-              css={`
-                height: ${formType === title ? "auto" : 0};
-                opacity: ${formType === title ? 1 : 0};
-              `}
-            >
-              <Component />
-            </div>
-          );
-        })}
+        <div>
+          <label
+            htmlFor="contact-type"
+            css={`
+              font-size: 1rem;
+              display: block;
+              font-weight: bold;
+            `}
+          >
+            Hi, what brings you here today?
+          </label>
+          <select
+            name="Selection"
+            defaultValue={formType}
+            id="contact-type"
+            onChange={handleChange}
+          >
+            {options.map(option => {
+              return (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              );
+            })}
+          </select>
+
+          <TextArea
+            rows={3}
+            name="comment"
+            id="comment"
+            autoFocus
+            required
+            placeholder={placeholders[formType]}
+          />
+
+          {formType === "quizzes" && (
+            <TextArea rows={8} disabled placeholder={quizQuestionTemplate} />
+          )}
+        </div>
       </BaseForm>
     </Layout>
   );
