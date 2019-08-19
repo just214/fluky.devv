@@ -68,8 +68,8 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
         key="modal"
         initial={{ opacity: 0.8 }}
         animate={{
-          scale: [1, 1.01, 1.01, 1, 1],
-          rotate: [0, 0, 1, 1, 0],
+          scale: [1, 1.01, 1],
+          rotate: [0, 1, 0],
         }}
         transition={{ delay: index * 0.1, duration: 0.3 }}
       >

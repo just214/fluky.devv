@@ -108,7 +108,7 @@ const menuItems = [
 const App = () => (
   <Layout
     maxWidth="1200px"
-    bg="#333"
+    bg="#1c2229"
     title="Home"
     description="A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, and more!"
   >
