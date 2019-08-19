@@ -9,3 +9,4 @@ export { default as Layout } from "./layout";
 export { default as SEO } from "./seo";
 export { default as LastUpdated } from "./last-updated";
 export { default as Heading } from "./heading";
+export { default as Tags } from "./tags";

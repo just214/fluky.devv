@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useMedia from "../hooks/useMedia";
 import Button from "antd/es/button";
-import { Heading, WebsiteLink } from "./common";
+import { Heading, WebsiteLink, Tags } from "./common";
 
 interface QuizItemProps {
   title: string;
@@ -80,14 +80,8 @@ export const QuizItem: React.FC<QuizItemProps> = ({
             flex-wrap: wrap;
           `}
         >
-          <small
-            css={`
-              margin-right: 10px;
-              color: ${props => props.theme.pink};
-            `}
-          >
-            <b>{tags}</b>
-          </small>
+          <Tags tags={tags} />
+
           {website && <WebsiteLink url={website} />}
         </div>
       </div>

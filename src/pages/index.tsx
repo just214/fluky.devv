@@ -110,22 +110,6 @@ const App = () => (
     maxWidth="1200px"
     bg="#333"
     title="Home"
-    // titleTemplate="FLUKY.DEV | Front End Resources"
-    keywords={[
-      "fluky",
-      "fluky.dev",
-      "dev",
-      "developers",
-      "coders",
-      "javascript",
-      "typescript",
-      "html",
-      "css",
-      "quiz",
-      "quizzes",
-      "resources",
-      "tips",
-    ]}
     description="A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, and more!"
   >
     <div

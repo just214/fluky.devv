@@ -32,21 +32,7 @@ const Quiz = props => {
     <Layout
       title="Quizzes"
       description="Front end developer quizzes. JavaScript, TypeScript, HTML, CSS, and more."
-      keywords={[
-        "fluky",
-        "fluky.dev",
-        "dev",
-        "developers",
-        "coders",
-        "javascript",
-        "typescript",
-        "html",
-        "css",
-        "quiz",
-        "quizzes",
-        "resources",
-        "tips",
-      ]}
+      keywords={["quiz", "quizzes"]}
     >
       <BackToTop />
       <TitleBox
@@ -162,7 +148,7 @@ const Quiz = props => {
             description={site.description}
             website={site.url}
             provider={site.provider}
-            tags={site.tags.join(", ").toUpperCase()}
+            tags={site.tags}
           />
         );
       })}

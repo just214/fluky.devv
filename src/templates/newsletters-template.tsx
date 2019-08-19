@@ -8,6 +8,7 @@ import {
   BackToTop,
   LastUpdated,
   Heading,
+  Tags,
 } from "../components/common";
 import Divider from "antd/es/divider";
 
@@ -16,7 +17,7 @@ export const NewsLetters = ({ pageContext }) => {
   const data = pageContext.newsletters.filter(({ node }) => {
     const name = node.data.Name.toLowerCase();
     const description = node.data.Description.toLowerCase();
-    const tags = node.data.Tags.join(",").toLowerCase();
+    const tags = node.data.Tags.join(", ").toLowerCase();
 
     if (name.includes(filter)) {
       return true;
@@ -31,19 +32,7 @@ export const NewsLetters = ({ pageContext }) => {
   return (
     <Layout
       title="Newsletters"
-      keywords={[
-        "newsletters",
-        "dev",
-        "frontend",
-        "fluky",
-        "fluky.dev",
-        "developers",
-        "coders",
-        "javascript",
-        "typescript",
-        "quiz",
-        "resources",
-      ]}
+      keywords={["newsletters"]}
       description="A collection of the best newsletters for front end developers."
     >
       <BackToTop />
@@ -68,7 +57,7 @@ export const NewsLetters = ({ pageContext }) => {
         `}
       >
         {data.map(({ node }) => {
-          const { Name, Description, Website, Tags } = node.data;
+          const { Name, Description, Website, Tags: itemTags } = node.data;
           return (
             <li key={Name}>
               <Heading color="blue">{Name}</Heading>
@@ -88,13 +77,8 @@ export const NewsLetters = ({ pageContext }) => {
                   flex-wrap: wrap;
                 `}
               >
-                <small
-                  css={`
-                    color: ${props => props.theme.pink};
-                  `}
-                >
-                  <b>{Tags[0]}</b>
-                </small>
+                <Tags tags={itemTags} />
+
                 <div style={{ marginLeft: "10px" }}>
                   <WebsiteLink url={Website} />
                 </div>

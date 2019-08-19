@@ -34,21 +34,7 @@ const Podcasts = ({ pageContext }) => {
   return (
     <Layout
       title="Podcasts"
-      keywords={[
-        "podcasts",
-        "dev",
-        "frontend",
-        "fluky",
-        "fluky.dev",
-        "developers",
-        "coders",
-        "javascript",
-        "typescript",
-        "html",
-        "css",
-        "quiz",
-        "resources",
-      ]}
+      keywords={["podcasts"]}
       description="A collection of the best podcasts for front end developers."
     >
       <BackToTop />

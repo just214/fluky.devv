@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import Website from "../components/website";
-
-import { TitleBox } from "../components/common";
 import {
   BackToTop,
   SearchBox,
   Layout,
   LastUpdated,
+  TitleBox,
 } from "../components/common";
 
 const Websites = ({ pageContext }) => {
@@ -41,22 +40,7 @@ const Websites = ({ pageContext }) => {
   return (
     <Layout
       title="Community"
-      keywords={[
-        "community",
-        "communities",
-        "dev",
-        "frontend",
-        "fluky",
-        "fluky.dev",
-        "developers",
-        "coders",
-        "javascript",
-        "typescript",
-        "html",
-        "css",
-        "quiz",
-        "resources",
-      ]}
+      keywords={["community", "communities", "websites"]}
       description="A collection of the best developer communities."
     >
       <BackToTop />

@@ -21,19 +21,7 @@ const BuzzWords = ({ pageContext }) => {
   return (
     <Layout
       title="Buzzwords"
-      keywords={[
-        "buzzwords",
-        "dev",
-        "frontend",
-        "fluky",
-        "fluky.dev",
-        "developers",
-        "coders",
-        "javascript",
-        "typescript",
-        "quiz",
-        "resources",
-      ]}
+      keywords={["buzzwords", "words", "definitions"]}
       description="A collection of coding and front end developer-related buzzwords and their definitions."
     >
       <BackToTop />

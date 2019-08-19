@@ -52,21 +52,7 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
     <Layout
       title="Contact Us"
       description="Make a suggestion, report an issue, or just say hi!"
-      keywords={[
-        "fluky",
-        "fluky.dev",
-        "dev",
-        "developers",
-        "coders",
-        "javascript",
-        "typescript",
-        "html",
-        "css",
-        "quiz",
-        "quizzes",
-        "contact",
-        "form",
-      ]}
+      keywords={["contact", "form"]}
     >
       {location.state && location.state.type && (
         <Link

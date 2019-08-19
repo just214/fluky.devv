@@ -32,7 +32,7 @@ interface LayoutProps {
   maxWidth?: string;
   title: string;
   titleTemplate?: string;
-  keywords: string[];
+  keywords?: string[];
   description: string;
 }
 const Layout: React.FC<LayoutProps> = ({

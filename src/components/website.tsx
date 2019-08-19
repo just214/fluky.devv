@@ -1,8 +1,8 @@
 import React from "react";
 import useMedia from "../hooks/useMedia";
-import WebsiteLink from "./common/website-link";
+import { WebsiteLink, Tags, Heading } from "./common";
 import { FaImage } from "react-icons/fa";
-import Heading from "./common/heading";
+
 import useReadMore from "../hooks/useReadMore";
 
 interface WebsiteProps {
@@ -84,15 +84,8 @@ export const Website: React.FC<WebsiteProps> = ({
             flex-wrap: wrap;
           `}
         >
-          <small
-            css={`
-              color: ${props => props.theme.pink};
-              margin-right: 10px;
-              font-weight: bold;
-            `}
-          >
-            {tags.join(", ").toUpperCase()}
-          </small>
+          <Tags tags={tags} />
+
           {url && <WebsiteLink url={url} />}
         </div>
       </div>

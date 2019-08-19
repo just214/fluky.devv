@@ -36,22 +36,7 @@ export const AboutSite = () => {
   return (
     <Layout
       title="About This Site"
-      keywords={[
-        "fluky",
-        "fluky.dev",
-        "dev",
-        "developers",
-        "coders",
-        "javascript",
-        "typescript",
-        "html",
-        "css",
-        "quiz",
-        "quizzes",
-        "resources",
-        "tips",
-        "about",
-      ]}
+      keywords={["about"]}
       description="Our goal is to provide the most current and comprehensive collections of useful resources for front end developers, including quizzes, communities, podcasts, newsletters, and more."
     >
       <TitleBox

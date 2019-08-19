@@ -2,6 +2,22 @@ import React from "react";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
+const baseKeywords = [
+  "fluky",
+  "fluky.dev",
+  "dev",
+  "developers",
+  "coders",
+  "coding",
+  "frontend",
+  "front end",
+  "javascript",
+  "typescript",
+  "html",
+  "css",
+  "developer resources",
+];
+
 interface SEOProps {
   description?: string;
   keywords?: string[];
@@ -15,7 +31,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   description = "Resources for front end developers.",
-  keywords = ["developer", "code", "quizzes", "resources"],
+  keywords = [],
   lang = "en",
   meta = [],
   title = "fluky.dev",
@@ -102,7 +118,7 @@ const SEO: React.FC<SEOProps> = ({
         /*eslint-enable */
       ]
         .concat(
-          keywords.length > 0
+          [...baseKeywords, ...keywords].length > 0
             ? {
                 content: keywords.join(`, `),
                 name: `keywords`,

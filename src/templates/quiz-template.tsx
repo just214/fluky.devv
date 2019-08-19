@@ -47,21 +47,7 @@ const keycodeMap = {
   52: "4",
 };
 
-const keywords = [
-  "podcasts",
-  "dev",
-  "frontend",
-  "fluky",
-  "fluky.dev",
-  "developers",
-  "coders",
-  "javascript",
-  "typescript",
-  "html",
-  "css",
-  "quiz",
-  "resources",
-];
+const keywords = ["quiz", "quizzes"];
 
 const Page = ({ data, pageContext }) => {
   const description =
