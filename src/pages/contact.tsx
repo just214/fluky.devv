@@ -48,10 +48,6 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
     setFormType(e.target.value);
   };
 
-  React.useEffect(() => {
-    console.log(formType);
-  }, [formType]);
-
   return (
     <Layout
       title="Contact Us"
@@ -100,7 +96,7 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
               font-weight: bold;
             `}
           >
-            Hi, what brings you here today?
+            What brings you here today?
           </label>
           <select
             name="Selection"
@@ -118,16 +114,17 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
           </select>
 
           <TextArea
-            rows={3}
+            // rows={formType === "quizzes" ? 8 : 3}
             name="comment"
             id="comment"
             autoFocus
+            autosize={{ minRows: 4, maxRows: 100 }}
             required
             placeholder={placeholders[formType]}
           />
 
           {formType === "quizzes" && (
-            <TextArea rows={8} disabled placeholder={quizQuestionTemplate} />
+            <TextArea autosize disabled placeholder={quizQuestionTemplate} />
           )}
         </div>
       </BaseForm>

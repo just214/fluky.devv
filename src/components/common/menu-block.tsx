@@ -10,7 +10,6 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   max-width: 280px;
   min-width: 200px;
   margin: 20px;
-
   background: transparent;
   border: 3px solid transparent;
   transition: border 1s;
@@ -80,8 +79,8 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
           <span
             css={`
               margin-right: 10px;
-              text-shadow: 1px 1px 1px #dadada;
-              text-shadow: 0 1px orange;
+
+              text-shadow: 0 1px white;
             `}
           >
             {children}

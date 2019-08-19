@@ -37,16 +37,6 @@ const menuItems = [
   {
     label: "PODCASTS",
     to: "/podcasts",
-    color: "#333",
-    gradient: `
-    background: #1D976C;  
-    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
-    background: linear-gradient(to right, #93F9B9, #1D976C);`,
-  },
-
-  {
-    label: "BUZZWORDS",
-    to: "/buzzwords",
     color: "yellow",
     gradient: `
     background: #614385; 
@@ -54,21 +44,31 @@ const menuItems = [
     background: linear-gradient(to right, #516395, #614385); 
     `,
   },
+
+  {
+    label: "BUZZWORDS",
+    to: "/buzzwords",
+    color: "#222",
+    gradient: `
+    background: #1D976C;  
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
+    background: linear-gradient(to right, #93F9B9, #1D976C);`,
+  },
   {
     label: "ABOUT",
     to: "/about-site",
-    color: "#333",
+    color: "white",
     gradient: `
-    background: #FDC830;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: #fe8c00;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     `,
   },
   {
     label: "CONTACT",
     to: "/contact",
-    color: "gold",
+    color: "#b3b3b3",
     gradient: `
     background: #000000;  
     background: -webkit-linear-gradient(to right, #434343, #000000); 
@@ -115,7 +115,7 @@ const App = () => (
       >
         <h1
           css={`
-            color: #656e80;
+            color: #4d5f85;
             text-align: center;
             font-family: Barriecito;
             font-size: 2.2rem;
@@ -125,7 +125,7 @@ const App = () => (
           Resources for{" "}
           <span
             css={`
-              color: ${props => props.theme.pink};
+              color: #1de07b;
               padding: 0px 3px;
               display: inline-block;
               font-weight: bold;

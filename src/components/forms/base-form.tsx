@@ -32,6 +32,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
             <input type="hidden" name="form-name" value={formName} />
             {children}
             <Divider />
+            <h4>Optional</h4>
             <label htmlFor="submitter-name">
               Your Name
               <Input
@@ -39,11 +40,10 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
                 name="submitter-name"
                 id="submitter-name"
                 type="text"
-                required
               />
             </label>
             <label htmlFor="submitter-name">
-              Your Email (optional)
+              Your Email
               <Input
                 size="large"
                 name="submitter-email"
