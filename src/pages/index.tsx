@@ -1,5 +1,34 @@
 import React from "react";
 import { Layout, MenuBlock } from "../components/common";
+import { keyframes } from "styled-components";
+
+const colorchange = keyframes`
+ 0% {
+  color: #4d5f85;
+}
+
+20% {
+  color: yellow;
+}
+
+40% {
+  color: #1abc9c;
+ 
+}
+
+60% {
+  color: #f857a6;
+}
+
+80% {
+  color: #00a5d3;
+}
+
+100% {
+  color: #f1800f;
+}
+
+`;
 
 const menuItems = [
   {
@@ -29,9 +58,9 @@ const menuItems = [
     to: "/newsletters",
     color: "#005075",
     gradient: `
-    background: #ffb347;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ffb347;
+    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);
+    background: linear-gradient(to right, #ffcc33, #ffb347);
     `,
   },
   {
@@ -48,7 +77,7 @@ const menuItems = [
   {
     label: "BUZZWORDS",
     to: "/buzzwords",
-    color: "#222",
+    color: "brown",
     gradient: `
     background: #1D976C;  
     background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
@@ -59,16 +88,15 @@ const menuItems = [
     to: "/about-site",
     color: "white",
     gradient: `
-    background: #fe8c00;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #fe8c00; 
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00); 
+    background: linear-gradient(to right, #f83600, #fe8c00);
     `,
   },
   {
     label: "CONTACT",
     to: "/contact",
-    color: "#b3b3b3",
+    color: "#ffcc33",
     gradient: `
     background: #000000;  
     background: -webkit-linear-gradient(to right, #434343, #000000); 
@@ -125,10 +153,11 @@ const App = () => (
           Resources for{" "}
           <span
             css={`
-              color: #1de07b;
+              color: yellow;
               padding: 0px 3px;
               display: inline-block;
               font-weight: bold;
+              animation: ${colorchange} 30s infinite alternate;
             `}
           >
             Front End Developers

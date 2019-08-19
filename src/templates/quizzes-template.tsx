@@ -154,6 +154,7 @@ const Quiz = props => {
         Other Community Quizzes
       </h3>
       {filteredOtherQuizzes.map(site => {
+        console.log(site);
         return (
           <QuizItem
             key={site.url}
@@ -161,7 +162,7 @@ const Quiz = props => {
             description={site.description}
             website={site.url}
             provider={site.provider}
-            tag={site.tag}
+            tags={site.tags.join(", ").toUpperCase()}
           />
         );
       })}

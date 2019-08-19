@@ -1,5 +1,5 @@
 import React from "react";
-import { FaExternalLinkAlt, FaGlobeAfrica } from "react-icons/fa";
+import { FaGlobeAfrica } from "react-icons/fa";
 import Button from "antd/es/button";
 
 export interface WebsiteLinkProps {
@@ -17,14 +17,6 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         color: ${props => props.theme.lightblue};
       `}
     >
-      {/* <small
-        css={`
-          margin: 0;
-          margin-right: 5px;
-        `}
-      >
-        Visit Website
-      </small>{" "} */}
       <Button
         css={`
           display: flex;

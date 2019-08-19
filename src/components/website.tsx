@@ -84,20 +84,15 @@ export const Website: React.FC<WebsiteProps> = ({
             flex-wrap: wrap;
           `}
         >
-          {tags.map(tag => {
-            return (
-              <small
-                css={`
-                  color: ${props => props.theme.pink};
-                  margin-right: 10px;
-                  font-weight: bold;
-                `}
-                key={tag}
-              >
-                {tag}
-              </small>
-            );
-          })}
+          <small
+            css={`
+              color: ${props => props.theme.pink};
+              margin-right: 10px;
+              font-weight: bold;
+            `}
+          >
+            {tags.join(", ").toUpperCase()}
+          </small>
           {url && <WebsiteLink url={url} />}
         </div>
       </div>

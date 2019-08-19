@@ -8,13 +8,13 @@ interface QuizItemProps {
   provider: string;
   description: string;
   website: string;
-  tag: string;
+  tags: string;
 }
 export const QuizItem: React.FC<QuizItemProps> = ({
   title,
   description = "",
   website,
-  tag,
+  tags,
   provider,
 }) => {
   const { isMobile } = useMedia();
@@ -86,7 +86,7 @@ export const QuizItem: React.FC<QuizItemProps> = ({
               color: ${props => props.theme.pink};
             `}
           >
-            <b>{tag}</b>
+            <b>{tags}</b>
           </small>
           {website && <WebsiteLink url={website} />}
         </div>

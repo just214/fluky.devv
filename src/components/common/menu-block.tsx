@@ -16,8 +16,6 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   &:focus {
     border: 3px solid yellow;
   }
-
-  filter: drop-shadow(0 0 2px #666);
 `;
 
 export interface MenuBlockProps {
@@ -79,8 +77,6 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
           <span
             css={`
               margin-right: 10px;
-
-              text-shadow: 0 1px white;
             `}
           >
             {children}
