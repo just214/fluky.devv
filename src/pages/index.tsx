@@ -1,13 +1,13 @@
 import React from "react";
 import { Layout, MenuBlock } from "../components/common";
 import { keyframes } from "styled-components";
+import brain from "../brain.svg";
 import {
   FaArrowAltCircleRight,
-  FaDumbbell,
+  FaHeartbeat,
   FaUsers,
   FaInbox,
-  FaCheckDouble,
-  FaJournalWhills,
+  FaClipboardList as FaJournalWhills,
   FaMailBulk,
   FaPodcast,
 } from "react-icons/fa";
@@ -51,7 +51,9 @@ const menuItems = [
     background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
     background: linear-gradient(to right, #ff5858, #f857a6); 
     `,
-    icon: FaCheckDouble,
+    icon: function BrainIcon() {
+      return <img src={brain} alt="Brain icon" height={40} />;
+    },
   },
   {
     label: "COMMUNITIES",
@@ -98,7 +100,7 @@ const menuItems = [
     
     
     `,
-    icon: FaDumbbell,
+    icon: FaHeartbeat,
   },
 
   {
