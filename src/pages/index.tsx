@@ -1,6 +1,16 @@
 import React from "react";
 import { Layout, MenuBlock } from "../components/common";
 import { keyframes } from "styled-components";
+import {
+  FaArrowAltCircleRight,
+  FaDumbbell,
+  FaUsers,
+  FaInbox,
+  FaCheckDouble,
+  FaJournalWhills,
+  FaMailBulk,
+  FaPodcast,
+} from "react-icons/fa";
 
 const colorchange = keyframes`
  0% {
@@ -41,6 +51,7 @@ const menuItems = [
     background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
     background: linear-gradient(to right, #ff5858, #f857a6); 
     `,
+    icon: FaCheckDouble,
   },
   {
     label: "COMMUNITIES",
@@ -52,6 +63,7 @@ const menuItems = [
     background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
     background: linear-gradient(to right, #6dd5ed, #2193b0); 
     `,
+    icon: FaUsers,
   },
   {
     label: "NEWSLETTERS",
@@ -62,6 +74,7 @@ const menuItems = [
     background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);
     background: linear-gradient(to right, #ffcc33, #ffb347);
     `,
+    icon: FaInbox,
   },
   {
     label: "PODCASTS",
@@ -72,37 +85,43 @@ const menuItems = [
     background: -webkit-linear-gradient(to right, #516395, #614385); 
     background: linear-gradient(to right, #516395, #614385); 
     `,
+    icon: FaPodcast,
   },
   {
     label: "HEALTH",
     to: "/health",
     color: "yellow",
     gradient: `
-    background: #ED213A; 
-    background: -webkit-linear-gradient(to right, #93291E, #ED213A); 
-    background: linear-gradient(to right, #93291E, #ED213A);
+    background: #4b6cb7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     
     `,
+    icon: FaDumbbell,
   },
 
   {
     label: "BUZZWORDS",
     to: "/buzzwords",
-    color: "brown",
-    gradient: `
-    background: #1D976C;  
-    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
-    background: linear-gradient(to right, #93F9B9, #1D976C);`,
-  },
-  {
-    label: "ABOUT",
-    to: "/about-site",
     color: "white",
     gradient: `
     background: #fe8c00; 
     background: -webkit-linear-gradient(to right, #f83600, #fe8c00); 
     background: linear-gradient(to right, #f83600, #fe8c00);
     `,
+    icon: FaJournalWhills,
+  },
+  {
+    label: "ABOUT",
+    to: "/about-site",
+    color: "brown",
+    gradient: `
+    background: #1D976C;  
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
+    background: linear-gradient(to right, #93F9B9, #1D976C);`,
+
+    icon: FaArrowAltCircleRight,
   },
   {
     label: "CONTACT",
@@ -113,6 +132,7 @@ const menuItems = [
     background: -webkit-linear-gradient(to right, #434343, #000000); 
     background: linear-gradient(to right, #434343, #000000);
     `,
+    icon: FaMailBulk,
   },
 ];
 
@@ -169,7 +189,7 @@ const App = () => (
         `}
         role="navigation"
       >
-        {menuItems.map(({ to, color, gradient, label }, index) => {
+        {menuItems.map(({ to, color, gradient, label, icon }, index) => {
           const rotateValue = index % 2 ? 3 : -3;
           return (
             <MenuBlock
@@ -179,6 +199,7 @@ const App = () => (
               color={color}
               gradient={gradient}
               index={index}
+              icon={icon}
             >
               {label}
             </MenuBlock>

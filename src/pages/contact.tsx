@@ -58,7 +58,7 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
     >
       {location.state && location.state.type && (
         <Link
-          to={`${location.state.type}`}
+          to={`/${location.state.type}`}
           css={`
             display: flex;
             align-items: center;

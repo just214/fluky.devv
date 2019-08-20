@@ -32,12 +32,15 @@ const Websites = ({ pageContext }) => {
         v.description.toLowerCase().includes(filter.toLowerCase())
       ) {
         return true;
+      } else if (
+        v.title &&
+        v.title.toLowerCase().includes(filter.toLowerCase())
+      ) {
+        return true;
       } else {
         return false;
       }
     });
-
-  console.log("SORTED", sortedData);
 
   return (
     <Layout

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaDumbbell } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const StyledLink = styled(Link)<{ rotate: number }>`
@@ -52,6 +52,7 @@ interface MenuBlockWrapperProps {
   gradient: string;
   color?: string;
   index?: number;
+  icon: any;
 }
 
 const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
@@ -61,6 +62,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
   gradient,
   color,
   index,
+  icon: Icon,
 }) => {
   return (
     <StyledLink to={to} rotate={rotate}>
@@ -81,7 +83,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
           >
             {children}
           </span>{" "}
-          <FaArrowAltCircleRight />
+          <Icon />
         </MenuBlock>
       </motion.div>
     </StyledLink>

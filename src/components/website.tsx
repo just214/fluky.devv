@@ -38,16 +38,18 @@ export const Website: React.FC<WebsiteProps> = ({
       >
         <img
           css={`
-            border-radius: 10px;
+            border-radius: 4px;
             margin-right: 20px;
             height: auto;
-            width: 50px;
+            width: 30px;
             background: ${({ theme }) => theme.gray2};
           `}
           src={icon}
           alt={`Thumbnail for ${title}`}
         />
-        <div css={`margin-top 8px;`}>
+        <div
+          css={`margin-top 8px; min-height: 50px; display: flex; align-items: center; flex-wrap: wrap;`}
+        >
           <Heading>{title}</Heading>
           <small
             css={`
