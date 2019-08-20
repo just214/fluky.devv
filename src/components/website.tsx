@@ -1,7 +1,5 @@
 import React from "react";
-import useMedia from "../hooks/useMedia";
 import { WebsiteLink, Tags, Heading } from "./common";
-import { FaImage } from "react-icons/fa";
 
 import useReadMore from "../hooks/useReadMore";
 
@@ -22,7 +20,6 @@ export const Website: React.FC<WebsiteProps> = ({
   tags,
 }) => {
   const [desc, ReadMoreButton] = useReadMore(description);
-  const { isMobile } = useMedia();
 
   return (
     <div
@@ -39,31 +36,27 @@ export const Website: React.FC<WebsiteProps> = ({
           flex-wrap: wrap;
         `}
       >
-        {icon ? (
-          <img
+        <img
+          css={`
+            border-radius: 10px;
+            margin-right: 20px;
+            height: auto;
+            width: 50px;
+            background: ${({ theme }) => theme.gray2};
+          `}
+          src={icon}
+          alt={`Thumbnail for ${title}`}
+        />
+        <div css={`margin-top 8px;`}>
+          <Heading>{title}</Heading>
+          <small
             css={`
-              border-radius: 10px;
-              margin-right: 20px;
-              height: auto;
-              width: 50px;
-              display: block;
+              padding-left: 8px;
             `}
-            src={icon}
-            alt={`Thumbnail for ${title}`}
-          />
-        ) : (
-          <FaImage
-            css={`
-              margin-right: ${isMobile ? "0px" : "20px"};
-              margin-bottom: ${isMobile ? "20px" : "0px"};
-              height: auto;
-              max-width: 50px;
-            `}
-            size="50px"
-            color="#efefef"
-          />
-        )}
-        <Heading color="blue">{provider}</Heading>
+          >
+            by {provider}
+          </small>
+        </div>
       </div>
       <div>
         <p
@@ -84,7 +77,7 @@ export const Website: React.FC<WebsiteProps> = ({
             flex-wrap: wrap;
           `}
         >
-          <Tags tags={tags} />
+          {tags && tags.length && <Tags tags={tags} />}
 
           {url && <WebsiteLink url={url} />}
         </div>

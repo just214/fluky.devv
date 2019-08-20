@@ -111,7 +111,7 @@ const Quiz = props => {
                   alt={`${node.data.Name} Quiz`}
                 />
 
-                <Heading color="blue"> {node.data.Name} Quiz</Heading>
+                <Heading> {node.data.Name} Quiz</Heading>
 
                 <div
                   css={`

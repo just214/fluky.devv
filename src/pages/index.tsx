@@ -73,6 +73,17 @@ const menuItems = [
     background: linear-gradient(to right, #516395, #614385); 
     `,
   },
+  {
+    label: "HEALTH",
+    to: "/health",
+    color: "yellow",
+    gradient: `
+    background: #ED213A; 
+    background: -webkit-linear-gradient(to right, #93291E, #ED213A); 
+    background: linear-gradient(to right, #93291E, #ED213A);
+    
+    `,
+  },
 
   {
     label: "BUZZWORDS",

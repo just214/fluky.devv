@@ -59,7 +59,7 @@ const BuzzWords = ({ pageContext }) => {
                   background: ${props => props.theme.gray1};
                 `}
               >
-                <Heading color="blue">{node.data.Word}</Heading>
+                <Heading>{node.data.Word}</Heading>
                 <dfn
                   css={`
                     margin: 0;

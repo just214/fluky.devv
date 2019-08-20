@@ -19,9 +19,9 @@ const Websites = ({ pageContext }) => {
       return nameA < nameB ? -1 : 1;
     })
     .filter(v => {
-      const tags = v.tags.join(",").toLowerCase();
+      // const tags = v.tags.join(",").toLowerCase();
 
-      if (tags.includes(filter.toLowerCase())) return true;
+      // if (tags.includes(filter.toLowerCase())) return true;
       if (
         v.provider &&
         v.provider.toLowerCase().includes(filter.toLowerCase())
@@ -37,11 +37,13 @@ const Websites = ({ pageContext }) => {
       }
     });
 
+  console.log("SORTED", sortedData);
+
   return (
     <Layout
-      title="Communities"
-      keywords={["community", "communities", "websites"]}
-      description="A collection of the best developer communities."
+      title="Developer Health"
+      keywords={["health", "stretches", "exercise"]}
+      description="A collection of resources to make sure you stay as healthy as possible as a developer."
     >
       <BackToTop />
 
@@ -51,12 +53,12 @@ const Websites = ({ pageContext }) => {
         `}
       >
         <TitleBox
-          title="Communities"
-          subTitle="A collection of the best developer communities."
+          title="Developer Health"
+          subTitle="A collection of resources to make sure you stay as healthy as possible as a developer."
         >
           <LastUpdated date={pageContext.lastModified} />
-          <Link to="/contact" state={{ type: "communities" }}>
-            Suggest a Community
+          <Link to="/contact" state={{ type: "health" }}>
+            Suggest a Website
           </Link>
         </TitleBox>
 

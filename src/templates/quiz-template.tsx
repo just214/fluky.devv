@@ -30,7 +30,7 @@ const getFeedbackIncorrect = () => {
   const options: string[] = [
     "That's Incorrect.",
     "So close.",
-    "Nice try.",
+    "Not quite.",
     "Better luck next time.",
     "Too bad.",
     "Nope, that's incorrect.",
@@ -202,7 +202,7 @@ const Page = ({ data, pageContext }) => {
           {userAnswer !== currentQuestion.data.Answer && (
             <h2
               css={`
-                color: tomato;
+                color: ${props => props.theme.red};
                 margin: 10px 0px;
               `}
             >

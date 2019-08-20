@@ -61,7 +61,7 @@ export const Podcast: React.FC<PodcastProps> = ({
         )}
 
         <div>
-          <Heading color="blue">{title}</Heading>
+          <Heading>{title}</Heading>
 
           <p
             css={`

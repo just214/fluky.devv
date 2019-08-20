@@ -14,6 +14,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language = "tsx", value }) => {
         margin: "10px",
         backgroundColor: "inherit",
         padding: "5px",
+        overflowY: "scroll",
+        height: "auto",
       }}
     >
       {value}

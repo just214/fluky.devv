@@ -9,7 +9,7 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   margin: 0px;
   max-width: 280px;
   min-width: 200px;
-  margin: 20px;
+  margin: 30px;
   background: transparent;
   border: 3px solid transparent;
   transition: border 1s;

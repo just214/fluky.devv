@@ -42,7 +42,7 @@ export const QuizItem: React.FC<QuizItemProps> = ({
             flex-wrap: wrap;
           `}
         >
-          <Heading color="blue">{title}</Heading>
+          <Heading>{title}</Heading>
 
           <small
             css={`

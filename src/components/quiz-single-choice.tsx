@@ -9,15 +9,16 @@ const Option = styled.div<{
 }>`
   display: flex;
   align-items: center;
-  border: 2px solid #fbfbfb;
-  background: ${props =>
-    props.isCorrectAnswer ? props.theme.lightgreen : "#efefef"};
+  border: 3px solid
+    ${props =>
+      props.isCorrectAnswer ? props.theme.lightgreen : props.theme.gray2};
+  background: ${({ theme }) => theme.gray2};
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
   color: #333;
   font-weight: bold;
   cursor: ${props => (props.isUserAnswer ? "default" : "pointer")};
-  transition: border-color 0.2s;
+  transition: border-color 0.5s;
   margin: 5px 0px;
   :hover {
     border-color: ${props => props.theme.gray3};
@@ -69,7 +70,7 @@ export const SingleChoice: React.FC<QuestionProps> = ({
           if (!isAnswered) {
             return <span>{option.id}</span>;
           } else if (userAnswer == option.id && data.Answer === userAnswer) {
-            return <FaCheck color="green" size={18} />;
+            return <FaCheck color="#53c41a" size={18} />;
           } else if (userAnswer == option.id && data.Answer !== userAnswer) {
             return <FaTimes color="#f5222d" size={18} />;
           }
@@ -105,14 +106,14 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                 <Feedback />
               </span>
             </div>
-            <span
+            {/* <span
               css={`
                 overflow-y: scroll;
                 height: auto;
               `}
-            >
-              <Markdown source={option.value} />
-            </span>
+            > */}
+            <Markdown source={option.value} />
+            {/* </span> */}
           </Option>
         );
       })}

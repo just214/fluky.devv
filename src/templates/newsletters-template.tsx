@@ -60,7 +60,7 @@ export const NewsLetters = ({ pageContext }) => {
           const { Name, Description, Website, Tags: itemTags } = node.data;
           return (
             <li key={Name}>
-              <Heading color="blue">{Name}</Heading>
+              <Heading>{Name}</Heading>
 
               <p
                 css={`
