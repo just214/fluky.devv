@@ -39,7 +39,7 @@ const Websites = ({ pageContext }) => {
 
   return (
     <Layout
-      title="Community"
+      title="Communities"
       keywords={["community", "communities", "websites"]}
       description="A collection of the best developer communities."
     >
@@ -51,7 +51,7 @@ const Websites = ({ pageContext }) => {
         `}
       >
         <TitleBox
-          title="Community"
+          title="Communities"
           subTitle="A collection of the best developer communities."
         >
           <LastUpdated date={pageContext.lastModified} />

@@ -43,7 +43,7 @@ const menuItems = [
     `,
   },
   {
-    label: "COMMUNITY",
+    label: "COMMUNITIES",
     rotate: -3,
     to: "/communities",
     color: "darkmagenta",

@@ -10,8 +10,8 @@ const StyledButton = styled(motion.button)`
   outline: 0;
   /* border: 2px solid ${props => props.theme.gray5}; */
   font-weight: bold;
-  background: ${props => props.theme.gray2};
-  color: #333;
+  background: #7cc955;
+  color: white;
   cursor: pointer;
   position: fixed;
   bottom: 40px;

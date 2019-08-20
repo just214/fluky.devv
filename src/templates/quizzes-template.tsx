@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import { Layout, TitleBox, SearchBox, BackToTop } from "../components/common";
+import {
+  Layout,
+  TitleBox,
+  SearchBox,
+  BackToTop,
+  Heading,
+} from "../components/common";
 import QuizItem from "../components/quiz-item";
 import Divider from "antd/es/divider";
 
@@ -99,21 +105,13 @@ const Quiz = props => {
                   css={`
                     height: 100px;
                     width: 100px;
+                    margin-bottom: 10px;
                   `}
                   src={node.data.Thumbnail[0].url}
                   alt={`${node.data.Name} Quiz`}
                 />
-                <h2
-                  css={`
-                    padding: 0;
-                    margin: 0;
-                    margin-top: 10px;
-                    color: ${props => props.theme.lightblue};
-                    font-weight: bold;
-                  `}
-                >
-                  {node.data.Name} Quiz
-                </h2>
+
+                <Heading color="blue"> {node.data.Name} Quiz</Heading>
 
                 <div
                   css={`
@@ -140,7 +138,6 @@ const Quiz = props => {
         Other Community Quizzes
       </h3>
       {filteredOtherQuizzes.map(site => {
-        console.log(site);
         return (
           <QuizItem
             key={site.url}

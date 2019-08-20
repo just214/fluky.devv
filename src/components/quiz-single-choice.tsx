@@ -20,7 +20,7 @@ const Option = styled.div<{
   transition: border-color 0.2s;
   margin: 5px 0px;
   :hover {
-    border-color: #dadada;
+    border-color: ${props => props.theme.gray3};
   }
   overflow: hidden;
 `;
@@ -94,11 +94,12 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                   padding: 3px;
                   color: ${props => props.theme.blue};
                   font-size: 1.5rem;
-                  border: 3px solid #efefef;
+                  border: 1px solid #efefef;
                   border-radius: 4px;
                   border-color: ${userAnswer == option.id
-                    ? "#0066B8"
+                    ? props => props.theme.blue
                     : "transparent"};
+                  color: ${props => props.theme.blue};
                 `}
               >
                 <Feedback />
