@@ -59,9 +59,7 @@ const SEO: React.FC<SEOProps> = ({
         lang,
       }}
       title={title}
-      titleTemplate={
-        titleTemplate || `%s | ${site.siteMetadata.title.toUpperCase()}`
-      }
+      titleTemplate={titleTemplate || `%s | Fluky.dev`}
       meta={[
         {
           name: `description`,
