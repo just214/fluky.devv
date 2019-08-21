@@ -1,4 +1,5 @@
 import React from "react";
+import { FaShareSquare } from "react-icons/fa";
 
 export const Heading = ({ children }) => {
   return (
@@ -8,9 +9,8 @@ export const Heading = ({ children }) => {
         color: ${({ theme }) => theme.blue};
         margin: 0px;
         padding: 0px;
-        font-size: 1.8rem;
-        line-height: 1.8rem;
-        font-family: "Lalezar", sans-serif;
+        font-size: 1.4rem;
+        font-weight: bold;
       `}
     >
       {children}

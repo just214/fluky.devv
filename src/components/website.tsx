@@ -36,7 +36,7 @@ export const Website: React.FC<WebsiteProps> = ({
           flex-wrap: wrap;
         `}
       >
-        <img
+        {/* <img
           css={`
             border-radius: 4px;
             margin-right: 20px;
@@ -46,18 +46,22 @@ export const Website: React.FC<WebsiteProps> = ({
           `}
           src={icon}
           alt={`Thumbnail for ${title}`}
-        />
+        /> */}
         <div
-          css={`margin-top 8px; min-height: 50px; display: flex; align-items: center; flex-wrap: wrap;`}
+          css={`margin-top 0px; display: flex; align-items: center; flex-wrap: wrap;`}
         >
-          <Heading>{title}</Heading>
-          <small
-            css={`
-              padding-left: 8px;
-            `}
-          >
-            by {provider}
-          </small>
+          <Heading>
+            {title}{" "}
+            <small
+              css={`
+                color: #555;
+                font-size: 0.8rem;
+                font-weight: normal;
+              `}
+            >
+              {provider}
+            </small>
+          </Heading>
         </div>
       </div>
       <div>
@@ -65,6 +69,7 @@ export const Website: React.FC<WebsiteProps> = ({
           css={`
             margin-bottom: 0;
             margin-top: 10px;
+            font-size: 1.1rem;
           `}
           dangerouslySetInnerHTML={{ __html: desc }}
         />

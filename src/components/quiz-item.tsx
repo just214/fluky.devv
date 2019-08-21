@@ -51,7 +51,7 @@ export const QuizItem: React.FC<QuizItemProps> = ({
               color: #707070;
             `}
           >
-            by {provider}
+            {provider}
           </small>
         </div>
 

@@ -15,7 +15,7 @@ const config = {
         fonts: [
           { family: `Barriecito` },
           { family: `Lalezar` },
-          { family: `Open+Sans` },
+          { family: `Open+Sans`, variants: [`400`, `700`] },
         ],
       },
     },
