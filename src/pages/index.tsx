@@ -143,7 +143,7 @@ const App = () => (
     maxWidth="1200px"
     bg="#1c2229"
     title="Home"
-    description="A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, and more!"
+    description="A collection of resources for front end developers. Coding quizzes, podcasts, newsletters,health, and more!"
   >
     <div
       css={`

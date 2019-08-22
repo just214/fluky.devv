@@ -22,12 +22,11 @@ const config = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [
-          { family: `Barriecito` },
-          { family: `Montserrat`, variants: [`500`, `700`, `800`] },
-        ],
+        google: {
+          families: ["Barriecito", "Montserrat"],
+        },
       },
     },
     `gatsby-plugin-styled-components`,
