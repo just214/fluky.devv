@@ -11,7 +11,7 @@ export { default as LastUpdated } from "./last-updated";
 export { default as Heading } from "./heading";
 export { default as Tags } from "./tags";
 export { default as MarkdownBody } from "./markdown-body";
-export { default as Input } from "./Input";
+export { default as Input } from "./input";
 export { default as Divider } from "./divider";
 export { default as TextArea } from "./textarea";
 export { default as Alert } from "./alert/alert";
