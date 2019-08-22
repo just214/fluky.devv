@@ -129,7 +129,7 @@ const SEO: React.FC<SEOProps> = ({
       <link
         rel="icon"
         type="image/png"
-        href="flukydev-icon_192.png"
+        href="flukydev-icon-192.png"
         sizes="192x192"
       />
       <link

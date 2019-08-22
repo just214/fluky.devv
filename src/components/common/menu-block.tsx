@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { FaArrowAltCircleRight, FaDumbbell } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const StyledLink = styled(Link)<{ rotate: number }>`
@@ -10,6 +9,7 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   max-width: 280px;
   min-width: 200px;
   margin: 30px;
+
   background: transparent;
   border: 3px solid transparent;
   transition: border 1s;
@@ -32,6 +32,7 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
       css={`
           ${gradient}
           color: ${color || "white"};
+          border-radius: 2px;
           padding: 10px;
           margin: 0;
           font-size: 30px;

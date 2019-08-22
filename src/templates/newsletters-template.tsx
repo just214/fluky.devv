@@ -1,75 +1,64 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/common/layout";
 import {
   TitleBox,
   WebsiteLink,
-  SearchBox,
+  Search,
   BackToTop,
-  LastUpdated,
   Heading,
   Tags,
+  MarkdownBody,
+  Divider,
 } from "../components/common";
-import Divider from "antd/es/divider";
+import useSearch from "../hooks/useSearch";
 
 export const NewsLetters = ({ pageContext }) => {
-  const [filter, setFilter] = useState("");
-  const data = pageContext.newsletters.filter(({ node }) => {
-    const name = node.data.Name.toLowerCase();
-    const description = node.data.Description.toLowerCase();
-    const tags = node.data.Tags.join(", ").toLowerCase();
+  const [values, setFilter] = useSearch(pageContext.newsletters, [
+    "Description",
+    "Tags",
+    "Name",
+  ]);
 
-    if (name.includes(filter)) {
-      return true;
-    } else if (description.includes(filter.toLowerCase())) {
-      return true;
-    } else if (tags.includes(filter.toLowerCase())) {
-      return true;
-    } else {
-      return false;
-    }
-  });
   return (
     <Layout
-      title="Newsletters"
+      title="Dev Newsletters"
       keywords={["newsletters"]}
       description="A collection of the best newsletters for front end developers."
     >
       <BackToTop />
       <TitleBox
-        title="Newsletters"
+        title="Dev Newsletters"
+        lastUpdated={pageContext.lastModified}
         subTitle="A collection of the best newsletters for front end developers."
       >
-        <LastUpdated date={pageContext.lastModified} />
         <Link to="/contact" state={{ type: "newsletters" }}>
           Suggest a Newsletter
         </Link>
       </TitleBox>
 
       <br />
-      <SearchBox onChange={value => setFilter(value.toLowerCase())} />
-      <small>
-        Showing {data.length} of {pageContext.newsletters.length}
+      <Search onChange={value => setFilter(value.toLowerCase())} />
+      <small
+        css={`
+          padding-left: 10px;
+        `}
+      >
+        Showing {values.length} of {pageContext.newsletters.length}
       </small>
       <ul
         css={`
           margin-top: 20px;
+          padding: 0;
         `}
       >
-        {data.map(({ node }) => {
+        {values.map(({ node }) => {
           const { Name, Description, Website, Tags: itemTags } = node.data;
           return (
             <li key={Name}>
               <Heading>{Name}</Heading>
+              <MarkdownBody md={Description} />
 
-              <p
-                css={`
-                  margin: 0px;
-                  margin-bottom: 8px;
-                `}
-              >
-                {Description}
-              </p>
               <div
                 css={`
                   display: flex;
@@ -84,7 +73,7 @@ export const NewsLetters = ({ pageContext }) => {
                 </div>
               </div>
 
-              <Divider style={{ padding: 0, margin: "20px 0px 20px 0px" }} />
+              <Divider />
             </li>
           );
         })}

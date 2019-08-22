@@ -89,6 +89,18 @@ const menuItems = [
     `,
     icon: FaPodcast,
   },
+
+  {
+    label: "BUZZWORDS",
+    to: "/buzzwords",
+    color: "white",
+    gradient: `
+    background: #fe8c00; 
+    background: -webkit-linear-gradient(to right, #f83600, #fe8c00); 
+    background: linear-gradient(to right, #f83600, #fe8c00);
+    `,
+    icon: FaJournalWhills,
+  },
   {
     label: "HEALTH",
     to: "/health",
@@ -101,18 +113,6 @@ const menuItems = [
     
     `,
     icon: FaHeartbeat,
-  },
-
-  {
-    label: "BUZZWORDS",
-    to: "/buzzwords",
-    color: "white",
-    gradient: `
-    background: #fe8c00; 
-    background: -webkit-linear-gradient(to right, #f83600, #fe8c00); 
-    background: linear-gradient(to right, #f83600, #fe8c00);
-    `,
-    icon: FaJournalWhills,
   },
   {
     label: "ABOUT",

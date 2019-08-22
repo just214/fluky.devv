@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import Website from "../components/website";
-import {
-  BackToTop,
-  SearchBox,
-  Layout,
-  LastUpdated,
-  TitleBox,
-} from "../components/common";
+import { BackToTop, Search, Layout, TitleBox } from "../components/common";
 
 const Websites = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
@@ -19,7 +13,10 @@ const Websites = ({ pageContext }) => {
       return nameA < nameB ? -1 : 1;
     })
     .filter(v => {
-      const tags = v.tags.join(",").toLowerCase();
+      const tags = v.tags
+        .sort()
+        .join(",")
+        .toLowerCase();
 
       if (tags.includes(filter.toLowerCase())) return true;
       if (
@@ -39,9 +36,9 @@ const Websites = ({ pageContext }) => {
 
   return (
     <Layout
-      title="Communities"
+      title="Dev Communities"
       keywords={["community", "communities", "websites"]}
-      description="A collection of the best developer communities."
+      description="A collection of the best online developer communities."
     >
       <BackToTop />
 
@@ -51,18 +48,22 @@ const Websites = ({ pageContext }) => {
         `}
       >
         <TitleBox
-          title="Communities"
-          subTitle="A collection of the best developer communities."
+          title="Dev Communities"
+          subTitle="A collection of the best online developer communities."
+          lastUpdated={pageContext.lastModified}
         >
-          <LastUpdated date={pageContext.lastModified} />
           <Link to="/contact" state={{ type: "communities" }}>
             Suggest a Community
           </Link>
         </TitleBox>
 
         <br />
-        <SearchBox onChange={value => setFilter(value)} />
-        <small>
+        <Search onChange={value => setFilter(value)} />
+        <small
+          css={`
+            padding-left: 10px;
+          `}
+        >
           Showing {sortedData.length} of {pageContext.data.length}
         </small>
 
@@ -70,7 +71,7 @@ const Websites = ({ pageContext }) => {
           ({ title, url, description, image, icon, provider, tags }) => {
             return (
               <Website
-                key={title}
+                key={title || url}
                 title={title}
                 url={url}
                 description={description}

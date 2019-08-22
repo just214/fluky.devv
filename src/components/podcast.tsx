@@ -1,10 +1,8 @@
 import React from "react";
 import useMedia from "../hooks/useMedia";
-import WebsiteLink from "./common/website-link";
 import { FaImage } from "react-icons/fa";
-import Heading from "./common/heading";
 import useReadMore from "../hooks/useReadMore";
-import Divider from "antd/es/divider";
+import { Heading, MarkdownBody, WebsiteLink, Divider } from "./common";
 
 interface PodcastProps {
   thumbnail: string;
@@ -63,13 +61,7 @@ export const Podcast: React.FC<PodcastProps> = ({
         <div>
           <Heading>{title}</Heading>
 
-          <p
-            css={`
-              margin-bottom: 0;
-              margin-top: 10px;
-            `}
-            dangerouslySetInnerHTML={{ __html: desc }}
-          />
+          <MarkdownBody md={desc} />
 
           <ReadMoreButton />
 

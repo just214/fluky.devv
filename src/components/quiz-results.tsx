@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import Button from "antd/es/button";
-import { Emoji } from "./common";
+import { Emoji, Button } from "./common";
 
 const getEmoji = score => {
   if (score < 70) {

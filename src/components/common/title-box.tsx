@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Title from "./title";
+import LastUpdated from "./last-updated";
 
 const Wrapper = styled.div`
-  /* border-radius: 10px; */
+  border-radius: 10px;
   padding: 10px;
-  /* background-color: #f0f6ff; */
+  background-color: #f0f6ff;
 `;
 
 const H2 = styled.h2`
@@ -19,15 +20,19 @@ const H2 = styled.h2`
 export interface TitleBoxProps {
   title: string;
   subTitle?: string | HTMLElement;
+  lastUpdated?: string;
 }
 export const TitleBox: React.FC<TitleBoxProps> = ({
   title,
   subTitle,
   children,
+  lastUpdated,
 }) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
+      {lastUpdated && <LastUpdated date={lastUpdated} />}
+
       <H2>{subTitle}</H2>
       {children}
     </Wrapper>

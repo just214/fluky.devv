@@ -21,9 +21,8 @@ export const LastUpdated: React.FC<LastUpdatedProps> = ({ date }) => {
           font-family: Helvetica;
         `}
       >
-        {format(date, "MMM.DD, YYYY")}
+        {format(date, "MMMM DD, YYYY")}
       </time>
-      .
     </small>
   );
 };

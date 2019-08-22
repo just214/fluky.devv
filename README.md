@@ -9,11 +9,15 @@ TODO
 - Turn back on eslinting rules that were turned off and apply the appropriate comments or fixes.
 - Add strong typings and remove all `anys`.
 - Secure the `/admin` route with authentication.
-- Can I use purge to tree shake Antd styles that are unused?
 - Add google hidden recaptcha to Netlify forms.
 - Handle Netlify form submissions with feedback.
 - Add ARIA
 - Add a read more button for Podcast description.
+- Sort Tags A-Z
+- Add tags to all things. 
+- Autosize the text area based on user input.
+- Add search icon to search-box
+_ Animate and restyle the alert box (black bg, green or red text)
 
 IDEAS
 - Coding challenges

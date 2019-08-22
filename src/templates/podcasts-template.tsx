@@ -3,12 +3,7 @@ import { Link } from "gatsby";
 
 import { TitleBox } from "../components/common";
 import Podcast from "../components/podcast";
-import {
-  BackToTop,
-  SearchBox,
-  Layout,
-  LastUpdated,
-} from "../components/common";
+import { BackToTop, Search, Layout } from "../components/common";
 
 const Podcasts = ({ pageContext }) => {
   const [filter, setFilter] = useState("");
@@ -33,7 +28,7 @@ const Podcasts = ({ pageContext }) => {
 
   return (
     <Layout
-      title="Podcasts"
+      title="Dev Podcasts"
       keywords={["podcasts"]}
       description="A collection of the best podcasts for front end developers."
     >
@@ -45,18 +40,22 @@ const Podcasts = ({ pageContext }) => {
         `}
       >
         <TitleBox
-          title="Podcasts"
+          title="Dev Podcasts"
           subTitle="A collection of the best podcasts for front end developers."
+          lastUpdated={pageContext.lastModified}
         >
-          <LastUpdated date={pageContext.lastModified} />
           <Link to="/contact" state={{ type: "podcasts" }}>
             Suggest a Podcast
           </Link>
         </TitleBox>
 
         <br />
-        <SearchBox onChange={value => setFilter(value)} />
-        <small>
+        <Search onChange={value => setFilter(value)} />
+        <small
+          css={`
+            padding-left: 10px;
+          `}
+        >
           Showing {sortedPodcasts.length} of{" "}
           {JSON.parse(pageContext.podcasts).length}
         </small>

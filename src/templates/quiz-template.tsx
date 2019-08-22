@@ -5,9 +5,8 @@ import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
 import QuizButton from "../components/quiz-button";
 import { motion } from "framer-motion";
-import Progress from "antd/es/progress";
 import QuizResults from "../components/quiz-results";
-import { Title, Layout, LastUpdated } from "../components/common";
+import { Title, Layout, LastUpdated, Progress } from "../components/common";
 
 // import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 
@@ -152,8 +151,6 @@ const Page = ({ data, pageContext }) => {
       <LastUpdated date={pageContext.lastModified} />
       <Progress
         percent={(answeredCount / data.allAirtable.edges.length) * 100}
-        strokeColor="#52c41a"
-        showInfo={false}
       />
 
       <div
@@ -186,7 +183,7 @@ const Page = ({ data, pageContext }) => {
       <br />
       {isQuestionAnswered && (
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
         >
           {userAnswer === currentQuestion.data.Answer && (

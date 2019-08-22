@@ -1,15 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Image from "../components/image";
 import { Layout, TitleBox } from "../components/common";
-import Timeline from "antd/es/timeline";
 import useMedia from "../hooks/useMedia";
 
 const TimelineTitle = styled.h2`
   margin: 0px 40px;
   color: ${props => props.theme.blue};
-  font-family: "Lalezar", sans serif;
 `;
 
 export const AboutSite = () => {
@@ -59,22 +57,21 @@ export const AboutSite = () => {
         }
       />
 
-      <Timeline
+      <div
         mode={isMobile ? "left" : "alternate"}
         style={{ marginTop: "40px", padding: "10px" }}
       >
         {data.map(({ text, image }) => {
           return (
-            <Timeline.Item
-              key={text}
-              dot={<Image filename={image} />}
-              style={{ margin: "30px 10px" }}
-            >
-              <TimelineTitle>{text}</TimelineTitle>
-            </Timeline.Item>
+            <Fragment key={text}>
+              <Image filename={image} />
+              <div style={{ margin: "30px 10px" }}>
+                <TimelineTitle>{text}</TimelineTitle>
+              </div>
+            </Fragment>
           );
         })}
-      </Timeline>
+      </div>
     </Layout>
   );
 };

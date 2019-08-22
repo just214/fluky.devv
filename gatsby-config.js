@@ -2,10 +2,22 @@ const path = require("path");
 
 require("dotenv");
 
+const AirTableTableNames = [
+  "Questions",
+  "Categories",
+  "Buzzwords",
+  "Podcasts",
+  "Newsletters",
+  "Quizzes",
+  "Communities",
+  "Health",
+  "YouTube",
+];
+
 const config = {
   siteMetadata: {
     title: `fluky.dev`,
-    description: `A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, and more!`,
+    description: `A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, health, and more!`,
     author: `gojutin`,
   },
   plugins: [
@@ -14,13 +26,12 @@ const config = {
       options: {
         fonts: [
           { family: `Barriecito` },
-          { family: `Lalezar` },
-          { family: `Open+Sans`, variants: [`400`, `700`] },
+          { family: `Montserrat`, variants: [`500`, `700`, `800`] },
         ],
       },
     },
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-antd-v2`,
+    // "gatsby-plugin-webpack-bundle-analyzer",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -60,43 +71,14 @@ const config = {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,
-        tables: [
-          {
+        tables: AirTableTableNames.map(name => {
+          return {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Questions`,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Categories`,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Buzzwords`,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Podcasts`,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Newsletters`,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Quizzes`,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Communities`,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Health`,
-          },
-        ],
+            tableName: name,
+          };
+        }),
       },
     },
-    // `gatsby-plugin-offline`,
   ],
 };
 

@@ -29,8 +29,8 @@ async function asyncScrapteWebsitesMetadata(array) {
     values.push(value);
   });
   return values.sort((a, b) => {
-    const titleA = a.title.toLowerCase();
-    const titleB = b.title.toLowerCase();
+    const titleA = a.title ? a.title.toLowerCase() : "";
+    const titleB = b.title ? b.title.toLowerCase() : "";
     return titleA < titleB ? -1 : 1;
   });
 }

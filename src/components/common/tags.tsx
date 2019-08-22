@@ -7,12 +7,12 @@ export const Tags: React.FC<TagsProps> = ({ tags }) => {
   return (
     <small
       css={`
-        margin-right: 5px;
+        margin-right: 10px;
       `}
     >
       <b
         css={`
-          color: ${props => props.theme.pink};
+          color: #b5b5b5;
         `}
       >
         {tagsList}

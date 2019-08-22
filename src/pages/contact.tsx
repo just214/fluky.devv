@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { RouterProps } from "@reach/router";
 import { Link } from "gatsby";
-import BaseForm from "../components/forms/base-form";
-import { Layout, TitleBox } from "../components/common";
+import BaseForm from "../components/base-form";
+import { Layout, TitleBox, TextArea, Select } from "../components/common";
 import { FaAngleLeft } from "react-icons/fa";
-import Input from "antd/es/input";
-const { TextArea } = Input;
+import { motion, AnimatePresence } from "framer-motion";
 
-const quizQuestionTemplate = `Quiz: JavaScript
-Question: Which of the following is INVALID syntax?
-Option A: document.getElementById("demo")
-Option B: document.getElementsByTagName("demo")
-Option C: document.getElementsByClassName("demo")
-Option D: document.getElement("#demo")
-Correct Answer: A
-Explanation: document.getElement is not a valid DOM method.
+const quizQuestionTemplate = `TEMPLATE
+
+Quiz:                        JavaScript
+Question:               Which of the following is INVALID syntax?
+Option A:               document.getElementById("demo")
+Option B:               document.getElementsByTagName("demo")
+Option C:               document.getElementsByClassName("demo")
+Option D:               document.getElement("#demo")
+Answer:                 A
+Explanation:         document.getElement is not a valid DOM method.
 `;
 
 const placeholders = {
@@ -65,7 +66,13 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
           `}
         >
           <FaAngleLeft style={{ color: "inherit" }} />
-          <span>Back to {location.state.type}</span>
+          <span
+            css={`
+              text-transform: capitalize;
+            `}
+          >
+            Back to {location.state.type}
+          </span>
         </Link>
       )}
       <TitleBox
@@ -81,12 +88,13 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
             css={`
               font-size: 1rem;
               display: block;
+              margin-bottom: 10px;
               font-weight: bold;
             `}
           >
             What brings you here today?
           </label>
-          <select
+          <Select
             name="Selection"
             defaultValue={formType}
             id="contact-type"
@@ -99,21 +107,41 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
                 </option>
               );
             })}
-          </select>
+          </Select>
 
           <TextArea
             // rows={formType === "quizzes" ? 8 : 3}
             name="comment"
             id="comment"
-            autoFocus
-            autosize={{ minRows: 4, maxRows: 100 }}
+            rows={10}
             required
             placeholder={placeholders[formType]}
+            css={`
+              z-index: 1000;
+              background: white;
+            `}
           />
-
-          {formType === "quizzes" && (
-            <TextArea autosize disabled placeholder={quizQuestionTemplate} />
-          )}
+          <AnimatePresence>
+            {formType === "quizzes" && (
+              <motion.div
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                css={`
+                  white-space: pre;
+                  padding: 8px;
+                  background: ${props => props.theme.gray1};
+                  margin-top: 10px;
+                  border-radius: 4px;
+                  line-height: 1.6rem;
+                  z-index: -10;
+                  overflow: scroll;
+                `}
+              >
+                {quizQuestionTemplate}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </BaseForm>
     </Layout>

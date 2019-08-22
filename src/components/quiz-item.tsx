@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import useMedia from "../hooks/useMedia";
-import Button from "antd/es/button";
-import { Heading, WebsiteLink, Tags } from "./common";
+import { Heading, WebsiteLink, Tags, MarkdownBody, Button } from "./common";
 
 interface QuizItemProps {
   title: string;
@@ -54,14 +53,8 @@ export const QuizItem: React.FC<QuizItemProps> = ({
             {provider}
           </small>
         </div>
+        <MarkdownBody md={desc} />
 
-        <p
-          css={`
-            margin-bottom: 0;
-            margin-top: 10px;
-          `}
-          dangerouslySetInnerHTML={{ __html: desc }}
-        />
         {desc.length !== description.length && (
           <Button
             style={{ margin: 0, padding: 0 }}

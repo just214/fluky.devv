@@ -3,12 +3,12 @@ import { Link } from "gatsby";
 import {
   Layout,
   TitleBox,
-  SearchBox,
+  Search,
   BackToTop,
   Heading,
+  Divider,
 } from "../components/common";
 import QuizItem from "../components/quiz-item";
-import Divider from "antd/es/divider";
 
 const Quiz = props => {
   const [filter, setFilter] = useState("");
@@ -36,13 +36,13 @@ const Quiz = props => {
 
   return (
     <Layout
-      title="Quizzes"
+      title="Dev Quizzes"
       description="Front end developer quizzes. JavaScript, TypeScript, HTML, CSS, and more."
       keywords={["quiz", "quizzes"]}
     >
       <BackToTop />
       <TitleBox
-        title="Quizzes"
+        title="Dev Quizzes"
         subTitle="Test your front end developer knowledge with one of our coding quizzes."
       >
         <Link to="/contact" state={{ type: "quizzes" }}>
@@ -50,12 +50,16 @@ const Quiz = props => {
         </Link>
       </TitleBox>
       <br />
-      <SearchBox
+      <Search
         onChange={value => {
           setFilter(value);
         }}
       />
-      <small>
+      <small
+        css={`
+          padding-left: 10px;
+        `}
+      >
         Showing {filteredQuizzes.length + filteredOtherQuizzes.length} of{" "}
         {otherQuizzes.length + quizzes.length}
       </small>
@@ -129,14 +133,7 @@ const Quiz = props => {
       <br />
 
       <Divider />
-      <h3
-        css={`
-          font-family: "Lalezar";
-          font-size: 30px;
-        `}
-      >
-        Other Community Quizzes
-      </h3>
+      <h3>Other Community Quizzes</h3>
       {filteredOtherQuizzes.map(site => {
         return (
           <QuizItem

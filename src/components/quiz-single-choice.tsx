@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Markdown from "./markdown";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Option = styled.div<{
   isUserAnswer: boolean;
@@ -11,8 +12,8 @@ const Option = styled.div<{
   align-items: center;
   border: 3px solid
     ${props =>
-      props.isCorrectAnswer ? props.theme.lightgreen : props.theme.gray2};
-  background: ${({ theme }) => theme.gray2};
+      props.isCorrectAnswer ? props.theme.lightgreen : props.theme.gray1};
+  background: ${({ theme }) => theme.gray1};
   border-radius: 8px;
   padding: 10px;
   color: #333;
@@ -21,7 +22,8 @@ const Option = styled.div<{
   transition: border-color 0.5s;
   margin: 5px 0px;
   :hover {
-    border-color: ${props => props.theme.gray3};
+    border-color: ${props =>
+      props.isCorrectAnswer ? props.theme.lightgreen : props.theme.gray3};
   }
   overflow: hidden;
 `;
@@ -54,7 +56,11 @@ export const SingleChoice: React.FC<QuestionProps> = ({
   };
   3;
   return (
-    <div>
+    <motion.div
+      initial={{ scale: 0.98 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <div
         css={`
           overflow: scroll;
@@ -95,10 +101,10 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                   padding: 3px;
                   color: ${props => props.theme.blue};
                   font-size: 1.5rem;
-                  border: 1px solid #efefef;
+                  border: 2px solid #efefef;
                   border-radius: 4px;
                   border-color: ${userAnswer == option.id
-                    ? props => props.theme.blue
+                    ? props => props.theme.gray3
                     : "transparent"};
                   color: ${props => props.theme.blue};
                 `}
@@ -117,7 +123,7 @@ export const SingleChoice: React.FC<QuestionProps> = ({
           </Option>
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 
