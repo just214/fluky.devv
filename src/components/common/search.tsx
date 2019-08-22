@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "./Input";
+import Input from "./input";
 
 interface SearchProps {
   onChange: (value: string) => void;
