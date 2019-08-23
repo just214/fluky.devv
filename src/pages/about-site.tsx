@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Image from "../components/image";
@@ -47,7 +47,7 @@ export const AboutSite = () => {
               developers, including quizzes, communities, podcasts, newsletters,
               and more.
             </p>
-            <br />
+
             <p>
               If you have any suggestions, or see any outdated or incorrect
               information, we would love to{" "}
@@ -57,18 +57,37 @@ export const AboutSite = () => {
         }
       />
 
-      <div
-        mode={isMobile ? "left" : "alternate"}
-        style={{ marginTop: "40px", padding: "10px" }}
-      >
-        {data.map(({ text, image }) => {
+      <div style={{ marginTop: "40px", padding: "20px" }}>
+        {data.map(({ text, image }, index) => {
+          const isLastItem = index === data.length - 1;
           return (
-            <Fragment key={text}>
-              <Image filename={image} />
-              <div style={{ margin: "30px 10px" }}>
+            <div key={text}>
+              <div
+                css={`
+                  display: flex;
+                  align-items: center;
+                  margin: 0px -25px;
+                `}
+              >
+                <div>
+                  <Image filename={image} />
+                </div>
+
                 <TimelineTitle>{text}</TimelineTitle>
               </div>
-            </Fragment>
+              {!isLastItem && (
+                <hr
+                  css={`
+                    display: inline-block;
+                    width: 2px;
+                    height: 100px;
+                    border-radius: 1px;
+                    background: ${({ theme }) => theme.gray3};
+                    border: none;
+                  `}
+                />
+              )}
+            </div>
           );
         })}
       </div>

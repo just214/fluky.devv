@@ -1,92 +1,70 @@
 import React from "react";
 import { Layout, MenuBlock } from "../components/common";
 import { keyframes } from "styled-components";
-import brain from "../brain.svg";
+import brain from "../icons/brain.svg";
 import {
   FaArrowAltCircleRight,
   FaHeartbeat,
   FaUsers,
   FaInbox,
-  FaClipboardList as FaJournalWhills,
+  FaClipboardList,
   FaMailBulk,
   FaPodcast,
 } from "react-icons/fa";
 
 const colorchange = keyframes`
  0% {
+   /* Initial gray-blue */
   color: #4d5f85;
+  /* color: #f797b9; */
 }
 
-20% {
-  color: yellow;
+
+
+50% {
+  /* Pink */
+  color: #f797b9;
 }
 
-40% {
-  color: #1abc9c;
- 
+70% {
+  color: white;
 }
 
-60% {
-  color: #f857a6;
+
 }
 
-80% {
-  color: #00a5d3;
-}
-
-100% {
-  color: #f1800f;
-}
 
 `;
 
 const menuItems = [
   {
     label: "QUIZZES",
-    rotate: -3,
     to: "/quizzes",
     color: "white",
-    gradient: `
-    background: #f857a6; 
-    background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  
-    background: linear-gradient(to right, #ff5858, #f857a6); 
-    `,
+    gradient: ["#f80759", "#bc4e9c"],
     icon: function BrainIcon() {
       return <img src={brain} alt="Brain icon" height={40} />;
     },
   },
   {
     label: "COMMUNITIES",
-    rotate: -3,
     to: "/communities",
-    color: "darkmagenta",
-    gradient: `
-    background: #2193b0;
-    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
-    background: linear-gradient(to right, #6dd5ed, #2193b0); 
-    `,
+    color: "#f7e0ff",
+    gradient: ["#008080", "#2193b0"],
     icon: FaUsers,
   },
   {
     label: "NEWSLETTERS",
     to: "/newsletters",
     color: "#005075",
-    gradient: `
-    background: #ffb347;
-    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);
-    background: linear-gradient(to right, #ffcc33, #ffb347);
-    `,
+    gradient: ["#ffcc33", "#ffb347"],
     icon: FaInbox,
   },
   {
     label: "PODCASTS",
     to: "/podcasts",
     color: "yellow",
-    gradient: `
-    background: #614385; 
-    background: -webkit-linear-gradient(to right, #516395, #614385); 
-    background: linear-gradient(to right, #516395, #614385); 
-    `,
+    gradient: ["#516395", "#614385"],
     icon: FaPodcast,
   },
 
@@ -94,46 +72,28 @@ const menuItems = [
     label: "BUZZWORDS",
     to: "/buzzwords",
     color: "white",
-    gradient: `
-    background: #fe8c00; 
-    background: -webkit-linear-gradient(to right, #f83600, #fe8c00); 
-    background: linear-gradient(to right, #f83600, #fe8c00);
-    `,
-    icon: FaJournalWhills,
+    gradient: ["#f83600", "#fe8c00"],
+    icon: FaClipboardList,
   },
   {
     label: "HEALTH",
     to: "/health",
     color: "yellow",
-    gradient: `
-    background: #4b6cb7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-    
-    `,
+    gradient: ["#3b5282", "#4b6cb7"],
     icon: FaHeartbeat,
   },
   {
     label: "ABOUT",
     to: "/about-site",
-    color: "brown",
-    gradient: `
-    background: #1D976C;  
-    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
-    background: linear-gradient(to right, #93F9B9, #1D976C);`,
-
+    color: "white",
+    gradient: ["#1D976C", "#16ba81"],
     icon: FaArrowAltCircleRight,
   },
   {
     label: "CONTACT",
     to: "/contact",
     color: "#ffcc33",
-    gradient: `
-    background: #000000;  
-    background: -webkit-linear-gradient(to right, #434343, #000000); 
-    background: linear-gradient(to right, #434343, #000000);
-    `,
+    gradient: ["#333", "#111"],
     icon: FaMailBulk,
   },
 ];
@@ -141,9 +101,10 @@ const menuItems = [
 const App = () => (
   <Layout
     maxWidth="1200px"
-    bg="#1c2229"
-    title="Home"
-    description="A collection of resources for front end developers. Coding quizzes, podcasts, newsletters,health, and more!"
+    bg="#16202b"
+    title="Fluky.dev | Resources for front end developers."
+    titleTemplate="%s"
+    description="A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, health, and more!"
   >
     <div
       css={`
@@ -170,11 +131,11 @@ const App = () => (
           Resources for{" "}
           <span
             css={`
-              color: yellow;
+              color: white;
               padding: 0px 3px;
               display: inline-block;
               font-weight: bold;
-              animation: ${colorchange} 30s infinite alternate;
+              animation: ${colorchange} 8s;
             `}
           >
             Front End Developers

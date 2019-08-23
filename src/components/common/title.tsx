@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Title = styled.h1`
+  /* font-family: "Barriecito"; */
   font-size: 2.6rem;
   margin: 0;
   padding: 0;

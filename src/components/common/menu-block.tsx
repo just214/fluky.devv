@@ -9,17 +9,20 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   max-width: 280px;
   min-width: 200px;
   margin: 30px;
-
+  outline: none;
   background: transparent;
-  border: 3px solid transparent;
-  transition: border 1s;
+  /* border: 3px solid white; */
+  transition: outline 0.3s, box-shadow 0.5s;
   &:focus {
-    border: 3px solid yellow;
+    box-shadow: 4px 4px #16202b, 6px 6px white;
+  }
+  :hover {
+    box-shadow: 4px 4px #16202b, 6px 6px white;
   }
 `;
 
 export interface MenuBlockProps {
-  gradient: string;
+  gradient: [string, string];
   color?: string;
 }
 export const MenuBlock: React.FC<MenuBlockProps> = ({
@@ -30,17 +33,23 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
   return (
     <span
       css={`
-          ${gradient}
-          color: ${color || "white"};
-          border-radius: 2px;
-          padding: 10px;
-          margin: 0;
-          font-size: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          font-family: "Barriecito", cursive;
-        `}
+        background: ${gradient[0]};
+        background: -webkit-linear-gradient(
+          to right,
+          ${gradient[0]},
+          ${gradient[1]}
+        );
+        background: linear-gradient(to right, ${gradient[0]}, ${gradient[1]});
+        color: ${color || "white"};
+        border-radius: 2px;
+        padding: 10px;
+        margin: 0;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-family: "Barriecito", cursive;
+      `}
     >
       {children}
     </span>
@@ -50,10 +59,10 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
 interface MenuBlockWrapperProps {
   rotate: number;
   to?: string;
-  gradient: string;
+  gradient: [string, string];
   color?: string;
   index?: number;
-  icon: any;
+  icon: Element;
 }
 
 const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
@@ -72,7 +81,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
         initial={{ opacity: 0.8 }}
         animate={{
           scale: [1, 1.01, 1],
-          rotate: [0, 1, 0],
+          rotate: [0, Math.random(), 0],
         }}
         transition={{ delay: index * 0.1, duration: 0.3 }}
       >

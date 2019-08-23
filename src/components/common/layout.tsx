@@ -6,9 +6,9 @@ import Icon from "../Icon";
 import SEO from "./seo";
 
 const MainContainer = styled.main<{ maxWidth?: string }>`
-  margin: 20px auto;
+  margin: 10px auto;
   max-width: ${props => props.maxWidth || "960px"};
-  padding: 20px;
+  padding: 10px 20px;
 `;
 
 const theme = {
@@ -86,6 +86,7 @@ const Layout: React.FC<LayoutProps> = ({
                 transform: rotate(3deg);
                 font-size: 30px;
                 border: 3px solid transparent;
+                transition: border 0.5s;
                 &:focus {
                   border: 3px solid yellow;
                 }
@@ -94,7 +95,9 @@ const Layout: React.FC<LayoutProps> = ({
                 }
                 &:hover {
                   color: ${props => props.theme.pink};
+                  border: 3px solid yellow;
                 }
+                outline: none;
               `}
             >
               <span

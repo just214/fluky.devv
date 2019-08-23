@@ -25,7 +25,7 @@ const config = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Barriecito", "Montserrat"],
+          families: ["Barriecito", "Muli"],
         },
       },
     },
