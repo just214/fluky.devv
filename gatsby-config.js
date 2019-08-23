@@ -59,7 +59,7 @@ const config = {
         ],
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-airtable`,
       options: {
