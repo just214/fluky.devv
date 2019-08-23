@@ -37,9 +37,9 @@ const config = {
       options: {
         name: `Fluky.dev`,
         short_name: `fluky.dev`,
-        description: `Fluky.dev | Resources for front end developers.`
+        description: `Fluky.dev | Resources for front end developers.`,
         start_url: `/`,
-        lang: 'en',
+        lang: "en",
         background_color: `#16202b`,
         theme_color: `#16202b`,
         display: `minimal-ui`,
