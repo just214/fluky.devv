@@ -32,6 +32,7 @@ const config = {
     `gatsby-plugin-sharp`,
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -71,7 +72,6 @@ const config = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-styled-components`,
   ],
 };
 
