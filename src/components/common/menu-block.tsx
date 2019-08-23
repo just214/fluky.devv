@@ -12,13 +12,14 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   outline: none;
   background: transparent;
   /* border: 3px solid white; */
-  transition: outline 0.3s, box-shadow 0.5s;
+  transition: box-shadow 0.3s;
   &:focus {
-    box-shadow: 4px 4px #16202b, 6px 6px white;
+    box-shadow: 4px 4px #16202b, 6px 6px white, 8px 8px #16202b, 10px 10px white;
   }
   :hover {
     box-shadow: 4px 4px #16202b, 6px 6px white;
   }
+  -webkit-backface-visibility: hidden;
 `;
 
 export interface MenuBlockProps {

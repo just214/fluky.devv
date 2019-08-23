@@ -55,8 +55,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
               isOpen={!!success}
             >
               <Emoji label="Thumbs up" symbol="👍 " size={20} />
-              <span>
-                {"  "}
+              <span css={"padding-left: 10px; font-size: 1.1em;"}>
                 {successMessage}
               </span>
             </Alert>

@@ -9,7 +9,7 @@ type StyledAlertProps = {
 const StyledAlert = styled(motion.div)<StyledAlertProps>`
   height: 50px;
   width: 300px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   color: ${props =>
     props.type === "success" ? props.theme.green : props.theme.red};
   display: flex;
@@ -19,6 +19,7 @@ const StyledAlert = styled(motion.div)<StyledAlertProps>`
   top: 0px;
   left: 40%;
   right: 40%;
+  border-radius: 5px;
 `;
 
 type AlertProps = {
