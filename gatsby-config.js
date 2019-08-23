@@ -21,16 +21,6 @@ const config = {
     author: `gojutin`,
   },
   plugins: [
-    // {
-    //   resolve: "gatsby-plugin-web-font-loader",
-    //   options: {
-    //     google: {
-    //       families: ["Barriecito", "Muli:400,800,900"],
-    //     },
-    //   },
-    // },
-    `gatsby-plugin-styled-components`,
-    // "gatsby-plugin-webpack-bundle-analyzer",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -45,21 +35,23 @@ const config = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Fluky.Dev`,
+        name: `Fluky.dev`,
         short_name: `fluky.dev`,
+        description: `Fluky.dev | Resources for front end developers.`
         start_url: `/`,
+        lang: 'en',
         background_color: `#16202b`,
         theme_color: `#16202b`,
         display: `minimal-ui`,
         icon: "src/images/flukydev-icon.png",
         icons: [
           {
-            src: "flukydev-icon-512.png",
+            src: "src/favicons.flukydev-icon-512.png",
             sizes: "512x512",
             types: "image/png",
           },
           {
-            src: "flukydev-icon-192.png",
+            src: "src/favicons/flukydev-icon-192.png",
             sizes: "192x192",
             types: "image/png",
           },
@@ -78,6 +70,8 @@ const config = {
         }),
       },
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-styled-components`,
   ],
 };
 

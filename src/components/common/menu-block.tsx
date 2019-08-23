@@ -13,7 +13,7 @@ const StyledLink = styled(Link)<{ rotate: number; isMobile: boolean }>`
   outline: none;
   background: transparent;
   border: 3px solid ${({ theme }) => theme.darkblue};
-  transition: border 0.2s;
+  transition: border 0.2s, opacity 0.5s;
   &:focus {
     border: 3px solid yellow;
   }
