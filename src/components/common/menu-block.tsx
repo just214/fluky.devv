@@ -4,7 +4,8 @@ import { Link } from "gatsby";
 import { motion } from "framer-motion";
 
 const StyledLink = styled(Link)<{ rotate: number }>`
-  transform: rotate(${props => props.rotate}deg);
+  transform-style: preserve-3d;
+  transform: rotateZ(${props => props.rotate}deg);
   margin: 0px;
   max-width: 280px;
   min-width: 200px;
@@ -19,7 +20,7 @@ const StyledLink = styled(Link)<{ rotate: number }>`
   :hover {
     box-shadow: 4px 4px #16202b, 6px 6px white;
   }
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 `;
 
 export interface MenuBlockProps {

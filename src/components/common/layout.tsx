@@ -95,7 +95,6 @@ const Layout: React.FC<LayoutProps> = ({
                 }
                 &:hover {
                   color: ${props => props.theme.pink};
-                  border: 3px solid yellow;
                 }
                 outline: none;
               `}

@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 const TextArea = styled.textarea`
   display: block;
-  min-width: 300px;
-  width: 100%;
+  width: 80vw;
   border: 1px solid ${({ theme }) => theme.gray3};
   border-radius: 4px;
   outline: none;

@@ -3,7 +3,8 @@ import styled from "styled-components";
 const Input = styled.input`
   display: block;
   height: 35px;
-  min-width: 300px;
+  width: 90%;
+  max-width: 300px;
   border: 1px solid ${({ theme }) => theme.gray3};
   border-radius: 4px;
   outline: none;

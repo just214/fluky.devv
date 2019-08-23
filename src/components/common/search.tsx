@@ -20,6 +20,7 @@ const Search: React.FC<SearchProps> = ({ onChange, placeholder }) => {
         position: "sticky",
         top: 0,
         zIndex: 200,
+        maxWidth: "100%",
       }}
       onChange={handleOnChange}
       placeholder={placeholder || "Search"}

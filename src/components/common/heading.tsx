@@ -4,7 +4,7 @@ export const Heading = ({ children }) => {
   return (
     <h4
       css={`
-        color: ${({ theme }) => theme.blue};
+        color: ${({ theme }) => theme.gray5};
         margin: 0px;
         padding: 0px;
         font-size: 1.5rem;

@@ -110,10 +110,9 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
           </Select>
 
           <TextArea
-            // rows={formType === "quizzes" ? 8 : 3}
+            rows={formType === "quizzes" ? 8 : 3}
             name="comment"
             id="comment"
-            rows={10}
             required
             placeholder={placeholders[formType]}
             css={`
