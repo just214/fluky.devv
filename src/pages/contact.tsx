@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const quizQuestionTemplate = `TEMPLATE
 
-Quiz:                        JavaScript
+Quiz:                       JavaScript
 Question:               Which of the following is INVALID syntax?
 Option A:               document.getElementById("demo")
 Option B:               document.getElementsByTagName("demo")
@@ -56,6 +56,7 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
       title="Contact Us"
       description="Make a suggestion, report an issue, or just say hi!"
       keywords={["contact", "form"]}
+      bg="#f5f5f5"
     >
       {location.state && location.state.type && (
         <Link
@@ -78,6 +79,7 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
       <TitleBox
         title="Contact Us"
         subTitle="Make a suggestion, report an issue, or just say hello."
+        bg="#efefef"
       />
       <br />
 
@@ -135,6 +137,7 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
                   line-height: 1.6rem;
                   z-index: -10;
                   overflow: scroll;
+                  font-size: 12px;
                 `}
               >
                 {quizQuestionTemplate}

@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import Image from "../components/image";
 import { Layout, TitleBox } from "../components/common";
-import useMedia from "../hooks/useMedia";
 
 const TimelineTitle = styled.h2`
   margin: 0px 40px;
@@ -11,7 +10,6 @@ const TimelineTitle = styled.h2`
 `;
 
 export const AboutSite = () => {
-  const { isMobile } = useMedia();
   const data = [
     {
       text: "Built with React",
@@ -33,12 +31,12 @@ export const AboutSite = () => {
   ];
   return (
     <Layout
-      title="About This Site"
+      title="About"
       keywords={["about"]}
       description="Our goal is to provide the most current and comprehensive collections of useful resources for front end developers, including quizzes, communities, podcasts, newsletters, and more."
     >
       <TitleBox
-        title="About This Site"
+        title="About"
         subTitle={
           <>
             <p>
@@ -57,7 +55,7 @@ export const AboutSite = () => {
         }
       />
 
-      <div style={{ marginTop: "40px", padding: "20px" }}>
+      <div style={{ marginTop: "30px", padding: "20px" }}>
         {data.map(({ text, image }, index) => {
           const isLastItem = index === data.length - 1;
           return (
@@ -80,7 +78,7 @@ export const AboutSite = () => {
                   css={`
                     display: inline-block;
                     width: 2px;
-                    height: 100px;
+                    height: 50px;
                     border-radius: 1px;
                     background: ${({ theme }) => theme.gray3};
                     border: none;

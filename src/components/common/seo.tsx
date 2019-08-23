@@ -98,6 +98,10 @@ const SEO: React.FC<SEOProps> = ({
       />
       <meta property="twitter:description" content={metaDescription} />
       <meta property="twitter:image" content="flukydev-icon.png" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Barriecito|Muli:400,800&display=swap"
+        rel="stylesheet"
+      ></link>
     </Helmet>
   );
 };

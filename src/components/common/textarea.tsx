@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 const TextArea = styled.textarea`
   display: block;
-  width: 80vw;
+  width: 95%;
   border: 1px solid ${({ theme }) => theme.gray3};
   border-radius: 4px;
+  font-family: "Muli";
   outline: none;
   padding: 5px 10px;
   font-size: 16px;
@@ -14,6 +15,9 @@ const TextArea = styled.textarea`
   }
   :disabled {
     background-color: ${({ theme }) => theme.gray2};
+  }
+  @media (max-width: 500px) {
+    max-width: 300px;
   }
 `;
 

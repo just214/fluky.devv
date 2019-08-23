@@ -12,6 +12,8 @@ const MainContainer = styled.main<{ maxWidth?: string }>`
 `;
 
 const theme = {
+  powderblue: "#f0f6ff",
+  darkblue: "#16202b",
   blue: "#0066B8",
   bluegray: "#086CA2",
   lightblue: "#2193b0",

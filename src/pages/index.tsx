@@ -26,8 +26,9 @@ const colorchange = keyframes`
   color: #f797b9;
 }
 
-70% {
+80% {
   color: white;
+  
 }
 
 
@@ -49,7 +50,7 @@ const menuItems = [
   {
     label: "COMMUNITIES",
     to: "/communities",
-    color: "#f7e0ff",
+    color: "yellow",
     gradient: ["#008080", "#2193b0"],
     icon: FaUsers,
   },
@@ -84,7 +85,7 @@ const menuItems = [
   },
   {
     label: "ABOUT",
-    to: "/about-site",
+    to: "/about",
     color: "white",
     gradient: ["#1D976C", "#16ba81"],
     icon: FaArrowAltCircleRight,

@@ -2,23 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { motion } from "framer-motion";
+import useMedia from "../../hooks/useMedia";
 
-const StyledLink = styled(Link)<{ rotate: number }>`
+const StyledLink = styled(Link)<{ rotate: number; isMobile: boolean }>`
   transform-style: preserve-3d;
   transform: rotateZ(${props => props.rotate}deg);
-  margin: 0px;
   max-width: 280px;
-  min-width: 200px;
+  min-width: 210px;
   margin: 30px;
   outline: none;
   background: transparent;
-  /* border: 3px solid white; */
-  transition: box-shadow 0.3s;
+  border: 3px solid ${({ theme }) => theme.darkblue};
+  transition: border 0.2s;
   &:focus {
-    box-shadow: 4px 4px #16202b, 6px 6px white, 8px 8px #16202b, 10px 10px white;
+    border: 3px solid yellow;
   }
   :hover {
-    box-shadow: 4px 4px #16202b, 6px 6px white;
+    opacity: 0.9;
   }
   backface-visibility: hidden;
 `;
@@ -45,7 +45,8 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
         color: ${color || "white"};
         border-radius: 2px;
         padding: 10px;
-        margin: 0;
+        margin: 0px;
+        height: 35px;
         font-size: 30px;
         display: flex;
         align-items: center;
@@ -76,8 +77,9 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
   index,
   icon: Icon,
 }) => {
+  const { isMobile } = useMedia();
   return (
-    <StyledLink to={to} rotate={rotate}>
+    <StyledLink to={to} rotate={rotate} isMobile={isMobile}>
       <motion.div
         key="modal"
         initial={{ opacity: 0.8 }}
@@ -94,7 +96,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
             `}
           >
             {children}
-          </span>{" "}
+          </span>
           <Icon />
         </MenuBlock>
       </motion.div>
