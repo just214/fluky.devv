@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { motion } from "framer-motion";
-import useMedia from "../../hooks/useMedia";
 
-const StyledLink = styled(Link)<{ rotate: number; isMobile: boolean }>`
+const StyledLink = styled(Link)<{ rotate: number }>`
   transform-style: preserve-3d;
   transform: rotateZ(${props => props.rotate}deg);
   max-width: 280px;
@@ -43,7 +42,7 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
         );
         background: linear-gradient(to right, ${gradient[0]}, ${gradient[1]});
         color: ${color || "white"};
-        border-radius: 2px;
+        border-radius: 4px;
         padding: 10px;
         margin: 0px;
         height: 35px;
@@ -77,9 +76,8 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
   index,
   icon: Icon,
 }) => {
-  const { isMobile } = useMedia();
   return (
-    <StyledLink to={to} rotate={rotate} isMobile={isMobile}>
+    <StyledLink to={to} rotate={rotate}>
       <motion.div
         key="modal"
         initial={{ opacity: 0.8 }}

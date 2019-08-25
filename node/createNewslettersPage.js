@@ -1,20 +1,21 @@
 const path = require("path");
+const getLastModifiedDate = require("./utils/getlastModifiedDate");
 
 module.exports = async (createPage, graphql) => {
   const { data } = await graphql(`
     query NewslettersQuery {
       allAirtable(
         filter: { table: { eq: "Newsletters" } }
-        sort: { order: ASC, fields: data___Name }
+        sort: { order: ASC, fields: data___Title }
       ) {
         edges {
           node {
             data {
-              Name
+              Title
               Description
-              Website
+              URL
               Tags
-              LastModified
+              LastModifiedDate
             }
           }
         }
@@ -22,21 +23,27 @@ module.exports = async (createPage, graphql) => {
     }
   `);
 
-  const lastModified = data.allAirtable.edges.reduce((accum, node) => {
-    const value = node.node.data.LastModified;
-    if (value < accum) {
-      return accum;
-    } else {
-      return value;
-    }
-  }, data.allAirtable.edges[0].node.data.LastModified);
+  const finalData = data.allAirtable.edges.map(({ node }) => {
+    const { Title, Description, LastModifiedDate, Tags, URL } = node.data;
+    return {
+      title: Title,
+      description: Description,
+      lastModifiedDate: LastModifiedDate,
+      tags: Tags,
+      url: URL,
+    };
+  });
 
   createPage({
     path: `newsletters`,
-    component: path.resolve(`./src/templates/newsletters-template.tsx`),
+    component: path.resolve(`./src/templates/list-page-template.tsx`),
     context: {
-      newsletters: data.allAirtable.edges,
-      lastModified,
+      data: finalData,
+      lastModifiedDate: getLastModifiedDate(data.allAirtable.edges),
+      pageTitle: "Dev Newsletters",
+      pageDescription:
+        "A collection of the best newsletters for front end developers.",
+      pageKeywords: ["newsletters", "subscriptions"],
     },
   });
 };

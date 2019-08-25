@@ -1,5 +1,6 @@
 const path = require("path");
 const asyncScrapeWebsitesMetadata = require("./utils/asyncScrapeWebsitesMetadata");
+const getLastModifiedDate = require("./utils/getlastModifiedDate");
 
 module.exports = async (createPage, graphql) => {
   const result = await graphql(`
@@ -28,7 +29,7 @@ module.exports = async (createPage, graphql) => {
         edges {
           node {
             data {
-              Website
+              URL
               Tags
             }
           }

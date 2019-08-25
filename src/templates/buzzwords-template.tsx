@@ -1,12 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
-import {
-  Layout,
-  TitleBox,
-  BackToTop,
-  Search,
-  Heading,
-} from "../components/common";
+import BackToTop from "../components/back-to-top";
+import Search from "../components/search";
+import Heading from "../components/heading";
+import ListLayout from "../components/list-layout";
 import useSearch from "../hooks/useSearch";
 
 const BuzzWords = ({ pageContext }) => {
@@ -16,27 +12,15 @@ const BuzzWords = ({ pageContext }) => {
   ]);
 
   return (
-    <Layout
+    <ListLayout
       title="Dev Buzzwords"
       keywords={["buzzwords", "words", "definitions"]}
       description="A collection of coding and front end developer-related buzzwords and their definitions."
+      type="buzzword"
+      lastUpdatedDate={pageContext.lastModifiedDate}
     >
       <BackToTop />
-      <div
-        css={`
-          margin-bottom: 100px;
-        `}
-      >
-        <TitleBox
-          title="Dev Buzzwords"
-          subTitle="A collection of coding and front end developer-related buzzwords and their definitions."
-          lastUpdated={pageContext.lastModified}
-        >
-          <Link to="/contact" state={{ type: "buzzwords" }}>
-            Suggest a Buzzword
-          </Link>
-        </TitleBox>
-
+      <div>
         <br />
         <Search onChange={e => setFilter(e)} />
         <small
@@ -65,6 +49,7 @@ const BuzzWords = ({ pageContext }) => {
                     margin: 0;
                     font-style: normal;
                     display: block;
+                    margin-top: 10px;
                   `}
                 >
                   {node.data.Definition}
@@ -74,7 +59,7 @@ const BuzzWords = ({ pageContext }) => {
           })}
         </ul>
       </div>
-    </Layout>
+    </ListLayout>
   );
 };
 

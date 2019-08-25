@@ -10,7 +10,7 @@ const Button = styled.button<ButtonProps>`
     props.type === "link" ? "transparent" : props.theme.blue};
   color: ${props => (props.type === "link" ? "#329bf0" : "white")};
   border-radius: 4px;
-
+  text-align: ${props => (props.type === "link" ? "left" : "center")};
   font-size: 14px;
   min-width: 100px;
   padding: ${props => (props.type === "link" ? "0px" : "4px 8px")};

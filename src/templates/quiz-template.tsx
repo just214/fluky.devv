@@ -6,7 +6,10 @@ import Markdown from "../components/markdown";
 import QuizButton from "../components/quiz-button";
 import { motion } from "framer-motion";
 import QuizResults from "../components/quiz-results";
-import { Title, Layout, LastUpdated, Progress } from "../components/common";
+import Title from "../components/title";
+import Layout from "../components/layout";
+import LastUpdated from "../components/last-updated";
+import Progress from "../components/progress";
 
 // import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 

@@ -29,3 +29,18 @@ IDEAS
 - Learning websites
 - Learning courses
 - Other quizzes
+
+DATA SCHEMA
+```js
+pageContext = {
+  data={
+    tags
+    title
+    description
+    url
+    tags
+  }
+  lastModifiedDate
+}
+
+```

@@ -1,4 +1,5 @@
 const path = require("path");
+const getLastModifiedDate = require("./utils/getlastModifiedDate");
 
 module.exports = async (createPage, graphql) => {
   const { data } = await graphql(`
@@ -20,21 +21,12 @@ module.exports = async (createPage, graphql) => {
     }
   `);
 
-  const lastModified = data.allAirtable.edges.reduce((accum, node) => {
-    const value = node.node.data.LastModified;
-    if (value < accum) {
-      return accum;
-    } else {
-      return value;
-    }
-  }, data.allAirtable.edges[0].node.data.LastModified);
-
   createPage({
     path: `buzzwords`,
     component: path.resolve(`./src/templates/buzzwords-template.tsx`),
     context: {
       buzzwords: data.allAirtable.edges,
-      lastModified,
+      lastModified: getLastModifiedDate(data.allAirtable.edges),
     },
   });
 };

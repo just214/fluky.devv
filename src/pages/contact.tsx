@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { RouterProps } from "@reach/router";
 import { Link } from "gatsby";
 import BaseForm from "../components/base-form";
-import { Layout, TitleBox, TextArea, Select } from "../components/common";
-import { FaAngleLeft } from "react-icons/fa";
+import Layout from "../components/layout";
+import TitleBox from "../components/title-box";
+import TextArea from "../components/textarea";
+import Select from "../components/select";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaAngleLeft } from "react-icons/fa";
 
 const quizQuestionTemplate = `TEMPLATE
 
@@ -24,6 +27,7 @@ const placeholders = {
   newsletters: `Please provide the name and website of the newsletter(s) that you would like to suggest.`,
   buzzwords: `Please provide the word and definition of the buzzword(s) that you would like to suggest.`,
   websites: `Please provide the URL for the community that you would like to suggest.`,
+  youtube: `Please provide the YouTube channel name or link to the channel.`,
   health: `Please provide the URL for the health-related website(s) that you would like to suggest.`,
   quizzes: `If you would like to suggest a quiz website, please provide the URL.
   
@@ -31,19 +35,20 @@ If you would like to suggest a quiz question, please follow the template below.`
 };
 
 const options = [
-  { label: "General Comment", value: "comment" },
-  { label: "Suggest a Podcast", value: "podcasts" },
-  { label: "Suggest a Newsletter", value: "newsletters" },
-  { label: "Suggest a Buzzword", value: "buzzwords" },
-  { label: "Suggest a Community", value: "communities" },
-  { label: "Suggest a Health Website", value: "health" },
-  { label: "Suggest a Quiz or Question", value: "quizzes" },
+  { label: "General Comment", path: "/comment" },
+  { label: "Suggest a Podcast", path: "/podcasts" },
+  { label: "Suggest a Newsletter", path: "/newsletters" },
+  { label: "Suggest a Buzzword", path: "/buzzwords" },
+  { label: "Suggest a Community", path: "/communities" },
+  { label: "Suggest a Health Website", path: "/health" },
+  { label: "Suggest a Quiz or Question", path: "/quizzes" },
+  { label: "Suggest a YouTube video", path: "/youtube" },
 ];
 
-export type ContactProps = {};
-export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
-  const type =
-    location.state && location.state.type ? location.state.type : "comment";
+const Contact: React.FC<RouterProps> = ({ location }) => {
+  const type = options.find(o => o.path === location.state.pathname)
+    ? options.find(o => o.path === location.state.pathname).path
+    : "/comment";
 
   const [formType, setFormType] = useState(type);
 
@@ -56,30 +61,22 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
       title="Contact Us"
       description="Make a suggestion, report an issue, or just say hi!"
       keywords={["contact", "form"]}
-      bg="#f5f5f5"
     >
-      {location.state && location.state.type && (
+      {location.state.pathname && (
         <Link
-          to={`/${location.state.type}`}
+          to={location.state.pathname}
           css={`
             display: flex;
             align-items: center;
           `}
         >
-          <FaAngleLeft style={{ color: "inherit" }} />
-          <span
-            css={`
-              text-transform: capitalize;
-            `}
-          >
-            Back to {location.state.type}
-          </span>
+          <FaAngleLeft />
+          back to {location.state.pathname.substring(1)}
         </Link>
       )}
       <TitleBox
         title="Contact Us"
         subTitle="Make a suggestion, report an issue, or just say hello."
-        bg="#efefef"
       />
       <br />
 
@@ -104,7 +101,7 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
           >
             {options.map(option => {
               return (
-                <option key={option.value} value={option.value}>
+                <option key={option.path} value={option.path}>
                   {option.label}
                 </option>
               );
@@ -112,18 +109,18 @@ export const Contact: React.FC<ContactProps & RouterProps> = ({ location }) => {
           </Select>
 
           <TextArea
-            rows={formType === "quizzes" ? 8 : 3}
+            rows={formType === "/quizzes" ? 8 : 3}
             name="comment"
             id="comment"
             required
-            placeholder={placeholders[formType]}
+            placeholder={placeholders[formType.substring(1)]}
             css={`
               z-index: 1000;
               background: white;
             `}
           />
           <AnimatePresence>
-            {formType === "quizzes" && (
+            {formType === "/quizzes" && (
               <motion.div
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}

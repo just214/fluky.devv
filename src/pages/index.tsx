@@ -1,5 +1,6 @@
 import React from "react";
-import { Layout, MenuBlock } from "../components/common";
+import Layout from "../components/layout";
+import MenuBlock from "../components/menu-block";
 import { keyframes } from "styled-components";
 import brain from "../icons/brain.svg";
 import {
@@ -10,28 +11,21 @@ import {
   FaClipboardList,
   FaMailBulk,
   FaPodcast,
+  FaYoutube,
 } from "react-icons/fa";
 
 const colorchange = keyframes`
- 0% {
-   /* Initial gray-blue */
-  color: #4d5f85;
-  /* color: #f797b9; */
-}
+  0% {
+    color: #4d5f85;
+  }
 
+  50% {
+    color: #f797b9;
+  }
 
-
-50% {
-  /* Pink */
-  color: #f797b9;
-}
-
-80% {
-  color: white;
-  
-}
-
-
+  80% {
+    color: white;
+  }
 }
 
 
@@ -60,6 +54,13 @@ const menuItems = [
     color: "#005075",
     gradient: ["#ffcc33", "#ffb347"],
     icon: FaInbox,
+  },
+  {
+    label: "YOUTUBE",
+    to: "/youtube",
+    color: "white",
+    gradient: ["red", "tomato"],
+    icon: FaYoutube,
   },
   {
     label: "PODCASTS",

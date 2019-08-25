@@ -1,43 +1,42 @@
-// const path = require("path");
-// const fetch = require("node-fetch");
+const fetch = require("node-fetch");
+const numeral = require("numeral");
 
-// async function asyncFetchYoutubeData(array) {
-//   const values = [];
-//   const asyncForEach = async (array, callback) => {
-//     for (let index = 0; index < array.length; index++) {
-//       await callback(array[index], index, array);
-//     }
-//   };
+const asyncForEach = async (array, callback) => {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+};
 
-//   async function getData(data) {
-//     const url = data.UserName;
-//     const response = await fetch(url);
-//     const html = await response.json();
+const BASE_URL =
+  "https://www.googleapis.com/youtube/v3/channels?part=snippet,id%2Cstatistics";
 
-//     if (data.Tags) {
-//       return { ...metadata, tags: data.Tags };
-//     } else {
-//       return metadata;
-//     }
-//   }
-//   const data = await asyncForEach(array, async function({ node }) {
-//     const value = await getData(node.data);
-//     values.push(value);
-//   });
-//   return values.sort((a, b) => {
-//     const titleA = a.title.toLowerCase();
-//     const titleB = b.title.toLowerCase();
-//     return titleA < titleB ? -1 : 1;
-//   });
-// }
+let results = [];
 
-// module.exports = asyncFetchYoutubeData;
+const asyncFetchYouTubeData = async dataArray => {
+  await asyncForEach(dataArray, async ({ node }) => {
+    const queryType = node.data.Type === "channel" ? "id" : "forUsername";
+    const res = await fetch(
+      `${BASE_URL}&${queryType}=${node.data.UserName}&key=${process.env.YOUTUBE_API_KEY}`
+    );
+    const data = await res.json();
 
-// const BASE_URL =
-//   "https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics";
+    const { title, description, thumbnails } = data.items[0].snippet;
+    const { subscriberCount, videoCount } = data.items[0].statistics;
+    const url = `https://www.youtube.com/`;
+    const finalData = {
+      title,
+      description,
+      thumbnail: thumbnails.default.url,
+      url,
+      tags: [
+        `${numeral(subscriberCount).format("0a")} subscribers`,
+        `${numeral(videoCount).format("0,0")} videos`,
+      ],
+    };
 
-// data.allAirtable.edges.forEach(({ node }) => {
-//   fetch(
-//     `${BASE_URL}&forUsername=${node.data.UserName}&key=${PROCESS.ENV.YOUTUBE_API_KEY}`
-//   );
-// });
+    results.push(finalData);
+  });
+  return results;
+};
+
+module.exports = asyncFetchYouTubeData;

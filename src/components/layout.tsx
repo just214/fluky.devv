@@ -2,7 +2,7 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "gatsby";
-import Icon from "../Icon";
+import Icon from "./icon";
 import SEO from "./seo";
 
 const MainContainer = styled.main<{ maxWidth?: string }>`

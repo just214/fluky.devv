@@ -1,7 +1,10 @@
 import React from "react";
-
 import NetlifyForm from "react-netlify-form";
-import { Emoji, Divider, Input, Alert, Button } from "./common";
+import Emoji from "./emoji";
+import Divider from "./divider";
+import Input from "./input";
+import Alert from "./alert";
+import Button from "./button";
 
 interface NetlifyFormProps {
   formName?: string;

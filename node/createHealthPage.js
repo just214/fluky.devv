@@ -1,5 +1,6 @@
 const path = require("path");
 const asyncScrapeWebsitesMetadata = require("./utils/asyncScrapeWebsitesMetadata");
+const getLastModifiedDate = require("./utils/getlastModifiedDate");
 
 module.exports = async (createPage, graphql) => {
   const { data } = await graphql(`
@@ -8,8 +9,8 @@ module.exports = async (createPage, graphql) => {
         edges {
           node {
             data {
-              Website
-              LastModified
+              URL
+              LastModifiedDate
               Tags
             }
           }
@@ -22,21 +23,17 @@ module.exports = async (createPage, graphql) => {
     data.allAirtable.edges
   );
 
-  const lastModified = data.allAirtable.edges.reduce((accum, node) => {
-    const value = node.node.data.LastModified;
-    if (value < accum) {
-      return accum;
-    } else {
-      return value;
-    }
-  }, data.allAirtable.edges[0].node.data.LastModified);
-
   createPage({
     path: `health`,
-    component: path.resolve(`./src/templates/health-template.tsx`),
+    component: path.resolve(`./src/templates/list-page-template.tsx`),
     context: {
       data: websitesMetadata,
-      lastModified,
+      lastModifiedDate: getLastModifiedDate(data.allAirtable.edges),
+      pageTitle: "Dev Health",
+      pageDescription:
+        "A collection of resources to make sure you stay as healthy as possible as a developer.",
+      pageKeywords: ["health", "stretches", "exercise"],
+      smallImage: true,
     },
   });
 };

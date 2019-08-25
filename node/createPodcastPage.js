@@ -1,6 +1,7 @@
 const unirest = require("unirest");
 const chunk = require("lodash/chunk");
 const path = require("path");
+const getLastModifiedDate = require("./utils/getlastModifiedDate");
 
 module.exports = async (createPage, graphql) => {
   const { data } = await graphql(`
@@ -9,9 +10,9 @@ module.exports = async (createPage, graphql) => {
         edges {
           node {
             data {
-              Name
-              Id
-              LastModified
+              Title
+              ListenNotesId
+              LastModifiedDate
             }
           }
         }
@@ -20,17 +21,8 @@ module.exports = async (createPage, graphql) => {
   `);
 
   const ids = data.allAirtable.edges.map(({ node }) => {
-    return node.data.Id;
+    return node.data.ListenNotesId;
   });
-
-  const lastModified = data.allAirtable.edges.reduce((accum, node) => {
-    const value = node.node.data.LastModified;
-    if (value < accum) {
-      return accum;
-    } else {
-      return value;
-    }
-  }, data.allAirtable.edges[0].node.data.LastModified);
 
   const endpoint = "https://listen-api.listennotes.com/api/v2/podcasts";
 
@@ -47,7 +39,7 @@ module.exports = async (createPage, graphql) => {
   const responseList = await Promise.all(
     chunk(ids, 10).map(async idList => await requestData(idList))
   );
-  const value = await responseList.reduce(
+  const responseData = await responseList.reduce(
     (acc, resp) => {
       const { body, statusCode } = resp.toJSON();
       return {
@@ -60,12 +52,28 @@ module.exports = async (createPage, graphql) => {
     { statusCode: [], body: { podcasts: [] } }
   );
 
+  const values = responseData.body.podcasts.map(
+    ({ title, description, thumbnail, website, total_episodes }) => {
+      return {
+        title,
+        description,
+        thumbnail,
+        url: website,
+        tags: [`${total_episodes} episodes`],
+      };
+    }
+  );
+
   createPage({
     path: `podcasts`,
-    component: path.resolve(`./src/templates/podcasts-template.tsx`),
+    component: path.resolve(`./src/templates/list-page-template.tsx`),
     context: {
-      podcasts: JSON.stringify(value.body.podcasts),
-      lastModified,
+      data: values,
+      lastModifiedDate: getLastModifiedDate(data.allAirtable.edges),
+      pageTitle: "Dev Podcasts",
+      pageDescription:
+        "A collection of the best podcasts for front end developers.",
+      pageKeywords: ["podcasts", "newscasts"],
     },
   });
 };

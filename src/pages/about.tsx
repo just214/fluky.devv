@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Image from "../components/image";
-import { Layout, TitleBox } from "../components/common";
+import Layout from "../components/layout";
+import TitleBox from "../components/title-box";
 
 const TimelineTitle = styled.h2`
   margin: 0px 40px;

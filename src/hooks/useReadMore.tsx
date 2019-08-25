@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../components/common";
+import Button from "../components/button";
 import useMedia from "./useMedia";
 
 const useReadMore = (text, cutoff = 280) => {

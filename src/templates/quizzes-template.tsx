@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import {
-  Layout,
-  TitleBox,
-  Search,
-  BackToTop,
-  Heading,
-  Divider,
-} from "../components/common";
-import QuizItem from "../components/quiz-item";
+import ListLayout from "../components/list-layout";
+import ListItem from "../components/list-item";
+import Search from "../components/search";
+import Heading from "../components/heading";
 
 const Quiz = props => {
   const [filter, setFilter] = useState("");
@@ -35,21 +30,12 @@ const Quiz = props => {
   });
 
   return (
-    <Layout
+    <ListLayout
       title="Dev Quizzes"
       description="Front end developer quizzes. JavaScript, TypeScript, HTML, CSS, and more."
       keywords={["quiz", "quizzes"]}
+      type="quizzes"
     >
-      <BackToTop />
-      <TitleBox
-        title="Dev Quizzes"
-        subTitle="Test your front end developer knowledge with one of our coding quizzes."
-      >
-        <Link to="/contact" state={{ type: "quizzes" }}>
-          Suggest a Quiz or Question
-        </Link>
-      </TitleBox>
-      <br />
       <Search
         onChange={value => {
           setFilter(value);
@@ -68,7 +54,7 @@ const Quiz = props => {
           css={`
             display: flex;
             flex-wrap: wrap;
-            // background: #333;
+            background: black;
             padding-top: 20px;
             margin-top: 20px;
             border-radius: 10px;
@@ -132,21 +118,20 @@ const Quiz = props => {
       </div>
       <br />
 
-      <Divider />
       <h3>Other Community Quizzes</h3>
       {filteredOtherQuizzes.map(site => {
         return (
-          <QuizItem
+          <ListItem
             key={site.url}
             title={site.title}
             description={site.description}
-            website={site.url}
-            provider={site.provider}
+            url={site.url}
+            // provider={site.provider}
             tags={site.tags}
           />
         );
       })}
-    </Layout>
+    </ListLayout>
   );
 };
 
