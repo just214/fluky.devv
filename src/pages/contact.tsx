@@ -46,7 +46,7 @@ const options = [
 ];
 
 const Contact: React.FC<RouterProps> = ({ location }) => {
-  const type = location.state.pathname
+  const type = location.state
     ? options.find(o => o.path === location.state.pathname).path
     : "/comment";
 
@@ -62,7 +62,7 @@ const Contact: React.FC<RouterProps> = ({ location }) => {
       description="Make a suggestion, report an issue, or just say hi!"
       keywords={["contact", "form"]}
     >
-      {location.state.pathname && (
+      {location.state && (
         <Link
           to={location.state.pathname}
           css={`
