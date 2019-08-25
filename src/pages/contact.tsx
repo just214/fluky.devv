@@ -46,7 +46,7 @@ const options = [
 ];
 
 const Contact: React.FC<RouterProps> = ({ location }) => {
-  const type = options.find(o => o.path === location.state.pathname)
+  const type = location.state.pathname
     ? options.find(o => o.path === location.state.pathname).path
     : "/comment";
 

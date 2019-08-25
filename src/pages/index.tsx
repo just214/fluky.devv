@@ -145,7 +145,7 @@ const App = () => (
         </h1>
       </div>
 
-      <div
+      <nav
         css={`
           margin: 0px;
           display: flex;
@@ -170,7 +170,7 @@ const App = () => (
             </MenuBlock>
           );
         })}
-      </div>
+      </nav>
     </div>
   </Layout>
 );

@@ -61,10 +61,10 @@ export const MenuBlock: React.FC<MenuBlockProps> = ({
 interface MenuBlockWrapperProps {
   rotate: number;
   to?: string;
-  gradient: [string, string];
+  gradient: string[];
   color?: string;
   index?: number;
-  icon: Element;
+  icon: React.FC;
 }
 
 const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
