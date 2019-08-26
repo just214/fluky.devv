@@ -24,10 +24,10 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
       key="modal"
       animate={{
         filter: ["grayscale(100%)", "grayscale(0%)"],
-        rotate: [-(rotate * 0.25), 0],
+        rotate: [-rotate, 0],
       }}
-      initial={{ rotate: -(rotate * 0.25), filter: "grayscale(100%)" }}
-      transition={{ delay: 0.2, duration: 0.5 }}
+      initial={{ rotate: -rotate, filter: "grayscale(100%)" }}
+      transition={{ delay: 0.1, duration: 0.5 }}
     >
       <Link
         to={to}

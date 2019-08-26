@@ -11,7 +11,7 @@ import VisitWebsiteButton from "./visit-website-button";
 const LI = styled.li<{ isMobile: boolean }>`
   display: flex;
   margin: 15px 0px;
-  padding: 10px;
+  padding: 10px 0px;
   flex-direction: ${props => (props.isMobile ? "column" : "row")};
   align-items: ${props => (props.isMobile ? "flex-start" : "flex-start")};
 `;

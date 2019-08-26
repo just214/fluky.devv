@@ -55,21 +55,8 @@ const Quiz = props => {
           css={`
             display: flex;
             flex-wrap: wrap;
-            background: #000000;
-            background: -webkit-linear-gradient(
-              to right,
-              #333,
-              ${({ theme }) => theme.darkblue}
-            );
-            background: linear-gradient(
-              to right,
-              #333,
-              ${({ theme }) => theme.darkblue}
-            );
-
             padding-top: 20px;
             margin-top: 20px;
-            border-radius: 10px;
             justify-content: center;
           `}
         >
@@ -130,7 +117,13 @@ const Quiz = props => {
       </div>
       <br />
 
-      <h3>Other Community Quizzes</h3>
+      <h3
+        css={`
+          text-transform: uppercase;
+        `}
+      >
+        Other Community Quizzes
+      </h3>
       <ul>
         {filteredOtherQuizzes.map(site => {
           return (
