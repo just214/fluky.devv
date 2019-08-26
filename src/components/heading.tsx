@@ -8,7 +8,7 @@ export const Heading = ({ children }) => {
         padding: 0px;
         font-size: 1.5rem;
         font-weight: 700;
-        color: ${({ theme }) => theme.gray5};
+        color: ${({ theme }) => theme.blue};
       `}
     >
       <span>{children}</span>

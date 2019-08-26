@@ -80,7 +80,7 @@ const menuItems = [
   {
     label: "HEALTH",
     to: "/health",
-    color: "yellow",
+    color: "orange",
     gradient: ["#3b5282", "#4b6cb7"],
     icon: FaHeartbeat,
   },

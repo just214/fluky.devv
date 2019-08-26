@@ -42,20 +42,21 @@ const ListPageTemplate = ({ pageContext, children, location }) => {
         >
           Showing {filteredData.length} of {pageContext.data.length}
         </small>
-
-        {filteredData.map(item => {
-          return (
-            <ListItem
-              key={item.title}
-              title={item.title}
-              description={item.description}
-              thumbnail={item.thumbnail}
-              url={item.url}
-              tags={item.tags}
-              isSmallImage={pageContext.smallImage}
-            />
-          );
-        })}
+        <ul>
+          {filteredData.map(item => {
+            return (
+              <ListItem
+                key={item.title}
+                title={item.title}
+                description={item.description}
+                thumbnail={item.thumbnail}
+                url={item.url}
+                tags={item.tags}
+                isSmallImage={pageContext.smallImage}
+              />
+            );
+          })}
+        </ul>
         <section>{children}</section>
       </div>
     </ListLayout>

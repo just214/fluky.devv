@@ -123,18 +123,20 @@ const Quiz = props => {
       <br />
 
       <h3>Other Community Quizzes</h3>
-      {filteredOtherQuizzes.map(site => {
-        return (
-          <ListItem
-            key={site.url}
-            title={site.title}
-            description={site.description}
-            url={site.url}
-            // provider={site.provider}
-            tags={site.tags}
-          />
-        );
-      })}
+      <ul>
+        {filteredOtherQuizzes.map(site => {
+          return (
+            <ListItem
+              key={site.url}
+              title={site.title}
+              description={site.description}
+              url={site.url}
+              // provider={site.provider}
+              tags={site.tags}
+            />
+          );
+        })}
+      </ul>
     </ListLayout>
   );
 };
