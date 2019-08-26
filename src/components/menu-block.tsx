@@ -1,62 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "gatsby";
 import { motion } from "framer-motion";
-
-const StyledLink = styled(Link)<{ rotate: number }>`
-  transform-style: preserve-3d;
-  transform: rotateZ(${props => props.rotate}deg);
-  max-width: 280px;
-  min-width: 210px;
-  margin: 30px;
-  outline: none;
-  background: transparent;
-  border: 3px solid ${({ theme }) => theme.darkblue};
-  transition: border 0.2s, opacity 0.5s;
-  &:focus {
-    border: 3px solid yellow;
-  }
-  :hover {
-    opacity: 0.9;
-  }
-  backface-visibility: hidden;
-`;
-
-export interface MenuBlockProps {
-  gradient: [string, string] | string[];
-  color?: string;
-}
-export const MenuBlock: React.FC<MenuBlockProps> = ({
-  children,
-  gradient,
-  color,
-}) => {
-  return (
-    <span
-      css={`
-        background: ${gradient[0]};
-        background: -webkit-linear-gradient(
-          to right,
-          ${gradient[0]},
-          ${gradient[1]}
-        );
-        background: linear-gradient(to right, ${gradient[0]}, ${gradient[1]});
-        color: ${color || "white"};
-        border-radius: 4px;
-        padding: 10px;
-        margin: 0px;
-        height: 35px;
-        font-size: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        font-family: "Barriecito", cursive;
-      `}
-    >
-      {children}
-    </span>
-  );
-};
 
 interface MenuBlockWrapperProps {
   rotate: number;
@@ -76,28 +20,56 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
   icon: Icon,
 }) => {
   return (
-    <StyledLink to={to} rotate={rotate}>
-      <motion.div
-        key="modal"
-        initial={{ rotate: -(rotate * 0.3), filter: "grayscale(100%)" }}
-        animate={{
-          filter: ["grayscale(100%)", "grayscale(0%)"],
-          rotate: [-(rotate * 0.3), 0],
-        }}
-        transition={{ duration: 0.5 }}
+    <motion.div
+      key="modal"
+      animate={{
+        filter: ["grayscale(100%)", "grayscale(0%)"],
+        rotate: [-(rotate * 0.25), 0],
+      }}
+      initial={{ rotate: -(rotate * 0.25), filter: "grayscale(100%)" }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+    >
+      <Link
+        to={to}
+        css={`
+          transform-style: preserve-3d;
+          transform: rotateZ(${rotate}deg);
+          max-width: 280px;
+          min-width: 210px;
+          margin: 20px;
+          outline: none;
+          border: 3px solid ${({ theme }) => theme.darkblue};
+          transition: border 0.2s, opacity 0.5s;
+          &:focus {
+            border: 3px solid yellow;
+          }
+          :hover {
+            opacity: 0.9;
+          }
+          backface-visibility: hidden;
+          background: ${gradient[0]};
+          background: -webkit-linear-gradient(
+            to right,
+            ${gradient[0]},
+            ${gradient[1]}
+          );
+          background: linear-gradient(to right, ${gradient[0]}, ${gradient[1]});
+          color: ${color};
+          border-radius: 4px;
+          padding: 10px;
+          height: 35px;
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          font-family: "Barriecito", cursive;
+        `}
       >
-        <MenuBlock gradient={gradient} color={color}>
-          <span
-            css={`
-              margin-right: 10px;
-            `}
-          >
-            {children}
-          </span>
-          <Icon />
-        </MenuBlock>
-      </motion.div>
-    </StyledLink>
+        {children}
+
+        <Icon />
+      </Link>
+    </motion.div>
   );
 };
 

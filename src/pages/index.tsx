@@ -27,8 +27,6 @@ const colorchange = keyframes`
     color: white;
   }
 }
-
-
 `;
 
 const menuItems = [

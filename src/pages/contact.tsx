@@ -46,7 +46,6 @@ const options = [
 ];
 
 const Contact: React.FC<RouterProps> = ({ location }) => {
-  console.log(location.state);
   const type =
     location.state && location.state.pathname
       ? options.find(o => o.path === location.state.pathname).path
