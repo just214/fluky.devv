@@ -35,6 +35,7 @@ const Quiz = props => {
       description="Front end developer quizzes. JavaScript, TypeScript, HTML, CSS, and more."
       keywords={["quiz", "quizzes"]}
       type="quizzes"
+      pathname="/quizzes"
     >
       <Search
         onChange={value => {
@@ -54,7 +55,10 @@ const Quiz = props => {
           css={`
             display: flex;
             flex-wrap: wrap;
-            background: black;
+            background: #000000;
+            background: -webkit-linear-gradient(to right, #333, #000000);
+            background: linear-gradient(to right, #333, #000000);
+
             padding-top: 20px;
             margin-top: 20px;
             border-radius: 10px;

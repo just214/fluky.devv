@@ -26,7 +26,7 @@ const placeholders = {
   podcasts: `Please provide the name and website of the podcast(s) that you would like to suggest.`,
   newsletters: `Please provide the name and website of the newsletter(s) that you would like to suggest.`,
   buzzwords: `Please provide the word and definition of the buzzword(s) that you would like to suggest.`,
-  websites: `Please provide the URL for the community that you would like to suggest.`,
+  communities: `Please provide the URL for the community that you would like to suggest.`,
   youtube: `Please provide the YouTube channel name or link to the channel.`,
   health: `Please provide the URL for the health-related website(s) that you would like to suggest.`,
   quizzes: `If you would like to suggest a quiz website, please provide the URL.
@@ -46,9 +46,11 @@ const options = [
 ];
 
 const Contact: React.FC<RouterProps> = ({ location }) => {
-  const type = location.state
-    ? options.find(o => o.path === location.state.pathname).path
-    : "/comment";
+  console.log(location.state);
+  const type =
+    location.state && location.state.pathname
+      ? options.find(o => o.path === location.state.pathname).path
+      : "/comment";
 
   const [formType, setFormType] = useState(type);
 
@@ -62,7 +64,7 @@ const Contact: React.FC<RouterProps> = ({ location }) => {
       description="Make a suggestion, report an issue, or just say hi!"
       keywords={["contact", "form"]}
     >
-      {location.state && (
+      {location.state && location.state.pathname && (
         <Link
           to={location.state.pathname}
           css={`
@@ -71,7 +73,7 @@ const Contact: React.FC<RouterProps> = ({ location }) => {
           `}
         >
           <FaAngleLeft />
-          back to {location.state.pathname.substring(1)}
+          Back to {location.state.title}
         </Link>
       )}
       <TitleBox

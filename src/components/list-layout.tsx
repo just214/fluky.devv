@@ -13,7 +13,14 @@ type ListLayoutProps = {
   pathname: string;
 };
 const ListLayout: React.FC<ListLayoutProps> = props => {
-  const { title, keywords, description, lastUpdatedDate, children } = props;
+  const {
+    title,
+    keywords,
+    description,
+    lastUpdatedDate,
+    children,
+    pathname,
+  } = props;
 
   return (
     <Layout title={title} keywords={keywords} description={description}>
@@ -29,8 +36,8 @@ const ListLayout: React.FC<ListLayoutProps> = props => {
           subTitle={description}
           lastUpdated={lastUpdatedDate}
         >
-          <Link to="/contact" state={{ pathname: props.pathname }}>
-            Got a Suggestion?
+          <Link to="/contact" state={{ pathname, title }}>
+            Suggestion?
           </Link>
         </TitleBox>
 

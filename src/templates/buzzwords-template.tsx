@@ -18,6 +18,7 @@ const BuzzWords = ({ pageContext }) => {
       description="A collection of coding and front end developer-related buzzwords and their definitions."
       type="buzzword"
       lastUpdatedDate={pageContext.lastModifiedDate}
+      pathname="/buzzwords"
     >
       <BackToTop />
       <div>

@@ -6,6 +6,7 @@ import Heading from "./heading";
 import MarkdownBody from "./markdown-body";
 import Divider from "./divider";
 import Tag from "./tag";
+import VisitWebsiteButton from "./visit-website-button";
 
 const LI = styled.li<{ isMobile: boolean }>`
   display: flex;
@@ -60,7 +61,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         )}
 
         <div>
-          <Heading to={url}>
+          <Heading>
             {title}{" "}
             {thumbnail && isSmallImage && (
               <img
@@ -81,6 +82,7 @@ export const ListItem: React.FC<ListItemProps> = ({
           <ReadMoreButton />
 
           <Tags>
+            <VisitWebsiteButton url={url} />
             {tags &&
               tags.map(tag => {
                 return <Tag key={tag}>{tag}</Tag>;
