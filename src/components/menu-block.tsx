@@ -23,7 +23,7 @@ const StyledLink = styled(Link)<{ rotate: number }>`
 `;
 
 export interface MenuBlockProps {
-  gradient: [string, string];
+  gradient: [string, string] | string[];
   color?: string;
 }
 export const MenuBlock: React.FC<MenuBlockProps> = ({
@@ -73,19 +73,18 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
   rotate,
   gradient,
   color,
-  index,
   icon: Icon,
 }) => {
   return (
     <StyledLink to={to} rotate={rotate}>
       <motion.div
         key="modal"
-        initial={{ opacity: 0.8 }}
+        initial={{ rotate: -(rotate * 0.3), filter: "grayscale(100%)" }}
         animate={{
-          scale: [1, 1.01, 1],
-          rotate: [0, Math.random(), 0],
+          filter: ["grayscale(100%)", "grayscale(0%)"],
+          rotate: [-(rotate * 0.3), 0],
         }}
-        transition={{ delay: index * 0.1, duration: 0.3 }}
+        transition={{ duration: 0.5 }}
       >
         <MenuBlock gradient={gradient} color={color}>
           <span

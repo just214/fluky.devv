@@ -53,6 +53,7 @@ const ListPageTemplate = ({ pageContext, children, location }) => {
                 url={item.url}
                 tags={item.tags}
                 isSmallImage={pageContext.smallImage}
+                provider={item.provider}
               />
             );
           })}

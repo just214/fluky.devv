@@ -19,8 +19,8 @@ const colorchange = keyframes`
     color: #4d5f85;
   }
 
-  50% {
-    color: #f797b9;
+  20% {
+    color: tomato;
   }
 
   80% {
@@ -94,7 +94,7 @@ const menuItems = [
   {
     label: "CONTACT",
     to: "/contact",
-    color: "#ffcc33",
+    color: "white",
     gradient: ["#333", "#111"],
     icon: FaMailBulk,
   },

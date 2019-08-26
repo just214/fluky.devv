@@ -139,7 +139,7 @@ const Quiz = props => {
               title={site.title}
               description={site.description}
               url={site.url}
-              // provider={site.provider}
+              provider={site.provider}
               tags={site.tags}
             />
           );

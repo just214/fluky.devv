@@ -30,6 +30,7 @@ interface ListItemProps {
   url: string;
   tags: string[];
   isSmallImage?: boolean;
+  provider?: string;
 }
 export const ListItem: React.FC<ListItemProps> = ({
   thumbnail,
@@ -38,6 +39,7 @@ export const ListItem: React.FC<ListItemProps> = ({
   url,
   tags,
   isSmallImage,
+  provider,
 }) => {
   const [descriptionSnippet, ReadMoreButton] = useReadMore(description);
   const { isMobile } = useMedia();
@@ -61,20 +63,32 @@ export const ListItem: React.FC<ListItemProps> = ({
         )}
 
         <div>
+          {thumbnail && isSmallImage && (
+            <img
+              css={`
+                border-radius: 2px;
+                margin-right: 10px;
+                height: auto;
+                width: 25px;
+                background-color: #f5f5f5;
+                float: left;
+              `}
+              src={thumbnail}
+              alt={`Thumbnail for ${title}`}
+            />
+          )}
           <Heading>
             {title}{" "}
-            {thumbnail && isSmallImage && (
-              <img
+            {provider && (
+              <small
                 css={`
-                  border-radius: 10px;
-                  margin-left: 10px;
-                  height: auto;
-                  width: 20px;
-                  background-color: #f5f5f5;
+                  font-size: 12px;
+                  color: ${props => props.theme.gray4};
+                  margin-left: 8px;
                 `}
-                src={thumbnail}
-                alt={`Thumbnail for ${title}`}
-              />
+              >
+                {provider}
+              </small>
             )}
           </Heading>
 
