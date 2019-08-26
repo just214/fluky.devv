@@ -12,6 +12,7 @@ const Search: React.FC<SearchProps> = ({ onChange, placeholder }) => {
 
   return (
     <Input
+      aria-label="search"
       type="search"
       style={{
         width: "100%",

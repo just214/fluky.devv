@@ -56,8 +56,16 @@ const Quiz = props => {
             display: flex;
             flex-wrap: wrap;
             background: #000000;
-            background: -webkit-linear-gradient(to right, #333, #000000);
-            background: linear-gradient(to right, #333, #000000);
+            background: -webkit-linear-gradient(
+              to right,
+              #333,
+              ${({ theme }) => theme.darkblue}
+            );
+            background: linear-gradient(
+              to right,
+              #333,
+              ${({ theme }) => theme.darkblue}
+            );
 
             padding-top: 20px;
             margin-top: 20px;
