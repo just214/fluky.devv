@@ -18,6 +18,7 @@ TODO
 - Autosize the text area based on user input.
 - Add search icon to search-box
 _ Animate and restyle the alert box (black bg, green or red text)
+- Health Q&A
 
 IDEAS
 - Coding challenges
@@ -28,19 +29,14 @@ IDEAS
 - Social community -->
 - Learning websites
 - Learning courses
-- Other quizzes
 
-DATA SCHEMA
-```js
-pageContext = {
-  data={
-    tags
-    title
-    description
-    url
-    tags
-  }
-  lastModifiedDate
-}
 
-```
+## Health
+
+There’s a super simple 20–20–20 rule for it. It says you need to take a 20-second break every 20 minutes and look at a static object 20 ft (6 m) away from you.
+
+use flu.x or something similiar- screen brightness
+
+dark text editor
+
+30 minutes of cardio every day

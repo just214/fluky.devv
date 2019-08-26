@@ -22,7 +22,7 @@ const asyncFetchYouTubeData = async dataArray => {
 
     const { title, description, thumbnails } = data.items[0].snippet;
     const { subscriberCount, videoCount } = data.items[0].statistics;
-    const url = `https://www.youtube.com/`;
+    const url = node.data.URL;
     const finalData = {
       title,
       description,

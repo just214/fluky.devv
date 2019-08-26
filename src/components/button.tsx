@@ -12,7 +12,7 @@ const Button = styled.button<ButtonProps>`
   border-radius: 4px;
   text-align: ${props => (props.type === "link" ? "left" : "center")};
   font-size: 14px;
-  min-width: 100px;
+  min-width: ${props => (props.type === "link" ? "0px" : "100px")};
   padding: ${props => (props.type === "link" ? "0px" : "4px 8px")};
   cursor: pointer;
 `;

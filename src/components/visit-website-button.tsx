@@ -15,6 +15,7 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         display: flex;
         align-items: center;
         color: ${props => props.theme.lightblue};
+        margin-right: 10px;
         :hover {
           button,
           icon {

@@ -13,6 +13,7 @@ module.exports = async (createPage, graphql) => {
               LastModifiedDate
               Tags
               Type
+              URL
             }
           }
         }

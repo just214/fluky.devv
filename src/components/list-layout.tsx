@@ -37,7 +37,7 @@ const ListLayout: React.FC<ListLayoutProps> = props => {
           lastUpdated={lastUpdatedDate}
         >
           <Link to="/contact" state={{ pathname, title }}>
-            Suggestion?
+            Got a suggestion?
           </Link>
         </TitleBox>
 
