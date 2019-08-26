@@ -32,7 +32,6 @@ const config = {
     `gatsby-plugin-sharp`,
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -59,6 +58,7 @@ const config = {
         ],
       },
     },
+    `gatsby-plugin-styled-components`,
     // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-airtable`,
