@@ -1,11 +1,12 @@
 import React from "react";
-import Button from "./button";
+import useMedia from "../hooks/useMedia";
 import VisitButton from "../icons/visit-button.svg";
 
 export interface WebsiteLinkProps {
   url: string;
 }
 export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
+  const { isMobile } = useMedia();
   return (
     <a
       href={url}
@@ -23,7 +24,7 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         }
       `}
     >
-      <img src={VisitButton} height={20} />
+      <img src={VisitButton} height={isMobile ? 25 : 20} />
     </a>
   );
 };
