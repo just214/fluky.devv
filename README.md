@@ -19,6 +19,7 @@ TODO
 - Add search icon to search-box
 _ Animate and restyle the alert box (black bg, green or red text)
 - Health Q&A
+- Center the timeline
 
 IDEAS
 - Coding challenges
@@ -30,13 +31,3 @@ IDEAS
 - Learning websites
 - Learning courses
 
-
-## Health
-
-There’s a super simple 20–20–20 rule for it. It says you need to take a 20-second break every 20 minutes and look at a static object 20 ft (6 m) away from you.
-
-use flu.x or something similiar- screen brightness
-
-dark text editor
-
-30 minutes of cardio every day

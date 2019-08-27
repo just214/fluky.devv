@@ -57,7 +57,7 @@ export const SingleChoice: React.FC<QuestionProps> = ({
   3;
   return (
     <motion.div
-      initial={{ scale: 0.98 }}
+      initial={{ scale: 0.995 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.3 }}
     >

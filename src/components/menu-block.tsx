@@ -63,6 +63,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
           align-items: center;
           justify-content: space-around;
           font-family: "Barriecito", cursive;
+          border-radius: 6px;
         `}
       >
         {children}

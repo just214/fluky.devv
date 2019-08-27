@@ -13,21 +13,36 @@ const TimelineTitle = styled.h2`
 export const AboutSite = () => {
   const data = [
     {
+      text: "Hosted on GitHub",
+      image: "github.png",
+      url: "https://github.com/gojutin/fluky.dev",
+    },
+    {
       text: "Built with React",
       image: "react.png",
+      url: "https://reactjs.org/",
     },
     {
       text: "Powered by Gatsby",
       image: "gatsby.png",
+      url: "https://www.gatsbyjs.org/",
     },
     {
       text: "Driven by Airtable",
       image: "airtable.png",
+      url: "https://airtable.com/",
     },
 
     {
-      text: "Hosted with Netlify",
+      text: "Animated with Framer Motion",
+      image: "framer-motion.png",
+      url: "https://www.framer.com/motion/",
+    },
+
+    {
+      text: "Deployed with Netlify",
       image: "netlify.png",
+      url: "https://www.netlify.com/",
     },
   ];
   return (
@@ -57,7 +72,7 @@ export const AboutSite = () => {
       />
 
       <div style={{ marginTop: "30px", padding: "20px" }}>
-        {data.map(({ text, image }, index) => {
+        {data.map(({ text, image, url }, index) => {
           const isLastItem = index === data.length - 1;
           return (
             <div key={text}>
@@ -68,9 +83,9 @@ export const AboutSite = () => {
                   margin: 0px -25px;
                 `}
               >
-                <div>
+                <a href={url} target="_blank" rel="noopener noreferrer">
                   <Image filename={image} />
-                </div>
+                </a>
 
                 <TimelineTitle>{text}</TimelineTitle>
               </div>
