@@ -18,7 +18,7 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         cursor: pointer;
         margin-right: 10px;
         border-radius: 3px;
-        padding: 0px 2px;
+        padding: 0px;
         :hover {
           opacity: 0.8;
         }
