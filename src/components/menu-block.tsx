@@ -23,10 +23,10 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
     <motion.div
       key="modal"
       animate={{
-        filter: ["grayscale(100%)", "grayscale(0%)"],
-        rotate: [-rotate, 0],
+        filter: ["grayscale(90%)", "grayscale(0%)"],
+        rotate: [-(rotate * 0.5), 0],
       }}
-      initial={{ rotate: -rotate, filter: "grayscale(100%)" }}
+      initial={{ rotate: -(rotate * 0.5), filter: "grayscale(90%)" }}
       transition={{ delay: 0.1, duration: 0.5 }}
     >
       <Link
@@ -67,7 +67,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
       >
         {children}
 
-        <Icon />
+        <Icon style={{ marginLeft: "5px" }} />
       </Link>
     </motion.div>
   );

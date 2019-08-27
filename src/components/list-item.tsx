@@ -78,7 +78,7 @@ export const ListItem: React.FC<ListItemProps> = ({
             />
           )}
           <Heading>
-            {title}{" "}
+            {title}
             {provider && (
               <small
                 css={`

@@ -11,7 +11,7 @@ export const Heading = ({ children }) => {
         color: ${({ theme }) => theme.blue};
       `}
     >
-      <span>{children}</span>
+      {children}
     </h4>
   );
 };
