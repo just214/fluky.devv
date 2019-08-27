@@ -3,6 +3,7 @@ const numeral = require("numeral");
 
 const asyncForEach = async (array, callback) => {
   for (let index = 0; index < array.length; index++) {
+    //eslint-ignore-line
     await callback(array[index], index, array);
   }
 };
@@ -10,7 +11,7 @@ const asyncForEach = async (array, callback) => {
 const BASE_URL =
   "https://www.googleapis.com/youtube/v3/channels?part=snippet,id%2Cstatistics";
 
-let results = [];
+const results = [];
 
 const asyncFetchYouTubeData = async dataArray => {
   await asyncForEach(dataArray, async ({ node }) => {

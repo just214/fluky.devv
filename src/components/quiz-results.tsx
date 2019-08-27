@@ -68,7 +68,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
       <br />
 
       <Link to="/quizzes">
-        <Button type="primary">Done</Button>
+        <Button>Done</Button>
       </Link>
     </div>
   );

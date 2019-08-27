@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { graphql } from "gatsby";
-import SingleChoice from "../components/quiz-single-choice";
+import QuizQuestion from "../components/quiz-question";
 import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
 import QuizButton from "../components/quiz-button";
@@ -10,8 +10,6 @@ import Title from "../components/title";
 import Layout from "../components/layout";
 import LastUpdated from "../components/last-updated";
 import Progress from "../components/progress";
-
-// import QuizReportIssueForm from "../components/forms/quiz-report-issue-form";
 
 const getFeedbackCorrect = () => {
   const options: string[] = [
@@ -175,7 +173,7 @@ const Page = ({ data, pageContext }) => {
       </div>
 
       <br />
-      <SingleChoice
+      <QuizQuestion
         data={currentQuestion.data}
         key={currentQuestion.data.Question}
         isAnswered={isQuestionAnswered}

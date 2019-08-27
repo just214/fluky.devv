@@ -1,4 +1,3 @@
-const path = require("path");
 const { getMetadata } = require("page-metadata-parser");
 const domino = require("domino");
 const fetch = require("node-fetch");
@@ -7,6 +6,7 @@ async function asyncScrapeWebsitesMetadata(array) {
   const values = [];
   const asyncForEach = async (array, callback) => {
     for (let index = 0; index < array.length; index++) {
+      // eslint-ignore-line
       await callback(array[index], index, array);
     }
   };
@@ -43,7 +43,7 @@ async function asyncScrapeWebsitesMetadata(array) {
       return { ...apiData, tags: [] };
     }
   }
-  const data = await asyncForEach(array, async function({ node }) {
+  await asyncForEach(array, async function({ node }) {
     const value = await getMeta(node.data);
     values.push(value);
   });

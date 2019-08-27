@@ -37,6 +37,7 @@ export interface ButtonProps {
   title: string;
   initial: object;
   animate: object;
+  onClick: () => void;
 }
 export const Button: React.FC<ButtonProps> = ({ title, ...rest }) => {
   return (

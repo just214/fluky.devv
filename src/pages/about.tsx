@@ -13,14 +13,14 @@ const TimelineTitle = styled.h2`
 export const AboutSite = () => {
   const data = [
     {
-      text: "Hosted on GitHub",
-      image: "github.png",
-      url: "https://github.com/gojutin/fluky.dev",
-    },
-    {
       text: "Built with React",
       image: "react.png",
       url: "https://reactjs.org/",
+    },
+    {
+      text: "Secured with TypeScript",
+      image: "typescript.png",
+      url: "https://www.typescriptlang.org/",
     },
     {
       text: "Powered by Gatsby",
@@ -43,6 +43,11 @@ export const AboutSite = () => {
       text: "Deployed with Netlify",
       image: "netlify.png",
       url: "https://www.netlify.com/",
+    },
+    {
+      text: "Hosted on GitHub",
+      image: "github.png",
+      url: "https://github.com/gojutin/fluky.dev",
     },
   ];
   return (

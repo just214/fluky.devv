@@ -14,7 +14,7 @@ export const BackToTop = () => {
     });
   };
 
-  useScrollPosition(({ _, currPos }) => {
+  useScrollPosition(({ currPos }) => {
     if (currPos.y < -1500) {
       setShow(true);
     } else {

@@ -54,12 +54,13 @@ module.exports = async (createPage, graphql) => {
 
   const values = responseData.body.podcasts
     .map(({ title, description, thumbnail, website, total_episodes }) => {
+      // eslint-ignore-line
       return {
         title,
         description,
         thumbnail,
         url: website,
-        tags: [`${total_episodes} episodes`],
+        tags: [`${total_episodes} episodes`], // eslint-ignore-line
       };
     })
     .sort((a, b) => {

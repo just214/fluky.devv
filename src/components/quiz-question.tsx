@@ -28,13 +28,13 @@ const Option = styled.div<{
   overflow: hidden;
 `;
 
-export interface QuestionProps {
+export interface QuizQuestionProps {
   data: Question;
   onSelection: (e: string) => void;
   userAnswer: string;
   isAnswered: boolean;
 }
-export const SingleChoice: React.FC<QuestionProps> = ({
+export const QuizQuestion: React.FC<QuizQuestionProps> = ({
   data,
   onSelection,
   userAnswer,
@@ -112,14 +112,8 @@ export const SingleChoice: React.FC<QuestionProps> = ({
                 <Feedback />
               </span>
             </div>
-            {/* <span
-              css={`
-                overflow-y: scroll;
-                height: auto;
-              `}
-            > */}
+
             <Markdown source={option.value} />
-            {/* </span> */}
           </Option>
         );
       })}
@@ -127,4 +121,4 @@ export const SingleChoice: React.FC<QuestionProps> = ({
   );
 };
 
-export default SingleChoice;
+export default QuizQuestion;

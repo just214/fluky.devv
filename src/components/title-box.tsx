@@ -13,7 +13,7 @@ const H2 = styled.h2`
 
 export interface TitleBoxProps {
   title: string;
-  subTitle?: string | HTMLElement;
+  subTitle?: Element | string;
   lastUpdated?: string;
   bg?: string;
 }
