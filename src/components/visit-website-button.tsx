@@ -1,6 +1,6 @@
 import React from "react";
-import { TiArrowForward } from "react-icons/ti";
 import Button from "./button";
+import VisitButton from "../icons/visit-button.svg";
 
 export interface WebsiteLinkProps {
   url: string;
@@ -14,20 +14,16 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
       css={`
         display: flex;
         align-items: center;
-        color: ${props => props.theme.lightblue};
+        cursor: pointer;
         margin-right: 10px;
+        border-radius: 3px;
+        padding: 0px 2px;
         :hover {
-          button,
-          icon {
-            opacity: 0.8;
-          }
+          opacity: 0.8;
         }
       `}
     >
-      <Button type="link">
-        <b>Visit</b>
-        <TiArrowForward size={16} />
-      </Button>
+      <img src={VisitButton} height={20} />
     </a>
   );
 };
