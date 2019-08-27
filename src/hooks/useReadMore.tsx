@@ -4,9 +4,10 @@ import useMedia from "./useMedia";
 
 const useReadMore = (text, cutoff = 280) => {
   const { isMobile } = useMedia();
+  const cutoffValue = isMobile ? 280 : 500;
   const [value, setValue] = useState(
-    text.length > cutoff
-      ? text.substring(0, isMobile ? 280 : 400) + "..."
+    text.length > cutoffValue
+      ? text.substring(0, isMobile ? 280 : 500) + "..."
       : text
   );
 

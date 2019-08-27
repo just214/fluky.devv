@@ -19,7 +19,7 @@ const Search: React.FC<SearchProps> = ({ onChange, placeholder }) => {
         borderRadius: "10px",
         height: "40px",
         position: "sticky",
-        top: 0,
+        top: 8,
         zIndex: 200,
         maxWidth: "100%",
       }}

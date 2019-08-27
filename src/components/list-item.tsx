@@ -62,7 +62,7 @@ export const ListItem: React.FC<ListItemProps> = ({
           />
         )}
 
-        <div>
+        <div style={{ width: "100%" }}>
           {thumbnail && isSmallImage && (
             <img
               css={`

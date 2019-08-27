@@ -36,7 +36,12 @@ const asyncFetchYouTubeData = async dataArray => {
 
     results.push(finalData);
   });
-  return results;
+  return results.sort((a, b) => {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      return -1;
+    }
+    return 1;
+  });
 };
 
 module.exports = asyncFetchYouTubeData;

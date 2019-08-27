@@ -5,7 +5,7 @@ const Divider = styled.hr`
   border: 0;
   color: #333;
   background-color: ${({ theme }) => theme.gray2};
-  margin: 15px 0px;
+  margin: 10px 0px;
 `;
 
 export default Divider;

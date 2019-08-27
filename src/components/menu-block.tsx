@@ -27,7 +27,7 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
         rotate: [-(rotate * 0.5), 0],
       }}
       initial={{ rotate: -(rotate * 0.5), filter: "grayscale(90%)" }}
-      transition={{ delay: 0.1, duration: 0.5 }}
+      transition={{ delay: 0.1, duration: 0.3 }}
     >
       <Link
         to={to}

@@ -52,8 +52,8 @@ module.exports = async (createPage, graphql) => {
     { statusCode: [], body: { podcasts: [] } }
   );
 
-  const values = responseData.body.podcasts.map(
-    ({ title, description, thumbnail, website, total_episodes }) => {
+  const values = responseData.body.podcasts
+    .map(({ title, description, thumbnail, website, total_episodes }) => {
       return {
         title,
         description,
@@ -61,8 +61,13 @@ module.exports = async (createPage, graphql) => {
         url: website,
         tags: [`${total_episodes} episodes`],
       };
-    }
-  );
+    })
+    .sort((a, b) => {
+      if (a.title.toLowerCase() < b.title.toLowerCase()) {
+        return -1;
+      }
+      return 1;
+    });
 
   createPage({
     path: `podcasts`,
