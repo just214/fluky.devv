@@ -70,6 +70,7 @@ export const ListItem: React.FC<ListItemProps> = ({
                 margin-right: 10px;
                 height: auto;
                 width: 25px;
+                height: 25px;
                 background-color: #f5f5f5;
                 float: left;
               `}
