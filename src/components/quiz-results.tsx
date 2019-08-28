@@ -15,12 +15,22 @@ const Score = styled.p`
 `;
 
 const P = styled.p<{ color: string }>`
-  font-size: 22px;
-  font-weight: bold;
-  padding: 0px 8px;
-  margin: 5px;
+  font-size: 20px;
+  /* font-weight: bold; */
 
-  color: ${props => props.color || "#333"};
+  margin: 5px;
+  border-radius: 2px;
+  /* background: ${props => props.color || "#333"}; */
+  color: white;
+  padding: 10px 0px;
+  width: 140px;
+  span {
+    background: #333;
+    font-weight: bold;
+    border-radius: 100px;
+    padding: 5px 10px;
+    color: ${props => props.color || "#333"};
+  }
 `;
 
 export interface QuizResultsProps {
@@ -69,6 +79,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
           style={{
             width: "100%",
             maxWidth: "400px",
+            margin: "0 auto",
           }}
           totalValue={correctCount + incorrectCount}
           rounded
@@ -94,8 +105,12 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
             justify-content: center;
           `}
         >
-          <P color="#53c41a">Correct: {correctCount} </P>
-          <P color="#f5222d">Incorrect: {incorrectCount} </P>
+          <P color="#53c41a">
+            Correct: <span>{correctCount}</span>
+          </P>
+          <P color="#f5222d">
+            Incorrect: <span>{incorrectCount}</span>
+          </P>
         </div>
 
         <br />
