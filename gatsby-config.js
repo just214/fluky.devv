@@ -58,7 +58,6 @@ const config = {
         ],
       },
     },
-    `gatsby-plugin-styled-components`,
     // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-airtable`,
@@ -72,6 +71,7 @@ const config = {
         }),
       },
     },
+    `gatsby-plugin-styled-components`,
   ],
 };
 

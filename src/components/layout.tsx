@@ -1,4 +1,4 @@
-// import "./layout.css";
+import "../styles/index.css";
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "gatsby";

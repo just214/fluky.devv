@@ -89,7 +89,7 @@ export const AboutSite = () => {
                 `}
               >
                 <a href={url} target="_blank" rel="noopener noreferrer">
-                  <Image filename={image} />
+                  <Image filename={image} alt={text} />
                 </a>
 
                 <TimelineTitle>{text}</TimelineTitle>

@@ -16,19 +16,18 @@ const Score = styled.p`
 
 const P = styled.p<{ color: string }>`
   font-size: 20px;
-  /* font-weight: bold; */
-
   margin: 5px;
   border-radius: 2px;
-  /* background: ${props => props.color || "#333"}; */
-  color: white;
   padding: 10px 0px;
-  width: 140px;
-  span {
-    background: #333;
+  display: flex;
+  align-items: flex-start;
+  span:first-of-type {
+    color: white;
     font-weight: bold;
-    border-radius: 100px;
-    padding: 5px 10px;
+    padding-right: 8px;
+  }
+  span:last-of-type {
+    font-weight: bold;
     color: ${props => props.color || "#333"};
   }
 `;
@@ -60,7 +59,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
   return (
     <div
       css={`
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px;
         margin-top: 15px;
         flex-wrap: wrap;
@@ -69,7 +68,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
       `}
     >
       <motion.div
-        animate={{ rotate: ["360deg", "-50deg"] }}
+        animate={{ rotate: ["360deg", "-90deg"] }}
         transition={{ duration: 1 }}
       >
         <PieChart
@@ -106,10 +105,10 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
           `}
         >
           <P color="#53c41a">
-            Correct: <span>{correctCount}</span>
+            <span>Correct:</span> <span>{correctCount}</span>
           </P>
           <P color="#f5222d">
-            Incorrect: <span>{incorrectCount}</span>
+            <span>Incorrect:</span> <span>{incorrectCount}</span>
           </P>
         </div>
 
