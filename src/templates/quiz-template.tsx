@@ -134,8 +134,19 @@ const Page = ({ data, pageContext }) => {
 
   if (isQuizCompleted) {
     return (
-      <Layout title={title} keywords={keywords} description={description}>
-        <Title>{pageContext.title} Quiz</Title>
+      <Layout
+        title={title}
+        keywords={keywords}
+        description={description}
+        bg="#16202b"
+      >
+        <Title
+          css={`
+            color: white;
+          `}
+        >
+          {pageContext.title} Quiz
+        </Title>
 
         <QuizResults
           score={score}
@@ -180,7 +191,6 @@ const Page = ({ data, pageContext }) => {
         userAnswer={userAnswer}
         onSelection={answer => handleSetUserAnswer(answer)}
       />
-      {/* <QuizReportIssueForm id={currentQuestion.data.ID} /> */}
       <br />
       {isQuestionAnswered && (
         <motion.div

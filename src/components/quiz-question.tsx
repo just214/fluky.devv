@@ -54,11 +54,11 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
   const handleSelection = selection => {
     onSelection(selection);
   };
-  3;
+
   return (
     <motion.div
-      initial={{ scale: 0.995 }}
-      animate={{ scale: 1 }}
+      initial={{ x: 3 }}
+      animate={{ x: 0 }}
       transition={{ duration: 0.3 }}
     >
       <div
@@ -68,7 +68,6 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
       >
         <Markdown source={data.Question} />
       </div>
-
       <br />
 
       {options.map(option => {
@@ -104,7 +103,7 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
                   border: 2px solid #efefef;
                   border-radius: 4px;
                   border-color: ${userAnswer == option.id
-                    ? props => props.theme.gray3
+                    ? props => props.theme.gray4
                     : "transparent"};
                   color: ${props => props.theme.blue};
                 `}

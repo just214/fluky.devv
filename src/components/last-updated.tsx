@@ -1,5 +1,5 @@
 import React from "react";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 
 interface LastUpdatedProps {
   date: string;
@@ -16,12 +16,12 @@ export const LastUpdated: React.FC<LastUpdatedProps> = ({ date }) => {
     >
       Last updated on{" "}
       <time
-        dateTime={format(date, "YYYY-MM-DD")}
+        dateTime={format(parseISO(date), "yyyy-mm-dd")}
         css={`
           font-family: Helvetica;
         `}
       >
-        {format(date, "MMMM DD, YYYY")}
+        {format(parseISO(date), "mmmm dd, yyyy")}
       </time>
     </small>
   );

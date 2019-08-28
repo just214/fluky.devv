@@ -19,6 +19,7 @@ const StyledAlert = styled(motion.div)<StyledAlertProps>`
   top: 0px;
   left: 40%;
   right: 40%;
+  transform: translate(-40%, -40%);
   border-radius: 5px;
 `;
 

@@ -22,6 +22,7 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         :hover {
           opacity: 0.8;
         }
+        min-width: 80px;
       `}
     >
       <img src={VisitButton} height={isMobile ? 25 : 20} />
