@@ -33,6 +33,7 @@ If you are interested in contributing to this site, please reach out to me and l
 - [ ] Animate and restyle the alert box.
 - [ ] Center the timeline on non-mobile screens
 - [ ] Add tests
+- [ ] Add keyup/keydown for quiz option once an option is selected.
 
 ## Maybes
 

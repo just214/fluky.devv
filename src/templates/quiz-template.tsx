@@ -4,7 +4,7 @@ import QuizQuestion from "../components/quiz-question";
 import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
 import QuizButton from "../components/quiz-button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import QuizResults from "../components/quiz-results";
 import Title from "../components/title";
 import Layout from "../components/layout";
@@ -116,10 +116,20 @@ const Page = ({ data, pageContext }) => {
     setUserAnswer(null);
   };
 
+  const options = [
+    { id: "1", value: currentQuestion.data.Option1 },
+    { id: "2", value: currentQuestion.data.Option2 },
+    { id: "3", value: currentQuestion.data.Option3 },
+    { id: "4", value: currentQuestion.data.Option4 },
+  ].filter(option => !!option.value);
+
   useEffect(() => {
     document.addEventListener("keypress", e => {
       // 1,2,3,4
       if ([49, 50, 51, 52].includes(e.charCode)) {
+        console.log(options.length, +e.key);
+        if (options.length < +e.key) return;
+        console.log("DIDNTS");
         handleSetUserAnswer(keycodeMap[e.charCode]);
       }
     });
@@ -197,26 +207,28 @@ const Page = ({ data, pageContext }) => {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          {userAnswer === currentQuestion.data.Answer && (
-            <h2
-              css={`
-                color: green;
-                margin: 10px 0px;
-              `}
-            >
-              {getFeedbackCorrect()}
-            </h2>
-          )}
-          {userAnswer !== currentQuestion.data.Answer && (
-            <h2
-              css={`
-                color: ${props => props.theme.red};
-                margin: 10px 0px;
-              `}
-            >
-              {getFeedbackIncorrect()}
-            </h2>
-          )}
+          <div>
+            {userAnswer === currentQuestion.data.Answer && (
+              <h2
+                css={`
+                  color: ${({ theme }) => theme.green};
+                  margin: 10px 0px;
+                `}
+              >
+                {getFeedbackCorrect()}
+              </h2>
+            )}
+            {userAnswer !== currentQuestion.data.Answer && (
+              <h2
+                css={`
+                  color: ${({ theme }) => theme.red};
+                  margin: 10px 0px;
+                `}
+              >
+                {getFeedbackIncorrect()}
+              </h2>
+            )}
+          </div>
           <Markdown source={currentQuestion.data.Explanation} />
         </motion.div>
       )}
@@ -230,14 +242,22 @@ const Page = ({ data, pageContext }) => {
         />
       )}
 
-      {!!userAnswer && isQuestionAnswered && (
-        <QuizButton
-          initial={{ scale: 0.8, opacity: 0.3 }}
-          animate={{ scale: 1.2, opacity: 1 }}
-          onClick={handleGoToNextQuestion}
-          title="Continue"
-        />
-      )}
+      <AnimatePresence>
+        {!!userAnswer && isQuestionAnswered && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <QuizButton
+              initial={{ scale: 0.8, opacity: 0.3 }}
+              animate={{ scale: 1.2, opacity: 1 }}
+              onClick={handleGoToNextQuestion}
+              title="Continue"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Layout>
   );
 };

@@ -20,7 +20,6 @@ const StyledButton = styled(motion.button)`
   display: flex;
   align-items: center;
   justify-content: center;
-
   &:focus,
   &:hover {
     background: ${props => props.theme.green};

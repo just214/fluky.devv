@@ -5,11 +5,13 @@ import Button from "./button";
 import PieChart from "react-minimal-pie-chart";
 import { motion } from "framer-motion";
 
-const H3 = styled.h3`
-  font-size: 8rem;
+const Score = styled.p`
+  font-size: 7rem;
+  font-weight: bold;
   color: ${({ theme }) => theme.lightblue};
   padding: 0px;
-  margin: 0px;
+  margin: 20px 0px;
+  padding-top: 50px;
 `;
 
 const P = styled.p<{ color: string }>`
@@ -53,9 +55,13 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
         margin-top: 15px;
         flex-wrap: wrap;
         display: flex;
+        align-items: center;
       `}
     >
-      <motion.div animate={{ rotate: "360deg" }} transition={{ duration: 1 }}>
+      <motion.div
+        animate={{ rotate: ["360deg", "-50deg"] }}
+        transition={{ duration: 1 }}
+      >
         <PieChart
           data={data}
           segmentsStyle={{ transition: "stroke .3s" }}
@@ -69,16 +75,18 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
           lineWidth={30}
         />
       </motion.div>
+
       <motion.div
         css={`
           flex: 1;
           text-align: center;
         `}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.25, delay: 0.75 }}
       >
-        <H3>{score}%</H3>
+        <Score>{score}%</Score>
+        <br />
         <div
           css={`
             display: flex;

@@ -21,7 +21,7 @@ export const LastUpdated: React.FC<LastUpdatedProps> = ({ date }) => {
           font-family: Helvetica;
         `}
       >
-        {format(parseISO(date), "mmmm dd, yyyy")}
+        {format(parseISO(date), "MMMM dd, yyyy")}
       </time>
     </small>
   );
