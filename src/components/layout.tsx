@@ -1,9 +1,10 @@
 import "../styles/index.css";
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { Link } from "gatsby";
 import Icon from "./icon";
 import SEO from "./seo";
+import styledLog from "styled-logs";
 
 const MainContainer = styled.main<{ maxWidth?: string }>`
   margin: 10px auto;
@@ -47,6 +48,18 @@ const Layout: React.FC<LayoutProps> = ({
   description,
   titleTemplate,
 }) => {
+  useEffect(() => {
+    const Log = styledLog.log`
+      background: url('https://res.cloudinary.com/gojutin/image/upload/v1566927084/Fluky.dev/flukydev-icon-192.png')
+      no-repeat center center;
+      background-size: contain;
+      padding: 10px;
+      margin: 10px auto;
+      text-align: center;
+      font: 700 80px 'Barriecito';
+    `;
+    Log("Fluky.dev");
+  }, []);
   return (
     <>
       <SEO

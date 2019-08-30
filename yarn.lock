@@ -15111,6 +15111,11 @@ styled-components@^4.3.2:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
+styled-logs@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/styled-logs/-/styled-logs-0.1.8.tgz#5e40f3f165fa24076890c078d8c71937b2ac58a4"
+  integrity sha512-qBo2N71R0RAX4ToB+xEUHSL4rwnh/90HhdZneeI4hhg56J80eD4m4NzBrDG6FWVF75F8/E2u6Lmpne5e3Cxj8Q==
+
 stylefire@^6.0.10:
   version "6.0.10"
   resolved "https://registry.yarnpkg.com/stylefire/-/stylefire-6.0.10.tgz#1100c63cf01b922f0db92e38a46297f3f1c2663d"

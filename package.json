@@ -49,6 +49,7 @@
     "react-netlify-form": "^2.1.5",
     "react-syntax-highlighter": "^11.0.2",
     "styled-components": "^4.3.2",
+    "styled-logs": "^0.1.8",
     "unirest": "^0.6.0",
     "use-media": "^1.4.0"
   },

@@ -152,7 +152,6 @@ const useQuiz = quizQuestions => {
     document.addEventListener("keypress", e => {
       // 1,2,3,4
       const options = optionsRef.current;
-      console.log("CCCC", e);
       if ([49, 50, 51, 52].includes(e.charCode)) {
         if (options.length < +e.key || isAnsweredRef.current) return;
         dispatch({
