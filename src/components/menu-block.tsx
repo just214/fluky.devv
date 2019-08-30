@@ -62,7 +62,9 @@ const MenuBlockWrapper: React.FC<MenuBlockWrapperProps> = ({
           display: flex;
           align-items: center;
           justify-content: space-around;
-          font-family: "Barriecito", cursive;
+          font-family: "Barriecito", -apple-system, system-ui,
+            BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+            sans-serif;
           border-radius: 6px;
         `}
       >

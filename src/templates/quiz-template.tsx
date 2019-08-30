@@ -1,57 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import QuizQuestion from "../components/quiz-question";
-import shuffle from "lodash/shuffle";
 import Markdown from "../components/markdown";
-import QuizButton from "../components/quiz-button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import QuizResults from "../components/quiz-results";
 import Title from "../components/title";
-import Layout from "../components/layout";
+import Layout, { colors } from "../components/layout";
 import LastUpdated from "../components/last-updated";
 import Progress from "../components/progress";
-
-const getFeedbackCorrect = () => {
-  const options: string[] = [
-    "Correct!",
-    "Nailed it!",
-    "Good job!",
-    "Way to go!",
-    "Great job!",
-    "Well done!",
-    "Excellent!",
-  ];
-  const len = options.length;
-  const randomIndex = Math.floor(Math.random() * len);
-  return options[randomIndex];
-};
-
-const getFeedbackIncorrect = () => {
-  const options: string[] = [
-    "That's Incorrect.",
-    "So close.",
-    "Not quite.",
-    "Better luck next time.",
-    "Too bad.",
-    "Nope, that's incorrect.",
-  ];
-  const len = options.length;
-  const randomIndex = Math.floor(Math.random() * len);
-  return options[randomIndex];
-};
-
-const keycodeMap = {
-  49: "1",
-  50: "2",
-  51: "3",
-  52: "4",
-};
+import { FaCheckCircle, FaTimesCircle, FaArrowRight } from "react-icons/fa";
+import useQuiz from "../hooks/useQuiz";
+import QuizButton from "../components/quiz-button";
 
 const keywords = ["quiz", "quizzes"];
 
 const Page = ({ data, pageContext }) => {
-  const description =
-    "`Test your ${pageContext.title} knowledge with our ${pageContext.title} Quiz.`";
+  const description = `Test your ${pageContext.title} knowledge with our ${pageContext.title} Quiz.`;
   const title = `${pageContext.title} Quiz`;
   if (!data.allAirtable.edges.length) {
     return (
@@ -62,87 +26,39 @@ const Page = ({ data, pageContext }) => {
     );
   }
 
-  const [shuffledQuestions] = useState(shuffle(data.allAirtable.edges));
-  const [isQuestionAnswered, setIsQuestionAnswered] = useState(false);
-  const isQuestionAnsweredRef = useRef(false);
-  const [userAnswer, setUserAnswer] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(
-    shuffledQuestions[0].node
-  );
-  const [questionsAnsweredCorrectly, setQuestionsAnsweredCorrectly] = useState(
-    0
-  );
-  const [
-    questionsAnsweredIncorrectly,
-    setQuestionsAnsweredIncorrectly,
-  ] = useState(0);
+  const [state, dispatch, types] = useQuiz(data.allAirtable.edges);
+  const {
+    currentQuestion,
+    userSelection,
+    isAnswered,
+    isCorrect,
+    correctCount,
+    incorrectCount,
+    isCompleted,
+    score,
+    answeredCount,
+    feedback,
+  } = state;
 
-  useEffect(() => {
-    isQuestionAnsweredRef.current = isQuestionAnswered;
-  }, [isQuestionAnswered]);
-
-  const [isQuizCompleted, setIsQuizCompleted] = useState(false);
-
-  const dataLength = data.allAirtable.edges.length;
-
-  const handleSetUserAnswer = value => {
-    if (isQuestionAnswered) return;
-    setUserAnswer(value);
+  const handleSetUserSelection = value => {
+    if (isAnswered) return;
+    dispatch({ type: types.SET_USER_SELECTION, payload: value });
   };
 
-  useEffect(() => {
-    setCurrentQuestion(shuffledQuestions[currentIndex].node);
-  }, [currentIndex]);
-
   const checkAnswer = () => {
-    if (!userAnswer) return;
-    setIsQuestionAnswered(true);
-    if (userAnswer === currentQuestion.data.Answer) {
-      setQuestionsAnsweredCorrectly(v => v + 1);
-    } else {
-      setQuestionsAnsweredIncorrectly(v => v + 1);
-    }
+    if (!userSelection) return;
+    dispatch({
+      type: types.CHECK_ANSWER,
+    });
   };
 
   const handleGoToNextQuestion = () => {
-    if (currentIndex === dataLength - 1) {
-      setCurrentIndex(0);
-      setIsQuizCompleted(true);
-    } else {
-      setCurrentIndex(v => v + 1);
-    }
-    setIsQuestionAnswered(false);
-    setUserAnswer(null);
+    dispatch({
+      type: types.GO_TO_NEXT_QUESTION,
+    });
   };
 
-  const options = [
-    { id: "1", value: currentQuestion.data.Option1 },
-    { id: "2", value: currentQuestion.data.Option2 },
-    { id: "3", value: currentQuestion.data.Option3 },
-    { id: "4", value: currentQuestion.data.Option4 },
-  ].filter(option => !!option.value);
-
-  useEffect(() => {
-    document.addEventListener("keypress", e => {
-      // 1,2,3,4
-      if ([49, 50, 51, 52].includes(e.charCode)) {
-        console.log(options.length, +e.key);
-        if (options.length < +e.key) return;
-        console.log("DIDNTS");
-        handleSetUserAnswer(keycodeMap[e.charCode]);
-      }
-    });
-    return document.removeEventListener("keypress", () => {});
-  }, [checkAnswer, handleGoToNextQuestion]);
-
-  const answeredCount: number =
-    questionsAnsweredCorrectly + questionsAnsweredIncorrectly;
-  const percentageCorrect: number = questionsAnsweredCorrectly / answeredCount;
-  const percentageFixed: number | string = percentageCorrect.toFixed(2);
-  const score: number = Math.floor(+percentageFixed * 100);
-
-  if (isQuizCompleted) {
+  if (isCompleted) {
     return (
       <Layout
         title={title}
@@ -160,8 +76,8 @@ const Page = ({ data, pageContext }) => {
 
         <QuizResults
           score={score}
-          correctCount={questionsAnsweredCorrectly}
-          incorrectCount={questionsAnsweredIncorrectly}
+          correctCount={correctCount}
+          incorrectCount={incorrectCount}
         />
       </Layout>
     );
@@ -195,69 +111,61 @@ const Page = ({ data, pageContext }) => {
 
       <br />
       <QuizQuestion
-        data={currentQuestion.data}
-        key={currentQuestion.data.Question}
-        isAnswered={isQuestionAnswered}
-        userAnswer={userAnswer}
-        onSelection={answer => handleSetUserAnswer(answer)}
+        data={currentQuestion}
+        key={currentQuestion.Question}
+        isAnswered={isAnswered}
+        userAnswer={userSelection}
+        onSelection={answer => handleSetUserSelection(answer)}
       />
       <br />
-      {isQuestionAnswered && (
+      {isAnswered && (
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <div>
-            {userAnswer === currentQuestion.data.Answer && (
-              <h2
-                css={`
-                  color: ${({ theme }) => theme.green};
-                  margin: 10px 0px;
-                `}
-              >
-                {getFeedbackCorrect()}
-              </h2>
+          <div
+            css={`
+              display: flex;
+              align-items: center;
+              color: ${isCorrect ? colors.green : colors.red};
+            `}
+          >
+            {isCorrect ? (
+              <FaCheckCircle size={30} color={colors.green} />
+            ) : (
+              <FaTimesCircle size={30} color={colors.red} />
             )}
-            {userAnswer !== currentQuestion.data.Answer && (
-              <h2
-                css={`
-                  color: ${({ theme }) => theme.red};
-                  margin: 10px 0px;
-                `}
-              >
-                {getFeedbackIncorrect()}
-              </h2>
-            )}
+            <h2
+              css={`
+                margin-left: 20px;
+              `}
+            >
+              {feedback}
+            </h2>
           </div>
-          <Markdown source={currentQuestion.data.Explanation} />
+
+          <Markdown source={currentQuestion.Explanation} />
         </motion.div>
       )}
 
-      {!!userAnswer && !isQuestionAnswered && (
-        <QuizButton
-          onClick={checkAnswer}
-          initial={{ scale: 0.8, opacity: 0.3 }}
-          animate={{ scale: 1.2, opacity: 1 }}
-          title="Check Answer"
-        />
-      )}
-
-      <AnimatePresence>
-        {!!userAnswer && isQuestionAnswered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <QuizButton
-              initial={{ scale: 0.8, opacity: 0.3 }}
-              animate={{ scale: 1.2, opacity: 1 }}
-              onClick={handleGoToNextQuestion}
-              title="Continue"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <QuizButton
+        isSelection={!!userSelection}
+        onClick={isAnswered ? handleGoToNextQuestion : checkAnswer}
+        title={
+          isAnswered ? (
+            <span
+              css={`
+                display: flex;
+                align-items: center;
+              `}
+            >
+              Continue <FaArrowRight style={{ marginLeft: "10px" }} />
+            </span>
+          ) : (
+            "Check Answer"
+          )
+        }
+      />
     </Layout>
   );
 };

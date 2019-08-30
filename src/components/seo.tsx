@@ -32,7 +32,7 @@ const SEO: React.FC<SEOProps> = ({
   description,
   keywords = [],
   lang = "en",
-  title = "fluky.dev | Resources for front end developers.",
+  title = "Fluky.dev | Resources for front end developers.",
   titleTemplate,
 }) => {
   const { site } = useStaticQuery(
@@ -73,7 +73,7 @@ const SEO: React.FC<SEOProps> = ({
         href="flukydev-icon_152_whitebg.png"
       ></link>
 
-      <title>fluky.dev | Resources for Front End Developers</title>
+      <title>Fluky.dev | Resources for Front End Developers</title>
       <meta name="keywords" content={allKeywords} />
       <meta
         name="title"

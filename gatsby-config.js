@@ -16,7 +16,7 @@ const AirTableTableNames = [
 
 const config = {
   siteMetadata: {
-    title: `fluky.dev`,
+    title: `Fluky.dev`,
     description: `A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, health, and more!`,
     author: `gojutin`,
   },
@@ -36,7 +36,7 @@ const config = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Fluky.dev`,
-        short_name: `fluky.dev`,
+        short_name: `Fluky.dev`,
         description: `Fluky.dev | Resources for front end developers.`,
         start_url: `/`,
         lang: "en",

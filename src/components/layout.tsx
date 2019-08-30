@@ -11,7 +11,7 @@ const MainContainer = styled.main<{ maxWidth?: string }>`
   padding: 10px 20px;
 `;
 
-const theme = {
+export const colors = {
   powderblue: "#f0f6ff",
   darkblue: "#16202b",
   blue: "#0066B8",
@@ -55,7 +55,7 @@ const Layout: React.FC<LayoutProps> = ({
         description={description}
         titleTemplate={titleTemplate}
       />
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={colors}>
         <div
           css={`
             width: 100%;

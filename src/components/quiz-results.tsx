@@ -61,7 +61,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
       css={`
         padding: 10px;
         border-radius: 10px;
-        margin-top: 15px;
+        margin-top: 30px;
         flex-wrap: wrap;
         display: flex;
         align-items: center;
@@ -70,6 +70,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
       <motion.div
         animate={{ rotate: ["360deg", "-90deg"] }}
         transition={{ duration: 1 }}
+        style={{ margin: "0 auto" }}
       >
         <PieChart
           data={data}
