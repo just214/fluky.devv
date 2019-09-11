@@ -43,6 +43,7 @@ const SEO: React.FC<SEOProps> = ({
             title
             description
             author
+            url
           }
         }
       }
@@ -51,7 +52,7 @@ const SEO: React.FC<SEOProps> = ({
 
   const metaDescription = description || site.siteMetadata.description;
   const allKeywords = [...baseKeywords, ...keywords].join(", ");
-
+  const iconUrl = `${site.siteMetadata.url}/flukydev-icon.png`;
   return (
     <Helmet
       htmlAttributes={{
@@ -88,7 +89,7 @@ const SEO: React.FC<SEOProps> = ({
         content="fluky.dev | Resources for Front End Developers"
       />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content="flukydev-icon.png" />
+      <meta property="og:image" content={iconUrl} />
 
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://www.fluky.dev" />
@@ -97,7 +98,7 @@ const SEO: React.FC<SEOProps> = ({
         content="fluky.dev | Resources for Front End Developers"
       />
       <meta property="twitter:description" content={metaDescription} />
-      <meta property="twitter:image" content="flukydev-icon.png" />
+      <meta property="twitter:image" content={iconUrl} />
       <link
         href="https://fonts.googleapis.com/css?family=Barriecito|Muli:400,800&display=swap"
         rel="stylesheet"

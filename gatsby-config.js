@@ -19,6 +19,7 @@ const config = {
     title: `Fluky.dev`,
     description: `A collection of resources for front end developers. Coding quizzes, podcasts, newsletters, health, and more!`,
     author: `gojutin`,
+    url: "https://www.fluky.dev",
   },
   plugins: [
     {

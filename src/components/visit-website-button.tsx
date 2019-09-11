@@ -25,7 +25,11 @@ export const WebsiteLink: React.FC<WebsiteLinkProps> = ({ url }) => {
         min-width: 80px;
       `}
     >
-      <img src={VisitButton} height={isMobile ? 25 : 20} />
+      <img
+        src={VisitButton}
+        height={isMobile ? 25 : 20}
+        alt="Visit Site Button"
+      />
     </a>
   );
 };

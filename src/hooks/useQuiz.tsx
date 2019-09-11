@@ -105,13 +105,13 @@ const useQuiz = quizQuestions => {
 
       case types.GO_TO_NEXT_QUESTION:
         if (currentIndex.current + 1 === quizQuestions.length) {
-          currentIndex.current = 0;
+          currentIndex.current = 0; // eslint-disable-line
           return {
             ...state,
             isCompleted: true,
           };
         } else {
-          currentIndex.current += 1;
+          currentIndex.current += 1; // eslint-disable-line
           const nextQuestion = state.questions[currentIndex.current].node.data;
 
           return {
@@ -141,11 +141,11 @@ const useQuiz = quizQuestions => {
   const isAnsweredRef = useRef(state.isAnswered);
 
   useEffect(() => {
-    optionsRef.current = state.currentQuestion.options;
+    optionsRef.current = state.currentQuestion.options; // eslint-disable-line
   }, [state.currentQuestion]);
 
   useEffect(() => {
-    isAnsweredRef.current = state.isAnswered;
+    isAnsweredRef.current = state.isAnswered; // eslint-disable-line
   }, [state.isAnswered]);
 
   useEffect(() => {
