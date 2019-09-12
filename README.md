@@ -2,6 +2,7 @@
 
 
 ## [www.fluky.dev](https://fluky.dev)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dce92e50-d885-4800-829d-a5270d421378/deploy-status)](https://app.netlify.com/sites/flukydev/deploys)
 
 ## Resources for Front End Developers.
