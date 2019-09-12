@@ -29,6 +29,19 @@ const config = {
         name: "images",
       },
     },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY,
+        tables: AirTableTableNames.map(name => {
+          return {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: name,
+          };
+        }),
+      },
+    },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     "gatsby-plugin-react-helmet",
@@ -59,20 +72,7 @@ const config = {
         ],
       },
     },
-    // `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-source-airtable`,
-      options: {
-        apiKey: process.env.AIRTABLE_API_KEY,
-        tables: AirTableTableNames.map(name => {
-          return {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: name,
-          };
-        }),
-      },
-    },
-    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-offline`,
   ],
 };
 
