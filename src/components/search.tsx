@@ -1,10 +1,10 @@
 import React from "react";
 import Input from "./input";
 
-interface SearchProps {
+type SearchProps = {
   onChange: (value: string) => void;
   placeholder?: string;
-}
+};
 const Search: React.FC<SearchProps> = ({ onChange, placeholder }) => {
   const handleOnChange = e => {
     onChange(e.target.value || "");

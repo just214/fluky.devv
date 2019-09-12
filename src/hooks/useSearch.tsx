@@ -4,10 +4,9 @@ const useSearch = (data, whitelist) => {
   const [value, setValue] = useState(data);
   const [filter, setFilter] = useState("");
 
-  function filterByWhiteList({ node }) {
-    return whitelist.some(value => {
-      const thisData =
-        value === "Tags" ? node.data[value].join(",") : node.data[value];
+  function filterByWhiteList({ node }): any[] {
+    return whitelist.some(v => {
+      const thisData = v === "Tags" ? node.data[v].join(",") : node.data[v];
       return thisData.toLowerCase().includes(filter.toLowerCase());
     });
   }

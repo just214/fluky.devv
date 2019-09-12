@@ -3,14 +3,12 @@
 node_modules/*
 public/*
 .storybook/*
+node/*
 @types
 __mocks__
 __tests__
 
 gatsby-*.js
-!gatsby-ssr.js
-!gatsby-browser.js
-!gatsby-node.js
 
 jest*.js
 gatsby*.ts

@@ -1,7 +1,7 @@
 import { useReducer, useRef, useEffect } from "react";
 import shuffle from "lodash/shuffle";
 
-const getFeedbackCorrect = () => {
+const getFeedbackCorrect: () => string = () => {
   const options: string[] = [
     "Correct!",
     "Nailed it!",
@@ -69,7 +69,7 @@ const useQuiz = quizQuestions => {
     GO_TO_NEXT_QUESTION: "GO_TO_NEXT_QUESTION",
   };
 
-  function reducer(state, action) {
+  function reducer(state, action): any {
     switch (action.type) {
       case types.SET_USER_SELECTION:
         return { ...state, userSelection: action.payload };

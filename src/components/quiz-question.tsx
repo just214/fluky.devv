@@ -35,12 +35,12 @@ const Option = styled.div<{
   overflow: hidden;
 `;
 
-export interface QuizQuestionProps {
+export type QuizQuestionProps = {
   data: Question;
   onSelection: (e: string) => void;
   userAnswer: string;
   isAnswered: boolean;
-}
+};
 export const QuizQuestion: React.FC<QuizQuestionProps> = ({
   data,
   onSelection,
@@ -77,16 +77,16 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({
         const Feedback = () => {
           if (!isAnswered) {
             return <span>{option.id}</span>;
-          } else if (userAnswer == option.id && data.Answer === userAnswer) {
+          } else if (userAnswer === option.id && data.Answer === userAnswer) {
             return <FaCheck color="#53c41a" size={22} />;
-          } else if (userAnswer == option.id && data.Answer !== userAnswer) {
+          } else if (userAnswer === option.id && data.Answer !== userAnswer) {
             return <FaTimes color="#f5222d" size={22} />;
           }
           return <span>{option.id}</span>;
         };
         return (
           <Option
-            isUserAnswer={userAnswer == option.id}
+            isUserAnswer={userAnswer === option.id}
             isCorrectAnswer={isAnswered && option.id === data.Answer}
             key={option.id}
             onClick={() => handleSelection(option.id)}

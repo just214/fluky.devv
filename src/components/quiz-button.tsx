@@ -30,11 +30,11 @@ const StyledButton = styled(motion.button)`
   }
 `;
 
-export interface ButtonProps {
+export type ButtonProps = {
   title: string | JSX.Element;
   onClick: () => void;
   isSelection: boolean;
-}
+};
 export const Button: React.FC<ButtonProps> = ({
   title,
   onClick,

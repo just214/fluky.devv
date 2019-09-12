@@ -75,12 +75,12 @@ const Quiz = props => {
                   min-width: 180px;
                   padding: 10px;
                   text-decoration: none;
-                  color: ${props => props.theme.blue};
+                  color: ${({ theme }) => theme.blue};
                   transition: background-color 0.5s;
 
                   @media (min-width: 500px) {
                     &:hover {
-                      background-color: ${props => props.theme.gray2};
+                      background-color: ${({ theme }) => theme.gray2};
                     }
                   }
                   @media (max-width: 500px) {
@@ -104,7 +104,7 @@ const Quiz = props => {
 
                 <div
                   css={`
-                    color: ${props => props.theme.orange};
+                    color: ${({ theme }) => theme.orange};
                     font-weight: bold;
                   `}
                 >

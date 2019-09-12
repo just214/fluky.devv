@@ -22,7 +22,7 @@ const NetlifyFormComponent: React.FC<NetlifyFormProps> = ({
         if (success) {
           const allInputs = document.querySelectorAll("input, textarea");
           allInputs.forEach((el: HTMLInputElement | HTMLTextAreaElement) => {
-            el.value = "";
+            el.value = ""; // eslint-disable-line
           });
         }
 
