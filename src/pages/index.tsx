@@ -98,7 +98,7 @@ const menuItems = [
   },
 ];
 
-const App = () => (
+const App: React.FC = (): React.ReactElement => (
   <Layout
     maxWidth="1200px"
     bg="#16202b"
@@ -121,7 +121,7 @@ const App = () => (
       >
         <h1
           css={`
-            color: #4d5f85;
+            color: #dadada;
             text-align: center;
             font-family: Barriecito;
             font-size: 2.2rem;
@@ -152,22 +152,24 @@ const App = () => (
         `}
         role="navigation"
       >
-        {menuItems.map(({ to, color, gradient, label, icon }, index) => {
-          const rotateValue = index % 2 ? 3 : -3;
-          return (
-            <MenuBlock
-              key={label}
-              rotate={rotateValue}
-              to={to}
-              color={color}
-              gradient={gradient}
-              index={index}
-              icon={icon}
-            >
-              {label}
-            </MenuBlock>
-          );
-        })}
+        {menuItems.map(
+          ({ to, color, gradient, label, icon }, index): React.ReactElement => {
+            const rotateValue = index % 2 ? 3 : -3;
+            return (
+              <MenuBlock
+                key={label}
+                rotate={rotateValue}
+                to={to}
+                color={color}
+                gradient={gradient}
+                index={index}
+                icon={icon}
+              >
+                {label}
+              </MenuBlock>
+            );
+          }
+        )}
       </nav>
     </div>
   </Layout>
