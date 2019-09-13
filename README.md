@@ -21,7 +21,7 @@ If you are interested in contributing to this site, please reach out to me and l
 - [AirTable (data)](https://airtable.com/)
 - [Netlify (forms and hosting)](https://www.netlify.com/)
 
-## Lighthouse Audit
+## Lighthouse Audit 💯
 
 <img src="https://res.cloudinary.com/gojutin/image/upload/v1568335404/Fluky.dev/fluky-lighthouse.gif" alt="Lighthouse Audit Results" style="max-width: 90%" />
 
