@@ -69,20 +69,20 @@ const useQuiz = quizQuestions => {
     GO_TO_NEXT_QUESTION: "GO_TO_NEXT_QUESTION",
   };
 
-  function reducer(state, action): any {
+  function reducer(currentState, action): any {
     switch (action.type) {
       case types.SET_USER_SELECTION:
-        return { ...state, userSelection: action.payload };
+        return { ...currentState, userSelection: action.payload };
       case types.CHECK_ANSWER: {
         const isCorrectAnswer =
-          state.currentQuestion.Answer === state.userSelection;
-        const answeredCount = state.answeredCount + 1;
+          currentState.currentQuestion.Answer === currentState.userSelection;
+        const answeredCount = currentState.answeredCount + 1;
         const correctCount = isCorrectAnswer
-          ? state.correctCount + 1
-          : state.correctCount;
+          ? currentState.correctCount + 1
+          : currentState.correctCount;
         const incorrectCount = isCorrectAnswer
-          ? state.incorrectCount
-          : state.incorrectCount + 1;
+          ? currentState.incorrectCount
+          : currentState.incorrectCount + 1;
 
         const percentageCorrect: string = (
           correctCount / answeredCount
@@ -90,7 +90,7 @@ const useQuiz = quizQuestions => {
 
         const score: number = Math.floor(+percentageCorrect * 100);
         return {
-          ...state,
+          ...currentState,
           isAnswered: true,
           isCorrect: isCorrectAnswer,
           answeredCount,
@@ -107,15 +107,16 @@ const useQuiz = quizQuestions => {
         if (currentIndex.current + 1 === quizQuestions.length) {
           currentIndex.current = 0; // eslint-disable-line
           return {
-            ...state,
+            ...currentState,
             isCompleted: true,
           };
         } else {
           currentIndex.current += 1; // eslint-disable-line
-          const nextQuestion = state.questions[currentIndex.current].node.data;
+          const nextQuestion =
+            currentState.questions[currentIndex.current].node.data;
 
           return {
-            ...state,
+            ...currentState,
             currentQuestion: getQuestionWithOptions(nextQuestion),
             userSelection: null,
             isAnswered: false,

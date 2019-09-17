@@ -49,7 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
           exit={{ scale: 0, opacity: 0 }}
           transition={{ duration: 0.1 }}
           onClick={onClick}
-          autoFocus
+          autoFocus // eslint-disable-line jsx-a11y/no-autofocus
         >
           <div
             css={`
