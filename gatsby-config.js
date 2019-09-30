@@ -60,12 +60,12 @@ const config = {
         icon: "src/images/flukydev-icon.png",
         icons: [
           {
-            src: "https://www.fluky.dev/flukydev-icon-512.png",
+            src: "flukydev-icon-512.png",
             sizes: "512x512",
             types: "image/png",
           },
           {
-            src: "https://www.fluky.dev/flukydev-icon-192.png",
+            src: "flukydev-icon-192.png",
             sizes: "192x192",
             types: "image/png",
           },
