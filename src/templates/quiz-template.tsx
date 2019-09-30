@@ -90,7 +90,6 @@ const Page = ({ data, pageContext }) => {
       <Progress
         percent={(answeredCount / data.allAirtable.edges.length) * 100}
       />
-
       <div
         css={`
           display: flex;
@@ -108,8 +107,8 @@ const Page = ({ data, pageContext }) => {
           {answeredCount}/{data.allAirtable.edges.length}
         </h3>
       </div>
-
       <br />
+
       <QuizQuestion
         data={currentQuestion}
         key={currentQuestion.Question}
@@ -118,6 +117,19 @@ const Page = ({ data, pageContext }) => {
         onSelection={answer => handleSetUserSelection(answer)}
       />
       <br />
+      {currentQuestion.Source && (
+        <p>
+          This question was sourced with permission from{" "}
+          <a
+            href={currentQuestion.Source}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {currentQuestion.Source}
+          </a>
+          .
+        </p>
+      )}
       {isAnswered && (
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
@@ -147,7 +159,6 @@ const Page = ({ data, pageContext }) => {
           <Markdown source={currentQuestion.Explanation} />
         </motion.div>
       )}
-
       <QuizButton
         isSelection={!!userSelection}
         onClick={isAnswered ? handleGoToNextQuestion : checkAnswer}
@@ -194,6 +205,7 @@ export const pageQuery = graphql`
             Option4
             Answer
             Explanation
+            Source
           }
         }
       }

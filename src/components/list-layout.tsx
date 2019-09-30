@@ -21,7 +21,6 @@ const ListLayout: React.FC<ListLayoutProps> = props => {
     children,
     pathname,
   } = props;
-
   return (
     <Layout title={title} keywords={keywords} description={description}>
       <BackToTop />

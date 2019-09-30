@@ -5,7 +5,7 @@ import ListItem from "../components/list-item";
 import Search from "../components/search";
 import Heading from "../components/heading";
 
-const Quiz = props => {
+const Quiz: React.FC = props => {
   const [filter, setFilter] = useState("");
   const { quizzes } = props.pageContext;
   const { otherQuizzes } = props.pageContext;
@@ -37,11 +37,7 @@ const Quiz = props => {
       type="quizzes"
       pathname="/quizzes"
     >
-      <Search
-        onChange={value => {
-          setFilter(value);
-        }}
-      />
+      <Search onChange={setFilter} />
       <small
         css={`
           padding-left: 10px;
@@ -116,7 +112,6 @@ const Quiz = props => {
         </div>
       </div>
       <br />
-
       <h3
         css={`
           text-transform: uppercase;

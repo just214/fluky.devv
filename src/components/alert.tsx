@@ -10,7 +10,7 @@ const StyledAlert = styled(motion.div)<StyledAlertProps>`
   height: 50px;
   width: 300px;
   background: rgba(0, 0, 0, 0.9);
-  color: ${props =>
+  color: ${(props): StyledAlertProps =>
     props.type === "success" ? props.theme.green : props.theme.red};
   display: flex;
   align-items: center;
