@@ -14,7 +14,7 @@ import QuizButton from "../components/quiz-button";
 
 const keywords = ["quiz", "quizzes"];
 
-const Page = ({ data, pageContext }) => {
+const Page: React.FC = ({ data, pageContext }) => {
   const description = `Test your ${pageContext.title} knowledge with our ${pageContext.title} Quiz.`;
   const title = `${pageContext.title} Quiz`;
   if (!data.allAirtable.edges.length) {
@@ -40,19 +40,23 @@ const Page = ({ data, pageContext }) => {
     feedback,
   } = state;
 
-  const handleSetUserSelection = value => {
-    if (isAnswered) return;
+  const handleSetUserSelection: () => void = value => {
+    if (isAnswered) {
+      return;
+    }
     dispatch({ type: types.SET_USER_SELECTION, payload: value });
   };
 
-  const checkAnswer = () => {
-    if (!userSelection) return;
+  const checkAnswer: () => void = () => {
+    if (!userSelection) {
+      return;
+    }
     dispatch({
       type: types.CHECK_ANSWER,
     });
   };
 
-  const handleGoToNextQuestion = () => {
+  const handleGoToNextQuestion: () => void = () => {
     dispatch({
       type: types.GO_TO_NEXT_QUESTION,
     });
