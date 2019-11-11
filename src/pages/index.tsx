@@ -35,7 +35,7 @@ const menuItems = [
     to: "/quizzes",
     color: "white",
     gradient: ["#f80759", "#bc4e9c"],
-    icon: function BrainIcon(): React.FC {
+    icon: function BrainIcon(): () => React.FC {
       return <img src={brain} alt="Brain icon" height={40} />;
     },
   },

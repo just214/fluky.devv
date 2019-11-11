@@ -12,6 +12,66 @@ const MainContainer = styled.main<{ maxWidth?: string }>`
   padding: 10px 20px;
 `;
 
+const Header = styled.header`
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: inherit;
+`;
+
+const StyledLogo = styled(Link)`
+  color: ${props => props.theme.pink};
+  font-family: "Barriecito";
+  margin: 0;
+  margin-top: 20px;
+  transform: rotate(-3deg);
+  font-size: 35px;
+  border: 3px solid transparent;
+  transition: border 0.5s;
+  &:focus {
+    border: 3px solid yellow;
+  }
+  &:active {
+    border: 3px solid transparent;
+  }
+  &:hover {
+    color: ${props => props.theme.pink};
+  }
+  outline: none;
+
+  span:first-child {
+    color: ${props => props.theme.lightblue};
+  }
+
+  span:nth-child(2n) {
+    color: orange;
+  }
+`;
+
+const Logo = () => {
+  return (
+    <StyledLogo to="/">
+      <span>FLUKY</span>
+      <span css={``}>.</span>
+      <span>DEV</span>
+
+      <Icon />
+    </StyledLogo>
+  );
+};
+
+const Wrapper = styled.div<{ bg: string }>`
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: ${props => props.bg || "white"};
+  padding-bottom: 100px;
+`;
+
 export const colors = {
   powderblue: "#f0f6ff",
   darkblue: "#16202b",
@@ -69,72 +129,12 @@ const Layout: React.FC<LayoutProps> = ({
         titleTemplate={titleTemplate}
       />
       <ThemeProvider theme={colors}>
-        <div
-          css={`
-            width: 100%;
-            max-width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            background: ${bg || "white"};
-            padding-bottom: 100px;
-          `}
-        >
-          <header
-            css={`
-              padding: 0px 20px;
-              height: 50px;
-              display: flex;
-              align-items: center;
-              justify-content: flex-end;
-              background: inherit;
-            `}
-          >
-            <Link
-              to="/"
-              css={`
-                color: ${props => props.theme.pink};
-                font-family: "Barriecito";
-                margin: 0;
-                margin-top: 20px;
-                transform: rotate(3deg);
-                font-size: 30px;
-                border: 3px solid transparent;
-                transition: border 0.5s;
-                &:focus {
-                  border: 3px solid yellow;
-                }
-                &:active {
-                  border: 3px solid transparent;
-                }
-                &:hover {
-                  color: ${props => props.theme.pink};
-                }
-                outline: none;
-              `}
-            >
-              <span
-                css={`
-                  color: ${props => props.theme.bluegray};
-                `}
-              >
-                FLUKY
-              </span>
-              <span
-                css={`
-                  color: orange;
-                `}
-              >
-                .
-              </span>
-              <span>DEV</span>
-
-              <Icon />
-            </Link>
-          </header>
+        <Wrapper bg={bg}>
+          <Header>
+            <Logo />
+          </Header>
           <MainContainer maxWidth={maxWidth}>{children}</MainContainer>
-        </div>
+        </Wrapper>
       </ThemeProvider>
     </>
   );

@@ -1,19 +1,10 @@
-import React from "react";
+import styled from "styled-components";
 
-type MarkdownBody = {
-  md: string;
-};
-
-export const MarkdownBody: React.FC<MarkdownBody> = ({ md }) => {
-  return (
-    <p
-      css={`
-        margin: 10px 0px;
-        font-size: 1rem;
-      `}
-      dangerouslySetInnerHTML={{ __html: md }}
-    />
-  );
-};
+const MarkdownBody = styled.p.attrs<{ md: string }>(p => ({
+  dangerouslySetInnerHTML: { __html: p.md },
+}))`
+  margin: 10px 0px;
+  font-size: 0.9rem;
+`;
 
 export default MarkdownBody;

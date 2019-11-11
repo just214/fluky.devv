@@ -8,6 +8,31 @@ import Divider from "./divider";
 import Tag from "./tag";
 import VisitWebsiteButton from "./visit-website-button";
 
+const SmallThumbnail = styled.img<{ isMobile: boolean }>`
+  border-radius: 10px;
+  margin-right: ${props => (props.isMobile ? "0px" : "20px")};
+  height: auto;
+  margin-bottom: ${props => (props.isMobile ? "20px" : "0px")};
+  width: 100px;
+  background-color: #f5f5f5;
+`;
+
+const LargeThumbnail = styled.img`
+  border-radius: 2px;
+  margin-right: 10px;
+  height: auto;
+  width: 25px;
+  height: 25px;
+  background-color: #f5f5f5;
+  float: left;
+`;
+
+const ProviderName = styled.small`
+  font-size: 12px;
+  color: ${props => props.theme.gray4};
+  margin-left: 8px;
+`;
+
 const LI = styled.li<{ isMobile: boolean }>`
   display: flex;
   margin: 15px 0px;
@@ -44,53 +69,32 @@ export const ListItem: React.FC<ListItemProps> = ({
   const [descriptionSnippet, ReadMoreButton] = useReadMore(description);
   const { isMobile } = useMedia();
 
+  const maybeRenderSmallThumbnail = thumbnail && !isSmallImage && (
+    <SmallThumbnail
+      src={thumbnail}
+      alt={`Thumbnail for ${title}`}
+      isMobile={isMobile}
+    />
+  );
+
+  const maybeRenderLargeThumbnail = thumbnail && isSmallImage && (
+    <LargeThumbnail src={thumbnail} alt={`Thumbnail for ${title}`} />
+  );
+
+  const renderTags = tags.map(tag => {
+    return <Tag key={tag}>{tag}</Tag>;
+  });
+
   return (
     <>
       <LI isMobile={isMobile}>
-        {thumbnail && !isSmallImage && (
-          <img
-            css={`
-              border-radius: 10px;
-              margin-right: ${isMobile ? "0px" : "20px"};
-              height: auto;
-              margin-bottom: ${isMobile ? "20px" : "0px"};
-              width: 100px;
-              background-color: #f5f5f5;
-            `}
-            src={thumbnail}
-            alt={`Thumbnail for ${title}`}
-          />
-        )}
+        {maybeRenderSmallThumbnail}
 
-        <div style={{ width: "100%" }}>
-          {thumbnail && isSmallImage && (
-            <img
-              css={`
-                border-radius: 2px;
-                margin-right: 10px;
-                height: auto;
-                width: 25px;
-                height: 25px;
-                background-color: #f5f5f5;
-                float: left;
-              `}
-              src={thumbnail}
-              alt={`Thumbnail for ${title}`}
-            />
-          )}
+        <div>
+          {maybeRenderLargeThumbnail}
           <Heading>
             {title}
-            {provider && (
-              <small
-                css={`
-                  font-size: 12px;
-                  color: ${props => props.theme.gray4};
-                  margin-left: 8px;
-                `}
-              >
-                {provider}
-              </small>
-            )}
+            {provider && <ProviderName>{provider}</ProviderName>}
           </Heading>
 
           <MarkdownBody md={descriptionSnippet} />
@@ -98,10 +102,7 @@ export const ListItem: React.FC<ListItemProps> = ({
 
           <Tags>
             <VisitWebsiteButton url={url} />
-            {tags &&
-              tags.map(tag => {
-                return <Tag key={tag}>{tag}</Tag>;
-              })}
+            {tags && renderTags}
           </Tags>
         </div>
       </LI>
