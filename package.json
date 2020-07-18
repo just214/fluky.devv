@@ -38,7 +38,7 @@
     "gatsby-source-airtable": "^2.0.10",
     "gatsby-source-filesystem": "^2.1.36",
     "gatsby-transformer-sharp": "^2.3.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "numeral": "^2.0.6",
     "page-metadata-parser": "^1.1.4",
     "react": "^16.11.0",
