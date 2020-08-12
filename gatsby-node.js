@@ -25,7 +25,7 @@ exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       name: `category`,
       node,
-      value: node.data.Category[0].toLowerCase(),
+      value: node.data.Category ? node.data.Category[0].toLowerCase() : "",
     });
   }
 };
