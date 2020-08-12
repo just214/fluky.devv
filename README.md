@@ -1,15 +1,14 @@
-# Fluky.dev <img src="https://res.cloudinary.com/gojutin/image/upload/v1566927084/Fluky.dev/flukydev-icon-192.png" alt="Fluk.dev icon" height="30"/> 
+# Fluky.dev <img src="https://res.cloudinary.com/gojutin/image/upload/v1566927084/Fluky.dev/flukydev-icon-192.png" alt="Fluk.dev icon" height="30"/>
 
-
-## [www.fluky.dev](https://fluky.dev)
+## [https://flukydev.netlify.app](https://flukydev.netlify.app)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dce92e50-d885-4800-829d-a5270d421378/deploy-status)](https://app.netlify.com/sites/flukydev/deploys)
 
 ## Resources for Front End Developers.
 
-***Please note that this app uses data retrieved from the Airtable API. The API keys are stored as environment variables on Netlify that are pulled down during development. If you try to run this app, you will not be able to retrieve this data.***
+**_Please note that this app uses data retrieved from the Airtable API. The API keys are stored as environment variables on Netlify that are pulled down during development. If you try to run this app, you will not be able to retrieve this data._**
 
-If you are interested in contributing to this site, please reach out to me and let's chat. At the moment, we mostly need quiz questions for our built in quizzes. (HTML, CSS, JavaScript, and TypeScript) There is also a laundry list of todos listed below. 
+If you are interested in contributing to this site, please reach out to me and let's chat. At the moment, we mostly need quiz questions for our built in quizzes. (HTML, CSS, JavaScript, and TypeScript) There is also a laundry list of todos listed below.
 
 ## The Stack
 
@@ -48,6 +47,3 @@ If you are interested in contributing to this site, please reach out to me and l
 - [ ] Add Slack and Discord groups
 - [ ] Learning websites
 - [ ] Learning courses
-
-
-
