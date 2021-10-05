@@ -33,7 +33,7 @@ const config = {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,
-        tables: AirTableTableNames.map(name => {
+        tables: AirTableTableNames.map((name) => {
           return {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: name,
@@ -44,7 +44,7 @@ const config = {
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-manifest`,

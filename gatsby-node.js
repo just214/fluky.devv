@@ -8,7 +8,7 @@ const createYouTubePage = require("./node/createYouTubePage");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  await createPodcastPage(createPage, graphql);
+  // await createPodcastPage(createPage, graphql);
   await createQuizPages(createPage, graphql);
   await createBuzzwordsPage(createPage, graphql);
   await createNewslettersPage(createPage, graphql);
